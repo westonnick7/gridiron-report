@@ -1,0 +1,34 @@
+name: Nightly Data Pull
+
+on:
+  schedule:
+    # 6:00 AM ET = 10:00 UTC (adjust for daylight saving if it matters to you)
+    - cron: "0 10 * * *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  pull-data:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install nfl_data_py pandas numpy
+
+      - name: Run data pull
+        run: python scripts/pull_nfl_data.py
+
+      - name: Commit updated data if it changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/gridiron_report_data.json
+          git diff --staged --quiet || git commit -m "Nightly data refresh"
+          git push
