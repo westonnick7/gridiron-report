@@ -26,7 +26,7 @@ const TEAM_NAMES = {
 
 // Where the nightly GitHub Action commits fresh data. Point this at your repo
 // once it's set up — see the README in the automation scaffold.
-const LIVE_DATA_URL = "https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/gridiron-report/main/data/gridiron_report_data.json";
+const LIVE_DATA_URL = "https://raw.githubusercontent.com/westonnick7/gridiron-report/main/data/gridiron_report_data.json";
 
 // ---------- Seeded generators (fallback/demo data only — used until live data loads) ----------
 function mulberry32(seed) {
