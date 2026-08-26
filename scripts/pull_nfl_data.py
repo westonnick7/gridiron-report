@@ -65,6 +65,26 @@ import numpy as np
 import pandas as pd
 import nfl_data_py as nfl
 
+# --- nflverse compatibility patch (added) ---------------------------------
+# nfl_data_py 0.3.3 is deprecated and still requests weekly player stats from
+# the old nflverse path (player_stats/player_stats_{year}.parquet), which now
+# returns 404. nflverse moved this dataset to
+# stats_player/stats_player_week_{year}.parquet and renamed two columns
+# (recent_team -> team, interceptions -> passing_interceptions). This shim
+# restores import_weekly_data from the new location and maps the columns back
+# to the names this script expects. Works locally and in GitHub Actions.
+_NFLVERSE_WEEKLY_URL = ('https://github.com/nflverse/nflverse-data/releases/download/'
+                        'stats_player/stats_player_week_{0}.parquet')
+def _import_weekly_data(years, columns=None, downcast=True):
+    frames = [pd.read_parquet(_NFLVERSE_WEEKLY_URL.format(y)) for y in years]
+    df = pd.concat(frames, ignore_index=True)
+    df = df.rename(columns={'team': 'recent_team', 'passing_interceptions': 'interceptions'})
+    if columns:
+        df = df[columns]
+    return df
+nfl.import_weekly_data = _import_weekly_data
+# --- end nflverse compatibility patch -------------------------------------
+
 SEASON = 2025
 WEEK = 8
 TEAMS = ["DAL", "KC", "PHI", "SF", "BUF", "MIA", "GB", "SEA", "BAL", "DET"]
