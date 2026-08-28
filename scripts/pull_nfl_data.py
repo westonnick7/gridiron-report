@@ -60,6 +60,7 @@ WHAT'S REAL VS. APPROXIMATED VS. NOT AVAILABLE (read before trusting the numbers
 
 import json
 import math
+import datetime
 
 import numpy as np
 import pandas as pd
@@ -446,6 +447,28 @@ def build_referees(season, pbp, schedules):
     return out
 
 
+def compute_target_week(schedules, default=1):
+    """Pick the upcoming/in-progress regular-season week from the schedule so the
+    dashboard schedule panel rolls forward automatically as the season is played."""
+    try:
+        reg = schedules
+        if 'game_type' in reg.columns:
+            reg = reg[reg.game_type == 'REG']
+        if 'week' not in reg.columns or not len(reg):
+            return default
+        today = datetime.date.today().isoformat()
+        if 'gameday' in reg.columns:
+            upcoming = reg[reg.gameday.astype(str) >= today]
+        else:
+            upcoming = reg.iloc[0:0]
+        if len(upcoming):
+            return int(upcoming.week.min())
+        return int(reg.week.max())
+    except Exception as e:
+        print("  could not compute current week (%s) -- using default %s" % (e, default))
+        return default
+
+
 def main():
     print("Loading play-by-play (this is the slow one)...")
     pbp = _safe_pbp([SEASON])
@@ -453,6 +476,8 @@ def main():
     print("Loading schedules, weekly stats, injuries, NGS data...")
     schedules_all = nfl.import_schedules(H2H_SEASONS)
     schedules = schedules_all[schedules_all.season == SEASON]
+    week_target = compute_target_week(schedules, WEEK)
+    print("Target week: %s" % week_target)
     weekly = _safe_weekly([SEASON])
     try:
         injuries = nfl.import_injuries([SEASON])
@@ -463,7 +488,7 @@ def main():
     ngs_rush = _safe_ngs("rushing", [SEASON])
     ngs_rec = _safe_ngs("receiving", [SEASON])
 
-    latest_injury_week = injuries.week.max() if len(injuries) else WEEK
+    latest_injury_week = injuries.week.max() if len(injuries) else week_target
 
     team_stats, team_detail, team_injuries, team_recent, offense = {}, {}, {}, {}, []
     for team in TEAMS:
@@ -475,14 +500,14 @@ def main():
         offense.extend(build_player_props(team, weekly))
 
     print("Building schedule for the target week...")
-    schedule = build_schedule(schedules, WEEK, TEAMS)
+    schedule = build_schedule(schedules, week_target, TEAMS)
 
     print("Attempting referee tendencies...")
     referees = build_referees(SEASON, pbp, schedules)
 
     output = {
         "teamStats": team_stats, "teamDetail": team_detail, "teamInjuries": team_injuries,
-        "teamRecent": team_recent, "schedule": schedule, "offense": offense, "referees": referees, "week": WEEK,
+        "teamRecent": team_recent, "schedule": schedule, "offense": offense, "referees": referees, "week": week_target,
     }
 
     with open("data/gridiron_report_data.json", "w") as f:
