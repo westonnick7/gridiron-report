@@ -83,19 +83,84 @@ def _import_weekly_data(years, columns=None, downcast=True):
         df = df[columns]
     return df
 nfl.import_weekly_data = _import_weekly_data
+
+# --- RESILIENT SEASON LOADERS (added) --------------------------------------
+_PBP_COLS = ['game_id', 'posteam', 'defteam', 'play_type', 'epa', 'yards_gained',
+             'down', 'third_down_converted', 'fourth_down_converted', 'yardline_100',
+             'touchdown', 'drive', 'interception', 'fumble_lost', 'air_yards',
+             'sack', 'qb_hit', 'penalty']
+_WEEKLY_COLS = ['recent_team', 'position', 'season_type', 'player_display_name', 'week',
+                'opponent_team', 'passing_yards', 'passing_tds', 'completions', 'attempts',
+                'interceptions', 'rushing_yards', 'rushing_tds', 'carries', 'receptions',
+                'targets', 'receiving_yards', 'receiving_tds']
+def _safe_pbp(seasons):
+    try:
+        df = nfl.import_pbp_data(seasons, downcast=True)
+    except Exception as e:
+        print("  play-by-play load error for %s (%s)" % (seasons, e))
+        df = None
+    if df is None or len(df) == 0 or 'posteam' not in getattr(df, 'columns', []):
+        print("  play-by-play empty for %s -- pre-season; team stats blank until games are played" % seasons)
+        return pd.DataFrame(columns=_PBP_COLS)
+    return df
+def _safe_weekly(seasons):
+    try:
+        df = nfl.import_weekly_data(seasons)
+    except Exception as e:
+        print("  weekly player stats load error (%s)" % e)
+        df = None
+    if df is None or len(df) == 0 or 'recent_team' not in getattr(df, 'columns', []):
+        print("  weekly player stats empty -- player props blank until games are played")
+        return pd.DataFrame(columns=_WEEKLY_COLS)
+    return df
+def _safe_ngs(kind, seasons):
+    try:
+        return nfl.import_ngs_data(kind, seasons)
+    except Exception as e:
+        print("  NGS %s not available yet (%s)" % (kind, e))
+        return pd.DataFrame()
+# --- end resilient season loaders -----------------------------------------
 # --- end nflverse compatibility patch -------------------------------------
 
-SEASON = 2025
-WEEK = 8
-TEAMS = ["DAL", "KC", "PHI", "SF", "BUF", "MIA", "GB", "SEA", "BAL", "DET"]
+SEASON = 2026
+WEEK = 1
+TEAMS = ["ARI", "ATL", "BAL", "BUF", "CAR", "CHI", "CIN", "CLE", "DAL", "DEN", "DET", "GB", "HOU", "IND", "JAX", "KC", "LA", "LAC", "LV", "MIA", "MIN", "NE", "NO", "NYG", "NYJ", "PHI", "PIT", "SEA", "SF", "TB", "TEN", "WAS"]
 H2H_SEASONS = list(range(SEASON - 4, SEASON + 1))  # last 5 seasons for head-to-head history
 
 # Approximate home-stadium coordinates for the teams above (for travel-distance math).
 STADIUM_COORDS = {
-    "DAL": (32.7473, -97.0945), "KC": (39.0489, -94.4839), "PHI": (39.9008, -75.1675),
-    "SF": (37.4030, -121.9700), "BUF": (42.7738, -78.7870), "MIA": (25.9580, -80.2389),
-    "GB": (44.5013, -88.0622), "SEA": (47.5952, -122.3316), "BAL": (39.2780, -76.6227),
-    "DET": (42.3400, -83.0456),
+    "ARI": (33.5276, -112.2626),
+    "ATL": (33.7554, -84.4008),
+    "BAL": (39.278, -76.6227),
+    "BUF": (42.7738, -78.787),
+    "CAR": (35.2258, -80.8528),
+    "CHI": (41.8623, -87.6167),
+    "CIN": (39.0955, -84.5161),
+    "CLE": (41.5061, -81.6995),
+    "DAL": (32.7473, -97.0945),
+    "DEN": (39.7439, -105.0201),
+    "DET": (42.34, -83.0456),
+    "GB": (44.5013, -88.0622),
+    "HOU": (29.6847, -95.4107),
+    "IND": (39.7601, -86.1639),
+    "JAX": (30.3239, -81.6373),
+    "KC": (39.0489, -94.4839),
+    "LA": (33.9535, -118.3392),
+    "LAC": (33.9535, -118.3392),
+    "LV": (36.0909, -115.1833),
+    "MIA": (25.958, -80.2389),
+    "MIN": (44.9736, -93.2575),
+    "NE": (42.0909, -71.2643),
+    "NO": (29.9509, -90.0815),
+    "NYG": (40.8135, -74.0745),
+    "NYJ": (40.8135, -74.0745),
+    "PHI": (39.9008, -75.1675),
+    "PIT": (40.4468, -80.0158),
+    "SEA": (47.5952, -122.3316),
+    "SF": (37.403, -121.97),
+    "TB": (27.9759, -82.5033),
+    "TEN": (36.1665, -86.7713),
+    "WAS": (38.9077, -76.8645),
 }
 
 
@@ -383,20 +448,20 @@ def build_referees(season, pbp, schedules):
 
 def main():
     print("Loading play-by-play (this is the slow one)...")
-    pbp = nfl.import_pbp_data([SEASON], downcast=True)
+    pbp = _safe_pbp([SEASON])
 
     print("Loading schedules, weekly stats, injuries, NGS data...")
     schedules_all = nfl.import_schedules(H2H_SEASONS)
     schedules = schedules_all[schedules_all.season == SEASON]
-    weekly = nfl.import_weekly_data([SEASON])
+    weekly = _safe_weekly([SEASON])
     try:
         injuries = nfl.import_injuries([SEASON])
     except Exception as e:
         print(f"  injuries unavailable ({e})")
         injuries = pd.DataFrame(columns=["team", "week", "position", "report_status"])
-    ngs_pass = nfl.import_ngs_data("passing", [SEASON])
-    ngs_rush = nfl.import_ngs_data("rushing", [SEASON])
-    ngs_rec = nfl.import_ngs_data("receiving", [SEASON])
+    ngs_pass = _safe_ngs("passing", [SEASON])
+    ngs_rush = _safe_ngs("rushing", [SEASON])
+    ngs_rec = _safe_ngs("receiving", [SEASON])
 
     latest_injury_week = injuries.week.max() if len(injuries) else WEEK
 
