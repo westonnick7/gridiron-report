@@ -1,709 +1,638 @@
-import React, { useState, useEffect, useContext, createContext } from "react";
-import { ArrowLeft } from "lucide-react";
+import React, { useState, useEffect, useCallback } from "react";
 
-// ---------- Theme tokens ----------
-const T = {
-  field: "#0B1210",
-  panel: "#121C17",
-  turf: "#1C2F22",
-  chalk: "#F0EDE4",
-  steel: "#8A9A90",
-  brass: "#C9A24B",
-  clay: "#A8471F",
+const CSS = "  :root{\n    --bg:#E9EDF2; --card:#FFFFFF; --ink:#0B1220; --muted:#5B6B7C; --line:#DCE3EB;\n    --chrome:#141414; --chrome2:#242424; --gold:#D50000; --good:#1A8A4B; --bad:#D50000;\n    --field:#C8102E; --shadow:0 1px 2px rgba(17,17,17,.06),0 8px 24px rgba(17,17,17,.09);\n    --disp:\"Anton\",Impact,Haettenschweiler,\"Arial Narrow Bold\",sans-serif;\n    --body:\"Oswald\",system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;\n  }\n  *{box-sizing:border-box}\n  body{margin:0;color:var(--ink);font-family:var(--body);font-weight:400;font-size:15px;line-height:1.4;\n    -webkit-font-smoothing:antialiased;background:var(--bg);\n    background-image:radial-gradient(1100px 380px at 50% -120px,#ffffff 0%,rgba(255,255,255,0) 70%),\n      linear-gradient(180deg,#eef1f6 0%,#e4e8ef 100%);background-attachment:fixed}\n  h1,h2,h3{margin:0}\n  a{color:inherit;text-decoration:none}\n  .wrap{max-width:1180px;margin:0 auto;padding:0 20px}\n  .tnum{font-variant-numeric:tabular-nums}\n  .disp{font-family:var(--disp);font-weight:400;letter-spacing:.5px}\n\n  /* ---------- top chrome ---------- */\n  header.top{color:#fff;position:sticky;top:0;z-index:20;border-bottom:3px solid var(--gold);\n    background:linear-gradient(180deg,#1e1e1e 0%,#0d0d0d 100%);\n    box-shadow:0 2px 14px rgba(0,0,0,.28)}\n  header.top::after{content:\"\";position:absolute;inset:0;pointer-events:none;opacity:.5;\n    background:repeating-linear-gradient(115deg,rgba(255,255,255,.03) 0 2px,transparent 2px 26px)}\n  .mark{width:30px;height:30px;flex:0 0 auto;display:grid;place-items:center;border-radius:8px;\n    background:var(--gold);box-shadow:0 2px 8px rgba(213,0,0,.5)}\n  .mark svg{width:17px;height:17px;color:#fff}\n  .top .wrap{display:flex;align-items:center;gap:24px;height:60px}\n  .brand{display:flex;align-items:baseline;gap:3px;font-family:var(--disp);\n    font-size:27px;letter-spacing:1px;line-height:1}\n  .brand .b1{color:#fff}.brand .b2{color:var(--gold)}\n  nav.tabs{display:flex;gap:2px;margin-left:6px}\n  nav.tabs a{font-family:var(--body);font-weight:600;font-size:14px;letter-spacing:1.2px;\n    text-transform:uppercase;color:#9fb0c6;padding:8px 13px;border-radius:7px}\n  nav.tabs a:hover{color:#fff;background:rgba(255,255,255,.06)}\n  nav.tabs a.on{color:#fff;background:var(--gold)}\n  .top .right{margin-left:auto;display:flex;align-items:center;gap:14px}\n  .live{display:flex;align-items:center;gap:7px;font-weight:600;font-size:12px;\n    letter-spacing:1.2px;text-transform:uppercase;color:#cfe}\n  .live .dot{width:8px;height:8px;border-radius:50%;background:#31d07a;\n    box-shadow:0 0 0 0 rgba(49,208,122,.7);animation:pulse 2s infinite}\n  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(49,208,122,.6)}70%{box-shadow:0 0 0 7px rgba(49,208,122,0)}100%{box-shadow:0 0 0 0 rgba(49,208,122,0)}}\n  @media (prefers-reduced-motion:reduce){.live .dot{animation:none}}\n\n  /* ---------- season / week bar ---------- */\n  .seasonbar{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:60px;z-index:15}\n  .seasonbar .wrap{display:flex;align-items:center;gap:18px;height:56px}\n  .season-label{font-family:var(--disp);font-size:20px;letter-spacing:.8px;\n    text-transform:uppercase;white-space:nowrap}\n  .season-label span{color:var(--muted)}\n  .weekstep{display:flex;align-items:center;gap:0;border:1px solid var(--line);border-radius:10px;\n    overflow:hidden;background:#fff;box-shadow:var(--shadow)}\n  .weekstep button{border:0;background:#fff;color:var(--ink);cursor:pointer;width:44px;height:40px;\n    display:grid;place-items:center;font-size:16px;transition:background .12s}\n  .weekstep button:hover:not(:disabled){background:#f1f4f8}\n  .weekstep button:disabled{color:#c4ccd6;cursor:not-allowed}\n  .weekstep button svg{width:15px;height:15px}\n  .wlabel{font-family:var(--disp);font-size:20px;letter-spacing:.8px;text-transform:uppercase;\n    min-width:118px;text-align:center;border-left:1px solid var(--line);border-right:1px solid var(--line);\n    height:40px;display:flex;align-items:center;justify-content:center;padding:0 6px}\n  .wlabel b{color:var(--gold);margin-left:7px}\n  .asof{margin-left:auto;font-size:12px;color:var(--muted);white-space:nowrap;letter-spacing:.3px;text-transform:uppercase}\n\n  /* ---------- section headings ---------- */\n  .eyebrow{font-family:var(--body);font-weight:600;font-size:14px;letter-spacing:2px;\n    text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:10px;margin:26px 0 12px}\n  .eyebrow::after{content:\"\";flex:1;height:1px;background:var(--line)}\n  .eyebrow .tag{color:var(--field);background:rgba(200,16,46,.09);padding:2px 8px;border-radius:5px;\n    font-size:11px;letter-spacing:1px}\n\n  /* ---------- featured matchup ---------- */\n  .feature{background:var(--chrome);border-radius:16px;overflow:hidden;color:#fff;\n    box-shadow:var(--shadow);cursor:pointer;transition:transform .12s ease}\n  .feature:hover{transform:translateY(-2px)}\n  .fteams{display:grid;grid-template-columns:1fr 78px 1fr;align-items:stretch}\n  .fside{padding:26px 24px;display:flex;flex-direction:column;gap:10px;position:relative}\n  .fside.home{align-items:flex-end;text-align:right}\n  .fside .badge{width:66px;height:66px;border-radius:50%;display:grid;place-items:center;\n    font-family:var(--disp);font-size:23px;letter-spacing:.5px;\n    box-shadow:0 3px 10px rgba(0,0,0,.35);border:2px solid rgba(255,255,255,.14)}\n  .fside .tname{font-family:var(--disp);font-size:46px;line-height:.88;\n    letter-spacing:.5px;text-transform:uppercase}\n  .fside .trec{color:#9fb2c9;font-weight:500;font-size:14px;letter-spacing:.6px;text-transform:uppercase}\n  .fside .seed{font-size:12px;color:#7f93ad;font-weight:600;letter-spacing:1.5px;text-transform:uppercase}\n  .fvs{display:grid;place-items:center;position:relative}\n  .fvs .at{font-family:var(--disp);font-size:19px;color:#8ea3bd;\n    background:var(--chrome);width:50px;height:50px;border-radius:50%;display:grid;place-items:center;\n    border:1px solid rgba(255,255,255,.14);position:relative;z-index:2}\n  .spine{position:absolute;top:0;bottom:0;width:6px;left:50%;transform:translateX(-50%);z-index:1}\n  .fmeta{display:flex;flex-wrap:wrap;gap:8px 18px;padding:14px 24px;background:rgba(255,255,255,.04);\n    border-top:1px solid rgba(255,255,255,.08);font-size:12.5px;color:#b9c8da;\n    letter-spacing:.3px;text-transform:uppercase}\n  .fmeta b{color:#fff;font-weight:600}\n  .fmeta .chip{background:rgba(255,255,255,.08);padding:3px 10px;border-radius:20px;font-weight:500;color:#dce7f2}\n  .fopen{padding:12px 24px;background:rgba(255,180,0,.10);border-top:1px solid rgba(255,255,255,.08);\n    display:flex;align-items:center;justify-content:center;gap:8px;color:var(--gold);\n    font-family:var(--body);font-weight:600;font-size:13px;letter-spacing:1.5px;text-transform:uppercase}\n  .fopen svg{width:14px;height:14px}\n\n  /* comparison rows (shared by feature + modal) */\n  .compare{background:var(--card);color:var(--ink);padding:18px 24px 22px}\n  .compare .sample{font-size:11px;color:var(--muted);letter-spacing:1px;text-transform:uppercase;\n    font-weight:600;margin-bottom:12px;display:flex;align-items:center;gap:8px}\n  .compare .sample::before{content:\"\";width:6px;height:6px;border-radius:50%;background:var(--gold)}\n  .row{display:grid;grid-template-columns:66px 1fr 150px 1fr 66px;align-items:center;gap:10px;\n    padding:7px 0;border-top:1px solid var(--line)}\n  .row:first-of-type{border-top:0}\n  .row .v{font-family:var(--disp);font-size:20px;letter-spacing:.3px}\n  .row .v.l{text-align:right}.row .v.r{text-align:left}\n  .row .lab{text-align:center;font-size:11px;letter-spacing:.8px;text-transform:uppercase;\n    color:var(--muted);font-weight:500}\n  .bar{height:9px;border-radius:5px;background:#eef2f6;overflow:hidden;position:relative}\n  .bar i{position:absolute;top:0;bottom:0;display:block}\n  .bar.l i{right:0;border-radius:5px 0 0 5px}\n  .bar.r i{left:0;border-radius:0 5px 5px 0}\n  .win{color:var(--ink)}.lose{color:#9aa8b6}\n\n  /* ---------- games grid ---------- */\n  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:16px}\n  .game{background:var(--card);border-radius:13px;box-shadow:var(--shadow);overflow:hidden;\n    border:1px solid var(--line);transition:transform .12s ease,box-shadow .12s ease;cursor:pointer}\n  .game:hover{transform:translateY(-3px);box-shadow:0 2px 4px rgba(11,18,32,.08),0 14px 30px rgba(11,18,32,.14)}\n  .game .spine2{height:5px;display:flex}\n  .game .spine2 span{flex:1}\n  .ghead{display:flex;align-items:center;justify-content:space-between;padding:10px 15px 4px;\n    font-size:11px;color:var(--muted);font-weight:500;letter-spacing:1px;text-transform:uppercase}\n  .ghead .kick{font-family:var(--body);font-weight:600;font-size:14px;color:var(--ink);letter-spacing:.5px}\n  .grow{display:flex;align-items:center;gap:12px;padding:9px 15px}\n  .grow+.grow{border-top:1px solid var(--line)}\n  .gbadge{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;flex:0 0 auto;\n    font-family:var(--disp);font-size:15px;letter-spacing:.3px;border:2px solid rgba(0,0,0,.06)}\n  .gteam{display:flex;flex-direction:column;line-height:1}\n  .gteam .gn{font-family:var(--disp);font-size:22px;letter-spacing:.4px;text-transform:uppercase}\n  .gteam .gc{font-size:11px;color:var(--muted);font-weight:500;letter-spacing:.6px;text-transform:uppercase;margin-top:2px}\n  .grow .rec{margin-left:auto;font-family:var(--disp);font-size:18px;color:var(--muted)}\n  .gfoot{display:flex;align-items:center;gap:7px;padding:10px 15px;border-top:1px solid var(--line);flex-wrap:wrap}\n  .vchip{font-size:11px;font-weight:500;color:var(--muted);background:#f1f4f8;border-radius:20px;\n    padding:3px 9px;letter-spacing:.4px;text-transform:uppercase}\n  .vchip.div{background:rgba(200,16,46,.12);color:#a10c22}\n  .gfoot .cta{margin-left:auto;font-family:var(--body);font-weight:600;font-size:13px;letter-spacing:1px;\n    text-transform:uppercase;color:var(--field);display:flex;align-items:center;gap:5px}\n  .gfoot .cta svg{width:13px;height:13px}\n\n  /* ---------- detail modal ---------- */\n  .overlay{position:fixed;inset:0;background:rgba(6,12,24,.62);backdrop-filter:blur(3px);\n    z-index:50;display:none;padding:28px 16px;overflow-y:auto}\n  .overlay.on{display:block;animation:overlayIn .18s ease}\n  @keyframes overlayIn{from{opacity:0}to{opacity:1}}\n  /* press feedback + view transitions */\n  .game,nav.tabs a,.weekstep button,.wmenu button,.qfull,.mclose,.trhead,.cta,.tmore{transition:transform .1s ease,background .12s ease,box-shadow .12s ease}\n  nav.tabs a:active,.weekstep button:active,.wmenu button:active,.qfull:active,.mclose:active{transform:scale(.94)}\n  .game:active{transform:scale(.988)}\n  .trhead:active{background:#eef2f6}\n  .cta:active,.tmore:active{transform:translateX(2px)}\n  @keyframes viewIn{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:none}}\n  .viewfade{animation:viewIn .28s cubic-bezier(.4,0,.2,1)}\n  @keyframes cardIn{from{opacity:0;transform:translateY(9px)}to{opacity:1;transform:none}}\n  .grid .game,#tgrid .trow{animation:cardIn .3s cubic-bezier(.4,0,.2,1) both}\n  @media(prefers-reduced-motion:reduce){\n    .trbody{transition:none}.overlay.on,.viewfade,.grid .game,#tgrid .trow{animation:none}\n    .game:active,nav.tabs a:active,.weekstep button:active{transform:none}}\n  .modal{max-width:820px;margin:0 auto;background:var(--card);border-radius:16px;overflow:hidden;\n    box-shadow:0 24px 70px rgba(0,0,0,.4);animation:rise .18s ease}\n  @keyframes rise{from{transform:translateY(14px);opacity:.6}to{transform:translateY(0);opacity:1}}\n  @media (prefers-reduced-motion:reduce){.modal{animation:none}}\n  .mhead{background:var(--chrome);color:#fff;padding:20px 22px;position:relative}\n  .mclose{position:absolute;top:14px;right:14px;width:34px;height:34px;border-radius:50%;border:0;\n    background:rgba(255,255,255,.12);color:#fff;cursor:pointer;font-size:17px;display:grid;place-items:center}\n  .mclose:hover{background:rgba(255,255,255,.22)}\n  .mteams{display:flex;align-items:center;justify-content:center;gap:18px;flex-wrap:wrap}\n  .mteam{display:flex;align-items:center;gap:12px}\n  .mteam.h{flex-direction:row-reverse;text-align:right}\n  .mbadge{width:52px;height:52px;border-radius:50%;display:grid;place-items:center;\n    font-family:var(--disp);font-size:18px;border:2px solid rgba(255,255,255,.16)}\n  .mteam .mn{font-family:var(--disp);font-size:30px;line-height:.9;text-transform:uppercase;letter-spacing:.5px}\n  .mteam .mr{font-size:12px;color:#9fb2c9;letter-spacing:.6px;text-transform:uppercase}\n  .mat{font-family:var(--disp);color:#8ea3bd;font-size:16px}\n  .mmeta{display:flex;flex-wrap:wrap;gap:7px 14px;justify-content:center;margin-top:14px;\n    font-size:12px;color:#b9c8da;letter-spacing:.3px;text-transform:uppercase}\n  .mmeta b{color:#fff;font-weight:600}\n  .mbody{padding:8px 22px 22px}\n  .gtitle{font-family:var(--body);font-weight:700;font-size:12px;letter-spacing:2px;text-transform:uppercase;\n    color:var(--field);margin:20px 0 4px;display:flex;align-items:center;gap:9px}\n  .gtitle::after{content:\"\";flex:1;height:1px;background:var(--line)}\n  .legend{display:flex;justify-content:center;gap:20px;padding:14px 0 2px;font-size:11px;\n    color:var(--muted);letter-spacing:.6px;text-transform:uppercase}\n  .legend span{display:flex;align-items:center;gap:7px}\n  .legend i{width:12px;height:12px;border-radius:3px;display:inline-block}\n\n  .v .u{font-size:12px;color:var(--muted);margin-left:2px;font-family:var(--body);font-weight:600}\n  .row.na .v{color:#b4bec8;font-family:var(--body);font-weight:600;font-size:16px}\n  .row.na .lab{color:#aab4be}\n  .inj,.props{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:6px}\n  .injcol,.propcol{border:1px solid var(--line);border-radius:10px;padding:12px 14px;background:#fbfcfd}\n  .injteam{font-family:var(--disp);font-size:17px;text-transform:uppercase;letter-spacing:.4px;margin-bottom:8px}\n  .injrow{display:flex;align-items:center;justify-content:space-between;font-size:12.5px;color:var(--muted);\n    letter-spacing:.4px;text-transform:uppercase;margin-top:7px}\n  .injrow b{color:var(--ink);font-family:var(--body);font-weight:600}\n  .injbar{height:7px;border-radius:4px;background:#eef2f6;overflow:hidden;margin-top:4px}\n  .injbar i{display:block;height:100%}\n  .pill{font-size:11px;padding:2px 9px;border-radius:20px;letter-spacing:.5px}\n  .pill.ok{background:rgba(18,161,80,.14);color:#0e7a3b}\n  .pill.warn{background:rgba(229,150,0,.16);color:#8a6400}\n  .edge{border:1px solid var(--line);border-radius:10px;overflow:hidden;margin-top:6px}\n  .edgerow{display:flex;align-items:center;justify-content:space-between;padding:9px 14px;font-size:13px;\n    letter-spacing:.3px;text-transform:uppercase;color:var(--muted)}\n  .edgerow+.edgerow{border-top:1px solid var(--line)}\n  .edgerow b{font-family:var(--disp);font-size:18px;color:var(--muted)}\n  .edgerow b.pos{color:var(--good)}.edgerow b.neg{color:var(--bad)}\n  .pnote{font-size:12px;color:var(--muted);margin:4px 0 8px;letter-spacing:.2px}\n  .ptab{width:100%;border-collapse:collapse;font-size:13px}\n  .ptab th{text-align:left;color:var(--muted);font-weight:600;font-size:11px;letter-spacing:.6px;\n    text-transform:uppercase;padding:5px 6px;border-bottom:1px solid var(--line)}\n  .ptab td{padding:6px 6px;border-bottom:1px solid #eef2f6;font-weight:500}\n  .ptab td:first-child{font-family:var(--disp);font-size:15px;letter-spacing:.2px}\n  @media(max-width:560px){.inj,.props{grid-template-columns:1fr}}\n  /* ---- recent form (W-L / ATS / O/U, last 7) ---- */\n  .recform{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:6px}\n  .reccol{border:1px solid var(--line);border-radius:10px;padding:12px 14px;background:#fbfcfd}\n  .recrecs{display:flex;gap:8px;margin:2px 0 12px}\n  .recrec{flex:1;text-align:center;background:#fff;border:1px solid var(--line);border-radius:8px;padding:6px 4px}\n  .recrec span{display:block;font-size:9.5px;letter-spacing:1.2px;text-transform:uppercase;color:var(--muted);font-weight:600}\n  .recrec b{font-family:var(--disp);font-size:19px;letter-spacing:.5px;color:var(--ink)}\n  .reclog{display:flex;gap:6px}\n  .recg{flex:1;min-width:0;text-align:center}\n  .recg .rw{display:grid;place-items:center;height:26px;border-radius:6px;font-family:var(--disp);\n    font-size:14px;color:#fff;box-shadow:0 1px 3px rgba(11,18,32,.18)}\n  .recg .rw.win{background:var(--good)}.recg .rw.loss{background:var(--bad)}\n  .recg .rtag{font-size:10px;letter-spacing:.2px;margin-top:4px;color:var(--muted);line-height:1.2}\n  .recg .rtag i{font-style:normal;font-weight:700}\n  .rc-c{color:var(--good)}.rc-x{color:var(--bad)}.rc-p{color:var(--muted)}\n  .recleg{display:flex;gap:14px;flex-wrap:wrap;margin-top:10px;font-size:10.5px;color:var(--muted);letter-spacing:.3px}\n  .recleg i{font-style:normal;font-weight:700}\n  @media(max-width:560px){.inj,.props,.recform{grid-template-columns:1fr}}\n\n  /* logo badges (swap-in for abbreviations) */\n  .haslogo{background:#fff !important;border:2px solid rgba(0,0,0,.10) !important;overflow:hidden;padding:0}\n  .haslogo img{width:82%;height:82%;object-fit:contain;display:block}\n  .tbadge.haslogo{border-color:rgba(255,255,255,.55) !important}\n\n  /* week dropdown */\n  .weekstep{position:relative}\n  .wlabel{cursor:pointer;display:flex;align-items:center;gap:2px}\n  .wlabel .caret{width:13px;height:13px;margin-left:5px;color:var(--muted)}\n  .wmenu{position:absolute;top:46px;left:44px;z-index:30;background:#fff;border:1px solid var(--line);\n    border-radius:10px;box-shadow:0 14px 34px rgba(11,18,32,.18);padding:6px;display:grid;\n    grid-template-columns:repeat(3,1fr);gap:4px;width:210px}\n  .wmenu button{font-family:var(--disp);font-size:15px;letter-spacing:.4px;border:1px solid transparent;\n    background:#f6f8fa;color:var(--ink);border-radius:6px;padding:8px 0;cursor:pointer;text-transform:uppercase}\n  .wmenu button:hover{background:#e9eef4}\n  .wmenu button.on{background:var(--ink);color:#fff}\n\n  /* teams tab */\n  .tgrid{display:flex;flex-direction:column;gap:10px;max-width:840px;margin:0 auto}\n  .tcard{background:var(--card);border:1px solid var(--line);border-radius:13px;box-shadow:var(--shadow);\n    overflow:hidden;cursor:pointer;transition:transform .12s ease,box-shadow .12s ease}\n  .tcard:hover{transform:translateY(-3px);box-shadow:0 2px 4px rgba(11,18,32,.08),0 14px 30px rgba(11,18,32,.14)}\n  .tcard .thead{display:flex;align-items:center;gap:11px;padding:12px 14px;color:#fff}\n  .tcard .tbadge{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;flex:0 0 auto;\n    font-family:var(--disp);font-size:14px;background:rgba(255,255,255,.16);border:2px solid rgba(255,255,255,.25)}\n  .tcard .tnm{font-family:var(--disp);font-size:21px;letter-spacing:.4px;text-transform:uppercase;line-height:1}\n  .tcard .tcity{font-size:10.5px;letter-spacing:.8px;text-transform:uppercase;opacity:.82;margin-top:2px}\n  .ngs{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line)}\n  .ngs .cell{background:#fff;padding:9px 12px}\n  .ngs .cell.wide{grid-column:1 / -1}\n  .ngs .n{font-family:var(--disp);font-size:20px;letter-spacing:.3px}\n  .ngs .n .u{font-family:var(--body);font-weight:600;font-size:12px;color:var(--muted);margin-left:2px}\n  .ngs .k{font-size:10px;letter-spacing:.7px;text-transform:uppercase;color:var(--muted);font-weight:600;margin-top:2px}\n  .tmore{padding:9px 14px;border-top:1px solid var(--line);font-family:var(--body);font-weight:600;\n    font-size:12px;letter-spacing:1px;text-transform:uppercase;color:var(--field);display:flex;align-items:center;gap:5px}\n  .tmore svg{width:12px;height:12px}\n\n  /* teams list (accordion) */\n  #tgrid{display:flex;flex-direction:column;gap:8px}\n  .trow{background:var(--card);border:1px solid var(--line);border-radius:11px;box-shadow:var(--shadow);overflow:hidden}\n  .trhead{display:flex;align-items:center;gap:13px;width:100%;border:0;background:transparent;cursor:pointer;\n    padding:0 15px 0 0;text-align:left;font-family:var(--body);color:var(--ink)}\n  .trhead:hover{background:#fafbfc}\n  .tstripe{width:6px;align-self:stretch;min-height:62px;flex:0 0 auto}\n  .trlogo{width:44px;height:44px;border-radius:50%;background:#fff;border:2px solid rgba(0,0,0,.08);\n    display:grid;place-items:center;flex:0 0 auto;overflow:hidden;margin:9px 3px 9px 0}\n  .trlogo img{width:82%;height:82%;object-fit:contain}\n  .trlogo.abbr{font-family:var(--disp);font-size:15px}\n  .trmeta{display:flex;flex-direction:column;gap:2px;line-height:1.02}\n  .trname{font-family:var(--disp);font-size:23px;letter-spacing:.4px;text-transform:uppercase}\n  .trcity{font-size:11px;color:var(--muted);letter-spacing:.7px;text-transform:uppercase}\n  .trkey{margin-left:auto;font-size:11px;color:var(--muted);letter-spacing:.7px;text-transform:uppercase}\n  .trkey b{font-family:var(--disp);font-size:19px;color:var(--ink);margin-left:6px}\n  .trchev{width:16px;height:16px;color:var(--muted);transition:transform .18s ease;flex:0 0 auto;margin-left:14px}\n  .trow.open .trchev{transform:rotate(90deg)}\n  .trow.open{box-shadow:0 2px 4px rgba(11,18,32,.08),0 12px 28px rgba(11,18,32,.13)}\n  .trbody{max-height:0;overflow:hidden;opacity:0;padding:0 16px;\n    transition:max-height .32s cubic-bezier(.4,0,.2,1),opacity .22s ease,padding .32s ease}\n  .trow.open .trbody{max-height:1400px;opacity:1;padding:2px 16px 16px}\n  .trbody .gtitle:first-child{margin-top:10px}\n  @media(prefers-reduced-motion:reduce){.trchev{transition:none}}\n  @media(max-width:560px){.trcity{display:none}.trname{font-size:20px}}\n\n  /* quick preview modal */\n  .qmodal{max-width:460px;margin:8vh auto 0;background:var(--card);border-radius:16px;overflow:hidden;\n    box-shadow:0 24px 70px rgba(0,0,0,.4);animation:rise .16s ease}\n  .qhead{background:var(--chrome);color:#fff;padding:16px 18px}\n  .qteams{display:flex;align-items:center;justify-content:space-between;gap:10px}\n  .qt{display:flex;align-items:center;gap:9px}\n  .qt.h{flex-direction:row-reverse}\n  .qbadge{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;font-family:var(--disp);\n    font-size:14px;border:2px solid rgba(255,255,255,.18)}\n  .qn{font-family:var(--disp);font-size:23px;text-transform:uppercase;letter-spacing:.4px;line-height:.95}\n  .qat{font-family:var(--disp);color:#8ea3bd;font-size:14px}\n  .qkick{text-align:center;font-size:11.5px;color:#b9c8da;letter-spacing:.5px;text-transform:uppercase;margin-top:9px}\n  .qbody{padding:8px 18px 16px}\n  .qrow{display:grid;grid-template-columns:52px 1fr 52px;align-items:center;gap:10px;padding:8px 0;border-top:1px solid var(--line)}\n  .qrow:first-child{border-top:0}\n  .qrow .qv{font-family:var(--disp);font-size:20px}\n  .qrow .qv.l{text-align:right}.qrow .qv.r{text-align:left}\n  .qrow .qk{text-align:center;font-size:11px;letter-spacing:.6px;text-transform:uppercase;color:var(--muted);font-weight:600}\n  .qfull{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;margin-top:10px;\n    background:var(--field);color:#fff;border:0;border-radius:9px;padding:11px;cursor:pointer;\n    font-family:var(--body);font-weight:600;font-size:13px;letter-spacing:1px;text-transform:uppercase}\n  .qfull:hover{filter:brightness(1.06)}\n  .qfull svg{width:14px;height:14px}\n  .qhead{position:relative}\n  .kv{display:grid;grid-template-columns:1fr 1fr;gap:2px 22px;margin-top:4px}\n  .kvrow{display:flex;justify-content:space-between;align-items:center;padding:8px 2px;border-bottom:1px solid #eef2f6;\n    font-size:12.5px;letter-spacing:.4px;text-transform:uppercase;color:var(--muted)}\n  .kvrow b{font-family:var(--disp);font-size:19px;color:var(--ink);letter-spacing:.3px}\n  .kvrow b .u{font-family:var(--body);font-weight:600;font-size:12px;color:var(--muted);margin-left:2px}\n  @media(max-width:560px){.kv{grid-template-columns:1fr}}\n\n  /* ---------- richness / polish ---------- */\n  .eyebrow::before{content:\"\";width:4px;height:16px;background:var(--gold);border-radius:2px;\n    display:inline-block;box-shadow:0 0 8px rgba(213,0,0,.35)}\n  .season-label{font-size:22px;color:var(--ink)}\n  .seasonbar{background:linear-gradient(180deg,#ffffff,#f5f8fb);box-shadow:0 1px 0 rgba(11,18,32,.05)}\n  nav.tabs a.on{box-shadow:0 2px 12px rgba(213,0,0,.45)}\n  .game{position:relative;border-color:#e6ebf1}\n  .game::before{content:\"\";position:absolute;inset:0;border-radius:13px;pointer-events:none;z-index:2;\n    box-shadow:inset 0 0 0 1px rgba(255,255,255,.55)}\n  .game:hover{box-shadow:0 3px 6px rgba(11,18,32,.10),0 18px 42px rgba(11,18,32,.17)}\n  .ghead{background:linear-gradient(180deg,#f8fafc,#ffffff)}\n  .gbadge.haslogo,.trlogo{box-shadow:0 2px 6px rgba(11,18,32,.15)}\n  .grow{transition:background .14s ease}\n  .game:hover .grow{background:linear-gradient(90deg,rgba(200,16,46,.045),transparent)}\n  .spine2 span{box-shadow:inset 0 -2px 4px rgba(0,0,0,.18)}\n  .gfoot{background:#fbfcfe}\n  .vchip{border:1px solid rgba(11,18,32,.05)}\n  .cta{padding:5px 9px;border-radius:20px}\n  .cta:hover{background:rgba(200,16,46,.10)}\n  .trow{position:relative}\n  .trhead:hover{background:linear-gradient(90deg,rgba(200,16,46,.05),#fafbfc)}\n  .trkey b{color:var(--gold)}\n  .trow.open{border-color:rgba(200,16,46,.30)}\n  .trow.open .trhead{background:linear-gradient(90deg,rgba(200,16,46,.06),#fff)}\n  .weekstep{box-shadow:0 2px 10px rgba(11,18,32,.10)}\n\n  /* ---- Next Gen Search ---- */\n  .searchbar{max-width:1180px;margin:0 auto 14px;background:var(--card);border:1px solid var(--line);\n    border-radius:14px;box-shadow:var(--shadow);overflow:hidden}\n  .sbtop{display:flex;align-items:stretch;gap:0;background:linear-gradient(180deg,#181818,#101010);\n    border-bottom:1px solid rgba(255,255,255,.06)}\n  .posseg{display:flex;flex:1;min-width:0}\n  .posseg button{flex:1;border:0;background:transparent;color:#c9cfd6;cursor:pointer;\n    font-family:var(--disp);font-size:16px;letter-spacing:.8px;text-transform:uppercase;\n    padding:13px 8px;position:relative;transition:color .12s ease,background .12s ease}\n  .posseg button:hover{color:#fff;background:rgba(255,255,255,.05)}\n  .posseg button.on{color:#fff}\n  .posseg button.on::after{content:\"\";position:absolute;left:14%;right:14%;bottom:0;height:3px;\n    background:var(--gold);border-radius:3px 3px 0 0;box-shadow:0 -1px 8px rgba(213,0,0,.6)}\n  .posseg button:active{transform:scale(.96)}\n  .sbfilters{display:flex;flex-wrap:wrap;gap:12px;align-items:flex-end;padding:14px 16px}\n  .fld{display:flex;flex-direction:column;gap:5px}\n  .fld label{font-family:var(--body);font-weight:600;font-size:10.5px;letter-spacing:1.4px;\n    text-transform:uppercase;color:var(--muted)}\n  .fld select,.fld input{font-family:var(--body);font-weight:500;font-size:14px;color:var(--ink);\n    background:#fff;border:1px solid var(--line);border-radius:9px;padding:8px 11px;min-width:150px;\n    outline:none;transition:border-color .12s ease,box-shadow .12s ease}\n  .fld select:focus,.fld input:focus{border-color:var(--field);box-shadow:0 0 0 3px rgba(200,16,46,.12)}\n  .fld.grow{flex:1;min-width:180px}.fld.grow input{width:100%;box-sizing:border-box}\n  .schint{margin-left:auto;align-self:center;font-family:var(--body);font-weight:500;font-size:12.5px;\n    color:var(--muted);white-space:nowrap}\n  .schint b{color:var(--field)}\n  .stbl-wrap{max-width:1180px;margin:0 auto;overflow-x:auto;border:1px solid var(--line);\n    border-radius:14px;background:var(--card);box-shadow:var(--shadow)}\n  table.stbl{border-collapse:collapse;width:100%;font-family:var(--body);font-size:13.5px;min-width:760px}\n  table.stbl thead th{position:sticky;top:0;background:linear-gradient(180deg,#1c1c1c,#141414);color:#e7ebef;\n    font-weight:600;letter-spacing:.5px;text-transform:uppercase;font-size:11px;padding:11px 10px;\n    text-align:right;white-space:nowrap;cursor:pointer;user-select:none;border-bottom:2px solid var(--gold)}\n  table.stbl thead th.lft{text-align:left}\n  table.stbl thead th:hover{background:#252525;color:#fff}\n  table.stbl thead th .arw{opacity:0;margin-left:4px;color:var(--gold);font-size:10px}\n  table.stbl thead th.sorted .arw{opacity:1}\n  table.stbl thead th.hero{color:#fff}\n  table.stbl thead th.hero.sorted .arw{color:#fff}\n  table.stbl tbody td{padding:9px 10px;text-align:right;white-space:nowrap;border-top:1px solid var(--line);\n    font-variant-numeric:tabular-nums}\n  table.stbl tbody tr:nth-child(even){background:#f7f9fb}\n  table.stbl tbody tr:hover{background:rgba(200,16,46,.06)}\n  table.stbl td.rk{text-align:center;color:var(--muted);font-weight:600;width:38px;font-size:12px}\n  table.stbl td.plr{text-align:left;min-width:210px}\n  .plrcell{display:flex;align-items:center;gap:9px}\n  .plrlogo{width:26px;height:26px;border-radius:6px;flex:0 0 26px;display:grid;place-items:center;\n    overflow:hidden;box-shadow:0 1px 4px rgba(11,18,32,.18)}\n  .plrlogo img{width:100%;height:100%;object-fit:contain;padding:2px;box-sizing:border-box}\n  .plrlogo.abbr{font-family:var(--disp);font-size:10px;letter-spacing:.3px}\n  .plrname{font-weight:600;color:var(--ink);line-height:1.1}\n  .plrsub{font-size:11px;color:var(--muted);letter-spacing:.4px}\n  table.stbl td.hero{font-family:var(--disp);font-size:16px;color:var(--ink);background:rgba(200,16,46,.05)}\n  table.stbl tbody td.hero{}\n  .pos-good{color:var(--good);font-weight:600}.pos-bad{color:var(--bad);font-weight:600}\n  .stbl-empty{padding:34px 16px;text-align:center;color:var(--muted);font-family:var(--body)}\n  @media(max-width:560px){.schint{display:none}.fld select,.fld input{min-width:130px}}\n\n  footer{color:var(--muted);font-size:12px;text-align:center;padding:30px 0 40px;letter-spacing:.4px;text-transform:uppercase}\n  .note{max-width:1180px;margin:22px auto 0;padding:12px 16px;background:#fff;border:1px dashed var(--line);\n    border-radius:10px;color:var(--muted);font-size:12.5px;letter-spacing:.2px}\n  .note b{color:var(--ink)}\n  @media(max-width:720px){\n    .fside .tname{font-size:32px}.fside .badge{width:54px;height:54px;font-size:19px}\n    .top .wrap{height:auto;min-height:56px;gap:10px 12px;padding:8px 16px;flex-wrap:wrap}\n    .brand{font-size:21px}\n    nav.tabs{order:3;width:100%;overflow-x:auto;gap:2px;-webkit-overflow-scrolling:touch}\n    nav.tabs::-webkit-scrollbar{display:none}\n    nav.tabs a{padding:7px 11px;font-size:12.5px;white-space:nowrap}\n    .top .right{margin-left:auto}\n    .season-label span{display:none}\n    .row{grid-template-columns:50px 1fr 110px 1fr 50px}\n    .mteam .mn{font-size:23px}\n  }\n";
+
+// Where the nightly GitHub Action commits fresh data.
+const LIVE_DATA_URL =
+  "https://raw.githubusercontent.com/westonnick7/gridiron-report/main/data/gridiron_report_data.json";
+
+// ---------- Team identity (abbr -> [nickname, primary color]) ----------
+const TEAM = {
+  ARI: ["Cardinals", "#97233F"], ATL: ["Falcons", "#A71930"], BAL: ["Ravens", "#241773"],
+  BUF: ["Bills", "#00338D"], CAR: ["Panthers", "#0085CA"], CHI: ["Bears", "#0B162A"],
+  CIN: ["Bengals", "#FB4F14"], CLE: ["Browns", "#3B2314"], DAL: ["Cowboys", "#041E42"],
+  DEN: ["Broncos", "#FB4F14"], DET: ["Lions", "#0076B6"], GB: ["Packers", "#203731"],
+  HOU: ["Texans", "#03202F"], IND: ["Colts", "#002C5F"], JAX: ["Jaguars", "#046A78"],
+  KC: ["Chiefs", "#E31837"], LA: ["Rams", "#003594"], LAC: ["Chargers", "#0080C6"],
+  LV: ["Raiders", "#111214"], MIA: ["Dolphins", "#008E97"], MIN: ["Vikings", "#4F2683"],
+  NE: ["Patriots", "#0A2342"], NO: ["Saints", "#101820"], NYG: ["Giants", "#0B2265"],
+  NYJ: ["Jets", "#125740"], PHI: ["Eagles", "#004C54"], PIT: ["Steelers", "#FFB612"],
+  SEA: ["Seahawks", "#4E9F2F"], SF: ["49ers", "#AA0000"], TB: ["Buccaneers", "#D50A0A"],
+  TEN: ["Titans", "#4B92DB"], WAS: ["Commanders", "#5A1414"],
 };
-const FONT_DISPLAY = "'Oswald', sans-serif";
-const FONT_MONO = "'IBM Plex Mono', monospace";
-
-function f1(v) { return typeof v === "number" ? v.toFixed(1) : "—"; }
-function f2(v) { return typeof v === "number" ? v.toFixed(2) : "—"; }
-function fSign(v, digits = 1) { return typeof v === "number" ? (v > 0 ? "+" : "") + v.toFixed(digits) : "—"; }
-
-const NFL_OPPONENTS = ["DAL", "KC", "PHI", "SF", "BUF", "MIA", "GB", "SEA", "BAL", "DET"];
-const TEAM_NAMES = {
-  DAL: "Dallas", KC: "Kansas City", PHI: "Philadelphia", SF: "San Francisco", BUF: "Buffalo",
-  MIA: "Miami", GB: "Green Bay", SEA: "Seattle", BAL: "Baltimore", DET: "Detroit",
+const CITY = {
+  NE: "New England", SEA: "Seattle", SF: "San Francisco", LA: "Los Angeles", CHI: "Chicago",
+  CAR: "Carolina", TB: "Tampa Bay", CIN: "Cincinnati", NO: "New Orleans", DET: "Detroit", BUF: "Buffalo",
+  HOU: "Houston", BAL: "Baltimore", IND: "Indianapolis", CLE: "Cleveland", JAX: "Jacksonville", ATL: "Atlanta",
+  PIT: "Pittsburgh", NYJ: "New York", TEN: "Tennessee", ARI: "Arizona", LAC: "Los Angeles", MIA: "Miami",
+  LV: "Las Vegas", GB: "Green Bay", MIN: "Minnesota", WAS: "Washington", PHI: "Philadelphia", DAL: "Dallas",
+  NYG: "New York", DEN: "Denver", KC: "Kansas City",
 };
-
-// Where the nightly GitHub Action commits fresh data. Point this at your repo
-// once it's set up — see the README in the automation scaffold.
-const LIVE_DATA_URL = "https://raw.githubusercontent.com/westonnick7/gridiron-report/main/data/gridiron_report_data.json";
-
-// ---------- Seeded generators (fallback/demo data only — used until live data loads) ----------
-function mulberry32(seed) {
-  return function () {
-    seed |= 0; seed = (seed + 0x6D2B79F5) | 0;
-    let t = Math.imul(seed ^ (seed >>> 15), 1 | seed);
-    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
-    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
-  };
+const VENUE = {
+  SEA: "Lumen Field", LA: "SoFi Stadium", CAR: "Bank of America Stadium", CIN: "Paycor Stadium",
+  DET: "Ford Field", HOU: "NRG Stadium", IND: "Lucas Oil Stadium", JAX: "EverBank Stadium", PIT: "Acrisure Stadium",
+  TEN: "Nissan Stadium", LAC: "SoFi Stadium", LV: "Allegiant Stadium", MIN: "U.S. Bank Stadium", PHI: "Lincoln Financial Field",
+  NYG: "MetLife Stadium", KC: "Arrowhead Stadium",
+};
+function nick(ab) { return (TEAM[ab] && TEAM[ab][0]) || ab; }
+function color(ab) { return (TEAM[ab] && TEAM[ab][1]) || "#555"; }
+function txt(hex) {
+  const c = String(hex).replace("#", "");
+  const r = parseInt(c.substr(0, 2), 16), g = parseInt(c.substr(2, 2), 16), b = parseInt(c.substr(4, 2), 16);
+  return 0.299 * r + 0.587 * g + 0.114 * b > 150 ? "#0B1220" : "#ffffff";
 }
-function hashStr(s) { let h = 0; for (let i = 0; i < s.length; i++) h = (h * 31 + s.charCodeAt(i)) | 0; return h; }
-function opp(rng) { return NFL_OPPONENTS[Math.floor(rng() * NFL_OPPONENTS.length)]; }
-
-function genQBLog(seed) {
-  const rng = mulberry32(seed); const log = [];
-  for (let w = 1; w <= 17; w++) {
-    const att = 28 + Math.floor(rng() * 12);
-    const cmp = Math.min(att, Math.round(att * (0.58 + rng() * 0.15)));
-    const yds = Math.round(cmp * (9 + rng() * 4));
-    const td = rng() < 0.15 ? 3 : rng() < 0.5 ? 2 : rng() < 0.8 ? 1 : 0;
-    const int = rng() < 0.22 ? 1 : rng() < 0.04 ? 2 : 0;
-    log.push({ week: w, opp: opp(rng), cmp, att, yds, td, int, result: rng() < 0.5 ? "W" : "L" });
-  }
-  return log.reverse();
-}
-function genRBLog(seed) {
-  const rng = mulberry32(seed); const log = [];
-  for (let w = 1; w <= 17; w++) {
-    const att = 12 + Math.floor(rng() * 10);
-    const yds = Math.round(att * (3.3 + rng() * 2.6));
-    const td = rng() < 0.35 ? 1 : rng() < 0.06 ? 2 : 0;
-    const rec = Math.floor(rng() * 5);
-    log.push({ week: w, opp: opp(rng), att, yds, td, rec, result: rng() < 0.5 ? "W" : "L" });
-  }
-  return log.reverse();
-}
-function genWRLog(seed) {
-  const rng = mulberry32(seed); const log = [];
-  for (let w = 1; w <= 17; w++) {
-    const tgt = 5 + Math.floor(rng() * 7);
-    const rec = Math.min(tgt, Math.round(tgt * (0.55 + rng() * 0.3)));
-    const yds = Math.round(rec * (9 + rng() * 7));
-    const td = rng() < 0.3 ? 1 : rng() < 0.04 ? 2 : 0;
-    log.push({ week: w, opp: opp(rng), tgt, rec, yds, td, result: rng() < 0.5 ? "W" : "L" });
-  }
-  return log.reverse();
+function tc(s) {
+  return typeof s === "string" && s ? s.replace(/\b\w/g, (c) => c.toUpperCase()) : s || "";
 }
 
-const POS_ORDER = ["QB", "RB", "WR", "TE"];
-const INITIAL_OFFENSE = [
-  { name: "Jalen Cross", team: "DAL", pos: "QB", yds: 4120, td: 29, gameLog: genQBLog(11) },
-  { name: "Marcus Reed", team: "DAL", pos: "RB", yds: 1330, td: 10, gameLog: genRBLog(22) },
-  { name: "Cole Ferris", team: "DAL", pos: "RB", yds: 412, td: 3, gameLog: genRBLog(66) },
-  { name: "Tyrell Combs", team: "DAL", pos: "WR", yds: 1145, td: 8, gameLog: genWRLog(33) },
-  { name: "Deshawn Price", team: "DAL", pos: "WR", yds: 612, td: 4, gameLog: genWRLog(77) },
-  { name: "Miles Vantana", team: "DAL", pos: "WR", yds: 388, td: 2, gameLog: genWRLog(88) },
-  { name: "Grant Aoki", team: "DAL", pos: "TE", yds: 498, td: 3, gameLog: genWRLog(99) },
-  { name: "Beau Whitfield", team: "KC", pos: "QB", yds: 4380, td: 33, gameLog: genQBLog(44) },
-  { name: "Trevor Nash", team: "KC", pos: "RB", yds: 980, td: 7, gameLog: genRBLog(111) },
-  { name: "Deion Marsh", team: "KC", pos: "RB", yds: 355, td: 2, gameLog: genRBLog(122) },
-  { name: "Xavier Lang", team: "KC", pos: "WR", yds: 1310, td: 11, gameLog: genWRLog(55) },
-  { name: "Reese Calder", team: "KC", pos: "WR", yds: 745, td: 5, gameLog: genWRLog(133) },
-  { name: "Corey Blaine", team: "KC", pos: "WR", yds: 340, td: 2, gameLog: genWRLog(144) },
-  { name: "Sammy Okoye", team: "KC", pos: "TE", yds: 560, td: 4, gameLog: genWRLog(155) },
+const DOW = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+function fmtKick(s) {
+  if (!s) return "";
+  const parts = String(s).split(" ");
+  const d = parts[0], t = parts[1] || "00:00";
+  const dt = new Date(d + "T" + t + ":00Z");
+  if (isNaN(dt.getTime())) return String(s);
+  let h = parseInt(t.split(":")[0], 10);
+  const m = t.split(":")[1];
+  const ap = h >= 12 ? "PM" : "AM";
+  h = h % 12 || 12;
+  return DOW[dt.getUTCDay()] + " " + (dt.getUTCMonth() + 1) + "/" + dt.getUTCDate() + " · " + h + ":" + m + " " + ap + " ET";
+}
+
+// ---------- formatters (null -> em dash) ----------
+const DASH = "—";
+const f0 = (v) => (v == null ? DASH : String(Math.round(v)));
+const f1 = (v) => (v == null ? DASH : (+v).toFixed(1));
+const f2 = (v) => (v == null ? DASH : (+v).toFixed(2));
+const fs0 = (v) => (v == null ? DASH : (v > 0 ? "+" : "") + Math.round(v));
+const fs1 = (v) => (v == null ? DASH : (v > 0 ? "+" : "") + (+v).toFixed(1));
+const fs2 = (v) => (v == null ? DASH : (v > 0 ? "+" : "") + (+v).toFixed(2));
+const fsec = (v) => (v == null ? DASH : (+v).toFixed(2) + "s");
+const fmin = (v) => (v == null ? DASH : (+v).toFixed(1) + " min");
+
+function getPath(obj, path) {
+  return path.split(".").reduce((o, k) => (o == null ? o : o[k]), obj);
+}
+function teamValue(code, path, teamStats, teamDetail) {
+  if (path.indexOf(".") >= 0) return getPath(teamDetail[code], path);
+  return teamStats[code] ? teamStats[code][path] : null;
+}
+
+// ---------- stat groups (mirror the original dashboard, wired to real data) ----------
+const STAT_GROUPS = [
+  ["Team", [
+    { label: "PPG", path: "ppg", fmt: f1, hi: true },
+    { label: "PAPG", path: "papg", fmt: f1, hi: false },
+    { label: "YPG", path: "ypg", fmt: f0, hi: true },
+    { label: "YPG Allowed", path: "ypgAllow", fmt: f0, hi: false },
+    { label: "Off EPA/Play", path: "offEpa", fmt: f2, hi: true },
+    { label: "Def EPA/Play", path: "defEpa", fmt: f2, hi: false },
+    { label: "TO Margin", path: "toMargin", fmt: fs0, hi: true },
+  ]],
+  ["Passing", [
+    { label: "CPOE", path: "passing.cpoe", fmt: fs1, hi: true },
+    { label: "EPA/Dropback", path: "passing.epaDropback", fmt: f2, hi: true },
+    { label: "Time to Throw", path: "passing.timeToThrow", fmt: fsec, hi: false },
+    { label: "Deep Ball %", path: "passing.deepBallPct", fmt: f1, hi: true },
+    { label: "Pressure-to-Sack %", path: "passing.pressureToSackPct", fmt: f1, hi: false },
+    { label: "TO-Worthy Play %", path: "passing.toWorthyPct", fmt: f1, hi: false },
+  ]],
+  ["Rushing", [
+    { label: "Rush Yds Over Exp", path: "rushing.ryoe", fmt: fs2, hi: true },
+    { label: "Explosive Run %", path: "rushing.explosiveRunPct", fmt: f1, hi: true },
+    { label: "Success Rate", path: "rushing.successRate", fmt: f1, hi: true },
+    { label: "YPC", path: "rushing.ypc", fmt: f1, hi: true },
+    { label: "Broken Tackle %", path: "rushing.brokenTacklePct", fmt: f1, hi: true },
+    { label: "Stuff Rate", path: "rushing.stuffPct", fmt: f1, hi: false },
+  ]],
+  ["Receiving", [
+    { label: "Yds/Route Run", path: "receiving.yprr", fmt: f2, hi: true },
+    { label: "Avg Separation", path: "receiving.separation", fmt: f1, hi: true },
+    { label: "Catch Rate Over Exp", path: "receiving.cROE", fmt: fs1, hi: true },
+    { label: "Drop %", path: "receiving.dropPct", fmt: f1, hi: false },
+    { label: "YAC/Reception", path: "receiving.yacPerRec", fmt: f1, hi: true },
+  ]],
+  ["Defense", [
+    { label: "Pressure Rate", path: "defense.pressureRate", fmt: f1, hi: true },
+    { label: "Sack Rate", path: "defense.sackRate", fmt: f1, hi: true },
+    { label: "Missed Tackle %", path: "defense.missedTacklePct", fmt: f1, hi: false },
+    { label: "Havoc Rate", path: "defense.havocRate", fmt: f1, hi: true },
+    { label: "Pts/Drive Allowed", path: "defense.ptsPerDriveAllowed", fmt: f2, hi: false },
+    { label: "Coverage Grade", path: "defense.coverageGrade", fmt: f1, hi: true },
+  ]],
+  ["Situational", [
+    { label: "3rd Down %", path: "thirdDownPct", fmt: f1, hi: true },
+    { label: "4th Down %", path: "situational.fourthDownPct", fmt: f1, hi: true },
+    { label: "Red Zone TD %", path: "redZonePct", fmt: f1, hi: true },
+    { label: "Time of Possession", path: "situational.timeOfPossession", fmt: fmin, hi: true },
+    { label: "Plays/Drive", path: "situational.playsPerDrive", fmt: f1, hi: true },
+    { label: "Penalties/Gm", path: "situational.penaltiesPerGm", fmt: f1, hi: false },
+    { label: "Sec/Play (Pace)", path: "situational.secPerPlay", fmt: f1, hi: false },
+  ]],
 ];
 
-const INITIAL_TEAM_STATS = {
-  DAL: { record: "5-2", ppg: 27.4, papg: 21.1, ypg: 378, ypgAllow: 334, offEpa: .09, defEpa: -.04, thirdDownPct: 44.2, redZonePct: 61.3, toMargin: 4 },
-  KC: { record: "6-1", ppg: 29.8, papg: 18.6, ypg: 392, ypgAllow: 308, offEpa: .14, defEpa: -.09, thirdDownPct: 47.5, redZonePct: 66.0, toMargin: 7 },
-  PHI: { record: "4-3", ppg: 24.6, papg: 22.9, ypg: 355, ypgAllow: 349, offEpa: .05, defEpa: -.01, thirdDownPct: 41.0, redZonePct: 58.2, toMargin: 1 },
-  SF: { record: "5-2", ppg: 26.1, papg: 19.4, ypg: 361, ypgAllow: 318, offEpa: .08, defEpa: -.07, thirdDownPct: 43.8, redZonePct: 59.7, toMargin: 5 },
-  BUF: { record: "5-2", ppg: 28.9, papg: 20.3, ypg: 384, ypgAllow: 327, offEpa: .12, defEpa: -.05, thirdDownPct: 46.1, redZonePct: 63.4, toMargin: 3 },
-  MIA: { record: "3-4", ppg: 22.0, papg: 24.8, ypg: 342, ypgAllow: 361, offEpa: .01, defEpa: .03, thirdDownPct: 38.9, redZonePct: 52.1, toMargin: -2 },
-  GB: { record: "4-3", ppg: 23.7, papg: 21.6, ypg: 349, ypgAllow: 336, offEpa: .04, defEpa: -.02, thirdDownPct: 40.5, redZonePct: 56.8, toMargin: 2 },
-  SEA: { record: "3-4", ppg: 21.3, papg: 23.5, ypg: 331, ypgAllow: 352, offEpa: -.02, defEpa: .02, thirdDownPct: 37.6, redZonePct: 51.0, toMargin: -3 },
-  BAL: { record: "5-2", ppg: 27.0, papg: 20.9, ypg: 372, ypgAllow: 330, offEpa: .10, defEpa: -.06, thirdDownPct: 45.3, redZonePct: 62.0, toMargin: 4 },
-  DET: { record: "6-1", ppg: 30.2, papg: 19.9, ypg: 398, ypgAllow: 321, offEpa: .16, defEpa: -.08, thirdDownPct: 48.2, redZonePct: 68.5, toMargin: 6 },
-};
+const NGS_TEAM = [
+  { label: "CPOE", path: "passing.cpoe", fmt: fs1 },
+  { label: "Time to Throw", path: "passing.timeToThrow", fmt: fsec },
+  { label: "Deep Ball %", path: "passing.deepBallPct", fmt: f1 },
+  { label: "Rush Yds Over Exp", path: "rushing.ryoe", fmt: fs2 },
+  { label: "Explosive Run %", path: "rushing.explosiveRunPct", fmt: f1 },
+  { label: "Avg Separation", path: "receiving.separation", fmt: f1 },
+  { label: "YAC/Reception", path: "receiving.yacPerRec", fmt: f1 },
+];
+const OVERVIEW_TEAM = [
+  { label: "PPG", path: "ppg", fmt: f1 },
+  { label: "PAPG", path: "papg", fmt: f1 },
+  { label: "YPG", path: "ypg", fmt: f0 },
+  { label: "YPG Allowed", path: "ypgAllow", fmt: f0 },
+  { label: "Off EPA/Play", path: "offEpa", fmt: f2 },
+  { label: "Def EPA/Play", path: "defEpa", fmt: f2 },
+  { label: "TO Margin", path: "toMargin", fmt: fs0 },
+];
 
-function genTeamDetail(code) {
-  const base = INITIAL_TEAM_STATS[code];
-  const rng = mulberry32(hashStr(code + "-detail"));
-  const off = base.offEpa, def = base.defEpa;
-  return {
-    passing: {
-      cpoe: off * 40 + (rng() - 0.5) * 4 + 2, epaDropback: off + (rng() - 0.5) * 0.05, timeToThrow: 2.6 + rng() * 0.5,
-      deepBallPct: 10 + rng() * 8, pressureToSackPct: 18 + rng() * 10, toWorthyPct: 3 + rng() * 3,
-    },
-    rushing: {
-      ryoe: off * 3 + (rng() - 0.5) * 0.5, explosiveRunPct: 8 + rng() * 6, successRate: 42 + rng() * 10,
-      ypc: 4.0 + rng() * 1.2, brokenTacklePct: 10 + rng() * 8, stuffPct: Math.max(8, 16 - off * 10 + rng() * 4),
-    },
-    receiving: { yprr: 1.6 + rng() * 1.0, separation: 2.8 + rng() * 1.0, cROE: -3 + rng() * 8, dropPct: 3 + rng() * 4, yacPerRec: 4.5 + rng() * 3 },
-    defense: {
-      pressureRate: 28 - def * 40 + rng() * 6, sackRate: 6 - def * 20 + rng() * 2, missedTacklePct: Math.max(6, 10 + def * 40 + rng() * 5),
-      havocRate: 12 - def * 20 + rng() * 3, ptsPerDriveAllowed: 1.6 + def * 4 + rng() * 0.3,
-      coverageGrade: Math.min(99, Math.max(30, 60 - def * 100 + rng() * 10)),
-      passEpaAllowed: def + (rng() - 0.5) * 0.04, rushEpaAllowed: def * 0.7 + (rng() - 0.5) * 0.04,
-    },
-    situational: { fourthDownPct: 50 + rng() * 20, timeOfPossession: 28 + rng() * 4, playsPerDrive: 5.5 + rng() * 1.2, penaltiesPerGm: 5 + rng() * 3, secPerPlay: 24 + rng() * 6 },
-  };
-}
-const INITIAL_TEAM_DETAIL = Object.fromEntries(NFL_OPPONENTS.map((c) => [c, genTeamDetail(c)]));
+const QUICK = [
+  { label: "PPG", path: "ppg", fmt: f1 },
+  { label: "YPG", path: "ypg", fmt: f0 },
+  { label: "Off EPA/Play", path: "offEpa", fmt: f2 },
+  { label: "Red Zone TD %", path: "redZonePct", fmt: f1 },
+];
 
-function genInjuryReport(code) {
-  const rng = mulberry32(hashStr(code + "-inj"));
-  const qbStatus = rng() < 0.75 ? "Healthy" : rng() < 0.5 ? "Questionable" : "Out";
-  const oLineHealth = Math.round(65 + rng() * 30);
-  const secondaryDepth = Math.round(50 + rng() * 40);
-  const posPool = ["WR", "CB", "LB", "OT", "S", "TE", "RB"];
-  const n = Math.floor(rng() * 3);
-  const keyInjuries = [];
-  for (let i = 0; i < n; i++) keyInjuries.push({ pos: posPool[Math.floor(rng() * posPool.length)], status: rng() < 0.5 ? "Questionable" : "Out" });
-  return { qbStatus, oLineHealth, secondaryDepth, keyInjuries };
-}
-const INITIAL_TEAM_INJURIES = Object.fromEntries(NFL_OPPONENTS.map((c) => [c, genInjuryReport(c)]));
+// ---------- little inline SVGs ----------
+const ChevR = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="M9 6l6 6-6 6" /></svg>
+);
+const Flask = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 3h6M10 3v6.5L5 18a2 2 0 0 0 1.8 3h10.4A2 2 0 0 0 19 18l-5-8.5V3" /><path d="M7.5 14h9" /></svg>
+);
 
-function genH2H(a, b) {
-  const rng = mulberry32(hashStr(a + b));
-  const meetings = 3 + Math.floor(rng() * 6);
-  const aWins = Math.floor(rng() * (meetings + 1));
-  return { meetings, aWins, bWins: meetings - aWins, avgCombinedPts: Math.round((38 + rng() * 20) * 10) / 10, avgMarginA: Math.round(((rng() - 0.5) * 14) * 10) / 10 };
+function Badge({ ab, cls }) {
+  const c = color(ab);
+  return (
+    <div className={cls} style={{ background: c, color: txt(c) }}>{ab}</div>
+  );
 }
 
-function genTeamRecentLog(code) {
-  const rng = mulberry32(hashStr(code + "-recent"));
-  const base = INITIAL_TEAM_STATS[code];
-  const log = [];
-  for (let w = 1; w <= 6; w++) {
-    const ptsFor = Math.max(0, Math.round(base.ppg + (rng() - 0.5) * 14));
-    const ptsAgainst = Math.max(0, Math.round(base.papg + (rng() - 0.5) * 14));
-    const ydsFor = Math.round(base.ypg + (rng() - 0.5) * 100);
-    const ydsAgainst = Math.round(base.ypgAllow + (rng() - 0.5) * 100);
-    const offEpa = base.offEpa + (rng() - 0.5) * 0.15;
-    const defEpa = base.defEpa + (rng() - 0.5) * 0.1;
-    log.push({ week: w, opp: opp(rng), ptsFor, ptsAgainst, ydsFor, ydsAgainst, offEpa, defEpa, result: ptsFor >= ptsAgainst ? "W" : "L" });
+// ---------- record helper ----------
+function record(teamStats, code) {
+  return (teamStats[code] && teamStats[code].record) || "0-0";
+}
+
+// ================= Comparison rows =================
+function StatRow({ row, away, home, ts, td, ca, ch }) {
+  const a = teamValue(away, row.path, ts, td);
+  const h = teamValue(home, row.path, ts, td);
+  if (a == null && h == null) {
+    return (
+      <div className="row na">
+        <div className="v l">{DASH}</div><div className="bar l"></div>
+        <div className="lab">{row.label}</div>
+        <div className="bar r"></div><div className="v r">{DASH}</div>
+      </div>
+    );
   }
-  return log.reverse();
-}
-const INITIAL_TEAM_RECENT = Object.fromEntries(NFL_OPPONENTS.map((c) => [c, genTeamRecentLog(c)]));
-
-function computeRecentSummary(teamRecent, code, n) {
-  const log = (teamRecent[code] || []).slice(0, n);
-  if (!log.length) return { ppg: 0, papg: 0, ypg: 0, ypgAllow: 0, offEpa: 0, defEpa: 0, wins: 0, losses: 0 };
-  const avg = (key) => log.reduce((s, g) => s + g[key], 0) / log.length;
-  return {
-    ppg: avg("ptsFor"), papg: avg("ptsAgainst"), ypg: Math.round(avg("ydsFor")), ypgAllow: Math.round(avg("ydsAgainst")),
-    offEpa: avg("offEpa"), defEpa: avg("defEpa"),
-    wins: log.filter((g) => g.result === "W").length, losses: log.filter((g) => g.result === "L").length,
-  };
-}
-
-const INITIAL_WEEK = 8;
-const INITIAL_SCHEDULE = [
-  { away: "KC", home: "DAL", kickoff: "SUN 4:25 PM ET", weather: { temp: 71, wind: 6, precip: "0%" }, surface: "Grass", roof: "Outdoor", awayRestDays: 7, homeRestDays: 7, awayTravelMiles: 452, divisional: false },
-  { away: "PHI", home: "SF", kickoff: "SUN 4:05 PM ET", weather: { temp: 64, wind: 11, precip: "10%" }, surface: "Grass", roof: "Outdoor", awayRestDays: 7, homeRestDays: 10, awayTravelMiles: 2148, divisional: false },
-  { away: "BUF", home: "MIA", kickoff: "SUN 1:00 PM ET", weather: { temp: 82, wind: 9, precip: "20%" }, surface: "Grass", roof: "Outdoor", awayRestDays: 7, homeRestDays: 7, awayTravelMiles: 1276, divisional: true },
-  { away: "GB", home: "SEA", kickoff: "SUN 1:00 PM ET", weather: { temp: 58, wind: 4, precip: "40%" }, surface: "Turf", roof: "Outdoor", awayRestDays: 7, homeRestDays: 7, awayTravelMiles: 1866, divisional: false },
-  { away: "BAL", home: "DET", kickoff: "MON 8:15 PM ET", weather: { temp: 70, wind: 0, precip: "0%" }, surface: "Turf", roof: "Dome", awayRestDays: 6, homeRestDays: 10, awayTravelMiles: 528, divisional: false },
-];
-
-const INITIAL_REFEREES = [
-  { name: "Kevin Marsh", gamesCalled: 112, flagsPerGameIdx: 108, homeAdvAdj: -0.6, overPct: 44 },
-  { name: "Denise Okafor", gamesCalled: 96, flagsPerGameIdx: 93, homeAdvAdj: 1.1, overPct: 57 },
-  { name: "Roland Petit", gamesCalled: 128, flagsPerGameIdx: 101, homeAdvAdj: 0.2, overPct: 50 },
-  { name: "Ayesha Kahn", gamesCalled: 84, flagsPerGameIdx: 116, homeAdvAdj: -1.3, overPct: 39 },
-];
-
-// ================= Data context — everything below reads from here, not the constants above =================
-const DataContext = createContext(null);
-function useData() { return useContext(DataContext); }
-
-// ================= Shared small components =================
-function MiniTable({ columns, rows }) {
+  const av = a == null ? 0 : a, hv = h == null ? 0 : h;
+  const max = Math.max(Math.abs(av), Math.abs(hv)) || 1;
+  const both = a != null && h != null;
+  const aw = both && (row.hi ? av > hv : av < hv);
+  const hw = both && (row.hi ? hv > av : hv < av);
   return (
-    <table className="w-full text-xs" style={{ fontFamily: FONT_MONO }}>
-      <thead>
-        <tr style={{ borderBottom: `1px solid ${T.turf}` }}>
-          {columns.map((c) => <th key={c.key} className="text-left px-3 py-2" style={{ color: T.steel, fontWeight: 500 }}>{c.label}</th>)}
-        </tr>
-      </thead>
-      <tbody>
-        {rows.map((r, i) => (
-          <tr key={i} style={{ borderBottom: `1px solid ${T.turf}` }}>
-            {columns.map((c) => <td key={c.key} className="px-3 py-2" style={{ color: T.chalk }}>{c.fmt ? c.fmt(r[c.key]) : r[c.key]}</td>)}
-          </tr>
-        ))}
-      </tbody>
-    </table>
-  );
-}
-
-function TeamStatLine({ code, onSelect }) {
-  const { teamStats } = useData();
-  const s = teamStats[code];
-  return (
-    <div onClick={() => onSelect(code)} className="cursor-pointer flex-1 min-w-0">
-      <div className="text-lg truncate" style={{ fontFamily: FONT_DISPLAY, fontWeight: 600, color: T.chalk }}>
-        {TEAM_NAMES[code] || code} <span className="text-xs" style={{ color: T.steel, fontWeight: 400 }}>({code})</span>
-      </div>
-      {s ? (
-        <>
-          <div className="mt-1 text-xs" style={{ color: T.steel, fontFamily: FONT_MONO }}>{s.record}</div>
-          <div className="mt-1.5 text-xs flex gap-3 flex-wrap" style={{ fontFamily: FONT_MONO, color: T.brass }}>
-            <span>{f1(s.ppg)} PPG</span>
-            <span>{s.ypg} YPG</span>
-            <span>{f2(s.offEpa)} EPA/Play</span>
-          </div>
-        </>
-      ) : <div className="mt-1.5 text-xs" style={{ color: T.steel }}>No team stats loaded</div>}
+    <div className="row">
+      <div className={"v l " + (aw ? "win" : "lose")}>{row.fmt(a)}</div>
+      <div className="bar l"><i style={{ width: (a == null ? 0 : Math.round((Math.abs(av) / max) * 100)) + "%", background: ca }} /></div>
+      <div className="lab">{row.label}</div>
+      <div className="bar r"><i style={{ width: (h == null ? 0 : Math.round((Math.abs(hv) / max) * 100)) + "%", background: ch }} /></div>
+      <div className={"v r " + (hw ? "win" : "lose")}>{row.fmt(h)}</div>
     </div>
   );
 }
 
-// ---------- Category comparison tables ----------
-function getPath(obj, path) { return path.split(".").reduce((o, k) => (o == null ? o : o[k]), obj); }
-
-const CATEGORY_ROWS = {
-  Overview: [
-    { label: "Record", path: "record" }, { label: "PPG", path: "ppg", fmt: f1 }, { label: "PAPG", path: "papg", fmt: f1 },
-    { label: "YPG", path: "ypg" }, { label: "YPG Allowed", path: "ypgAllow" }, { label: "Off EPA/Play", path: "offEpa", fmt: f2 },
-    { label: "Def EPA/Play", path: "defEpa", fmt: f2 }, { label: "TO Margin", path: "toMargin", fmt: (v) => fSign(v, 0) },
-  ],
-  Passing: [
-    { label: "CPOE", path: "passing.cpoe", fmt: (v) => fSign(v) }, { label: "EPA/Dropback", path: "passing.epaDropback", fmt: f2 },
-    { label: "Time to Throw", path: "passing.timeToThrow", fmt: (v) => (typeof v === "number" ? f2(v) + "s" : "—") }, { label: "Deep Ball %", path: "passing.deepBallPct", fmt: f1 },
-    { label: "Pressure-to-Sack %", path: "passing.pressureToSackPct", fmt: f1 }, { label: "TO-Worthy Play %", path: "passing.toWorthyPct", fmt: f1 },
-  ],
-  Rushing: [
-    { label: "Rush Yds Over Exp", path: "rushing.ryoe", fmt: (v) => fSign(v, 2) }, { label: "Explosive Run %", path: "rushing.explosiveRunPct", fmt: f1 },
-    { label: "Success Rate", path: "rushing.successRate", fmt: f1 }, { label: "YPC", path: "rushing.ypc", fmt: f1 },
-    { label: "Broken Tackle %", path: "rushing.brokenTacklePct", fmt: f1 }, { label: "Stuff Rate", path: "rushing.stuffPct", fmt: f1 },
-  ],
-  Receiving: [
-    { label: "Yds/Route Run", path: "receiving.yprr", fmt: f2 }, { label: "Avg Separation", path: "receiving.separation", fmt: f1 },
-    { label: "Catch Rate Over Exp", path: "receiving.cROE", fmt: (v) => fSign(v) }, { label: "Drop %", path: "receiving.dropPct", fmt: f1 },
-    { label: "YAC/Reception", path: "receiving.yacPerRec", fmt: f1 },
-  ],
-  Defense: [
-    { label: "Pressure Rate", path: "defense.pressureRate", fmt: f1 }, { label: "Sack Rate", path: "defense.sackRate", fmt: f1 },
-    { label: "Missed Tackle %", path: "defense.missedTacklePct", fmt: f1 }, { label: "Havoc Rate", path: "defense.havocRate", fmt: f1 },
-    { label: "Pts/Drive Allowed", path: "defense.ptsPerDriveAllowed", fmt: f2 }, { label: "Coverage Grade", path: "defense.coverageGrade", fmt: f1 },
-  ],
-  Situational: [
-    { label: "3rd Down %", path: "thirdDownPct", fmt: f1 }, { label: "4th Down %", path: "situational.fourthDownPct", fmt: f1 },
-    { label: "Red Zone TD %", path: "redZonePct", fmt: f1 }, { label: "Time of Possession", path: "situational.timeOfPossession", fmt: (v) => (typeof v === "number" ? f1(v) + " min" : "—") },
-    { label: "Plays/Drive", path: "situational.playsPerDrive", fmt: f1 }, { label: "Penalties/Gm", path: "situational.penaltiesPerGm", fmt: f1 },
-    { label: "Sec/Play (Pace)", path: "situational.secPerPlay", fmt: f1 },
-  ],
-};
-
-function CategoryCompareTable({ codes, rows, teamStats, teamDetail }) {
-  function teamValue(code, path) {
-    return path.includes(".") ? getPath(teamDetail[code], path) : teamStats[code]?.[path];
-  }
+function GroupsBlock({ away, home, ts, td }) {
+  const ca = color(away), ch = color(home);
   return (
-    <table className="w-full text-xs" style={{ fontFamily: FONT_MONO }}>
-      <thead>
-        <tr style={{ borderBottom: `1px solid ${T.turf}` }}>
-          <th className="text-left px-3 py-2" style={{ color: T.steel, fontWeight: 500 }}>Stat</th>
-          {codes.map((c) => <th key={c} className="text-left px-3 py-2" style={{ color: T.brass, fontWeight: 600, fontFamily: FONT_DISPLAY }}>{TEAM_NAMES[c] || c}</th>)}
-        </tr>
-      </thead>
-      <tbody>
-        {rows.map((r) => (
-          <tr key={r.label} style={{ borderBottom: `1px solid ${T.turf}` }}>
-            <td className="px-3 py-2" style={{ color: T.steel }}>{r.label}</td>
-            {codes.map((c) => {
-              const v = teamValue(c, r.path);
-              return <td key={c} className="px-3 py-2" style={{ color: T.chalk }}>{r.fmt ? r.fmt(v) : v}</td>;
-            })}
-          </tr>
-        ))}
-      </tbody>
-    </table>
-  );
-}
-
-function FullTeamStats({ codes }) {
-  const { teamStats, teamDetail } = useData();
-  return (
-    <div className="space-y-5">
-      {Object.entries(CATEGORY_ROWS).map(([cat, rows]) => (
-        <div key={cat}>
-          <div className="text-[11px] uppercase tracking-widest mb-1.5" style={{ color: T.steel }}>{cat}</div>
-          <CategoryCompareTable codes={codes} rows={rows} teamStats={teamStats} teamDetail={teamDetail} />
-        </div>
-      ))}
-    </div>
-  );
-}
-
-function InjuryReport({ codes }) {
-  const { teamInjuries } = useData();
-  return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-      {codes.map((code) => {
-        const inj = teamInjuries[code] || { qbStatus: "Unknown", oLineHealth: 0, secondaryDepth: 0, keyInjuries: [] };
-        return (
-          <div key={code}>
-            <div className="text-sm mb-1.5" style={{ fontFamily: FONT_DISPLAY, fontWeight: 600, color: T.chalk }}>{TEAM_NAMES[code] || code}</div>
-            <div className="text-xs space-y-1" style={{ fontFamily: FONT_MONO, color: T.steel }}>
-              <div>QB Status: <span style={{ color: inj.qbStatus === "Healthy" ? T.brass : T.clay }}>{inj.qbStatus}</span></div>
-              <div>O-Line Health Idx: <span style={{ color: T.chalk }}>{inj.oLineHealth}</span></div>
-              <div>Secondary Depth Idx: <span style={{ color: T.chalk }}>{inj.secondaryDepth}</span></div>
-              {inj.keyInjuries.length > 0 ? (
-                <div>Key Injuries: {inj.keyInjuries.map((k, i) => (
-                  <span key={i} style={{ color: T.clay }}>{k.pos} ({k.status}){i < inj.keyInjuries.length - 1 ? ", " : ""}</span>
-                ))}</div>
-              ) : <div>Key Injuries: <span style={{ color: T.brass }}>None reported</span></div>}
-            </div>
-          </div>
-        );
-      })}
-    </div>
-  );
-}
-
-function MatchupEdgePanel({ away, home }) {
-  const { teamDetail } = useData();
-  const a = teamDetail[away], h = teamDetail[home];
-  if (!a || !h) return <div className="text-xs" style={{ color: T.steel }}>Not enough team data loaded for this matchup yet.</div>;
-  const passEdgeAway = a.passing.epaDropback - h.defense.passEpaAllowed;
-  const passEdgeHome = h.passing.epaDropback - a.defense.passEpaAllowed;
-  const rushEdgeAway = a.rushing.ryoe / 5 - h.defense.rushEpaAllowed;
-  const rushEdgeHome = h.rushing.ryoe / 5 - a.defense.rushEpaAllowed;
-  const paceMismatch = a.situational.secPerPlay - h.situational.secPerPlay;
-  const rows = [
-    { label: `Pass Edge (${away})`, val: fSign(passEdgeAway, 2) },
-    { label: `Pass Edge (${home})`, val: fSign(passEdgeHome, 2) },
-    { label: `Rush Edge (${away})`, val: fSign(rushEdgeAway, 2) },
-    { label: `Rush Edge (${home})`, val: fSign(rushEdgeHome, 2) },
-    { label: "Pace Mismatch (sec/play diff)", val: fSign(paceMismatch, 1) },
-  ];
-  return (
-    <div className="text-xs space-y-1.5" style={{ fontFamily: FONT_MONO }}>
-      {rows.map((r) => (
-        <div key={r.label} className="flex justify-between max-w-sm">
-          <span style={{ color: T.steel }}>{r.label}</span>
-          <span style={{ color: T.brass, fontWeight: 500 }}>{r.val}</span>
-        </div>
-      ))}
-      <div className="text-[11px] pt-1" style={{ color: T.steel }}>Positive = advantage to that team's unit.</div>
-    </div>
-  );
-}
-
-function EnvironmentPanel({ game }) {
-  return (
-    <div className="text-xs space-y-1.5" style={{ fontFamily: FONT_MONO, color: T.steel }}>
-      <div>Weather: <span style={{ color: T.chalk }}>
-        {game.weather && game.weather.temp != null ? `${game.weather.temp}°F, ${game.weather.wind} mph wind, ${game.weather.precip} precip` : "Forecast not available"}
-      </span></div>
-      <div>Surface: <span style={{ color: T.chalk }}>{game.surface || "Unknown"}</span> · Roof: <span style={{ color: T.chalk }}>{game.roof || "Unknown"}</span></div>
-      <div>Rest: <span style={{ color: T.chalk }}>{game.away} {game.awayRestDays ?? "—"}d / {game.home} {game.homeRestDays ?? "—"}d</span></div>
-      <div>{game.away} Travel: <span style={{ color: T.chalk }}>{game.awayTravelMiles != null ? `${game.awayTravelMiles} mi` : "—"}</span></div>
-      <div>Divisional Game: <span style={{ color: game.divisional ? T.brass : T.steel }}>{game.divisional ? "Yes" : "No"}</span></div>
-    </div>
-  );
-}
-
-function PlayerPropsList({ code }) {
-  const { offense } = useData();
-  const [level, setLevel] = useState("L4");
-  const n = Number(level.slice(1));
-  const players = offense
-    .filter((p) => p.team === code)
-    .map((p) => {
-      const recent = p.gameLog ? p.gameLog.slice(0, n) : [];
-      const avgYds = recent.length ? Math.round(recent.reduce((s, g) => s + g.yds, 0) / recent.length) : null;
-      const avgTd = recent.length ? recent.reduce((s, g) => s + g.td, 0) / recent.length : null;
-      return { ...p, avgYds, avgTd };
-    })
-    .sort((a, b) => POS_ORDER.indexOf(a.pos) - POS_ORDER.indexOf(b.pos));
-  if (!players.length) return <div className="text-xs" style={{ color: T.steel }}>No player prop data available for this team yet.</div>;
-  return (
-    <div>
-      <div className="flex gap-1.5 mb-3">
-        {["L2", "L4", "L6"].map((l) => (
-          <button key={l} onClick={() => setLevel(l)} className="px-2.5 py-1 rounded-sm text-xs"
-            style={{ background: l === level ? T.brass : T.turf, color: l === level ? T.field : T.steel, fontFamily: FONT_DISPLAY, fontWeight: 500 }}>
-            {l.replace("L", "Last ")}
-          </button>
-        ))}
-      </div>
-      <MiniTable
-        columns={[
-          { key: "name", label: "Player" }, { key: "pos", label: "Pos" }, { key: "yds", label: "Season YDS" },
-          { key: "td", label: "Season TD" }, { key: "avgYds", label: `${level} Avg YDS`, fmt: (v) => (v == null ? "—" : v) },
-          { key: "avgTd", label: `${level} Avg TD`, fmt: (v) => (v == null ? "—" : v.toFixed(1)) },
-        ]}
-        rows={players}
-      />
-    </div>
-  );
-}
-
-function H2HPanel({ away, home, real }) {
-  const h = real || genH2H(away, home);
-  return (
-    <div className="text-xs" style={{ fontFamily: FONT_MONO, color: T.chalk }}>
-      <div className="mb-1">
-        Last {h.meetings} meetings: <span style={{ color: T.brass }}>{TEAM_NAMES[away]} {h.aWins}–{h.bWins} {TEAM_NAMES[home]}</span>
-      </div>
-      <div className="flex gap-4 flex-wrap" style={{ color: T.steel }}>
-        <span>Avg combined pts: <span style={{ color: T.brass }}>{h.avgCombinedPts}</span></span>
-        <span>Avg margin ({away}): <span style={{ color: h.avgMarginA >= 0 ? T.brass : T.clay }}>{h.avgMarginA > 0 ? "+" : ""}{h.avgMarginA}</span></span>
-      </div>
-      {!real && <div className="text-[11px] mt-1" style={{ color: T.steel }}>Demo data — connect live data for real head-to-head history.</div>}
-    </div>
-  );
-}
-
-const RECENT_ROWS = [
-  { label: "Record (window)", get: (s) => `${s.wins}-${s.losses}` },
-  { label: "PPG", get: (s) => f1(s.ppg) },
-  { label: "PAPG", get: (s) => f1(s.papg) },
-  { label: "YPG", get: (s) => s.ypg },
-  { label: "YPG Allowed", get: (s) => s.ypgAllow },
-  { label: "Off EPA/Play", get: (s) => f2(s.offEpa) },
-  { label: "Def EPA/Play", get: (s) => f2(s.defEpa) },
-];
-
-function resultColor(result) { return result === "W" ? T.brass : T.clay; }
-
-function RecentFormPanel({ codes }) {
-  const { teamRecent } = useData();
-  const [level, setLevel] = useState("L4");
-  const n = Number(level.slice(1));
-  const summaries = Object.fromEntries(codes.map((c) => [c, computeRecentSummary(teamRecent, c, n)]));
-  return (
-    <div>
-      <div className="flex gap-1.5 mb-4">
-        {["L2", "L4", "L6"].map((l) => (
-          <button key={l} onClick={() => setLevel(l)} className="px-2.5 py-1 rounded-sm text-xs"
-            style={{ background: l === level ? T.brass : T.turf, color: l === level ? T.field : T.steel, fontFamily: FONT_DISPLAY, fontWeight: 500 }}>
-            {l.replace("L", "Last ")}
-          </button>
-        ))}
-      </div>
-      <table className="w-full text-xs" style={{ fontFamily: FONT_MONO }}>
-        <thead>
-          <tr style={{ borderBottom: `1px solid ${T.turf}` }}>
-            <th className="text-left px-3 py-2" style={{ color: T.steel, fontWeight: 500 }}>Stat</th>
-            {codes.map((c) => <th key={c} className="text-left px-3 py-2" style={{ color: T.brass, fontWeight: 600, fontFamily: FONT_DISPLAY }}>{TEAM_NAMES[c] || c}</th>)}
-          </tr>
-        </thead>
-        <tbody>
-          {RECENT_ROWS.map((r) => (
-            <tr key={r.label} style={{ borderBottom: `1px solid ${T.turf}` }}>
-              <td className="px-3 py-2" style={{ color: T.steel }}>{r.label}</td>
-              {codes.map((c) => <td key={c} className="px-3 py-2" style={{ color: T.chalk }}>{r.get(summaries[c])}</td>)}
-            </tr>
+    <>
+      {STAT_GROUPS.map(([name, rows]) => (
+        <React.Fragment key={name}>
+          <div className="gtitle">{name}</div>
+          {rows.map((r) => (
+            <StatRow key={r.label} row={r} away={away} home={home} ts={ts} td={td} ca={ca} ch={ch} />
           ))}
-        </tbody>
-      </table>
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-5">
-        {codes.map((code) => (
-          <div key={code}>
-            <div className="text-xs mb-1.5" style={{ fontFamily: FONT_DISPLAY, fontWeight: 600, color: T.chalk }}>{TEAM_NAMES[code] || code} Game Log</div>
-            <table className="w-full text-xs" style={{ fontFamily: FONT_MONO }}>
-              <thead>
-                <tr style={{ borderBottom: `1px solid ${T.turf}` }}>
-                  {["Wk", "Opp", "PF", "PA", "Res"].map((h) => <th key={h} className="text-left px-3 py-2" style={{ color: T.steel, fontWeight: 500 }}>{h}</th>)}
-                </tr>
-              </thead>
-              <tbody>
-                {(teamRecent[code] || []).slice(0, n).map((g, i) => (
-                  <tr key={i} style={{ borderBottom: `1px solid ${T.turf}` }}>
-                    <td className="px-3 py-2" style={{ color: T.chalk }}>{g.week}</td>
-                    <td className="px-3 py-2" style={{ color: T.chalk }}>{g.opp}</td>
-                    <td className="px-3 py-2" style={{ color: T.chalk }}>{g.ptsFor}</td>
-                    <td className="px-3 py-2" style={{ color: T.chalk }}>{g.ptsAgainst}</td>
-                    <td className="px-3 py-2 font-semibold" style={{ color: resultColor(g.result) }}>{g.result}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
-
-function Panel({ title, children }) {
-  return (
-    <div className="rounded-sm p-5" style={{ background: T.panel }}>
-      <div className="text-xs uppercase tracking-widest mb-3" style={{ color: T.steel }}>{title}</div>
-      {children}
-    </div>
-  );
-}
-
-// ================= Pages =================
-function SchedulePage({ onSelectTeam, onPreviewGame }) {
-  const { schedule, week } = useData();
-  return (
-    <section className="px-6 py-6">
-      <h3 className="text-xs uppercase tracking-widest mb-3" style={{ color: T.steel }}>Week {week} Schedule</h3>
-      <div className="space-y-3">
-        {schedule.map((g, i) => (
-          <div key={i} className="rounded-sm p-4" style={{ background: T.panel }}>
-            <div className="flex items-center justify-between text-xs mb-3" style={{ color: T.steel, fontFamily: FONT_MONO }}>
-              <span>{g.away} @ {g.home}</span>
-              <span>{g.kickoff}</span>
-            </div>
-            <div className="flex gap-6">
-              <TeamStatLine code={g.away} onSelect={(code) => onSelectTeam(code, g.home)} />
-              <div className="w-px" style={{ background: T.turf }} />
-              <TeamStatLine code={g.home} onSelect={(code) => onSelectTeam(code, g.away)} />
-            </div>
-            <button
-              onClick={() => onPreviewGame(g)}
-              className="mt-3 text-xs px-3 py-1.5 rounded-sm font-medium"
-              style={{ background: T.brass, color: T.field, fontFamily: FONT_DISPLAY, fontWeight: 500 }}
-            >
-              Preview Matchup
-            </button>
-          </div>
-        ))}
-      </div>
-    </section>
-  );
-}
-
-function TeamPage({ team, opponent, onBack }) {
-  return (
-    <>
-      <div className="px-6 pt-5 flex items-center gap-3 flex-wrap">
-        <button onClick={onBack} className="flex items-center gap-1 text-xs" style={{ color: T.steel }}><ArrowLeft size={13} /> Schedule</button>
-        <h2 className="text-xl" style={{ fontFamily: FONT_DISPLAY, fontWeight: 600 }}>
-          {TEAM_NAMES[team] || team} <span className="text-xs" style={{ color: T.steel, fontWeight: 400 }}>vs {TEAM_NAMES[opponent] || opponent} this week</span>
-        </h2>
-      </div>
-      <section className="px-6 py-6 space-y-6">
-        <Panel title={`Team Stats — ${team} vs ${opponent}`}><FullTeamStats codes={[team, opponent]} /></Panel>
-        <Panel title="Recent Form"><RecentFormPanel codes={[team, opponent]} /></Panel>
-        <Panel title="Injury / Personnel Report"><InjuryReport codes={[team, opponent]} /></Panel>
-        <Panel title="Player Prop Watchlist"><PlayerPropsList code={team} /></Panel>
-      </section>
+        </React.Fragment>
+      ))}
     </>
   );
 }
 
-function GamePage({ game, onBack }) {
-  const { away, home, kickoff, h2h } = game;
+function InjCol({ code, inj }) {
+  const c = color(code);
+  const d = inj || { qbStatus: "—", oLineHealth: 0, secondaryDepth: 0, keyInjuries: [] };
+  const key = d.keyInjuries || [];
+  return (
+    <div className="injcol">
+      <div className="injteam">{nick(code)}</div>
+      <div className="injrow"><span>QB Status</span><b className={"pill " + (d.qbStatus === "Healthy" ? "ok" : "warn")}>{d.qbStatus}</b></div>
+      <div className="injrow"><span>O-Line Health</span><b>{d.oLineHealth}</b></div>
+      <div className="injbar"><i style={{ width: (d.oLineHealth || 0) + "%", background: c }} /></div>
+      <div className="injrow"><span>Secondary Depth</span><b>{d.secondaryDepth}</b></div>
+      <div className="injbar"><i style={{ width: (d.secondaryDepth || 0) + "%", background: c }} /></div>
+      <div className="injrow"><span>Key Injuries</span>{key.length ? (
+        <b>{key.map((k, i) => (k.pos || k) + (k.status ? " (" + k.status + ")" : "") + (i < key.length - 1 ? ", " : ""))}</b>
+      ) : <b style={{ color: "var(--muted)" }}>None reported</b>}</div>
+    </div>
+  );
+}
+
+function EdgeBlock({ away, home, td }) {
+  const a = td[away], h = td[home];
+  const num = (x) => (typeof x === "number" ? x : null);
+  function edge(x) { return x == null ? null : x; }
+  let rows = [];
+  if (a && h) {
+    const pa = num(a.passing.epaDropback), pah = num(h.defense.passEpaAllowed);
+    const ph = num(h.passing.epaDropback), pha = num(a.defense.passEpaAllowed);
+    const ra = num(a.rushing.ryoe), rah = num(h.defense.rushEpaAllowed);
+    const rh = num(h.rushing.ryoe), rha = num(a.defense.rushEpaAllowed);
+    const paceA = num(a.situational.secPerPlay), paceH = num(h.situational.secPerPlay);
+    const mk = (p, q) => (p == null || q == null ? null : p - q);
+    rows = [
+      ["Pass Edge (" + away + ")", mk(pa, pah)],
+      ["Pass Edge (" + home + ")", mk(ph, pha)],
+      ["Rush Edge (" + away + ")", ra == null || rah == null ? null : ra / 5 - rah],
+      ["Rush Edge (" + home + ")", rh == null || rha == null ? null : rh / 5 - rha],
+      ["Pace Mismatch (sec/play)", mk(paceA, paceH)],
+    ];
+  } else {
+    rows = [["Pass Edge (" + away + ")", null], ["Pass Edge (" + home + ")", null], ["Rush Edge (" + away + ")", null], ["Rush Edge (" + home + ")", null], ["Pace Mismatch (sec/play)", null]];
+  }
   return (
     <>
-      <div className="px-6 pt-5 flex items-center gap-3 flex-wrap">
-        <button onClick={onBack} className="flex items-center gap-1 text-xs" style={{ color: T.steel }}><ArrowLeft size={13} /> Schedule</button>
-        <h2 className="text-xl" style={{ fontFamily: FONT_DISPLAY, fontWeight: 600 }}>{TEAM_NAMES[away] || away} @ {TEAM_NAMES[home] || home}</h2>
-        <span className="text-xs" style={{ color: T.steel }}>{kickoff}</span>
+      <div className="gtitle">Matchup Edge</div>
+      <div className="edge">
+        {rows.map(([label, v]) => {
+          const cls = v == null ? "" : v > 0 ? "pos" : v < 0 ? "neg" : "";
+          return (
+            <div className="edgerow" key={label}><span>{label}</span><b className={cls}>{v == null ? DASH : (v > 0 ? "+" : "") + v.toFixed(v && Math.abs(v) < 10 ? 2 : 1)}</b></div>
+          );
+        })}
       </div>
-      <section className="px-6 py-6 space-y-6">
-        <Panel title="Head-to-Head"><H2HPanel away={away} home={home} real={h2h} /></Panel>
-        <Panel title="Game Environment"><EnvironmentPanel game={game} /></Panel>
-        <Panel title="Matchup Edge"><MatchupEdgePanel away={away} home={home} /></Panel>
-        <Panel title="Team Stats"><FullTeamStats codes={[away, home]} /></Panel>
-        <Panel title="Recent Form"><RecentFormPanel codes={[away, home]} /></Panel>
-        <Panel title="Injury / Personnel Report"><InjuryReport codes={[away, home]} /></Panel>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          <Panel title={`${TEAM_NAMES[away] || away} Player Props`}><PlayerPropsList code={away} /></Panel>
-          <Panel title={`${TEAM_NAMES[home] || home} Player Props`}><PlayerPropsList code={home} /></Panel>
+    </>
+  );
+}
+
+function EnvChips({ g }) {
+  const w = g.weather || {};
+  return (
+    <div className="mmeta">
+      <span className="chip">{fmtKick(g.kickoff)}</span>
+      <span>Site <b>{VENUE[g.home] || CITY[g.home]}</b></span>
+      <span>Surface <b>{tc(g.surface) || "—"}</b></span>
+      <span>Roof <b>{tc(g.roof) || "—"}</b></span>
+      <span>Rest <b>{(g.awayRestDays != null ? g.awayRestDays : "—") + " / " + (g.homeRestDays != null ? g.homeRestDays : "—")}</b></span>
+      <span>{g.away} Travel <b>{g.awayTravelMiles != null ? g.awayTravelMiles.toLocaleString() + " mi" : "—"}</b></span>
+      {w.temp != null && <span>Wx <b>{w.temp}°F{w.wind != null ? ", " + w.wind + " mph" : ""}</b></span>}
+      {g.divisional && <span className="chip" style={{ background: "var(--gold)", color: "#fff" }}>Division</span>}
+    </div>
+  );
+}
+
+// straight-up recent form; only rendered when real game logs exist
+function recentSummary(log) {
+  const g = log.slice(0, 7);
+  let w = 0, l = 0;
+  g.forEach((r) => (r.result === "W" ? w++ : l++));
+  return { g, w, l };
+}
+function RecentBlock({ away, home, teamRecent }) {
+  const la = (teamRecent[away] || []), lh = (teamRecent[home] || []);
+  if (!la.length && !lh.length) return null;
+  const col = (code, log) => {
+    const s = recentSummary(log);
+    return (
+      <div className="reccol">
+        <div className="injteam">{nick(code)}</div>
+        <div className="recrecs">
+          <div className="recrec"><span>Record</span><b>{s.w}-{s.l}</b></div>
         </div>
-      </section>
+        <div className="reclog">
+          {s.g.map((r, i) => (
+            <div className="recg" key={i}>
+              <div className={"rw " + (r.result === "W" ? "win" : "loss")}>{r.result}</div>
+              <div className="rtag">{(r.ptsFor != null ? r.ptsFor : "") + (r.ptsAgainst != null ? "-" + r.ptsAgainst : "")}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    );
+  };
+  return (
+    <>
+      <div className="gtitle">Recent Form · Last 7</div>
+      <div className="recform">{col(away, la)}{col(home, lh)}</div>
+      <div className="recleg"><span style={{ marginLeft: "auto" }}>Most recent first</span></div>
     </>
   );
 }
 
-function RefereePage() {
-  const { referees } = useData();
+function PropsBlock({ away, home, offense }) {
+  if (!offense || !offense.length) return null;
+  const order = ["QB", "RB", "WR", "TE"];
+  const col = (code) => {
+    const players = offense.filter((p) => p.team === code).sort((a, b) => order.indexOf(a.pos) - order.indexOf(b.pos));
+    return (
+      <div className="propcol">
+        <div className="injteam">{nick(code)} · Player Props</div>
+        <table className="ptab"><thead><tr><th>Player</th><th>Pos</th><th>Yds</th><th>TD</th></tr></thead>
+          <tbody>{players.map((p, i) => (
+            <tr key={i}><td>{p.name}</td><td>{p.pos}</td><td className="tnum">{p.yds != null ? p.yds : DASH}</td><td className="tnum">{p.td != null ? p.td : DASH}</td></tr>
+          ))}</tbody>
+        </table>
+      </div>
+    );
+  };
+  const has = offense.some((p) => p.team === away || p.team === home);
+  if (!has) return null;
   return (
-    <section className="px-6 py-6">
-      <Panel title="Referee Tendencies">
-        <MiniTable
-          columns={[
-            { key: "name", label: "Referee" }, { key: "gamesCalled", label: "Games" },
-            { key: "flagsPerGameIdx", label: "Flags Idx (100=avg)" },
-            { key: "homeAdvAdj", label: "Home Adv Adj", fmt: (v) => fSign(v) },
-            { key: "overPct", label: "Over %" },
-          ]}
-          rows={referees}
-        />
-      </Panel>
-    </section>
+    <>
+      <div className="gtitle">Player Props</div>
+      <div className="props">{col(away)}{col(home)}</div>
+    </>
+  );
+}
+
+// ================= Modals =================
+function GameModal({ away, home, sched, data, onClose, onQuickToFull }) {
+  const g = sched.find((x) => x.away === away && x.home === home) || { away, home, kickoff: "", surface: "", roof: "", weather: {}, divisional: false };
+  const ca = color(away), ch = color(home);
+  return (
+    <div className="modal">
+      <div className="mhead">
+        <button className="mclose" aria-label="Close" onClick={onClose}>{"×"}</button>
+        <div className="mteams">
+          <div className="mteam a"><Badge ab={away} cls="mbadge" /><div><div className="mn">{nick(away)}</div><div className="mr">{CITY[away]} · {record(data.teamStats, away)}</div></div></div>
+          <div className="mat">@</div>
+          <div className="mteam h"><Badge ab={home} cls="mbadge" /><div><div className="mn">{nick(home)}</div><div className="mr">{CITY[home]} · {record(data.teamStats, home)}</div></div></div>
+        </div>
+        <EnvChips g={g} />
+      </div>
+      <div className="mbody">
+        <div className="legend"><span><i style={{ background: ca }} />{nick(away)}</span><span><i style={{ background: ch }} />{nick(home)}</span><span style={{ color: "var(--muted)" }}>Season-to-date team stats</span></div>
+        <GroupsBlock away={away} home={home} ts={data.teamStats} td={data.teamDetail} />
+        <EdgeBlock away={away} home={home} td={data.teamDetail} />
+        <RecentBlock away={away} home={home} teamRecent={data.teamRecent} />
+        <div className="gtitle">Injury Report</div>
+        <div className="inj"><InjCol code={away} inj={data.teamInjuries[away]} /><InjCol code={home} inj={data.teamInjuries[home]} /></div>
+        <PropsBlock away={away} home={home} offense={data.offense} />
+      </div>
+    </div>
+  );
+}
+
+function QuickModal({ away, home, sched, data, onFull, onClose }) {
+  const g = sched.find((x) => x.away === away && x.home === home) || { home, kickoff: "" };
+  return (
+    <div className="qmodal">
+      <div className="qhead">
+        <button className="mclose" aria-label="Close" onClick={onClose}>{"×"}</button>
+        <div className="qteams">
+          <div className="qt"><Badge ab={away} cls="qbadge" /><div className="qn">{away}</div></div>
+          <div className="qat">@</div>
+          <div className="qt h"><Badge ab={home} cls="qbadge" /><div className="qn">{home}</div></div>
+        </div>
+        <div className="qkick">{fmtKick(g.kickoff)} · {VENUE[home] || CITY[home]}</div>
+      </div>
+      <div className="qbody">
+        {QUICK.map((m) => (
+          <div className="qrow" key={m.label}>
+            <div className="qv l">{m.fmt(teamValue(away, m.path, data.teamStats, data.teamDetail))}</div>
+            <div className="qk">{m.label}</div>
+            <div className="qv r">{m.fmt(teamValue(home, m.path, data.teamStats, data.teamDetail))}</div>
+          </div>
+        ))}
+        <button className="qfull" onClick={onFull}>Full Stat Breakdown <ChevR /></button>
+      </div>
+    </div>
+  );
+}
+
+// ================= Teams tab =================
+function KvList({ code, rows, ts, td }) {
+  return (
+    <div className="kv">
+      {rows.map((m) => (
+        <div className="kvrow" key={m.label}><span>{m.label}</span><b>{m.fmt(teamValue(code, m.path, ts, td))}</b></div>
+      ))}
+    </div>
+  );
+}
+function TeamRow({ code, data, open, onToggle }) {
+  const c = color(code);
+  return (
+    <div className={"trow" + (open ? " open" : "")}>
+      <button className="trhead" aria-expanded={open} onClick={onToggle}>
+        <span className="tstripe" style={{ background: c }} />
+        <span className="trlogo abbr" style={{ background: c, color: txt(c) }}>{code}</span>
+        <span className="trmeta"><span className="trname">{nick(code)}</span><span className="trcity">{CITY[code]}</span></span>
+        <span className="trkey">Rec <b>{record(data.teamStats, code)}</b></span>
+        <svg className="trchev" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="M9 6l6 6-6 6" /></svg>
+      </button>
+      <div className="trbody">
+        <div className="gtitle">Next Gen Stats</div>
+        <KvList code={code} rows={NGS_TEAM} ts={data.teamStats} td={data.teamDetail} />
+        <div className="gtitle">Team Overview</div>
+        <KvList code={code} rows={OVERVIEW_TEAM} ts={data.teamStats} td={data.teamDetail} />
+        <div className="pnote">Next Gen Stats populate from nflverse each week once the season is underway.</div>
+      </div>
+    </div>
+  );
+}
+
+function StandingsView({ data }) {
+  const codes = Object.keys(data.teamStats);
+  if (!codes.length) return <div className="note">Standings load once live data is available.</div>;
+  const parseW = (r) => { const m = /^(\d+)-(\d+)/.exec(r || ""); return m ? parseInt(m[1], 10) : 0; };
+  const rows = codes.slice().sort((a, b) => {
+    const wa = parseW(record(data.teamStats, a)), wb = parseW(record(data.teamStats, b));
+    if (wb !== wa) return wb - wa;
+    return (data.teamStats[b].ppg || 0) - (data.teamStats[a].ppg || 0);
+  });
+  return (
+    <div className="stbl-wrap"><table className="stbl">
+      <thead><tr><th className="lft">Team</th><th>Rec</th><th>PPG</th><th>PAPG</th><th>Off EPA</th><th>Def EPA</th></tr></thead>
+      <tbody>{rows.map((c) => {
+        const s = data.teamStats[c];
+        return (
+          <tr key={c}>
+            <td className="plr"><div className="plrcell"><span className="plrlogo abbr" style={{ background: color(c), color: txt(color(c)) }}>{c}</span><span><span className="plrname">{nick(c)}</span><br /><span className="plrsub">{CITY[c]}</span></span></div></td>
+            <td>{s.record}</td><td>{f1(s.ppg)}</td><td>{f1(s.papg)}</td><td>{f2(s.offEpa)}</td><td>{f2(s.defEpa)}</td>
+          </tr>
+        );
+      })}</tbody>
+    </table></div>
+  );
+}
+
+function RefereesView({ referees }) {
+  if (!referees || !referees.length) return <div className="note"><b>Referee tendencies</b> appear here once the season's officiating assignments and flag data are available.</div>;
+  return (
+    <div className="stbl-wrap"><table className="stbl">
+      <thead><tr><th className="lft">Referee</th><th>Games</th><th>Flags Idx</th><th>Home Adj</th><th>Over %</th></tr></thead>
+      <tbody>{referees.map((r, i) => (
+        <tr key={i}><td className="plr">{r.name}</td><td>{r.gamesCalled}</td><td>{r.flagsPerGameIdx}</td><td>{fs1(r.homeAdvAdj)}</td><td>{r.overPct}</td></tr>
+      ))}</tbody>
+    </table></div>
   );
 }
 
 // ================= App =================
-function initialData() {
-  return {
-    teamStats: INITIAL_TEAM_STATS, teamDetail: INITIAL_TEAM_DETAIL, teamInjuries: INITIAL_TEAM_INJURIES,
-    teamRecent: INITIAL_TEAM_RECENT, schedule: INITIAL_SCHEDULE, offense: INITIAL_OFFENSE, referees: INITIAL_REFEREES, week: INITIAL_WEEK,
-  };
-}
+const EMPTY = { teamStats: {}, teamDetail: {}, teamInjuries: {}, teamRecent: {}, schedule: [], offense: [], referees: [], week: null };
 
-export default function NFLDashboard() {
-  const [view, setView] = useState("schedule"); // schedule | team | game | referees
-  const [selectedTeam, setSelectedTeam] = useState(null);
-  const [selectedOpponent, setSelectedOpponent] = useState(null);
-  const [selectedGame, setSelectedGame] = useState(null);
-  const [data, setData] = useState(initialData);
-  const [liveStatus, setLiveStatus] = useState("loading"); // loading | live | failed
-  const [lastUpdated, setLastUpdated] = useState(null);
+export default function RedzoneLabs() {
+  const [data, setData] = useState(EMPTY);
+  const [status, setStatus] = useState("loading"); // loading | live | failed
+  const [updated, setUpdated] = useState(null);
+  const [view, setView] = useState("scores"); // scores | standings | teams | referees
+  const [modal, setModal] = useState(null); // {type:'game'|'quick', away, home}
+  const [openTeamCode, setOpenTeamCode] = useState(null);
 
-  async function loadLiveData() {
-    setLiveStatus("loading");
+  const load = useCallback(async () => {
+    setStatus("loading");
     try {
-      const res = await fetch(`${LIVE_DATA_URL}?t=${Date.now()}`);
-      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const res = await fetch(LIVE_DATA_URL + "?t=" + Date.now());
+      if (!res.ok) throw new Error("HTTP " + res.status);
       const live = await res.json();
-      setData((prev) => ({
-        teamStats: live.teamStats && Object.keys(live.teamStats).length ? live.teamStats : prev.teamStats,
-        teamDetail: live.teamDetail && Object.keys(live.teamDetail).length ? live.teamDetail : prev.teamDetail,
-        teamInjuries: live.teamInjuries && Object.keys(live.teamInjuries).length ? live.teamInjuries : prev.teamInjuries,
-        teamRecent: live.teamRecent && Object.keys(live.teamRecent).length ? live.teamRecent : prev.teamRecent,
-        schedule: Array.isArray(live.schedule) && live.schedule.length ? live.schedule : prev.schedule,
-        offense: Array.isArray(live.offense) && live.offense.length ? live.offense : prev.offense,
-        referees: Array.isArray(live.referees) && live.referees.length ? live.referees : prev.referees,
-        week: live.week ?? prev.week,
-      }));
-      setLiveStatus("live");
-      setLastUpdated(new Date());
-    } catch (err) {
-      console.warn("Live NFL data fetch failed, staying on demo data:", err);
-      setLiveStatus("failed");
+      setData({
+        teamStats: live.teamStats || {},
+        teamDetail: live.teamDetail || {},
+        teamInjuries: live.teamInjuries || {},
+        teamRecent: live.teamRecent || {},
+        schedule: Array.isArray(live.schedule) ? live.schedule : [],
+        offense: Array.isArray(live.offense) ? live.offense : [],
+        referees: Array.isArray(live.referees) ? live.referees : [],
+        week: live.week != null ? live.week : null,
+      });
+      setStatus("live");
+      setUpdated(new Date());
+    } catch (e) {
+      console.warn("Live data fetch failed:", e);
+      setStatus("failed");
     }
-  }
-
-  useEffect(() => {
-    loadLiveData();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const navSection = view === "referees" ? "referees" : "schedule";
+  useEffect(() => { load(); }, [load]);
+  useEffect(() => {
+    function onKey(e) { if (e.key === "Escape") setModal(null); }
+    document.addEventListener("keydown", onKey);
+    return () => document.removeEventListener("keydown", onKey);
+  }, []);
+  useEffect(() => {
+    document.body.style.overflow = modal ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
+  }, [modal]);
 
-  function selectTeam(code, opponent) { setSelectedTeam(code); setSelectedOpponent(opponent); setView("team"); }
-  function previewGame(game) { setSelectedGame(game); setView("game"); }
+  const sched = data.schedule;
+  const TABS = [["scores", "Scores"], ["standings", "Standings"], ["teams", "Teams"], ["referees", "Referees"]];
 
   return (
-    <DataContext.Provider value={data}>
-      <div className="min-h-screen w-full" style={{ background: T.field, color: T.chalk, fontFamily: "'Inter', sans-serif" }}>
-        <style>{`@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');`}</style>
+    <>
+      <style>{CSS}</style>
 
-        <header className="border-b px-6 py-5 flex items-center justify-between flex-wrap gap-3" style={{ borderColor: T.turf }}>
-          <div>
-            <h1 className="text-2xl tracking-tight" style={{ fontFamily: FONT_DISPLAY, fontWeight: 600 }}>
-              GRIDIRON<span style={{ color: T.brass }}>REPORT</span>
-            </h1>
-            <p className="text-xs mt-0.5" style={{ color: T.steel }}>Team stats, matchups, injuries &amp; player props</p>
-            <p className="text-[11px] mt-1" style={{ color: liveStatus === "live" ? T.brass : liveStatus === "failed" ? T.clay : T.steel }}>
-              {liveStatus === "loading" && "Loading live data…"}
-              {liveStatus === "live" && `Live data as of ${lastUpdated ? lastUpdated.toLocaleString() : ""}`}
-              {liveStatus === "failed" && "Live data unavailable — showing demo data"}
-            </p>
+      <header className="top">
+        <div className="wrap">
+          <span className="mark" aria-hidden="true"><Flask /></span>
+          <div className="brand"><span className="b1">REDZONE</span><span className="b2">LABS</span></div>
+          <nav className="tabs">
+            {TABS.map(([v, label]) => (
+              <a key={v} className={view === v ? "on" : ""} href="#" onClick={(e) => { e.preventDefault(); setView(v); }}>{label}</a>
+            ))}
+          </nav>
+          <div className="right">
+            <span className="live" title={status === "live" && updated ? "Updated " + updated.toLocaleString() : ""}>
+              <span className="dot" style={status === "failed" ? { background: "#D50000" } : undefined} />
+              {status === "live" ? "Live Data" : status === "loading" ? "Loading…" : "Offline"}
+            </span>
           </div>
-          <div className="flex items-center gap-2">
-            <button onClick={loadLiveData} className="text-xs px-3 py-2 rounded-sm border" style={{ borderColor: T.turf, color: T.steel }}>
-              Refresh
-            </button>
-            <div className="flex rounded-sm overflow-hidden" style={{ border: `1px solid ${T.turf}` }}>
-              {["schedule", "referees"].map((v) => (
-                <button key={v} onClick={() => setView(v)} className="px-3 py-2 text-xs capitalize"
-                  style={{ background: navSection === v ? T.brass : "transparent", color: navSection === v ? T.field : T.steel, fontFamily: FONT_DISPLAY, fontWeight: 500 }}>
-                  {v}
-                </button>
-              ))}
+        </div>
+      </header>
+
+      {view === "scores" && (
+        <div className="seasonbar">
+          <div className="wrap">
+            <div className="season-label">2026 <span>/ Regular Season</span></div>
+            <div className="weekstep" style={{ pointerEvents: "none" }}>
+              <button className="wlabel" style={{ borderRadius: 10 }}>Week <b>{data.week != null ? data.week : "—"}</b></button>
             </div>
+            <div className="asof">{status === "live" && updated ? "Updated " + updated.toLocaleDateString() : status === "failed" ? "Live data unavailable" : "Loading…"}</div>
           </div>
-        </header>
+        </div>
+      )}
 
-        {view === "schedule" && <SchedulePage onSelectTeam={selectTeam} onPreviewGame={previewGame} />}
-        {view === "team" && <TeamPage team={selectedTeam} opponent={selectedOpponent} onBack={() => setView("schedule")} />}
-        {view === "game" && <GamePage game={selectedGame} onBack={() => setView("schedule")} />}
-        {view === "referees" && <RefereePage />}
-      </div>
-    </DataContext.Provider>
+      {view === "scores" && (
+        <main className="wrap viewfade" key="scores">
+          <div className="eyebrow"><span>Week {data.week != null ? data.week : ""}</span> · All Games <span className="tag">{sched.length} games</span></div>
+          {sched.length ? (
+            <div className="grid">
+              {sched.map((g, i) => {
+                const a = g.away, h = g.home, ca = color(a), ch = color(h);
+                return (
+                  <div className="game" key={i} onClick={(e) => { if (e.target.closest(".cta")) { e.preventDefault(); setModal({ type: "quick", away: a, home: h }); } else setModal({ type: "game", away: a, home: h }); }}>
+                    <div className="spine2"><span style={{ background: ca }} /><span style={{ background: ch }} /></div>
+                    <div className="ghead"><span>{g.divisional ? "Division" : "Inter-conf"}</span><span className="kick">{fmtKick(g.kickoff)}</span></div>
+                    <div className="grow"><Badge ab={a} cls="gbadge" /><div className="gteam"><div className="gn">{nick(a)}</div><div className="gc">{a} · Away</div></div><span className="rec tnum">{record(data.teamStats, a)}</span></div>
+                    <div className="grow"><Badge ab={h} cls="gbadge" /><div className="gteam"><div className="gn">{nick(h)}</div><div className="gc">{h} · Home</div></div><span className="rec tnum">{record(data.teamStats, h)}</span></div>
+                    <div className="gfoot">
+                      {g.divisional && <span className="vchip div">Division</span>}
+                      <span className="vchip">{tc(g.roof)}</span><span className="vchip">{tc(g.surface)}</span>
+                      {g.awayTravelMiles != null && <span className="vchip">{g.awayTravelMiles.toLocaleString()} mi</span>}
+                      <a className="cta" href="#" onClick={(e) => e.preventDefault()}>Preview <ChevR /></a>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          ) : (
+            <div className="note">{status === "failed" ? "Live schedule unavailable right now. It refreshes nightly from nflverse." : "Loading this week’s schedule…"}</div>
+          )}
+          <div className="note">Schedule, sites, travel and team stats come from your nightly nflverse pull. Pre-season, stat columns fill in once games are played. Betting lines, per-player Next Gen search and player props are held until a live source is connected.</div>
+        </main>
+      )}
+
+      {view === "standings" && (
+        <section className="wrap viewfade" key="standings">
+          <div className="eyebrow">Standings <span className="tag">2026</span></div>
+          <StandingsView data={data} />
+        </section>
+      )}
+
+      {view === "teams" && (
+        <section className="wrap viewfade" key="teams">
+          <div className="eyebrow">All Teams <span className="tag">Next Gen Stats</span></div>
+          <div className="tgrid">
+            {Object.keys(data.teamStats).sort().map((c) => (
+              <TeamRow key={c} code={c} data={data} open={openTeamCode === c} onToggle={() => setOpenTeamCode(openTeamCode === c ? null : c)} />
+            ))}
+          </div>
+          {!Object.keys(data.teamStats).length && <div className="note">Team pages load once live data is available.</div>}
+          <div className="note"><b>Next Gen Stats</b> (CPOE, time to throw, rush yards over expected, separation, YAC/reception) come from nflverse. Values fill in per team each week; click a team to expand its full profile.</div>
+        </section>
+      )}
+
+      {view === "referees" && (
+        <section className="wrap viewfade" key="referees">
+          <div className="eyebrow">Referees</div>
+          <RefereesView referees={data.referees} />
+        </section>
+      )}
+
+      <footer>Redzone Labs · westonnick7.github.io/gridiron-report</footer>
+
+      {modal && (
+        <div className="overlay on" onClick={(e) => { if (e.target.classList.contains("overlay")) setModal(null); }}>
+          {modal.type === "game" ? (
+            <GameModal away={modal.away} home={modal.home} sched={sched} data={data} onClose={() => setModal(null)} />
+          ) : (
+            <QuickModal away={modal.away} home={modal.home} sched={sched} data={data} onFull={() => setModal({ type: "game", away: modal.away, home: modal.home })} onClose={() => setModal(null)} />
+          )}
+        </div>
+      )}
+    </>
   );
 }
