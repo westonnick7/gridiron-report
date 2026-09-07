@@ -114,6 +114,13 @@ def _safe_weekly(seasons):
         print("  weekly player stats empty -- player props blank until games are played")
         return pd.DataFrame(columns=_WEEKLY_COLS)
     return df
+_NGS_TEAM_ALIAS = {"LAR": "LA"}
+def _norm_ngs(df):
+    if len(df) and "team_abbr" in df.columns:
+        df = df.copy()
+        df["team_abbr"] = df["team_abbr"].replace(_NGS_TEAM_ALIAS)
+    return df
+
 def _safe_ngs(kind, seasons):
     try:
         return nfl.import_ngs_data(kind, seasons)
@@ -371,20 +378,43 @@ def real_h2h(all_schedules, away, home):
     }
 
 
-def build_team_recent(team, schedules, pbp, n=6):
+def _game_ats_ou(g, team):
+    """Return (ats, ou) for one completed game from `team`'s perspective.
+    ats in {C=cover, X=no cover, P=push} using nflverse spread_line (positive =
+    home favored). ou in {O=over, U=under, P=push} using total_line. Either is
+    None when the line is missing."""
+    hs, as_ = g.get("home_score"), g.get("away_score")
+    if pd.isna(hs) or pd.isna(as_):
+        return (None, None)
+    total = hs + as_
+    home_margin = hs - as_
+    ats = None
+    sl = g.get("spread_line")
+    if pd.notna(sl):
+        home_cover = home_margin - sl            # >0 home covers, <0 away covers
+        m = home_cover if team == g.home_team else -home_cover
+        ats = "P" if abs(m) < 1e-9 else ("C" if m > 0 else "X")
+    ou = None
+    tl = g.get("total_line")
+    if pd.notna(tl):
+        ou = "P" if abs(total - tl) < 1e-9 else ("O" if total > tl else "U")
+    return (ats, ou)
+
+
+def build_team_recent(team, schedules, n=7):
+    """Last `n` completed games (most recent first) with straight-up result plus
+    ATS and O/U outcomes derived from the closing lines in nflverse schedules."""
     games = schedules[
         ((schedules.home_team == team) | (schedules.away_team == team)) & schedules.result.notna()
     ].sort_values("gameday", ascending=False).head(n)
     rows = []
     for _, g in games.iterrows():
         pf, pa, opp = (g.home_score, g.away_score, g.away_team) if g.home_team == team else (g.away_score, g.home_score, g.home_team)
-        gp = pbp[pbp.game_id == g.game_id]
-        off, defn = gp[gp.posteam == team], gp[gp.defteam == team]
+        ats, ou = _game_ats_ou(g, team)
         rows.append({
             "week": int(g.week), "opp": opp, "ptsFor": int(pf), "ptsAgainst": int(pa),
-            "ydsFor": int(off.yards_gained.sum()) if len(off) else 0, "ydsAgainst": int(defn.yards_gained.sum()) if len(defn) else 0,
-            "offEpa": safe_mean(off.epa), "defEpa": safe_mean(defn.epa),
-            "result": "W" if pf > pa else "L",
+            "result": "W" if pf > pa else ("L" if pf < pa else "T"),
+            "ats": ats, "ou": ou,
         })
     return rows  # already most-recent-first from the descending sort
 
@@ -412,6 +442,57 @@ def build_player_props(team, weekly, positions=("QB", "RB", "WR", "TE"), top_n=7
 
 
 # ================= referees =================
+# ================= player Next Gen search =================
+_NGS_PASS = [("att", "attempts", 0), ("cmp", "completion_percentage", 1), ("xcmp", "expected_completion_percentage", 1),
+             ("cpoe", "completion_percentage_above_expectation", 1), ("ttt", "avg_time_to_throw", 2),
+             ("iay", "avg_intended_air_yards", 1), ("aggr", "aggressiveness", 1), ("yds", "pass_yards", 0), ("td", "pass_touchdowns", 0)]
+_NGS_RUSH = [("att", "rush_attempts", 0), ("yds", "rush_yards", 0), ("ypc", "avg_rush_yards", 1), ("eff", "efficiency", 2),
+             ("stack", "percent_attempts_gte_eight_defenders", 1), ("ryoe", "rush_yards_over_expected_per_att", 2),
+             ("td", "rush_touchdowns", 0), ("tlos", "avg_time_to_los", 2)]
+_NGS_REC = [("rec", "receptions", 0), ("yds", "yards", 0), ("sep", "avg_separation", 1), ("cush", "avg_cushion", 1),
+            ("iay", "avg_intended_air_yards", 1), ("yac", "avg_yac", 1), ("yacoe", "avg_yac_above_expectation", 1),
+            ("ctch", "catch_percentage", 1), ("td", "rec_touchdowns", 0)]
+
+
+def _ngs_num(v, dec):
+    try:
+        f = float(v)
+    except (TypeError, ValueError):
+        return None
+    if math.isnan(f):
+        return None
+    return int(round(f)) if dec == 0 else round(f, dec)
+
+
+def _ngs_season_rows(df):
+    if not len(df):
+        return df
+    return df[df.week == 0] if (df.week == 0).any() else df
+
+
+def _build_ngs_group(df, group, spec, pos_default, teams):
+    df = _ngs_season_rows(_norm_ngs(df))
+    out = []
+    for _, r in df.iterrows():
+        team = r.get("team_abbr")
+        if teams and team not in teams:
+            continue
+        row = {"name": r.get("player_display_name"), "team": team,
+               "pos": r.get("player_position") or pos_default, "group": group}
+        for key, col, dec in spec:
+            row[key] = _ngs_num(r.get(col), dec)
+        out.append(row)
+    return out
+
+
+def build_players_ngs(ngs_pass, ngs_rush, ngs_rec, teams):
+    players = []
+    players += _build_ngs_group(ngs_pass, "passing", _NGS_PASS, "QB", teams)
+    players += _build_ngs_group(ngs_rush, "rushing", _NGS_RUSH, "RB", teams)
+    players += _build_ngs_group(ngs_rec, "receiving", _NGS_REC, "WR", teams)
+    return players
+
+
 def build_referees(season, pbp, schedules):
     try:
         officials = nfl.import_officials([season])
@@ -478,17 +559,30 @@ def main():
     schedules = schedules_all[schedules_all.season == SEASON]
     week_target = compute_target_week(schedules, WEEK)
     print("Target week: %s" % week_target)
+    completed_all = schedules_all[schedules_all.result.notna()]
+    recent_season = int(completed_all.season.max()) if len(completed_all) else SEASON
+    schedules_recent = schedules_all[schedules_all.season == recent_season]
+    print("Recency / Next Gen search season: %s" % recent_season)
     weekly = _safe_weekly([SEASON])
     try:
         injuries = nfl.import_injuries([SEASON])
     except Exception as e:
         print(f"  injuries unavailable ({e})")
         injuries = pd.DataFrame(columns=["team", "week", "position", "report_status"])
-    ngs_pass = _safe_ngs("passing", [SEASON])
-    ngs_rush = _safe_ngs("rushing", [SEASON])
-    ngs_rec = _safe_ngs("receiving", [SEASON])
+    ngs_pass = _norm_ngs(_safe_ngs("passing", [SEASON]))
+    ngs_rush = _norm_ngs(_safe_ngs("rushing", [SEASON]))
+    ngs_rec = _norm_ngs(_safe_ngs("receiving", [SEASON]))
 
     latest_injury_week = injuries.week.max() if len(injuries) else week_target
+
+    if recent_season == SEASON:
+        ngs_pass_r, ngs_rush_r, ngs_rec_r = ngs_pass, ngs_rush, ngs_rec
+    else:
+        ngs_pass_r = _norm_ngs(_safe_ngs("passing", [recent_season]))
+        ngs_rush_r = _norm_ngs(_safe_ngs("rushing", [recent_season]))
+        ngs_rec_r = _norm_ngs(_safe_ngs("receiving", [recent_season]))
+    players = build_players_ngs(ngs_pass_r, ngs_rush_r, ngs_rec_r, set(TEAMS))
+    print("Next Gen search players: %d" % len(players))
 
     team_stats, team_detail, team_injuries, team_recent, offense = {}, {}, {}, {}, []
     for team in TEAMS:
@@ -496,7 +590,7 @@ def main():
         team_stats[team] = build_team_stats(team, schedules, pbp)
         team_detail[team] = build_team_detail(team, pbp, ngs_pass, ngs_rush, ngs_rec)
         team_injuries[team] = build_injury_report(team, injuries, latest_injury_week)
-        team_recent[team] = build_team_recent(team, schedules, pbp)
+        team_recent[team] = build_team_recent(team, schedules_recent)
         offense.extend(build_player_props(team, weekly))
 
     print("Building schedule for the target week...")
@@ -508,6 +602,7 @@ def main():
     output = {
         "teamStats": team_stats, "teamDetail": team_detail, "teamInjuries": team_injuries,
         "teamRecent": team_recent, "schedule": schedule, "offense": offense, "referees": referees, "week": week_target,
+        "players": players, "recentSeason": recent_season,
     }
 
     with open("data/gridiron_report_data.json", "w") as f:

@@ -165,11 +165,32 @@ const Flask = () => (
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 3h6M10 3v6.5L5 18a2 2 0 0 0 1.8 3h10.4A2 2 0 0 0 19 18l-5-8.5V3" /><path d="M7.5 14h9" /></svg>
 );
 
+const ESPN_CODE = { LA: "lar", WAS: "wsh" };
+function logoUrl(ab) {
+  const code = ESPN_CODE[ab] || ab.toLowerCase();
+  return "https://a.espncdn.com/i/teamlogos/nfl/500/" + code + ".png";
+}
 function Badge({ ab, cls }) {
+  const [ok, setOk] = useState(true);
   const c = color(ab);
-  return (
-    <div className={cls} style={{ background: c, color: txt(c) }}>{ab}</div>
+  if (ok) return (
+    <div className={cls + " haslogo"} style={{ "--tc": c }}>
+      <img src={logoUrl(ab)} alt={nick(ab)} loading="lazy" onError={() => setOk(false)} />
+    </div>
   );
+  return <div className={cls} style={{ background: c, color: txt(c) }}>{ab}</div>;
+}
+function TeamLogo({ ab }) {
+  const [ok, setOk] = useState(true);
+  const c = color(ab);
+  if (ok) return <span className="trlogo"><img src={logoUrl(ab)} alt={nick(ab)} loading="lazy" onError={() => setOk(false)} /></span>;
+  return <span className="trlogo abbr" style={{ background: c, color: txt(c) }}>{ab}</span>;
+}
+function PlrLogo({ ab }) {
+  const [ok, setOk] = useState(true);
+  const c = color(ab);
+  if (ok) return <span className="plrlogo"><img src={logoUrl(ab)} alt={ab} loading="lazy" onError={() => setOk(false)} /></span>;
+  return <span className="plrlogo abbr" style={{ background: c, color: txt(c) }}>{ab}</span>;
 }
 
 // ---------- record helper ----------
@@ -297,12 +318,17 @@ function EnvChips({ g }) {
 // straight-up recent form; only rendered when real game logs exist
 function recentSummary(log) {
   const g = log.slice(0, 7);
-  let w = 0, l = 0;
-  g.forEach((r) => (r.result === "W" ? w++ : l++));
-  return { g, w, l };
+  let w = 0, l = 0, c = 0, x = 0, ap = 0, o = 0, u = 0, op = 0;
+  g.forEach((r) => {
+    if (r.result === "W") w++; else if (r.result === "L") l++;
+    if (r.ats === "C") c++; else if (r.ats === "X") x++; else if (r.ats === "P") ap++;
+    if (r.ou === "O") o++; else if (r.ou === "U") u++; else if (r.ou === "P") op++;
+  });
+  const hasLines = g.some((r) => r.ats || r.ou);
+  return { g, w, l, c, x, ap, o, u, op, hasLines };
 }
-function RecentBlock({ away, home, teamRecent }) {
-  const la = (teamRecent[away] || []), lh = (teamRecent[home] || []);
+function RecentBlock({ away, home, teamRecent, season }) {
+  const la = teamRecent[away] || [], lh = teamRecent[home] || [];
   if (!la.length && !lh.length) return null;
   const col = (code, log) => {
     const s = recentSummary(log);
@@ -311,27 +337,43 @@ function RecentBlock({ away, home, teamRecent }) {
         <div className="injteam">{nick(code)}</div>
         <div className="recrecs">
           <div className="recrec"><span>Record</span><b>{s.w}-{s.l}</b></div>
+          {s.hasLines && <div className="recrec"><span>ATS</span><b>{s.c}-{s.x}-{s.ap}</b></div>}
+          {s.hasLines && <div className="recrec"><span>O/U</span><b>{s.o}-{s.u}-{s.op}</b></div>}
         </div>
         <div className="reclog">
-          {s.g.map((r, i) => (
-            <div className="recg" key={i}>
-              <div className={"rw " + (r.result === "W" ? "win" : "loss")}>{r.result}</div>
-              <div className="rtag">{(r.ptsFor != null ? r.ptsFor : "") + (r.ptsAgainst != null ? "-" + r.ptsAgainst : "")}</div>
-            </div>
-          ))}
+          {s.g.map((r, i) => {
+            const atsCls = r.ats === "C" ? "rc-c" : r.ats === "X" ? "rc-x" : "rc-p";
+            const ouCls = r.ou === "O" ? "" : "rc-p";
+            return (
+              <div className="recg" key={i}>
+                <div className={"rw " + (r.result === "W" ? "win" : "loss")}>{r.result}</div>
+                <div className="rtag">
+                  {r.ats ? <i className={atsCls}>{r.ats}</i> : <span>&middot;</span>}
+                  {" \u00b7 "}
+                  {r.ou ? <i className={ouCls}>{r.ou}</i> : <span>&middot;</span>}
+                </div>
+              </div>
+            );
+          })}
         </div>
       </div>
     );
   };
+  const anyLines = [...la, ...lh].some((r) => r.ats || r.ou);
   return (
     <>
-      <div className="gtitle">Recent Form · Last 7</div>
+      <div className="gtitle">Recent Form &middot; Last 7{season ? " \u00b7 " + season : ""}</div>
       <div className="recform">{col(away, la)}{col(home, lh)}</div>
-      <div className="recleg"><span style={{ marginLeft: "auto" }}>Most recent first</span></div>
+      {anyLines && (
+        <div className="recleg">
+          <span><i className="rc-c">C</i> Cover &nbsp; <i className="rc-x">X</i> No cover &nbsp; <i className="rc-p">P</i> Push</span>
+          <span><i>O</i> Over &nbsp; <i>U</i> Under &nbsp; <i className="rc-p">P</i> Push</span>
+          <span style={{ marginLeft: "auto" }}>Most recent first</span>
+        </div>
+      )}
     </>
   );
 }
-
 function PropsBlock({ away, home, offense }) {
   if (!offense || !offense.length) return null;
   const order = ["QB", "RB", "WR", "TE"];
@@ -377,7 +419,7 @@ function GameModal({ away, home, sched, data, onClose, onQuickToFull }) {
         <div className="legend"><span><i style={{ background: ca }} />{nick(away)}</span><span><i style={{ background: ch }} />{nick(home)}</span><span style={{ color: "var(--muted)" }}>Season-to-date team stats</span></div>
         <GroupsBlock away={away} home={home} ts={data.teamStats} td={data.teamDetail} />
         <EdgeBlock away={away} home={home} td={data.teamDetail} />
-        <RecentBlock away={away} home={home} teamRecent={data.teamRecent} />
+        <RecentBlock away={away} home={home} teamRecent={data.teamRecent} season={data.recentSeason} />
         <div className="gtitle">Injury Report</div>
         <div className="inj"><InjCol code={away} inj={data.teamInjuries[away]} /><InjCol code={home} inj={data.teamInjuries[home]} /></div>
         <PropsBlock away={away} home={home} offense={data.offense} />
@@ -429,7 +471,7 @@ function TeamRow({ code, data, open, onToggle }) {
     <div className={"trow" + (open ? " open" : "")}>
       <button className="trhead" aria-expanded={open} onClick={onToggle}>
         <span className="tstripe" style={{ background: c }} />
-        <span className="trlogo abbr" style={{ background: c, color: txt(c) }}>{code}</span>
+        <TeamLogo ab={code} />
         <span className="trmeta"><span className="trname">{nick(code)}</span><span className="trcity">{CITY[code]}</span></span>
         <span className="trkey">Rec <b>{record(data.teamStats, code)}</b></span>
         <svg className="trchev" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="M9 6l6 6-6 6" /></svg>
@@ -461,7 +503,7 @@ function StandingsView({ data }) {
         const s = data.teamStats[c];
         return (
           <tr key={c}>
-            <td className="plr"><div className="plrcell"><span className="plrlogo abbr" style={{ background: color(c), color: txt(color(c)) }}>{c}</span><span><span className="plrname">{nick(c)}</span><br /><span className="plrsub">{CITY[c]}</span></span></div></td>
+            <td className="plr"><div className="plrcell"><PlrLogo ab={c} /><span><span className="plrname">{nick(c)}</span><br /><span className="plrsub">{CITY[c]}</span></span></div></td>
             <td>{s.record}</td><td>{f1(s.ppg)}</td><td>{f1(s.papg)}</td><td>{f2(s.offEpa)}</td><td>{f2(s.defEpa)}</td>
           </tr>
         );
@@ -483,7 +525,104 @@ function RefereesView({ referees }) {
 }
 
 // ================= App =================
-const EMPTY = { teamStats: {}, teamDetail: {}, teamInjuries: {}, teamRecent: {}, schedule: [], offense: [], referees: [], week: null };
+// ================= Next Gen Search =================
+const SEARCH_META = {
+  passing: { label: "Passing", metrics: [
+    ["att", "Att", 0, false], ["cmp", "Cmp %", 1, false], ["xcmp", "xCmp %", 1, false],
+    ["cpoe", "CPOE", 1, true], ["ttt", "Time to Throw", 2, false], ["iay", "Air Yds/Att", 1, false],
+    ["aggr", "Aggr %", 1, false], ["yds", "Pass Yds", 0, false], ["td", "Pass TD", 0, false] ], hero: "cpoe" },
+  rushing: { label: "Rushing", metrics: [
+    ["att", "Att", 0, false], ["yds", "Rush Yds", 0, false], ["ypc", "Yds/Att", 1, false], ["eff", "Efficiency", 2, false],
+    ["stack", "8+ Box %", 1, false], ["ryoe", "RYOE/Att", 2, true], ["td", "Rush TD", 0, false], ["tlos", "Time to LOS", 2, false] ], hero: "ryoe" },
+  receiving: { label: "Receiving", metrics: [
+    ["rec", "Rec", 0, false], ["yds", "Rec Yds", 0, false], ["sep", "Avg Sep", 1, false], ["cush", "Cushion", 1, false],
+    ["iay", "Intended AY", 1, false], ["yac", "Avg YAC", 1, false], ["yacoe", "YAC OE", 1, true], ["ctch", "Catch %", 1, false], ["td", "Rec TD", 0, false] ], hero: "yacoe" },
+};
+function fmtVal(v, dec, signed) {
+  if (v == null) return DASH;
+  const s = signed && v > 0 ? "+" : "";
+  return s + (dec ? Number(v).toFixed(dec) : Math.round(v));
+}
+function SearchView({ players, season }) {
+  const [group, setGroup] = useState("passing");
+  const [team, setTeam] = useState("");
+  const [sort, setSort] = useState(null);
+  const [order, setOrder] = useState("desc");
+  const [name, setName] = useState("");
+  const meta = SEARCH_META[group];
+  const heroKey = meta.hero;
+  const sortKey = sort || heroKey;
+  let rows = players.filter((p) => p.group === group);
+  const teams = Array.from(new Set(rows.map((p) => p.team))).sort();
+  if (team) rows = rows.filter((p) => p.team === team);
+  if (name) rows = rows.filter((p) => (p.name || "").toLowerCase().includes(name.toLowerCase()));
+  rows = rows.slice().sort((a, b) => {
+    if (sortKey === "name") { const r = (a.name || "").localeCompare(b.name || ""); return order === "asc" ? r : -r; }
+    const av = a[sortKey], bv = b[sortKey];
+    if (av == null && bv == null) return 0;
+    if (av == null) return 1;
+    if (bv == null) return -1;
+    return order === "asc" ? av - bv : bv - av;
+  });
+  function clickSort(k) { if (sortKey === k) setOrder(order === "desc" ? "asc" : "desc"); else { setSort(k); setOrder("desc"); } }
+  return (
+    <section className="wrap viewfade" key="search">
+      <div className="eyebrow">Next Gen Search <span className="tag">{season ? season + " \u00b7 " : ""}Player Leaderboard</span></div>
+      <div className="searchbar">
+        <div className="sbtop"><div className="posseg">
+          {Object.keys(SEARCH_META).map((g) => (
+            <button key={g} className={group === g ? "on" : ""} onClick={() => { setGroup(g); setSort(null); setTeam(""); }}>{SEARCH_META[g].label}</button>
+          ))}
+        </div></div>
+        <div className="sbfilters">
+          <div className="fld"><label>Team</label>
+            <select value={team} onChange={(e) => setTeam(e.target.value)}>
+              <option value="">All Teams</option>
+              {teams.map((t) => <option key={t} value={t}>{nick(t)}</option>)}
+            </select></div>
+          <div className="fld"><label>Sort By</label>
+            <select value={sortKey} onChange={(e) => setSort(e.target.value)}>
+              {meta.metrics.map((m) => <option key={m[0]} value={m[0]}>{m[1]}</option>)}
+            </select></div>
+          <div className="fld"><label>Order</label>
+            <select value={order} onChange={(e) => setOrder(e.target.value)}>
+              <option value="desc">High &rarr; Low</option><option value="asc">Low &rarr; High</option>
+            </select></div>
+          <div className="fld grow"><label>Search Player</label>
+            <input type="text" value={name} placeholder="Type a name..." onChange={(e) => setName(e.target.value)} /></div>
+          <div className="schint"><b>{rows.length}</b> players</div>
+        </div>
+      </div>
+      <div className="stbl-wrap"><table className="stbl">
+        <thead><tr>
+          <th className="lft" style={{ cursor: "default" }}>#</th>
+          <th className="lft" onClick={() => clickSort("name")}>Player</th>
+          {meta.metrics.map((m) => (
+            <th key={m[0]} className={(m[0] === heroKey ? "hero " : "") + (sortKey === m[0] ? "sorted" : "")} onClick={() => clickSort(m[0])}>
+              {m[1]}<span className="arw">{sortKey === m[0] ? (order === "asc" ? "\u25b2" : "\u25bc") : "\u25bc"}</span>
+            </th>
+          ))}
+        </tr></thead>
+        <tbody>
+          {rows.length ? rows.map((p, i) => (
+            <tr key={i}>
+              <td className="rk">{i + 1}</td>
+              <td className="plr"><div className="plrcell"><PlrLogo ab={p.team} /><span><span className="plrname">{p.name}</span><br /><span className="plrsub">{p.pos} &middot; {p.team}</span></span></div></td>
+              {meta.metrics.map((m) => {
+                const v = p[m[0]]; const signed = m[3];
+                const cls = (m[0] === heroKey ? "hero " : "") + (signed && v != null ? (v > 0 ? "pos-good" : v < 0 ? "pos-bad" : "") : "");
+                return <td key={m[0]} className={cls.trim()}>{fmtVal(v, m[2], signed)}</td>;
+              })}
+            </tr>
+          )) : <tr><td className="stbl-empty" colSpan={meta.metrics.length + 2}>No players match those filters.</td></tr>}
+        </tbody>
+      </table></div>
+      <div className="note"><b>Next Gen Search</b> mirrors Baseball Savant's Statcast Search for the NFL &mdash; pick a position group, filter by team, and sort any Next Gen metric. Per-player Next Gen Stats come from nflverse{season ? " (" + season + " season)" : ""}.</div>
+    </section>
+  );
+}
+
+const EMPTY = { teamStats: {}, teamDetail: {}, teamInjuries: {}, teamRecent: {}, schedule: [], offense: [], referees: [], week: null, players: [], recentSeason: null };
 
 export default function RedzoneLabs() {
   const [data, setData] = useState(EMPTY);
@@ -508,6 +647,8 @@ export default function RedzoneLabs() {
         offense: Array.isArray(live.offense) ? live.offense : [],
         referees: Array.isArray(live.referees) ? live.referees : [],
         week: live.week != null ? live.week : null,
+        players: Array.isArray(live.players) ? live.players : [],
+        recentSeason: live.recentSeason != null ? live.recentSeason : null,
       });
       setStatus("live");
       setUpdated(new Date());
@@ -529,7 +670,8 @@ export default function RedzoneLabs() {
   }, [modal]);
 
   const sched = data.schedule;
-  const TABS = [["scores", "Scores"], ["standings", "Standings"], ["teams", "Teams"], ["referees", "Referees"]];
+  const hasSearch = (data.players || []).length > 0;
+  const TABS = [["scores", "Scores"], ["standings", "Standings"], ["teams", "Teams"], ...(hasSearch ? [["search", "Next Gen"]] : []), ["referees", "Referees"]];
 
   return (
     <>
@@ -614,6 +756,8 @@ export default function RedzoneLabs() {
           <div className="note"><b>Next Gen Stats</b> (CPOE, time to throw, rush yards over expected, separation, YAC/reception) come from nflverse. Values fill in per team each week; click a team to expand its full profile.</div>
         </section>
       )}
+
+      {view === "search" && <SearchView players={data.players} season={data.recentSeason} />}
 
       {view === "referees" && (
         <section className="wrap viewfade" key="referees">
