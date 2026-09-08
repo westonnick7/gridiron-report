@@ -61,6 +61,10 @@ WHAT'S REAL VS. APPROXIMATED VS. NOT AVAILABLE (read before trusting the numbers
 import json
 import math
 import datetime
+import os
+import statistics
+import urllib.request
+import urllib.error
 
 import numpy as np
 import pandas as pd
@@ -493,6 +497,223 @@ def build_players_ngs(ngs_pass, ngs_rush, ngs_rec, teams):
     return players
 
 
+# ================= player prop lines (The Odds API) =================
+# Consensus player-prop lines for the current week's games. Requires the
+# ODDS_API_KEY env var (a free key from https://the-odds-api.com). Left empty
+# (and the Player Props section stays hidden) when no key is configured.
+# CREDIT NOTE: player props use the per-event odds endpoint, which costs one
+# credit per market per region per event. ~16 games x 5 markets ~= 80 credits
+# per run, so a nightly cadence needs more than the 500/month free tier —
+# reduce cadence or use a paid tier if you want it every night.
+ODDS_API_KEY = os.environ.get("ODDS_API_KEY", "").strip()
+ODDS_BASE = "https://api.the-odds-api.com/v4/sports/americanfootball_nfl"
+ODDS_MARKETS = ["player_pass_yds", "player_rush_yds", "player_reception_yds", "player_receptions", "player_anytime_td"]
+_MARKET_FIELD = {
+    "player_pass_yds": "pass", "player_rush_yds": "rush",
+    "player_reception_yds": "recyds", "player_receptions": "rec",
+}
+TEAM_FULLNAME = {
+    "Arizona Cardinals": "ARI", "Atlanta Falcons": "ATL", "Baltimore Ravens": "BAL",
+    "Buffalo Bills": "BUF", "Carolina Panthers": "CAR", "Chicago Bears": "CHI",
+    "Cincinnati Bengals": "CIN", "Cleveland Browns": "CLE", "Dallas Cowboys": "DAL",
+    "Denver Broncos": "DEN", "Detroit Lions": "DET", "Green Bay Packers": "GB",
+    "Houston Texans": "HOU", "Indianapolis Colts": "IND", "Jacksonville Jaguars": "JAX",
+    "Kansas City Chiefs": "KC", "Los Angeles Rams": "LA", "Los Angeles Chargers": "LAC",
+    "Las Vegas Raiders": "LV", "Miami Dolphins": "MIA", "Minnesota Vikings": "MIN",
+    "New England Patriots": "NE", "New Orleans Saints": "NO", "New York Giants": "NYG",
+    "New York Jets": "NYJ", "Philadelphia Eagles": "PHI", "Pittsburgh Steelers": "PIT",
+    "Seattle Seahawks": "SEA", "San Francisco 49ers": "SF", "Tampa Bay Buccaneers": "TB",
+    "Tennessee Titans": "TEN", "Washington Commanders": "WAS",
+}
+_ROSTER_TEAM_ALIAS = {"LAR": "LA"}
+
+
+def _norm_name(n):
+    if not n:
+        return ""
+    n = str(n).lower().strip()
+    for suf in (" jr", " sr", " ii", " iii", " iv", " v"):
+        if n.endswith(suf):
+            n = n[: -len(suf)]
+    return "".join(ch for ch in n if ch.isalnum())
+
+
+def build_name_team_map(season, fallback_season):
+    """normalized player name -> (team, position) from nflverse rosters."""
+    for yr in (season, fallback_season):
+        try:
+            r = nfl.import_seasonal_rosters([yr])
+        except Exception as e:
+            print("  rosters unavailable for %s (%s)" % (yr, e))
+            continue
+        if not len(r) or "player_name" not in r.columns:
+            continue
+        out = {}
+        for _, row in r.iterrows():
+            team = _ROSTER_TEAM_ALIAS.get(row.get("team"), row.get("team"))
+            out[_norm_name(row.get("player_name"))] = (team, row.get("position"))
+        if out:
+            print("  roster name map: %d players (%s)" % (len(out), yr))
+            return out
+    return {}
+
+
+def _odds_get(url):
+    req = urllib.request.Request(url, headers={"User-Agent": "gridiron-report"})
+    with urllib.request.urlopen(req, timeout=30) as resp:
+        return json.loads(resp.read().decode("utf-8"))
+
+
+def _med(vals):
+    vals = [v for v in vals if v is not None]
+    return round(statistics.median(vals), 1) if vals else None
+
+
+def _med_int(vals):
+    vals = [v for v in vals if v is not None]
+    return int(round(statistics.median(vals))) if vals else None
+
+
+def build_player_props_odds(week_teams, name_team):
+    """dict team -> list of player prop rows (consensus line + over/under odds
+    per market, plus anytime-TD price). Empty when no key / no data, which
+    keeps the Player Props section hidden."""
+    if not ODDS_API_KEY:
+        print("  ODDS_API_KEY not set -- player prop lines skipped (section stays hidden)")
+        return {}, None
+    try:
+        events = _odds_get("%s/events?apiKey=%s" % (ODDS_BASE, ODDS_API_KEY))
+    except Exception as e:
+        print("  odds events fetch failed (%s)" % e)
+        return {}, None
+    # only the current-week matchups among our teams
+    want = set(week_teams)
+    ev_ids = []
+    for ev in events or []:
+        h = TEAM_FULLNAME.get(ev.get("home_team")); a = TEAM_FULLNAME.get(ev.get("away_team"))
+        if h in want and a in want:
+            ev_ids.append(ev.get("id"))
+    print("  odds: %d matching events" % len(ev_ids))
+
+    # player -> {market_field: {points:[], over:[], under:[]}, td:[]}
+    agg = {}
+    for eid in ev_ids:
+        url = "%s/events/%s/odds?apiKey=%s&regions=us&oddsFormat=american&markets=%s" % (
+            ODDS_BASE, eid, ODDS_API_KEY, ",".join(ODDS_MARKETS))
+        try:
+            data = _odds_get(url)
+        except Exception as e:
+            print("  odds event %s failed (%s)" % (eid, e))
+            continue
+        for bk in data.get("bookmakers", []):
+            for mk in bk.get("markets", []):
+                mkey = mk.get("key")
+                for oc in mk.get("outcomes", []):
+                    player = oc.get("description") or oc.get("name")
+                    if not player:
+                        continue
+                    a = agg.setdefault(player, {})
+                    if mkey == "player_anytime_td":
+                        a.setdefault("td", []).append(oc.get("price"))
+                    elif mkey in _MARKET_FIELD:
+                        fld = _MARKET_FIELD[mkey]
+                        slot = a.setdefault(fld, {"points": [], "over": [], "under": []})
+                        slot["points"].append(oc.get("point"))
+                        side = (oc.get("name") or "").lower()
+                        if side == "over":
+                            slot["over"].append(oc.get("price"))
+                        elif side == "under":
+                            slot["under"].append(oc.get("price"))
+
+    props = {}
+    for player, a in agg.items():
+        team, pos = name_team.get(_norm_name(player), (None, None))
+        if team is None or team not in want:
+            continue
+        row = {"name": player, "pos": pos}
+        has = False
+        for fld in ("pass", "rush", "recyds", "rec"):
+            slot = a.get(fld)
+            if slot and _med(slot["points"]) is not None:
+                row[fld] = {"l": _med(slot["points"]), "o": _med_int(slot["over"]), "u": _med_int(slot["under"])}
+                has = True
+            else:
+                row[fld] = None
+        if a.get("td"):
+            row["td"] = {"p": _med_int(a["td"])}
+            has = True
+        else:
+            row["td"] = None
+        if has:
+            props.setdefault(team, []).append(row)
+    for t in props:
+        props[t].sort(key=lambda r: (r.get("pass") is None, -(r.get("pass") or {}).get("l", 0)))
+    total = sum(len(v) for v in props.values())
+    print("  player prop rows: %d across %d teams" % (total, len(props)))
+    return props, "consensus"
+
+
+# ================= game betting lines (free, keyless via ESPN) =================
+ESPN_SCOREBOARD = "https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard"
+ESPN_ABBR_ALIAS = {"LAR": "LA", "WSH": "WAS"}
+
+
+def _american(x):
+    try:
+        return int(str(x).replace("+", "").strip())
+    except (TypeError, ValueError):
+        return None
+
+
+def build_game_odds(schedule):
+    """Attach spread / total / moneyline to each schedule game from ESPN's free
+    public scoreboard (no API key). Best-effort: leaves odds=None on any failure."""
+    for g in schedule:
+        g["odds"] = None
+    if not schedule:
+        return schedule
+    try:
+        data = _odds_get(ESPN_SCOREBOARD)
+    except Exception as e:
+        print("  ESPN scoreboard fetch failed (%s) -- game lines skipped" % e)
+        return schedule
+    lines = {}
+    for ev in data.get("events", []):
+        try:
+            comp = ev["competitions"][0]
+            teams = {}
+            for c in comp.get("competitors", []):
+                ab = c.get("team", {}).get("abbreviation")
+                teams[c.get("homeAway")] = ESPN_ABBR_ALIAS.get(ab, ab)
+            home, away = teams.get("home"), teams.get("away")
+            od = (comp.get("odds") or [None])[0]
+            if not od or not home or not away:
+                continue
+            ml = od.get("moneyline") or {}
+            def side(which):
+                d = ml.get(which) or {}
+                c = d.get("close") or d.get("current") or d.get("open") or {}
+                return _american(c.get("odds"))
+            lines[(away, home)] = {
+                "spread": od.get("spread"),
+                "total": od.get("overUnder"),
+                "detail": od.get("details"),
+                "mlAway": side("away"),
+                "mlHome": side("home"),
+                "book": (od.get("provider") or {}).get("name"),
+            }
+        except Exception:
+            continue
+    n = 0
+    for g in schedule:
+        o = lines.get((g["away"], g["home"]))
+        if o and (o["spread"] is not None or o["total"] is not None or o["mlHome"] is not None):
+            g["odds"] = o
+            n += 1
+    print("  game betting lines attached: %d/%d games" % (n, len(schedule)))
+    return schedule
+
+
 def build_referees(season, pbp, schedules):
     try:
         officials = nfl.import_officials([season])
@@ -595,6 +816,13 @@ def main():
 
     print("Building schedule for the target week...")
     schedule = build_schedule(schedules, week_target, TEAMS)
+    print("Fetching free game betting lines (ESPN)...")
+    schedule = build_game_odds(schedule)
+
+    print("Fetching player prop lines (if ODDS_API_KEY set)...")
+    week_teams = [g["away"] for g in schedule] + [g["home"] for g in schedule]
+    name_team = build_name_team_map(SEASON, recent_season) if ODDS_API_KEY else {}
+    props, props_book = build_player_props_odds(week_teams, name_team)
 
     print("Attempting referee tendencies...")
     referees = build_referees(SEASON, pbp, schedules)
@@ -603,6 +831,7 @@ def main():
         "teamStats": team_stats, "teamDetail": team_detail, "teamInjuries": team_injuries,
         "teamRecent": team_recent, "schedule": schedule, "offense": offense, "referees": referees, "week": week_target,
         "players": players, "recentSeason": recent_season,
+        "props": props, "propsBook": props_book,
     }
 
     with open("data/gridiron_report_data.json", "w") as f:
