@@ -558,8 +558,15 @@ def build_name_team_map(season, fallback_season):
     return {}
 
 
+_BROWSER_HEADERS = {
+    "User-Agent": ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+                   "(KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36"),
+    "Accept": "application/json, text/plain, */*",
+    "Accept-Language": "en-US,en;q=0.9",
+    "Referer": "https://www.espn.com/",
+}
 def _odds_get(url):
-    req = urllib.request.Request(url, headers={"User-Agent": "gridiron-report"})
+    req = urllib.request.Request(url, headers=_BROWSER_HEADERS)
     with urllib.request.urlopen(req, timeout=30) as resp:
         return json.loads(resp.read().decode("utf-8"))
 
