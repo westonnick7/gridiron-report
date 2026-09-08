@@ -4023,7 +4023,8 @@
       "homeRestDays": 7,
       "awayTravelMiles": 2485,
       "divisional": false,
-      "h2h": null
+      "h2h": null,
+      "odds": null
     },
     {
       "away": "SF",
@@ -4040,7 +4041,8 @@
       "homeRestDays": 7,
       "awayTravelMiles": 314,
       "divisional": true,
-      "h2h": null
+      "h2h": null,
+      "odds": null
     },
     {
       "away": "CHI",
@@ -4057,7 +4059,8 @@
       "homeRestDays": 7,
       "awayTravelMiles": 586,
       "divisional": false,
-      "h2h": null
+      "h2h": null,
+      "odds": null
     },
     {
       "away": "TB",
@@ -4074,7 +4077,8 @@
       "homeRestDays": 7,
       "awayTravelMiles": 777,
       "divisional": false,
-      "h2h": null
+      "h2h": null,
+      "odds": null
     },
     {
       "away": "NO",
@@ -4091,7 +4095,8 @@
       "homeRestDays": 7,
       "awayTravelMiles": 941,
       "divisional": false,
-      "h2h": null
+      "h2h": null,
+      "odds": null
     },
     {
       "away": "BUF",
@@ -4108,7 +4113,8 @@
       "homeRestDays": 7,
       "awayTravelMiles": 1290,
       "divisional": false,
-      "h2h": null
+      "h2h": null,
+      "odds": null
     },
     {
       "away": "BAL",
@@ -4125,7 +4131,8 @@
       "homeRestDays": 7,
       "awayTravelMiles": 509,
       "divisional": false,
-      "h2h": null
+      "h2h": null,
+      "odds": null
     },
     {
       "away": "CLE",
@@ -4142,7 +4149,8 @@
       "homeRestDays": 7,
       "awayTravelMiles": 773,
       "divisional": false,
-      "h2h": null
+      "h2h": null,
+      "odds": null
     },
     {
       "away": "ATL",
@@ -4159,7 +4167,8 @@
       "homeRestDays": 7,
       "awayTravelMiles": 521,
       "divisional": false,
-      "h2h": null
+      "h2h": null,
+      "odds": null
     },
     {
       "away": "NYJ",
@@ -4176,7 +4185,8 @@
       "homeRestDays": 7,
       "awayTravelMiles": 757,
       "divisional": false,
-      "h2h": null
+      "h2h": null,
+      "odds": null
     },
     {
       "away": "ARI",
@@ -4193,7 +4203,8 @@
       "homeRestDays": 7,
       "awayTravelMiles": 350,
       "divisional": false,
-      "h2h": null
+      "h2h": null,
+      "odds": null
     },
     {
       "away": "MIA",
@@ -4210,7 +4221,8 @@
       "homeRestDays": 7,
       "awayTravelMiles": 2171,
       "divisional": false,
-      "h2h": null
+      "h2h": null,
+      "odds": null
     },
     {
       "away": "GB",
@@ -4227,7 +4239,8 @@
       "homeRestDays": 7,
       "awayTravelMiles": 257,
       "divisional": true,
-      "h2h": null
+      "h2h": null,
+      "odds": null
     },
     {
       "away": "WAS",
@@ -4244,7 +4257,8 @@
       "homeRestDays": 7,
       "awayTravelMiles": 114,
       "divisional": true,
-      "h2h": null
+      "h2h": null,
+      "odds": null
     },
     {
       "away": "DAL",
@@ -4261,7 +4275,8 @@
       "homeRestDays": 7,
       "awayTravelMiles": 1385,
       "divisional": true,
-      "h2h": null
+      "h2h": null,
+      "odds": null
     },
     {
       "away": "DEN",
@@ -4278,7 +4293,8 @@
       "homeRestDays": 7,
       "awayTravelMiles": 564,
       "divisional": true,
-      "h2h": null
+      "h2h": null,
+      "odds": null
     }
   ],
   "offense": [],
@@ -7430,5 +7446,7 @@
       "td": 6
     }
   ],
-  "recentSeason": 2025
+  "recentSeason": 2025,
+  "props": {},
+  "propsBook": null
 }
