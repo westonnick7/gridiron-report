@@ -374,39 +374,30 @@ function RecentBlock({ away, home, teamRecent, season }) {
     </>
   );
 }
-function oddsFmt(v) { return v == null ? "" : (v > 0 ? "+" + v : "" + v); }
-function PropCell({ m }) {
-  if (!m || m.l == null) return <td className="tnum">{DASH}</td>;
-  return <td className="tnum"><b>{m.l}</b>{(m.o != null || m.u != null) && <span className="oddsline">{oddsFmt(m.o)}/{oddsFmt(m.u)}</span>}</td>;
-}
-function PropsBlock({ away, home, props, book }) {
-  if (!props) return null;
-  const ra = props[away] || [], rh = props[home] || [];
-  if (!ra.length && !rh.length) return null;
-  const col = (code, rows) => {
-    if (!rows.length) return null;
+function PropsBlock({ away, home, offense }) {
+  if (!offense || !offense.length) return null;
+  const order = ["QB", "RB", "WR", "TE"];
+  const col = (code) => {
+    const players = offense.filter((p) => p.team === code).sort((a, b) => order.indexOf(a.pos) - order.indexOf(b.pos));
+    if (!players.length) return null;
     return (
       <div className="propcol">
         <div className="injteam">{nick(code)} &middot; Player Props</div>
-        <div className="ptabwrap"><table className="ptab"><thead><tr>
-          <th>Player</th><th>Pass</th><th>Rush</th><th>Rec Yds</th><th>Rec</th><th>TD</th>
-        </tr></thead><tbody>
-          {rows.map((p, i) => (
-            <tr key={i}>
-              <td>{p.name}</td>
-              <PropCell m={p.pass} /><PropCell m={p.rush} /><PropCell m={p.recyds} /><PropCell m={p.rec} />
-              <td className="tnum">{p.td && p.td.p != null ? <b>{oddsFmt(p.td.p)}</b> : DASH}</td>
-            </tr>
-          ))}
-        </tbody></table></div>
+        <table className="ptab"><thead><tr><th>Player</th><th>Pos</th><th>Season Yds</th><th>Season TD</th></tr></thead>
+          <tbody>{players.map((p, i) => (
+            <tr key={i}><td>{p.name}</td><td>{p.pos}</td><td className="tnum">{p.yds != null ? p.yds : DASH}</td><td className="tnum">{p.td != null ? p.td : DASH}</td></tr>
+          ))}</tbody>
+        </table>
       </div>
     );
   };
+  const has = offense.some((p) => p.team === away || p.team === home);
+  if (!has) return null;
   return (
     <>
       <div className="gtitle">Player Props</div>
-      <div className="pnote">{book === "consensus" ? "Consensus lines across major books" : "Sportsbook lines"} &mdash; over/under odds under each yardage line; TD is the anytime-touchdown price.</div>
-      <div className="props">{col(away, ra)}{col(home, rh)}</div>
+      <div className="pnote">Season yards and touchdowns per player, from the nightly nflverse pull once games are played.</div>
+      <div className="props">{col(away)}{col(home)}</div>
     </>
   );
 }
@@ -451,7 +442,7 @@ function GameModal({ away, home, sched, data, onClose, onQuickToFull }) {
         <RecentBlock away={away} home={home} teamRecent={data.teamRecent} season={data.recentSeason} />
         <div className="gtitle">Injury Report</div>
         <div className="inj"><InjCol code={away} inj={data.teamInjuries[away]} /><InjCol code={home} inj={data.teamInjuries[home]} /></div>
-        <PropsBlock away={away} home={home} props={data.props} book={data.propsBook} />
+        <PropsBlock away={away} home={home} offense={data.offense} />
       </div>
     </div>
   );
