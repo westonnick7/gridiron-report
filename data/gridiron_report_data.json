@@ -1860,9 +1860,18 @@
     },
     "NE": {
       "qbStatus": "Healthy",
-      "oLineHealth": 100,
+      "oLineHealth": 85,
       "secondaryDepth": 100,
-      "keyInjuries": []
+      "keyInjuries": [
+        {
+          "pos": "C",
+          "status": "Out"
+        },
+        {
+          "pos": "RB",
+          "status": "Out"
+        }
+      ]
     },
     "NO": {
       "qbStatus": "Healthy",
@@ -1897,8 +1906,21 @@
     "SEA": {
       "qbStatus": "Healthy",
       "oLineHealth": 100,
-      "secondaryDepth": 100,
-      "keyInjuries": []
+      "secondaryDepth": 78,
+      "keyInjuries": [
+        {
+          "pos": "S",
+          "status": "Out"
+        },
+        {
+          "pos": "WR",
+          "status": "Questionable"
+        },
+        {
+          "pos": "S",
+          "status": "Questionable"
+        }
+      ]
     },
     "SF": {
       "qbStatus": "Healthy",
