@@ -193,16 +193,16 @@
       "toMargin": 0
     },
     "LA": {
-      "record": "0-0",
-      "ppg": 0,
-      "papg": 0,
-      "ypg": 0,
-      "ypgAllow": 0,
-      "offEpa": 0,
-      "defEpa": 0,
-      "thirdDownPct": 0,
-      "redZonePct": 0,
-      "toMargin": 0
+      "record": "0-1",
+      "ppg": 7.0,
+      "papg": 27.0,
+      "ypg": 290,
+      "ypgAllow": 379,
+      "offEpa": -0.2646,
+      "defEpa": 0.1788,
+      "thirdDownPct": 20.0,
+      "redZonePct": 33.3,
+      "toMargin": -1
     },
     "LAC": {
       "record": "0-0",
@@ -337,16 +337,16 @@
       "toMargin": 3
     },
     "SF": {
-      "record": "0-0",
-      "ppg": 0,
-      "papg": 0,
-      "ypg": 0,
-      "ypgAllow": 0,
-      "offEpa": 0,
-      "defEpa": 0,
-      "thirdDownPct": 0,
-      "redZonePct": 0,
-      "toMargin": 0
+      "record": "1-0",
+      "ppg": 27.0,
+      "papg": 7.0,
+      "ypg": 379,
+      "ypgAllow": 290,
+      "offEpa": 0.1788,
+      "defEpa": -0.2646,
+      "thirdDownPct": 58.3,
+      "redZonePct": 66.7,
+      "toMargin": 1
     },
     "TB": {
       "record": "0-0",
@@ -1060,40 +1060,40 @@
     },
     "LA": {
       "passing": {
-        "cpoe": null,
-        "epaDropback": 0,
-        "timeToThrow": null,
-        "deepBallPct": 0,
+        "cpoe": 2.53,
+        "epaDropback": -0.3939,
+        "timeToThrow": 2.87,
+        "deepBallPct": 14.3,
         "pressureToSackPct": null,
         "toWorthyPct": null
       },
       "rushing": {
-        "ryoe": null,
-        "explosiveRunPct": 0,
-        "successRate": 0,
-        "ypc": 0,
+        "ryoe": -0.32,
+        "explosiveRunPct": 7.1,
+        "successRate": 50.0,
+        "ypc": 4.4,
         "brokenTacklePct": null,
-        "stuffPct": 0
+        "stuffPct": 14.3
       },
       "receiving": {
         "yprr": null,
-        "separation": null,
+        "separation": 2.17,
         "cROE": null,
         "dropPct": null,
-        "yacPerRec": null
+        "yacPerRec": 1.75
       },
       "defense": {
-        "pressureRate": 0,
-        "sackRate": 0,
+        "pressureRate": 5.9,
+        "sackRate": 0.0,
         "missedTacklePct": null,
         "havocRate": null,
         "ptsPerDriveAllowed": null,
         "coverageGrade": null,
-        "passEpaAllowed": 0,
-        "rushEpaAllowed": 0
+        "passEpaAllowed": 0.1419,
+        "rushEpaAllowed": 0.2205
       },
       "situational": {
-        "fourthDownPct": 0,
+        "fourthDownPct": 16.7,
         "timeOfPossession": null,
         "playsPerDrive": null,
         "penaltiesPerGm": null,
@@ -1564,40 +1564,40 @@
     },
     "SF": {
       "passing": {
-        "cpoe": null,
-        "epaDropback": 0,
-        "timeToThrow": null,
-        "deepBallPct": 0,
+        "cpoe": 7.4,
+        "epaDropback": 0.1419,
+        "timeToThrow": 2.69,
+        "deepBallPct": 5.9,
         "pressureToSackPct": null,
         "toWorthyPct": null
       },
       "rushing": {
-        "ryoe": null,
-        "explosiveRunPct": 0,
-        "successRate": 0,
-        "ypc": 0,
+        "ryoe": 0.62,
+        "explosiveRunPct": 16.7,
+        "successRate": 56.7,
+        "ypc": 5.8,
         "brokenTacklePct": null,
-        "stuffPct": 0
+        "stuffPct": 6.7
       },
       "receiving": {
         "yprr": null,
-        "separation": null,
+        "separation": 2.93,
         "cROE": null,
         "dropPct": null,
-        "yacPerRec": null
+        "yacPerRec": 0.12
       },
       "defense": {
-        "pressureRate": 0,
-        "sackRate": 0,
+        "pressureRate": 28.6,
+        "sackRate": 0.0,
         "missedTacklePct": null,
         "havocRate": null,
         "ptsPerDriveAllowed": null,
         "coverageGrade": null,
-        "passEpaAllowed": 0,
-        "rushEpaAllowed": 0
+        "passEpaAllowed": -0.3939,
+        "rushEpaAllowed": -0.1354
       },
       "situational": {
-        "fourthDownPct": 0,
+        "fourthDownPct": 0.0,
         "timeOfPossession": null,
         "playsPerDrive": null,
         "penaltiesPerGm": null,
@@ -1978,7 +1978,17 @@
     "IND": [],
     "JAX": [],
     "KC": [],
-    "LA": [],
+    "LA": [
+      {
+        "week": 1,
+        "opp": "SF",
+        "ptsFor": 7,
+        "ptsAgainst": 27,
+        "result": "L",
+        "ats": "X",
+        "ou": "U"
+      }
+    ],
     "LAC": [],
     "LV": [],
     "MIA": [],
@@ -2010,7 +2020,17 @@
         "ou": "U"
       }
     ],
-    "SF": [],
+    "SF": [
+      {
+        "week": 1,
+        "opp": "LA",
+        "ptsFor": 27,
+        "ptsAgainst": 7,
+        "result": "W",
+        "ats": "C",
+        "ou": "U"
+      }
+    ],
     "TB": [],
     "TEN": [],
     "WAS": []
@@ -2055,7 +2075,13 @@
       "homeRestDays": 7,
       "awayTravelMiles": 314,
       "divisional": true,
-      "h2h": null,
+      "h2h": {
+        "meetings": 1,
+        "aWins": 1,
+        "bWins": 0,
+        "avgCombinedPts": 34.0,
+        "avgMarginA": 20.0
+      },
       "odds": null
     },
     {
@@ -2313,6 +2339,133 @@
   ],
   "offense": [
     {
+      "name": "Matthew Stafford",
+      "team": "LA",
+      "pos": "QB",
+      "yds": 155,
+      "td": 0,
+      "gameLog": [
+        {
+          "week": 1,
+          "opp": "SF",
+          "cmp": 15,
+          "att": 25,
+          "yds": 155,
+          "td": 0,
+          "int": 1,
+          "result": "ND"
+        }
+      ]
+    },
+    {
+      "name": "Puka Nacua",
+      "team": "LA",
+      "pos": "WR",
+      "yds": 74,
+      "td": 0,
+      "gameLog": [
+        {
+          "week": 1,
+          "opp": "SF",
+          "tgt": 9,
+          "rec": 5,
+          "yds": 74,
+          "td": 0,
+          "result": "ND"
+        }
+      ]
+    },
+    {
+      "name": "Blake Corum",
+      "team": "LA",
+      "pos": "RB",
+      "yds": 54,
+      "td": 0,
+      "gameLog": [
+        {
+          "week": 1,
+          "opp": "SF",
+          "att": 10,
+          "yds": 54,
+          "td": 0,
+          "rec": 0,
+          "result": "ND"
+        }
+      ]
+    },
+    {
+      "name": "Kyren Williams",
+      "team": "LA",
+      "pos": "RB",
+      "yds": 41,
+      "td": 1,
+      "gameLog": [
+        {
+          "week": 1,
+          "opp": "SF",
+          "att": 11,
+          "yds": 41,
+          "td": 1,
+          "rec": 3,
+          "result": "ND"
+        }
+      ]
+    },
+    {
+      "name": "Davante Adams",
+      "team": "LA",
+      "pos": "WR",
+      "yds": 26,
+      "td": 0,
+      "gameLog": [
+        {
+          "week": 1,
+          "opp": "SF",
+          "tgt": 6,
+          "rec": 3,
+          "yds": 26,
+          "td": 0,
+          "result": "ND"
+        }
+      ]
+    },
+    {
+      "name": "Ronnie Rivers",
+      "team": "LA",
+      "pos": "RB",
+      "yds": 19,
+      "td": 0,
+      "gameLog": [
+        {
+          "week": 1,
+          "opp": "SF",
+          "att": 5,
+          "yds": 19,
+          "td": 0,
+          "rec": 1,
+          "result": "ND"
+        }
+      ]
+    },
+    {
+      "name": "Davis Allen",
+      "team": "LA",
+      "pos": "TE",
+      "yds": 13,
+      "td": 0,
+      "gameLog": [
+        {
+          "week": 1,
+          "opp": "SF",
+          "tgt": 1,
+          "rec": 1,
+          "yds": 13,
+          "td": 0,
+          "result": "ND"
+        }
+      ]
+    },
+    {
       "name": "Drake Maye",
       "team": "NE",
       "pos": "QB",
@@ -2566,25 +2719,152 @@
           "result": "ND"
         }
       ]
+    },
+    {
+      "name": "Brock Purdy",
+      "team": "SF",
+      "pos": "QB",
+      "yds": 205,
+      "td": 3,
+      "gameLog": [
+        {
+          "week": 1,
+          "opp": "LA",
+          "cmp": 25,
+          "att": 34,
+          "yds": 205,
+          "td": 3,
+          "int": 1,
+          "result": "ND"
+        }
+      ]
+    },
+    {
+      "name": "Christian McCaffrey",
+      "team": "SF",
+      "pos": "RB",
+      "yds": 68,
+      "td": 0,
+      "gameLog": [
+        {
+          "week": 1,
+          "opp": "LA",
+          "att": 10,
+          "yds": 68,
+          "td": 0,
+          "rec": 5,
+          "result": "ND"
+        }
+      ]
+    },
+    {
+      "name": "Kaelon Black",
+      "team": "SF",
+      "pos": "RB",
+      "yds": 65,
+      "td": 0,
+      "gameLog": [
+        {
+          "week": 1,
+          "opp": "LA",
+          "att": 14,
+          "yds": 65,
+          "td": 0,
+          "rec": 1,
+          "result": "ND"
+        }
+      ]
+    },
+    {
+      "name": "Demarcus Robinson",
+      "team": "SF",
+      "pos": "WR",
+      "yds": 50,
+      "td": 1,
+      "gameLog": [
+        {
+          "week": 1,
+          "opp": "LA",
+          "tgt": 3,
+          "rec": 2,
+          "yds": 50,
+          "td": 1,
+          "result": "ND"
+        }
+      ]
+    },
+    {
+      "name": "Mike Evans",
+      "team": "SF",
+      "pos": "WR",
+      "yds": 49,
+      "td": 1,
+      "gameLog": [
+        {
+          "week": 1,
+          "opp": "LA",
+          "tgt": 7,
+          "rec": 6,
+          "yds": 49,
+          "td": 1,
+          "result": "ND"
+        }
+      ]
+    },
+    {
+      "name": "Deebo Samuel Sr.",
+      "team": "SF",
+      "pos": "WR",
+      "yds": 48,
+      "td": 1,
+      "gameLog": [
+        {
+          "week": 1,
+          "opp": "LA",
+          "tgt": 7,
+          "rec": 6,
+          "yds": 48,
+          "td": 1,
+          "result": "ND"
+        }
+      ]
+    },
+    {
+      "name": "Luke Farrell",
+      "team": "SF",
+      "pos": "TE",
+      "yds": 19,
+      "td": 0,
+      "gameLog": [
+        {
+          "week": 1,
+          "opp": "LA",
+          "tgt": 2,
+          "rec": 2,
+          "yds": 19,
+          "td": 0,
+          "result": "ND"
+        }
+      ]
     }
   ],
   "referees": [],
   "week": 1,
   "players": [
     {
-      "name": "Drake Maye",
-      "team": "NE",
+      "name": "Matthew Stafford",
+      "team": "LA",
       "pos": "QB",
       "group": "passing",
-      "att": 33,
-      "cmp": 69.7,
-      "xcmp": 66.5,
-      "cpoe": 3.2,
-      "ttt": 2.82,
-      "iay": 6.4,
-      "aggr": 6.1,
-      "yds": 178,
-      "td": 1
+      "att": 25,
+      "cmp": 60.0,
+      "xcmp": 57.5,
+      "cpoe": 2.5,
+      "ttt": 2.87,
+      "iay": 9.0,
+      "aggr": 20.0,
+      "yds": 155,
+      "td": 0
     },
     {
       "name": "Drew Lock",
@@ -2602,6 +2882,50 @@
       "td": 1
     },
     {
+      "name": "Brock Purdy",
+      "team": "SF",
+      "pos": "QB",
+      "group": "passing",
+      "att": 34,
+      "cmp": 73.5,
+      "xcmp": 66.1,
+      "cpoe": 7.4,
+      "ttt": 2.69,
+      "iay": 4.6,
+      "aggr": 17.6,
+      "yds": 205,
+      "td": 3
+    },
+    {
+      "name": "Drake Maye",
+      "team": "NE",
+      "pos": "QB",
+      "group": "passing",
+      "att": 33,
+      "cmp": 69.7,
+      "xcmp": 66.5,
+      "cpoe": 3.2,
+      "ttt": 2.82,
+      "iay": 6.4,
+      "aggr": 6.1,
+      "yds": 178,
+      "td": 1
+    },
+    {
+      "name": "Kaelon Black",
+      "team": "SF",
+      "pos": "RB",
+      "group": "rushing",
+      "att": 14,
+      "yds": 65,
+      "ypc": 4.6,
+      "eff": 3.73,
+      "stack": 0.0,
+      "ryoe": -0.38,
+      "td": 0,
+      "tlos": 2.68
+    },
+    {
       "name": "Jadarian Price",
       "team": "SEA",
       "pos": "RB",
@@ -2614,6 +2938,48 @@
       "ryoe": 0.68,
       "td": 0,
       "tlos": 3.48
+    },
+    {
+      "name": "Christian McCaffrey",
+      "team": "SF",
+      "pos": "RB",
+      "group": "rushing",
+      "att": 10,
+      "yds": 68,
+      "ypc": 6.8,
+      "eff": 2.68,
+      "stack": 0.0,
+      "ryoe": 1.62,
+      "td": 0,
+      "tlos": 2.26
+    },
+    {
+      "name": "Blake Corum",
+      "team": "LA",
+      "pos": "RB",
+      "group": "rushing",
+      "att": 10,
+      "yds": 54,
+      "ypc": 5.4,
+      "eff": 3.21,
+      "stack": 10.0,
+      "ryoe": 0.07,
+      "td": 0,
+      "tlos": 2.59
+    },
+    {
+      "name": "Kyren Williams",
+      "team": "LA",
+      "pos": "RB",
+      "group": "rushing",
+      "att": 11,
+      "yds": 41,
+      "ypc": 3.7,
+      "eff": 3.55,
+      "stack": 18.2,
+      "ryoe": -0.71,
+      "td": 1,
+      "tlos": 2.56
     },
     {
       "name": "Rhamondre Stevenson",
@@ -2630,7 +2996,37 @@
       "tlos": 3.15
     },
     {
-      "name": "DeMario Douglas",
+      "name": "Deebo Samuel",
+      "team": "SF",
+      "pos": "WR",
+      "group": "receiving",
+      "rec": 6,
+      "yds": 48,
+      "sep": 4.7,
+      "cush": 7.5,
+      "iay": 2.5,
+      "yac": 5.0,
+      "yacoe": -0.2,
+      "ctch": 85.7,
+      "td": 1
+    },
+    {
+      "name": "Davante Adams",
+      "team": "LA",
+      "pos": "WR",
+      "group": "receiving",
+      "rec": 3,
+      "yds": 26,
+      "sep": 2.7,
+      "cush": 7.4,
+      "iay": 10.8,
+      "yac": 2.9,
+      "yacoe": -1.4,
+      "ctch": 50.0,
+      "td": 0
+    },
+    {
+      "name": "Demario Douglas",
       "team": "NE",
       "pos": "WR",
       "group": "receiving",
@@ -2660,6 +3056,21 @@
       "td": 1
     },
     {
+      "name": "Mike Evans",
+      "team": "SF",
+      "pos": "WR",
+      "group": "receiving",
+      "rec": 6,
+      "yds": 49,
+      "sep": 1.9,
+      "cush": 5.5,
+      "iay": 8.9,
+      "yac": 0.6,
+      "yacoe": -1.4,
+      "ctch": 85.7,
+      "td": 1
+    },
+    {
       "name": "Mack Hollins",
       "team": "NE",
       "pos": "WR",
@@ -2672,6 +3083,36 @@
       "yac": 1.2,
       "yacoe": -0.5,
       "ctch": 80.0,
+      "td": 0
+    },
+    {
+      "name": "Puka Nacua",
+      "team": "LA",
+      "pos": "WR",
+      "group": "receiving",
+      "rec": 5,
+      "yds": 74,
+      "sep": 1.6,
+      "cush": 5.2,
+      "iay": 12.0,
+      "yac": 7.2,
+      "yacoe": 4.9,
+      "ctch": 55.6,
+      "td": 0
+    },
+    {
+      "name": "George Kittle",
+      "team": "SF",
+      "pos": "TE",
+      "group": "receiving",
+      "rec": 2,
+      "yds": 12,
+      "sep": 2.1,
+      "cush": 3.4,
+      "iay": 7.2,
+      "yac": 9.1,
+      "yacoe": 2.0,
+      "ctch": 40.0,
       "td": 0
     }
   ],
