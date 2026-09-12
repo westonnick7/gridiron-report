@@ -1734,57 +1734,146 @@
   "teamInjuries": {
     "ARI": {
       "qbStatus": "Healthy",
-      "oLineHealth": 100,
-      "secondaryDepth": 100,
-      "keyInjuries": []
+      "oLineHealth": 85,
+      "secondaryDepth": 70,
+      "keyInjuries": [
+        {
+          "pos": "CB",
+          "status": "Out"
+        },
+        {
+          "pos": "G",
+          "status": "Out"
+        },
+        {
+          "pos": "S",
+          "status": "Out"
+        }
+      ]
     },
     "ATL": {
-      "qbStatus": "Healthy",
-      "oLineHealth": 100,
-      "secondaryDepth": 100,
-      "keyInjuries": []
+      "qbStatus": "Out",
+      "oLineHealth": 85,
+      "secondaryDepth": 85,
+      "keyInjuries": [
+        {
+          "pos": "DE",
+          "status": "Questionable"
+        },
+        {
+          "pos": "CB",
+          "status": "Out"
+        },
+        {
+          "pos": "T",
+          "status": "Out"
+        }
+      ]
     },
     "BAL": {
       "qbStatus": "Healthy",
       "oLineHealth": 100,
       "secondaryDepth": 100,
-      "keyInjuries": []
+      "keyInjuries": [
+        {
+          "pos": "DT",
+          "status": "Out"
+        },
+        {
+          "pos": "WR",
+          "status": "Questionable"
+        },
+        {
+          "pos": "LB",
+          "status": "Out"
+        }
+      ]
     },
     "BUF": {
       "qbStatus": "Healthy",
       "oLineHealth": 100,
-      "secondaryDepth": 100,
-      "keyInjuries": []
+      "secondaryDepth": 93,
+      "keyInjuries": [
+        {
+          "pos": "RB",
+          "status": "Questionable"
+        },
+        {
+          "pos": "CB",
+          "status": "Questionable"
+        },
+        {
+          "pos": "DE",
+          "status": "Questionable"
+        }
+      ]
     },
     "CAR": {
       "qbStatus": "Healthy",
       "oLineHealth": 100,
       "secondaryDepth": 100,
-      "keyInjuries": []
+      "keyInjuries": [
+        {
+          "pos": "LB",
+          "status": "Out"
+        }
+      ]
     },
     "CHI": {
-      "qbStatus": "Healthy",
-      "oLineHealth": 100,
-      "secondaryDepth": 100,
-      "keyInjuries": []
+      "qbStatus": "Questionable",
+      "oLineHealth": 93,
+      "secondaryDepth": 93,
+      "keyInjuries": [
+        {
+          "pos": "S",
+          "status": "Questionable"
+        },
+        {
+          "pos": "WR",
+          "status": "Questionable"
+        },
+        {
+          "pos": "T",
+          "status": "Questionable"
+        }
+      ]
     },
     "CIN": {
       "qbStatus": "Healthy",
       "oLineHealth": 100,
       "secondaryDepth": 100,
-      "keyInjuries": []
+      "keyInjuries": [
+        {
+          "pos": "DE",
+          "status": "Doubtful"
+        }
+      ]
     },
     "CLE": {
       "qbStatus": "Healthy",
-      "oLineHealth": 100,
+      "oLineHealth": 78,
       "secondaryDepth": 100,
-      "keyInjuries": []
+      "keyInjuries": [
+        {
+          "pos": "G",
+          "status": "Out"
+        },
+        {
+          "pos": "C",
+          "status": "Questionable"
+        }
+      ]
     },
     "DAL": {
       "qbStatus": "Healthy",
       "oLineHealth": 100,
       "secondaryDepth": 100,
-      "keyInjuries": []
+      "keyInjuries": [
+        {
+          "pos": "RB",
+          "status": "Out"
+        }
+      ]
     },
     "DEN": {
       "qbStatus": "Healthy",
@@ -1795,14 +1884,32 @@
     "DET": {
       "qbStatus": "Healthy",
       "oLineHealth": 100,
-      "secondaryDepth": 100,
-      "keyInjuries": []
+      "secondaryDepth": 93,
+      "keyInjuries": [
+        {
+          "pos": "S",
+          "status": "Questionable"
+        }
+      ]
     },
     "GB": {
       "qbStatus": "Healthy",
-      "oLineHealth": 100,
+      "oLineHealth": 86,
       "secondaryDepth": 100,
-      "keyInjuries": []
+      "keyInjuries": [
+        {
+          "pos": "G",
+          "status": "Questionable"
+        },
+        {
+          "pos": "T",
+          "status": "Questionable"
+        },
+        {
+          "pos": "LB",
+          "status": "Questionable"
+        }
+      ]
     },
     "HOU": {
       "qbStatus": "Healthy",
@@ -1814,13 +1921,23 @@
       "qbStatus": "Healthy",
       "oLineHealth": 100,
       "secondaryDepth": 100,
-      "keyInjuries": []
+      "keyInjuries": [
+        {
+          "pos": "LB",
+          "status": "Questionable"
+        }
+      ]
     },
     "JAX": {
       "qbStatus": "Healthy",
       "oLineHealth": 100,
       "secondaryDepth": 100,
-      "keyInjuries": []
+      "keyInjuries": [
+        {
+          "pos": "RB",
+          "status": "Questionable"
+        }
+      ]
     },
     "KC": {
       "qbStatus": "Healthy",
@@ -1842,14 +1959,28 @@
     "LAC": {
       "qbStatus": "Healthy",
       "oLineHealth": 100,
-      "secondaryDepth": 100,
-      "keyInjuries": []
+      "secondaryDepth": 85,
+      "keyInjuries": [
+        {
+          "pos": "CB",
+          "status": "Out"
+        },
+        {
+          "pos": "DE",
+          "status": "Questionable"
+        }
+      ]
     },
     "LV": {
       "qbStatus": "Healthy",
       "oLineHealth": 100,
       "secondaryDepth": 100,
-      "keyInjuries": []
+      "keyInjuries": [
+        {
+          "pos": "TE",
+          "status": "Out"
+        }
+      ]
     },
     "MIA": {
       "qbStatus": "Healthy",
@@ -1882,31 +2013,76 @@
       "qbStatus": "Healthy",
       "oLineHealth": 100,
       "secondaryDepth": 100,
-      "keyInjuries": []
+      "keyInjuries": [
+        {
+          "pos": "LB",
+          "status": "Out"
+        },
+        {
+          "pos": "RB",
+          "status": "Questionable"
+        },
+        {
+          "pos": "RB",
+          "status": "Out"
+        }
+      ]
     },
     "NYG": {
       "qbStatus": "Healthy",
       "oLineHealth": 100,
       "secondaryDepth": 100,
-      "keyInjuries": []
+      "keyInjuries": [
+        {
+          "pos": "WR",
+          "status": "Questionable"
+        }
+      ]
     },
     "NYJ": {
       "qbStatus": "Healthy",
       "oLineHealth": 100,
-      "secondaryDepth": 100,
-      "keyInjuries": []
+      "secondaryDepth": 85,
+      "keyInjuries": [
+        {
+          "pos": "WR",
+          "status": "Out"
+        },
+        {
+          "pos": "RB",
+          "status": "Doubtful"
+        },
+        {
+          "pos": "DE",
+          "status": "Out"
+        }
+      ]
     },
     "PHI": {
       "qbStatus": "Healthy",
       "oLineHealth": 100,
       "secondaryDepth": 100,
-      "keyInjuries": []
+      "keyInjuries": [
+        {
+          "pos": "LB",
+          "status": "Out"
+        },
+        {
+          "pos": "TE",
+          "status": "Questionable"
+        }
+      ]
     },
     "PIT": {
       "qbStatus": "Healthy",
       "oLineHealth": 100,
-      "secondaryDepth": 100,
-      "keyInjuries": []
+      "secondaryDepth": 93,
+      "keyInjuries": [
+        {
+          "pos": "CB",
+          "status": "Questionable"
+        }
+      ]
     },
     "SEA": {
       "qbStatus": "Healthy",
@@ -1944,15 +2120,33 @@
     },
     "TB": {
       "qbStatus": "Healthy",
-      "oLineHealth": 100,
+      "oLineHealth": 85,
       "secondaryDepth": 100,
-      "keyInjuries": []
+      "keyInjuries": [
+        {
+          "pos": "T",
+          "status": "Doubtful"
+        },
+        {
+          "pos": "LB",
+          "status": "Questionable"
+        },
+        {
+          "pos": "RB",
+          "status": "Doubtful"
+        }
+      ]
     },
     "TEN": {
       "qbStatus": "Healthy",
       "oLineHealth": 100,
       "secondaryDepth": 100,
-      "keyInjuries": []
+      "keyInjuries": [
+        {
+          "pos": "LB",
+          "status": "Out"
+        }
+      ]
     },
     "WAS": {
       "qbStatus": "Healthy",
@@ -2852,6 +3046,21 @@
   "week": 1,
   "players": [
     {
+      "name": "Drake Maye",
+      "team": "NE",
+      "pos": "QB",
+      "group": "passing",
+      "att": 33,
+      "cmp": 69.7,
+      "xcmp": 66.5,
+      "cpoe": 3.2,
+      "ttt": 2.82,
+      "iay": 6.4,
+      "aggr": 6.1,
+      "yds": 178,
+      "td": 1
+    },
+    {
       "name": "Matthew Stafford",
       "team": "LA",
       "pos": "QB",
@@ -2865,21 +3074,6 @@
       "aggr": 20.0,
       "yds": 155,
       "td": 0
-    },
-    {
-      "name": "Drew Lock",
-      "team": "SEA",
-      "pos": "QB",
-      "group": "passing",
-      "att": 22,
-      "cmp": 72.7,
-      "xcmp": 67.7,
-      "cpoe": 5.0,
-      "ttt": 2.77,
-      "iay": 6.0,
-      "aggr": 13.6,
-      "yds": 187,
-      "td": 1
     },
     {
       "name": "Brock Purdy",
@@ -2897,61 +3091,19 @@
       "td": 3
     },
     {
-      "name": "Drake Maye",
-      "team": "NE",
+      "name": "Drew Lock",
+      "team": "SEA",
       "pos": "QB",
       "group": "passing",
-      "att": 33,
-      "cmp": 69.7,
-      "xcmp": 66.5,
-      "cpoe": 3.2,
-      "ttt": 2.82,
-      "iay": 6.4,
-      "aggr": 6.1,
-      "yds": 178,
+      "att": 22,
+      "cmp": 72.7,
+      "xcmp": 67.7,
+      "cpoe": 5.0,
+      "ttt": 2.77,
+      "iay": 6.0,
+      "aggr": 13.6,
+      "yds": 187,
       "td": 1
-    },
-    {
-      "name": "Kaelon Black",
-      "team": "SF",
-      "pos": "RB",
-      "group": "rushing",
-      "att": 14,
-      "yds": 65,
-      "ypc": 4.6,
-      "eff": 3.73,
-      "stack": 0.0,
-      "ryoe": -0.38,
-      "td": 0,
-      "tlos": 2.68
-    },
-    {
-      "name": "Jadarian Price",
-      "team": "SEA",
-      "pos": "RB",
-      "group": "rushing",
-      "att": 10,
-      "yds": 52,
-      "ypc": 5.2,
-      "eff": 4.38,
-      "stack": 40.0,
-      "ryoe": 0.68,
-      "td": 0,
-      "tlos": 3.48
-    },
-    {
-      "name": "Christian McCaffrey",
-      "team": "SF",
-      "pos": "RB",
-      "group": "rushing",
-      "att": 10,
-      "yds": 68,
-      "ypc": 6.8,
-      "eff": 2.68,
-      "stack": 0.0,
-      "ryoe": 1.62,
-      "td": 0,
-      "tlos": 2.26
     },
     {
       "name": "Blake Corum",
@@ -2982,6 +3134,34 @@
       "tlos": 2.56
     },
     {
+      "name": "Christian McCaffrey",
+      "team": "SF",
+      "pos": "RB",
+      "group": "rushing",
+      "att": 10,
+      "yds": 68,
+      "ypc": 6.8,
+      "eff": 2.68,
+      "stack": 0.0,
+      "ryoe": 1.62,
+      "td": 0,
+      "tlos": 2.26
+    },
+    {
+      "name": "Jadarian Price",
+      "team": "SEA",
+      "pos": "RB",
+      "group": "rushing",
+      "att": 10,
+      "yds": 52,
+      "ypc": 5.2,
+      "eff": 4.38,
+      "stack": 40.0,
+      "ryoe": 0.68,
+      "td": 0,
+      "tlos": 3.48
+    },
+    {
       "name": "Rhamondre Stevenson",
       "team": "NE",
       "pos": "RB",
@@ -2994,6 +3174,20 @@
       "ryoe": -1.23,
       "td": 0,
       "tlos": 3.15
+    },
+    {
+      "name": "Kaelon Black",
+      "team": "SF",
+      "pos": "RB",
+      "group": "rushing",
+      "att": 14,
+      "yds": 65,
+      "ypc": 4.6,
+      "eff": 3.73,
+      "stack": 0.0,
+      "ryoe": -0.38,
+      "td": 0,
+      "tlos": 2.68
     },
     {
       "name": "Deebo Samuel",
