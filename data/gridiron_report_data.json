@@ -1924,7 +1924,7 @@
       "keyInjuries": [
         {
           "pos": "LB",
-          "status": "Questionable"
+          "status": "Out"
         }
       ]
     },
@@ -1941,9 +1941,18 @@
     },
     "KC": {
       "qbStatus": "Healthy",
-      "oLineHealth": 100,
-      "secondaryDepth": 100,
-      "keyInjuries": []
+      "oLineHealth": 85,
+      "secondaryDepth": 85,
+      "keyInjuries": [
+        {
+          "pos": "S",
+          "status": "Out"
+        },
+        {
+          "pos": "T",
+          "status": "Out"
+        }
+      ]
     },
     "LA": {
       "qbStatus": "Healthy",
@@ -2069,7 +2078,7 @@
         },
         {
           "pos": "TE",
-          "status": "Questionable"
+          "status": "Out"
         }
       ]
     },
@@ -2263,7 +2272,7 @@
         "wind": null,
         "precip": null
       },
-      "surface": "matrixturf",
+      "surface": "grass",
       "roof": "dome",
       "awayRestDays": 7,
       "homeRestDays": 7,
@@ -3061,21 +3070,6 @@
       "td": 1
     },
     {
-      "name": "Matthew Stafford",
-      "team": "LA",
-      "pos": "QB",
-      "group": "passing",
-      "att": 25,
-      "cmp": 60.0,
-      "xcmp": 57.5,
-      "cpoe": 2.5,
-      "ttt": 2.87,
-      "iay": 9.0,
-      "aggr": 20.0,
-      "yds": 155,
-      "td": 0
-    },
-    {
       "name": "Brock Purdy",
       "team": "SF",
       "pos": "QB",
@@ -3106,46 +3100,19 @@
       "td": 1
     },
     {
-      "name": "Blake Corum",
+      "name": "Matthew Stafford",
       "team": "LA",
-      "pos": "RB",
-      "group": "rushing",
-      "att": 10,
-      "yds": 54,
-      "ypc": 5.4,
-      "eff": 3.21,
-      "stack": 10.0,
-      "ryoe": 0.07,
-      "td": 0,
-      "tlos": 2.59
-    },
-    {
-      "name": "Kyren Williams",
-      "team": "LA",
-      "pos": "RB",
-      "group": "rushing",
-      "att": 11,
-      "yds": 41,
-      "ypc": 3.7,
-      "eff": 3.55,
-      "stack": 18.2,
-      "ryoe": -0.71,
-      "td": 1,
-      "tlos": 2.56
-    },
-    {
-      "name": "Christian McCaffrey",
-      "team": "SF",
-      "pos": "RB",
-      "group": "rushing",
-      "att": 10,
-      "yds": 68,
-      "ypc": 6.8,
-      "eff": 2.68,
-      "stack": 0.0,
-      "ryoe": 1.62,
-      "td": 0,
-      "tlos": 2.26
+      "pos": "QB",
+      "group": "passing",
+      "att": 25,
+      "cmp": 60.0,
+      "xcmp": 57.5,
+      "cpoe": 2.5,
+      "ttt": 2.87,
+      "iay": 9.0,
+      "aggr": 20.0,
+      "yds": 155,
+      "td": 0
     },
     {
       "name": "Jadarian Price",
@@ -3188,6 +3155,48 @@
       "ryoe": -0.38,
       "td": 0,
       "tlos": 2.68
+    },
+    {
+      "name": "Kyren Williams",
+      "team": "LA",
+      "pos": "RB",
+      "group": "rushing",
+      "att": 11,
+      "yds": 41,
+      "ypc": 3.7,
+      "eff": 3.55,
+      "stack": 18.2,
+      "ryoe": -0.71,
+      "td": 1,
+      "tlos": 2.56
+    },
+    {
+      "name": "Blake Corum",
+      "team": "LA",
+      "pos": "RB",
+      "group": "rushing",
+      "att": 10,
+      "yds": 54,
+      "ypc": 5.4,
+      "eff": 3.21,
+      "stack": 10.0,
+      "ryoe": 0.07,
+      "td": 0,
+      "tlos": 2.59
+    },
+    {
+      "name": "Christian McCaffrey",
+      "team": "SF",
+      "pos": "RB",
+      "group": "rushing",
+      "att": 10,
+      "yds": 68,
+      "ypc": 6.8,
+      "eff": 2.68,
+      "stack": 0.0,
+      "ryoe": 1.62,
+      "td": 0,
+      "tlos": 2.26
     },
     {
       "name": "Deebo Samuel",
