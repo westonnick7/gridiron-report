@@ -1738,16 +1738,28 @@
       "secondaryDepth": 70,
       "keyInjuries": [
         {
+          "name": "Garrett Williams",
           "pos": "CB",
-          "status": "Out"
+          "status": "Out",
+          "injury": "Achilles"
         },
         {
+          "name": "Isaiah Adams",
           "pos": "G",
-          "status": "Out"
+          "status": "Out",
+          "injury": "Knee"
         },
         {
+          "name": "Dadrion Taylor-Demerson",
           "pos": "S",
-          "status": "Out"
+          "status": "Out",
+          "injury": "Ribs"
+        },
+        {
+          "name": "Jeremiyah Love",
+          "pos": "RB",
+          "status": "Questionable",
+          "injury": "Ankle"
         }
       ]
     },
@@ -1757,16 +1769,22 @@
       "secondaryDepth": 85,
       "keyInjuries": [
         {
+          "name": "Za'Darius Smith",
           "pos": "DE",
-          "status": "Questionable"
+          "status": "Questionable",
+          "injury": "Shoulder"
         },
         {
+          "name": "Billy Bowman Jr.",
           "pos": "CB",
-          "status": "Out"
+          "status": "Out",
+          "injury": "Achilles"
         },
         {
+          "name": "Cameron Williams",
           "pos": "T",
-          "status": "Out"
+          "status": "Out",
+          "injury": "Ankle"
         }
       ]
     },
@@ -1776,16 +1794,22 @@
       "secondaryDepth": 100,
       "keyInjuries": [
         {
+          "name": "Nnamdi Madubuike",
           "pos": "DT",
-          "status": "Out"
+          "status": "Out",
+          "injury": "Neck"
         },
         {
+          "name": "Devontez Walker",
           "pos": "WR",
-          "status": "Questionable"
+          "status": "Questionable",
+          "injury": "Groin"
         },
         {
+          "name": "Teddye Buchanan",
           "pos": "LB",
-          "status": "Out"
+          "status": "Out",
+          "injury": "Knee"
         }
       ]
     },
@@ -1795,16 +1819,22 @@
       "secondaryDepth": 93,
       "keyInjuries": [
         {
+          "name": "Ty Johnson",
           "pos": "RB",
-          "status": "Questionable"
+          "status": "Questionable",
+          "injury": "Hamstring"
         },
         {
+          "name": "Jordan Hancock",
           "pos": "CB",
-          "status": "Questionable"
+          "status": "Questionable",
+          "injury": "Quadricep"
         },
         {
+          "name": "T.J. Sanders",
           "pos": "DE",
-          "status": "Questionable"
+          "status": "Questionable",
+          "injury": "Knee"
         }
       ]
     },
@@ -1814,8 +1844,10 @@
       "secondaryDepth": 100,
       "keyInjuries": [
         {
+          "name": "Patrick Jones II",
           "pos": "LB",
-          "status": "Out"
+          "status": "Out",
+          "injury": "Back"
         }
       ]
     },
@@ -1825,16 +1857,22 @@
       "secondaryDepth": 93,
       "keyInjuries": [
         {
+          "name": "Xavier Woods",
           "pos": "S",
-          "status": "Questionable"
+          "status": "Questionable",
+          "injury": "Groin"
         },
         {
+          "name": "Rome Odunze",
           "pos": "WR",
-          "status": "Questionable"
+          "status": "Questionable",
+          "injury": "Calf"
         },
         {
+          "name": "Ozzy Trapilo",
           "pos": "T",
-          "status": "Questionable"
+          "status": "Questionable",
+          "injury": "Knee"
         }
       ]
     },
@@ -1844,8 +1882,10 @@
       "secondaryDepth": 100,
       "keyInjuries": [
         {
+          "name": "Shemar Stewart",
           "pos": "DE",
-          "status": "Doubtful"
+          "status": "Doubtful",
+          "injury": "Knee"
         }
       ]
     },
@@ -1855,12 +1895,16 @@
       "secondaryDepth": 100,
       "keyInjuries": [
         {
+          "name": "Teven Jenkins",
           "pos": "G",
-          "status": "Out"
+          "status": "Out",
+          "injury": "Back"
         },
         {
+          "name": "Parker Brailsford",
           "pos": "C",
-          "status": "Questionable"
+          "status": "Questionable",
+          "injury": "Thumb"
         }
       ]
     },
@@ -1870,8 +1914,10 @@
       "secondaryDepth": 100,
       "keyInjuries": [
         {
+          "name": "Malik Davis",
           "pos": "RB",
-          "status": "Out"
+          "status": "Out",
+          "injury": "Hip"
         }
       ]
     },
@@ -1887,8 +1933,10 @@
       "secondaryDepth": 93,
       "keyInjuries": [
         {
+          "name": "Christian Izien",
           "pos": "S",
-          "status": "Questionable"
+          "status": "Questionable",
+          "injury": "Groin"
         }
       ]
     },
@@ -1898,16 +1946,28 @@
       "secondaryDepth": 100,
       "keyInjuries": [
         {
+          "name": "Aaron Banks",
           "pos": "G",
-          "status": "Questionable"
+          "status": "Questionable",
+          "injury": "Knee"
         },
         {
+          "name": "Zach Bako-Bewele",
           "pos": "T",
-          "status": "Questionable"
+          "status": "Questionable",
+          "injury": "Knee"
         },
         {
+          "name": "Ty'Ron Hopper",
           "pos": "LB",
-          "status": "Questionable"
+          "status": "Questionable",
+          "injury": "Achilles"
+        },
+        {
+          "name": "Warren Brinson",
+          "pos": "DT",
+          "status": "Out",
+          "injury": "Calf"
         }
       ]
     },
@@ -1923,8 +1983,10 @@
       "secondaryDepth": 100,
       "keyInjuries": [
         {
+          "name": "Austin Ajiake",
           "pos": "LB",
-          "status": "Out"
+          "status": "Out",
+          "injury": "Hamstring"
         }
       ]
     },
@@ -1934,8 +1996,10 @@
       "secondaryDepth": 100,
       "keyInjuries": [
         {
+          "name": "LeQuint Allen Jr.",
           "pos": "RB",
-          "status": "Questionable"
+          "status": "Questionable",
+          "injury": "Hip"
         }
       ]
     },
@@ -1945,12 +2009,16 @@
       "secondaryDepth": 85,
       "keyInjuries": [
         {
+          "name": "Chamarri Conner",
           "pos": "S",
-          "status": "Out"
+          "status": "Out",
+          "injury": "Knee"
         },
         {
+          "name": "Josh Simmons",
           "pos": "T",
-          "status": "Out"
+          "status": "Out",
+          "injury": "Back"
         }
       ]
     },
@@ -1960,8 +2028,10 @@
       "secondaryDepth": 100,
       "keyInjuries": [
         {
+          "name": "Aaron Donald",
           "pos": "DE",
-          "status": "Out"
+          "status": "Out",
+          "injury": "Not injury related - resting player"
         }
       ]
     },
@@ -1971,12 +2041,16 @@
       "secondaryDepth": 85,
       "keyInjuries": [
         {
+          "name": "Deane Leonard",
           "pos": "CB",
-          "status": "Out"
+          "status": "Out",
+          "injury": "Abdomen"
         },
         {
+          "name": "Tuli Tuipulotu",
           "pos": "DE",
-          "status": "Questionable"
+          "status": "Questionable",
+          "injury": "Hip"
         }
       ]
     },
@@ -1986,8 +2060,10 @@
       "secondaryDepth": 100,
       "keyInjuries": [
         {
+          "name": "Brock Bowers",
           "pos": "TE",
-          "status": "Out"
+          "status": "Out",
+          "injury": "Knee"
         }
       ]
     },
@@ -2009,12 +2085,16 @@
       "secondaryDepth": 100,
       "keyInjuries": [
         {
+          "name": "Ben Brown",
           "pos": "C",
-          "status": "Out"
+          "status": "Out",
+          "injury": "Knee"
         },
         {
+          "name": "TreVeyon Henderson",
           "pos": "RB",
-          "status": "Out"
+          "status": "Out",
+          "injury": "Ankle"
         }
       ]
     },
@@ -2024,16 +2104,28 @@
       "secondaryDepth": 100,
       "keyInjuries": [
         {
+          "name": "Cameron Jordan",
           "pos": "LB",
-          "status": "Out"
+          "status": "Out",
+          "injury": "Hamstring"
         },
         {
+          "name": "Alvin Kamara",
           "pos": "RB",
-          "status": "Questionable"
+          "status": "Questionable",
+          "injury": "Knee"
         },
         {
+          "name": "Audric Estim\u00e9",
           "pos": "RB",
-          "status": "Out"
+          "status": "Out",
+          "injury": "Thigh"
+        },
+        {
+          "name": "Oscar Delp",
+          "pos": "TE",
+          "status": "Out",
+          "injury": "Hamstring"
         }
       ]
     },
@@ -2043,8 +2135,10 @@
       "secondaryDepth": 100,
       "keyInjuries": [
         {
+          "name": "Malik Nabers",
           "pos": "WR",
-          "status": "Questionable"
+          "status": "Questionable",
+          "injury": "Knee"
         }
       ]
     },
@@ -2054,16 +2148,28 @@
       "secondaryDepth": 85,
       "keyInjuries": [
         {
+          "name": "Tim Patrick",
           "pos": "WR",
-          "status": "Out"
+          "status": "Out",
+          "injury": "Groin"
         },
         {
+          "name": "Kene Nwangwu",
           "pos": "RB",
-          "status": "Doubtful"
+          "status": "Doubtful",
+          "injury": "Back"
         },
         {
+          "name": "Joseph Ossai",
           "pos": "DE",
-          "status": "Out"
+          "status": "Out",
+          "injury": "Foot"
+        },
+        {
+          "name": "D'Angelo Ponds",
+          "pos": "CB",
+          "status": "Doubtful",
+          "injury": "Calf"
         }
       ]
     },
@@ -2073,12 +2179,16 @@
       "secondaryDepth": 100,
       "keyInjuries": [
         {
+          "name": "Jonathan Greenard",
           "pos": "LB",
-          "status": "Out"
+          "status": "Out",
+          "injury": "Pectoral"
         },
         {
+          "name": "Eli Stowers",
           "pos": "TE",
-          "status": "Out"
+          "status": "Out",
+          "injury": "Hamstring"
         }
       ]
     },
@@ -2088,8 +2198,10 @@
       "secondaryDepth": 93,
       "keyInjuries": [
         {
+          "name": "Joey Porter Jr.",
           "pos": "CB",
-          "status": "Questionable"
+          "status": "Questionable",
+          "injury": "Back"
         }
       ]
     },
@@ -2099,16 +2211,22 @@
       "secondaryDepth": 78,
       "keyInjuries": [
         {
+          "name": "Ty Okada",
           "pos": "S",
-          "status": "Out"
+          "status": "Out",
+          "injury": "Hamstring"
         },
         {
+          "name": "Tory Horton",
           "pos": "WR",
-          "status": "Questionable"
+          "status": "Questionable",
+          "injury": "Hamstring"
         },
         {
+          "name": "Nick Emmanwori",
           "pos": "S",
-          "status": "Questionable"
+          "status": "Questionable",
+          "injury": "Ankle"
         }
       ]
     },
@@ -2118,12 +2236,16 @@
       "secondaryDepth": 100,
       "keyInjuries": [
         {
+          "name": "Alfred Collins",
           "pos": "DT",
-          "status": "Out"
+          "status": "Out",
+          "injury": "Knee"
         },
         {
+          "name": "James Thompson Jr.",
           "pos": "DT",
-          "status": "Questionable"
+          "status": "Questionable",
+          "injury": "Hamstring"
         }
       ]
     },
@@ -2133,16 +2255,28 @@
       "secondaryDepth": 100,
       "keyInjuries": [
         {
+          "name": "Justin Skule",
           "pos": "T",
-          "status": "Doubtful"
+          "status": "Doubtful",
+          "injury": "Oblique"
         },
         {
+          "name": "Christian Rozeboom",
           "pos": "LB",
-          "status": "Questionable"
+          "status": "Questionable",
+          "injury": "Foot"
         },
         {
+          "name": "Sean Tucker",
           "pos": "RB",
-          "status": "Doubtful"
+          "status": "Doubtful",
+          "injury": "Hamstring"
+        },
+        {
+          "name": "Jalen McMillan",
+          "pos": "WR",
+          "status": "Doubtful",
+          "injury": "Knee"
         }
       ]
     },
@@ -2152,8 +2286,10 @@
       "secondaryDepth": 100,
       "keyInjuries": [
         {
+          "name": "Cedric Gray",
           "pos": "LB",
-          "status": "Out"
+          "status": "Out",
+          "injury": "Concussion"
         }
       ]
     },
