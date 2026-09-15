@@ -346,7 +346,7 @@ def build_schedule(schedules, week, teams):
     out = []
     for _, g in wk.iterrows():
         out.append({
-            "away": g.away_team, "home": g.home_team,
+            "away": g.away_team, "home": g.home_team, "week": int(g.week),
             "kickoff": f"{g.gameday} {g.gametime}" if pd.notna(g.get('gametime')) else str(g.gameday),
             "weather": {"temp": None, "wind": None, "precip": None},  # forecast not available; see docstring
             "surface": g.surface if pd.notna(g.get("surface")) else "Unknown",
@@ -357,6 +357,17 @@ def build_schedule(schedules, week, teams):
             "divisional": bool(g.div_game) if pd.notna(g.get("div_game")) else False,
             "h2h": real_h2h(schedules, g.away_team, g.home_team),
         })
+    return out
+
+
+def build_full_schedule(schedules, teams):
+    """Every regular-season week's games (each item carries its `week`), so the
+    dashboard can step through weeks with the arrow selector."""
+    reg = schedules[schedules.game_type == "REG"] if "game_type" in schedules.columns else schedules
+    weeks = sorted(int(w) for w in reg.week.dropna().unique())
+    out = []
+    for wk in weeks:
+        out.extend(build_schedule(schedules, wk, teams))
     return out
 
 
@@ -672,7 +683,7 @@ def _american(x):
         return None
 
 
-def build_game_odds(schedule):
+def build_game_odds(schedule, current_week=None):
     """Attach spread / total / moneyline to each schedule game from ESPN's free
     public scoreboard (no API key). Best-effort: leaves odds=None on any failure."""
     for g in schedule:
@@ -713,6 +724,8 @@ def build_game_odds(schedule):
             continue
     n = 0
     for g in schedule:
+        if current_week is not None and g.get("week") != current_week:
+            continue
         o = lines.get((g["away"], g["home"]))
         if o and (o["spread"] is not None or o["total"] is not None or o["mlHome"] is not None):
             g["odds"] = o
@@ -822,9 +835,9 @@ def main():
         offense.extend(build_player_props(team, weekly))
 
     print("Building schedule for the target week...")
-    schedule = build_schedule(schedules, week_target, TEAMS)
+    schedule = build_full_schedule(schedules, TEAMS)
     print("Fetching free game betting lines (ESPN)...")
-    schedule = build_game_odds(schedule)
+    schedule = build_game_odds(schedule, week_target)
 
     print("Fetching player prop lines (if ODDS_API_KEY set)...")
     week_teams = [g["away"] for g in schedule] + [g["home"] for g in schedule]

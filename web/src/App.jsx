@@ -161,6 +161,9 @@ const QUICK = [
 const ChevR = () => (
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="M9 6l6 6-6 6" /></svg>
 );
+const ChevL = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="M15 6l-6 6 6 6" /></svg>
+);
 const Flask = () => (
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 3h6M10 3v6.5L5 18a2 2 0 0 0 1.8 3h10.4A2 2 0 0 0 19 18l-5-8.5V3" /><path d="M7.5 14h9" /></svg>
 );
@@ -420,8 +423,8 @@ function BettingBlock({ g, away, home }) {
 }
 
 // ================= Modals =================
-function GameModal({ away, home, sched, data, onClose, onQuickToFull }) {
-  const g = sched.find((x) => x.away === away && x.home === home) || { away, home, kickoff: "", surface: "", roof: "", weather: {}, divisional: false };
+function GameModal({ away, home, week, sched, data, onClose, onQuickToFull }) {
+  const g = sched.find((x) => x.away === away && x.home === home && (week == null || x.week === week)) || { away, home, kickoff: "", surface: "", roof: "", weather: {}, divisional: false };
   const ca = color(away), ch = color(home);
   return (
     <div className="modal">
@@ -448,8 +451,8 @@ function GameModal({ away, home, sched, data, onClose, onQuickToFull }) {
   );
 }
 
-function QuickModal({ away, home, sched, data, onFull, onClose }) {
-  const g = sched.find((x) => x.away === away && x.home === home) || { home, kickoff: "" };
+function QuickModal({ away, home, week, sched, data, onFull, onClose }) {
+  const g = sched.find((x) => x.away === away && x.home === home && (week == null || x.week === week)) || { home, kickoff: "" };
   return (
     <div className="qmodal">
       <div className="qhead">
@@ -650,7 +653,8 @@ export default function RedzoneLabs() {
   const [status, setStatus] = useState("loading"); // loading | live | failed
   const [updated, setUpdated] = useState(null);
   const [view, setView] = useState("scores"); // scores | standings | teams | referees
-  const [modal, setModal] = useState(null); // {type:'game'|'quick', away, home}
+  const [modal, setModal] = useState(null); // {type:'game'|'quick', away, home, week}
+  const [weekSel, setWeekSel] = useState(null);
   const [openTeamCode, setOpenTeamCode] = useState(null);
 
   const load = useCallback(async () => {
@@ -682,6 +686,7 @@ export default function RedzoneLabs() {
   }, []);
 
   useEffect(() => { load(); }, [load]);
+  useEffect(() => { if (data.week != null) setWeekSel(data.week); }, [data.week]);
   useEffect(() => {
     function onKey(e) { if (e.key === "Escape") setModal(null); }
     document.addEventListener("keydown", onKey);
@@ -693,6 +698,11 @@ export default function RedzoneLabs() {
   }, [modal]);
 
   const sched = data.schedule;
+  const weeks = Array.from(new Set((sched || []).map((g) => g.week).filter((w) => w != null))).sort((a, b) => a - b);
+  const curWeek = weekSel != null ? weekSel : (data.week != null ? data.week : (weeks[0] != null ? weeks[0] : null));
+  const weekIdx = weeks.indexOf(curWeek);
+  const weekGames = weeks.length ? (sched || []).filter((g) => g.week === curWeek) : (sched || []);
+  const stepWeek = (d) => { const i = weekIdx + d; if (i >= 0 && i < weeks.length) setWeekSel(weeks[i]); };
   const hasSearch = (data.players || []).length > 0;
   const TABS = [["scores", "Scores"], ["standings", "Standings"], ["teams", "Teams"], ...(hasSearch ? [["search", "Next Gen"]] : []), ["referees", "Referees"]];
 
@@ -722,8 +732,10 @@ export default function RedzoneLabs() {
         <div className="seasonbar">
           <div className="wrap">
             <div className="season-label">2026 <span>/ Regular Season</span></div>
-            <div className="weekstep" style={{ pointerEvents: "none" }}>
-              <button className="wlabel" style={{ borderRadius: 10 }}>Week <b>{data.week != null ? data.week : "—"}</b></button>
+            <div className="weekstep">
+              <button id="wprev" aria-label="Previous week" onClick={() => stepWeek(-1)} disabled={weekIdx <= 0} style={weekIdx <= 0 ? { opacity: .35, cursor: "default" } : undefined}><ChevL /></button>
+              <button className="wlabel">Week <b>{curWeek != null ? curWeek : "—"}</b></button>
+              <button id="wnext" aria-label="Next week" onClick={() => stepWeek(1)} disabled={weekIdx >= weeks.length - 1} style={weekIdx >= weeks.length - 1 ? { opacity: .35, cursor: "default" } : undefined}><ChevR /></button>
             </div>
             <div className="asof">{status === "live" && updated ? "Updated " + updated.toLocaleDateString() : status === "failed" ? "Live data unavailable" : "Loading…"}</div>
           </div>
@@ -732,13 +744,13 @@ export default function RedzoneLabs() {
 
       {view === "scores" && (
         <main className="wrap viewfade" key="scores">
-          <div className="eyebrow"><span>Week {data.week != null ? data.week : ""}</span> · All Games <span className="tag">{sched.length} games</span></div>
-          {sched.length ? (
+          <div className="eyebrow"><span>Week {curWeek != null ? curWeek : ""}</span> · All Games <span className="tag">{weekGames.length} games</span></div>
+          {weekGames.length ? (
             <div className="grid">
-              {sched.map((g, i) => {
+              {weekGames.map((g, i) => {
                 const a = g.away, h = g.home, ca = color(a), ch = color(h);
                 return (
-                  <div className="game" key={i} onClick={(e) => { if (e.target.closest(".cta")) { e.preventDefault(); setModal({ type: "quick", away: a, home: h }); } else setModal({ type: "game", away: a, home: h }); }}>
+                  <div className="game" key={i} onClick={(e) => { if (e.target.closest(".cta")) { e.preventDefault(); setModal({ type: "quick", away: a, home: h, week: g.week }); } else setModal({ type: "game", away: a, home: h, week: g.week }); }}>
                     <div className="spine2"><span style={{ background: ca }} /><span style={{ background: ch }} /></div>
                     <div className="ghead"><span>{g.divisional ? "Division" : "Inter-conf"}</span><span className="kick">{fmtKick(g.kickoff)}</span></div>
                     <div className="grow"><Badge ab={a} cls="gbadge" /><div className="gteam"><div className="gn">{nick(a)}</div><div className="gc">{a} · Away</div></div><span className="rec tnum">{record(data.teamStats, a)}</span></div>
@@ -796,9 +808,9 @@ export default function RedzoneLabs() {
       {modal && (
         <div className="overlay on" onClick={(e) => { if (e.target.classList.contains("overlay")) setModal(null); }}>
           {modal.type === "game" ? (
-            <GameModal away={modal.away} home={modal.home} sched={sched} data={data} onClose={() => setModal(null)} />
+            <GameModal away={modal.away} home={modal.home} week={modal.week} sched={sched} data={data} onClose={() => setModal(null)} />
           ) : (
-            <QuickModal away={modal.away} home={modal.home} sched={sched} data={data} onFull={() => setModal({ type: "game", away: modal.away, home: modal.home })} onClose={() => setModal(null)} />
+            <QuickModal away={modal.away} home={modal.home} week={modal.week} sched={sched} data={data} onFull={() => setModal({ type: "game", away: modal.away, home: modal.home, week: modal.week })} onClose={() => setModal(null)} />
           )}
         </div>
       )}
