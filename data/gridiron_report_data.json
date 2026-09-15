@@ -2502,6 +2502,7 @@
     {
       "away": "NE",
       "home": "SEA",
+      "week": 1,
       "kickoff": "2026-09-09 20:20",
       "weather": {
         "temp": null,
@@ -2526,6 +2527,7 @@
     {
       "away": "SF",
       "home": "LA",
+      "week": 1,
       "kickoff": "2026-09-10 20:35",
       "weather": {
         "temp": null,
@@ -2550,6 +2552,7 @@
     {
       "away": "CHI",
       "home": "CAR",
+      "week": 1,
       "kickoff": "2026-09-13 13:00",
       "weather": {
         "temp": null,
@@ -2574,6 +2577,7 @@
     {
       "away": "TB",
       "home": "CIN",
+      "week": 1,
       "kickoff": "2026-09-13 13:00",
       "weather": {
         "temp": null,
@@ -2598,6 +2602,7 @@
     {
       "away": "NO",
       "home": "DET",
+      "week": 1,
       "kickoff": "2026-09-13 13:00",
       "weather": {
         "temp": null,
@@ -2622,6 +2627,7 @@
     {
       "away": "BUF",
       "home": "HOU",
+      "week": 1,
       "kickoff": "2026-09-13 13:00",
       "weather": {
         "temp": null,
@@ -2646,6 +2652,7 @@
     {
       "away": "BAL",
       "home": "IND",
+      "week": 1,
       "kickoff": "2026-09-13 13:00",
       "weather": {
         "temp": null,
@@ -2670,6 +2677,7 @@
     {
       "away": "CLE",
       "home": "JAX",
+      "week": 1,
       "kickoff": "2026-09-13 13:00",
       "weather": {
         "temp": null,
@@ -2694,6 +2702,7 @@
     {
       "away": "ATL",
       "home": "PIT",
+      "week": 1,
       "kickoff": "2026-09-13 13:00",
       "weather": {
         "temp": null,
@@ -2718,6 +2727,7 @@
     {
       "away": "NYJ",
       "home": "TEN",
+      "week": 1,
       "kickoff": "2026-09-13 13:00",
       "weather": {
         "temp": null,
@@ -2742,6 +2752,7 @@
     {
       "away": "ARI",
       "home": "LAC",
+      "week": 1,
       "kickoff": "2026-09-13 16:25",
       "weather": {
         "temp": null,
@@ -2766,6 +2777,7 @@
     {
       "away": "MIA",
       "home": "LV",
+      "week": 1,
       "kickoff": "2026-09-13 16:25",
       "weather": {
         "temp": null,
@@ -2790,6 +2802,7 @@
     {
       "away": "GB",
       "home": "MIN",
+      "week": 1,
       "kickoff": "2026-09-13 16:25",
       "weather": {
         "temp": null,
@@ -2814,6 +2827,7 @@
     {
       "away": "WAS",
       "home": "PHI",
+      "week": 1,
       "kickoff": "2026-09-13 16:25",
       "weather": {
         "temp": null,
@@ -2838,6 +2852,7 @@
     {
       "away": "DAL",
       "home": "NYG",
+      "week": 1,
       "kickoff": "2026-09-13 20:20",
       "weather": {
         "temp": null,
@@ -2862,6 +2877,7 @@
     {
       "away": "DEN",
       "home": "KC",
+      "week": 1,
       "kickoff": "2026-09-14 20:15",
       "weather": {
         "temp": null,
@@ -2873,6 +2889,4894 @@
       "awayRestDays": 7,
       "homeRestDays": 7,
       "awayTravelMiles": 564,
+      "divisional": true,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "DET",
+      "home": "BUF",
+      "week": 2,
+      "kickoff": "2026-09-17 20:15",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "a_turf",
+      "roof": "outdoors",
+      "awayRestDays": 4,
+      "homeRestDays": 4,
+      "awayTravelMiles": 219,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "CAR",
+      "home": "ATL",
+      "week": 2,
+      "kickoff": "2026-09-20 13:00",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "fieldturf",
+      "roof": "Unknown",
+      "awayRestDays": 7,
+      "homeRestDays": 7,
+      "awayTravelMiles": 226,
+      "divisional": true,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "NO",
+      "home": "BAL",
+      "week": 2,
+      "kickoff": "2026-09-20 13:00",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "grass",
+      "roof": "outdoors",
+      "awayRestDays": 7,
+      "homeRestDays": 7,
+      "awayTravelMiles": 999,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "MIN",
+      "home": "CHI",
+      "week": 2,
+      "kickoff": "2026-09-20 13:00",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "grass",
+      "roof": "outdoors",
+      "awayRestDays": 7,
+      "homeRestDays": 7,
+      "awayTravelMiles": 355,
+      "divisional": true,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "CIN",
+      "home": "HOU",
+      "week": 2,
+      "kickoff": "2026-09-20 13:00",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "astroturf",
+      "roof": "Unknown",
+      "awayRestDays": 7,
+      "homeRestDays": 7,
+      "awayTravelMiles": 898,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "PIT",
+      "home": "NE",
+      "week": 2,
+      "kickoff": "2026-09-20 13:00",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "fieldturf",
+      "roof": "outdoors",
+      "awayRestDays": 7,
+      "homeRestDays": 11,
+      "awayTravelMiles": 468,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "GB",
+      "home": "NYJ",
+      "week": 2,
+      "kickoff": "2026-09-20 13:00",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "fieldturf",
+      "roof": "outdoors",
+      "awayRestDays": 7,
+      "homeRestDays": 7,
+      "awayTravelMiles": 754,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "CLE",
+      "home": "TB",
+      "week": 2,
+      "kickoff": "2026-09-20 13:00",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "grass",
+      "roof": "outdoors",
+      "awayRestDays": 7,
+      "homeRestDays": 7,
+      "awayTravelMiles": 936,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "PHI",
+      "home": "TEN",
+      "week": 2,
+      "kickoff": "2026-09-20 13:00",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "grass",
+      "roof": "outdoors",
+      "awayRestDays": 7,
+      "homeRestDays": 7,
+      "awayTravelMiles": 682,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "JAX",
+      "home": "DEN",
+      "week": 2,
+      "kickoff": "2026-09-20 16:05",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "grass",
+      "roof": "outdoors",
+      "awayRestDays": 7,
+      "homeRestDays": 6,
+      "awayTravelMiles": 1468,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "LV",
+      "home": "LAC",
+      "week": 2,
+      "kickoff": "2026-09-20 16:05",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "matrixturf",
+      "roof": "dome",
+      "awayRestDays": 7,
+      "homeRestDays": 7,
+      "awayTravelMiles": 232,
+      "divisional": true,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "SEA",
+      "home": "ARI",
+      "week": 2,
+      "kickoff": "2026-09-20 16:25",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "grass",
+      "roof": "Unknown",
+      "awayRestDays": 11,
+      "homeRestDays": 7,
+      "awayTravelMiles": 1104,
+      "divisional": true,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "WAS",
+      "home": "DAL",
+      "week": 2,
+      "kickoff": "2026-09-20 16:25",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "matrixturf",
+      "roof": "Unknown",
+      "awayRestDays": 7,
+      "homeRestDays": 7,
+      "awayTravelMiles": 1207,
+      "divisional": true,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "MIA",
+      "home": "SF",
+      "week": 2,
+      "kickoff": "2026-09-20 16:25",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "grass",
+      "roof": "outdoors",
+      "awayRestDays": 7,
+      "homeRestDays": 10,
+      "awayTravelMiles": 2555,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "IND",
+      "home": "KC",
+      "week": 2,
+      "kickoff": "2026-09-20 20:20",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "grass",
+      "roof": "outdoors",
+      "awayRestDays": 7,
+      "homeRestDays": 6,
+      "awayTravelMiles": 447,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "NYG",
+      "home": "LA",
+      "week": 2,
+      "kickoff": "2026-09-21 20:15",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "matrixturf",
+      "roof": "dome",
+      "awayRestDays": 8,
+      "homeRestDays": 11,
+      "awayTravelMiles": 2449,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "ATL",
+      "home": "GB",
+      "week": 3,
+      "kickoff": "2026-09-24 20:15",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "grass",
+      "roof": "outdoors",
+      "awayRestDays": 4,
+      "homeRestDays": 4,
+      "awayTravelMiles": 768,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "LAC",
+      "home": "BUF",
+      "week": 3,
+      "kickoff": "2026-09-27 13:00",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "a_turf",
+      "roof": "outdoors",
+      "awayRestDays": 7,
+      "homeRestDays": 10,
+      "awayTravelMiles": 2206,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "CAR",
+      "home": "CLE",
+      "week": 3,
+      "kickoff": "2026-09-27 13:00",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "grass",
+      "roof": "outdoors",
+      "awayRestDays": 7,
+      "homeRestDays": 7,
+      "awayTravelMiles": 436,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "NYJ",
+      "home": "DET",
+      "week": 3,
+      "kickoff": "2026-09-27 13:00",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "fieldturf",
+      "roof": "dome",
+      "awayRestDays": 7,
+      "homeRestDays": 10,
+      "awayTravelMiles": 475,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "HOU",
+      "home": "IND",
+      "week": 3,
+      "kickoff": "2026-09-27 13:00",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "fieldturf",
+      "roof": "Unknown",
+      "awayRestDays": 7,
+      "homeRestDays": 7,
+      "awayTravelMiles": 871,
+      "divisional": true,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "NE",
+      "home": "JAX",
+      "week": 3,
+      "kickoff": "2026-09-27 13:00",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "grass",
+      "roof": "outdoors",
+      "awayRestDays": 7,
+      "homeRestDays": 7,
+      "awayTravelMiles": 996,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "KC",
+      "home": "MIA",
+      "week": 3,
+      "kickoff": "2026-09-27 13:00",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "grass",
+      "roof": "outdoors",
+      "awayRestDays": 7,
+      "homeRestDays": 7,
+      "awayTravelMiles": 1225,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "TEN",
+      "home": "NYG",
+      "week": 3,
+      "kickoff": "2026-09-27 13:00",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "fieldturf",
+      "roof": "outdoors",
+      "awayRestDays": 7,
+      "homeRestDays": 6,
+      "awayTravelMiles": 757,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "CIN",
+      "home": "PIT",
+      "week": 3,
+      "kickoff": "2026-09-27 13:00",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "grass",
+      "roof": "outdoors",
+      "awayRestDays": 7,
+      "homeRestDays": 7,
+      "awayTravelMiles": 257,
+      "divisional": true,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "SEA",
+      "home": "WAS",
+      "week": 3,
+      "kickoff": "2026-09-27 13:00",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "grass",
+      "roof": "outdoors",
+      "awayRestDays": 7,
+      "homeRestDays": 7,
+      "awayTravelMiles": 2330,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "ARI",
+      "home": "SF",
+      "week": 3,
+      "kickoff": "2026-09-27 16:05",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "grass",
+      "roof": "outdoors",
+      "awayRestDays": 7,
+      "homeRestDays": 7,
+      "awayTravelMiles": 608,
+      "divisional": true,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "MIN",
+      "home": "TB",
+      "week": 3,
+      "kickoff": "2026-09-27 16:05",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "grass",
+      "roof": "outdoors",
+      "awayRestDays": 7,
+      "homeRestDays": 7,
+      "awayTravelMiles": 1315,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "BAL",
+      "home": "DAL",
+      "week": 3,
+      "kickoff": "2026-09-27 16:25",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "matrixturf",
+      "roof": "Unknown",
+      "awayRestDays": 7,
+      "homeRestDays": 7,
+      "awayTravelMiles": 1226,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "LV",
+      "home": "NO",
+      "week": 3,
+      "kickoff": "2026-09-27 16:25",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "sportturf",
+      "roof": "dome",
+      "awayRestDays": 7,
+      "homeRestDays": 7,
+      "awayTravelMiles": 1510,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "LA",
+      "home": "DEN",
+      "week": 3,
+      "kickoff": "2026-09-27 20:20",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "grass",
+      "roof": "outdoors",
+      "awayRestDays": 6,
+      "homeRestDays": 7,
+      "awayTravelMiles": 837,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "PHI",
+      "home": "CHI",
+      "week": 3,
+      "kickoff": "2026-09-28 20:15",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "grass",
+      "roof": "outdoors",
+      "awayRestDays": 8,
+      "homeRestDays": 8,
+      "awayTravelMiles": 664,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "PIT",
+      "home": "CLE",
+      "week": 4,
+      "kickoff": "2026-10-01 20:15",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "grass",
+      "roof": "outdoors",
+      "awayRestDays": 4,
+      "homeRestDays": 4,
+      "awayTravelMiles": 114,
+      "divisional": true,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "IND",
+      "home": "WAS",
+      "week": 4,
+      "kickoff": "2026-10-04 09:30",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "grass",
+      "roof": "outdoors",
+      "awayRestDays": 7,
+      "homeRestDays": 7,
+      "awayTravelMiles": 500,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "TEN",
+      "home": "BAL",
+      "week": 4,
+      "kickoff": "2026-10-04 13:00",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "grass",
+      "roof": "outdoors",
+      "awayRestDays": 7,
+      "homeRestDays": 7,
+      "awayTravelMiles": 594,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "NE",
+      "home": "BUF",
+      "week": 4,
+      "kickoff": "2026-10-04 13:00",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "a_turf",
+      "roof": "outdoors",
+      "awayRestDays": 7,
+      "homeRestDays": 7,
+      "awayTravelMiles": 386,
+      "divisional": true,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "NYJ",
+      "home": "CHI",
+      "week": 4,
+      "kickoff": "2026-10-04 13:00",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "grass",
+      "roof": "outdoors",
+      "awayRestDays": 7,
+      "homeRestDays": 6,
+      "awayTravelMiles": 706,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "JAX",
+      "home": "CIN",
+      "week": 4,
+      "kickoff": "2026-10-04 13:00",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "fieldturf",
+      "roof": "outdoors",
+      "awayRestDays": 7,
+      "homeRestDays": 7,
+      "awayTravelMiles": 628,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "DAL",
+      "home": "HOU",
+      "week": 4,
+      "kickoff": "2026-10-04 13:00",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "astroturf",
+      "roof": "Unknown",
+      "awayRestDays": 7,
+      "homeRestDays": 7,
+      "awayTravelMiles": 234,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "ARI",
+      "home": "NYG",
+      "week": 4,
+      "kickoff": "2026-10-04 13:00",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "fieldturf",
+      "roof": "outdoors",
+      "awayRestDays": 7,
+      "homeRestDays": 7,
+      "awayTravelMiles": 2144,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "LA",
+      "home": "PHI",
+      "week": 4,
+      "kickoff": "2026-10-04 13:00",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "grass",
+      "roof": "outdoors",
+      "awayRestDays": 7,
+      "homeRestDays": 6,
+      "awayTravelMiles": 2396,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "GB",
+      "home": "TB",
+      "week": 4,
+      "kickoff": "2026-10-04 13:00",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "grass",
+      "roof": "outdoors",
+      "awayRestDays": 10,
+      "homeRestDays": 7,
+      "awayTravelMiles": 1182,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "MIA",
+      "home": "MIN",
+      "week": 4,
+      "kickoff": "2026-10-04 16:05",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "sportturf",
+      "roof": "dome",
+      "awayRestDays": 7,
+      "homeRestDays": 7,
+      "awayTravelMiles": 1500,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "KC",
+      "home": "LV",
+      "week": 4,
+      "kickoff": "2026-10-04 16:25",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "grass",
+      "roof": "dome",
+      "awayRestDays": 7,
+      "homeRestDays": 7,
+      "awayTravelMiles": 1149,
+      "divisional": true,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "LAC",
+      "home": "SEA",
+      "week": 4,
+      "kickoff": "2026-10-04 16:25",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "fieldturf",
+      "roof": "outdoors",
+      "awayRestDays": 7,
+      "homeRestDays": 7,
+      "awayTravelMiles": 965,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "DEN",
+      "home": "SF",
+      "week": 4,
+      "kickoff": "2026-10-04 16:25",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "grass",
+      "roof": "outdoors",
+      "awayRestDays": 7,
+      "homeRestDays": 7,
+      "awayTravelMiles": 928,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "DET",
+      "home": "CAR",
+      "week": 4,
+      "kickoff": "2026-10-04 20:20",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "grass",
+      "roof": "outdoors",
+      "awayRestDays": 7,
+      "homeRestDays": 7,
+      "awayTravelMiles": 505,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "ATL",
+      "home": "NO",
+      "week": 4,
+      "kickoff": "2026-10-05 20:15",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "sportturf",
+      "roof": "dome",
+      "awayRestDays": 11,
+      "homeRestDays": 8,
+      "awayTravelMiles": 424,
+      "divisional": true,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "TB",
+      "home": "DAL",
+      "week": 5,
+      "kickoff": "2026-10-08 20:15",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "matrixturf",
+      "roof": "Unknown",
+      "awayRestDays": 4,
+      "homeRestDays": 4,
+      "awayTravelMiles": 929,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "PHI",
+      "home": "JAX",
+      "week": 5,
+      "kickoff": "2026-10-11 09:30",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "grass",
+      "roof": "outdoors",
+      "awayRestDays": 7,
+      "homeRestDays": 7,
+      "awayTravelMiles": 755,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "CIN",
+      "home": "MIA",
+      "week": 5,
+      "kickoff": "2026-10-11 13:00",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "grass",
+      "roof": "outdoors",
+      "awayRestDays": 7,
+      "homeRestDays": 7,
+      "awayTravelMiles": 941,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "LV",
+      "home": "NE",
+      "week": 5,
+      "kickoff": "2026-10-11 13:00",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "fieldturf",
+      "roof": "outdoors",
+      "awayRestDays": 7,
+      "homeRestDays": 7,
+      "awayTravelMiles": 2365,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "MIN",
+      "home": "NO",
+      "week": 5,
+      "kickoff": "2026-10-11 13:00",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "sportturf",
+      "roof": "dome",
+      "awayRestDays": 7,
+      "homeRestDays": 6,
+      "awayTravelMiles": 1052,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "CLE",
+      "home": "NYJ",
+      "week": 5,
+      "kickoff": "2026-10-11 13:00",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "fieldturf",
+      "roof": "outdoors",
+      "awayRestDays": 10,
+      "homeRestDays": 7,
+      "awayTravelMiles": 399,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "IND",
+      "home": "PIT",
+      "week": 5,
+      "kickoff": "2026-10-11 13:00",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "grass",
+      "roof": "outdoors",
+      "awayRestDays": 7,
+      "homeRestDays": 10,
+      "awayTravelMiles": 328,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "HOU",
+      "home": "TEN",
+      "week": 5,
+      "kickoff": "2026-10-11 13:00",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "grass",
+      "roof": "outdoors",
+      "awayRestDays": 7,
+      "homeRestDays": 7,
+      "awayTravelMiles": 671,
+      "divisional": true,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "NYG",
+      "home": "WAS",
+      "week": 5,
+      "kickoff": "2026-10-11 13:00",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "grass",
+      "roof": "outdoors",
+      "awayRestDays": 7,
+      "homeRestDays": 7,
+      "awayTravelMiles": 198,
+      "divisional": true,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "DEN",
+      "home": "LAC",
+      "week": 5,
+      "kickoff": "2026-10-11 16:05",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "matrixturf",
+      "roof": "dome",
+      "awayRestDays": 7,
+      "homeRestDays": 7,
+      "awayTravelMiles": 837,
+      "divisional": true,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "DET",
+      "home": "ARI",
+      "week": 5,
+      "kickoff": "2026-10-11 16:25",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "grass",
+      "roof": "Unknown",
+      "awayRestDays": 7,
+      "homeRestDays": 7,
+      "awayTravelMiles": 1694,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "CHI",
+      "home": "GB",
+      "week": 5,
+      "kickoff": "2026-10-11 16:25",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "grass",
+      "roof": "outdoors",
+      "awayRestDays": 7,
+      "homeRestDays": 7,
+      "awayTravelMiles": 184,
+      "divisional": true,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "SF",
+      "home": "SEA",
+      "week": 5,
+      "kickoff": "2026-10-11 16:25",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "fieldturf",
+      "roof": "outdoors",
+      "awayRestDays": 7,
+      "homeRestDays": 7,
+      "awayTravelMiles": 704,
+      "divisional": true,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "BAL",
+      "home": "ATL",
+      "week": 5,
+      "kickoff": "2026-10-11 20:20",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "fieldturf",
+      "roof": "Unknown",
+      "awayRestDays": 7,
+      "homeRestDays": 6,
+      "awayTravelMiles": 576,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "BUF",
+      "home": "LA",
+      "week": 5,
+      "kickoff": "2026-10-12 20:15",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "matrixturf",
+      "roof": "dome",
+      "awayRestDays": 8,
+      "homeRestDays": 8,
+      "awayTravelMiles": 2206,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "SEA",
+      "home": "DEN",
+      "week": 6,
+      "kickoff": "2026-10-15 20:15",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "grass",
+      "roof": "outdoors",
+      "awayRestDays": 4,
+      "homeRestDays": 4,
+      "awayTravelMiles": 1018,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "HOU",
+      "home": "JAX",
+      "week": 6,
+      "kickoff": "2026-10-18 09:30",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "grass",
+      "roof": "outdoors",
+      "awayRestDays": 7,
+      "homeRestDays": 7,
+      "awayTravelMiles": 825,
+      "divisional": true,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "CHI",
+      "home": "ATL",
+      "week": 6,
+      "kickoff": "2026-10-18 13:00",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "fieldturf",
+      "roof": "Unknown",
+      "awayRestDays": 7,
+      "homeRestDays": 7,
+      "awayTravelMiles": 587,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "BAL",
+      "home": "CLE",
+      "week": 6,
+      "kickoff": "2026-10-18 13:00",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "grass",
+      "roof": "outdoors",
+      "awayRestDays": 7,
+      "homeRestDays": 7,
+      "awayTravelMiles": 308,
+      "divisional": true,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "TEN",
+      "home": "IND",
+      "week": 6,
+      "kickoff": "2026-10-18 13:00",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "fieldturf",
+      "roof": "Unknown",
+      "awayRestDays": 7,
+      "homeRestDays": 7,
+      "awayTravelMiles": 250,
+      "divisional": true,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "NYJ",
+      "home": "NE",
+      "week": 6,
+      "kickoff": "2026-10-18 13:00",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "fieldturf",
+      "roof": "outdoors",
+      "awayRestDays": 7,
+      "homeRestDays": 7,
+      "awayTravelMiles": 170,
+      "divisional": true,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "NO",
+      "home": "NYG",
+      "week": 6,
+      "kickoff": "2026-10-18 13:00",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "fieldturf",
+      "roof": "outdoors",
+      "awayRestDays": 7,
+      "homeRestDays": 7,
+      "awayTravelMiles": 1170,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "CAR",
+      "home": "PHI",
+      "week": 6,
+      "kickoff": "2026-10-18 13:00",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "grass",
+      "roof": "outdoors",
+      "awayRestDays": 14,
+      "homeRestDays": 7,
+      "awayTravelMiles": 448,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "PIT",
+      "home": "TB",
+      "week": 6,
+      "kickoff": "2026-10-18 13:00",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "grass",
+      "roof": "outdoors",
+      "awayRestDays": 7,
+      "homeRestDays": 10,
+      "awayTravelMiles": 873,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "ARI",
+      "home": "LA",
+      "week": 6,
+      "kickoff": "2026-10-18 16:05",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "matrixturf",
+      "roof": "dome",
+      "awayRestDays": 7,
+      "homeRestDays": 6,
+      "awayTravelMiles": 350,
+      "divisional": true,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "LAC",
+      "home": "KC",
+      "week": 6,
+      "kickoff": "2026-10-18 16:25",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "grass",
+      "roof": "outdoors",
+      "awayRestDays": 7,
+      "homeRestDays": 14,
+      "awayTravelMiles": 1366,
+      "divisional": true,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "BUF",
+      "home": "LV",
+      "week": 6,
+      "kickoff": "2026-10-18 16:25",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "grass",
+      "roof": "dome",
+      "awayRestDays": 6,
+      "homeRestDays": 7,
+      "awayTravelMiles": 1980,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "DAL",
+      "home": "GB",
+      "week": 6,
+      "kickoff": "2026-10-18 20:20",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "grass",
+      "roof": "outdoors",
+      "awayRestDays": 10,
+      "homeRestDays": 7,
+      "awayTravelMiles": 946,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "WAS",
+      "home": "SF",
+      "week": 6,
+      "kickoff": "2026-10-19 20:15",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "grass",
+      "roof": "outdoors",
+      "awayRestDays": 8,
+      "homeRestDays": 8,
+      "awayTravelMiles": 2428,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "NE",
+      "home": "CHI",
+      "week": 7,
+      "kickoff": "2026-10-22 20:15",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "grass",
+      "roof": "outdoors",
+      "awayRestDays": 4,
+      "homeRestDays": 4,
+      "awayTravelMiles": 839,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "PIT",
+      "home": "NO",
+      "week": 7,
+      "kickoff": "2026-10-25 09:30",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "sportturf",
+      "roof": "dome",
+      "awayRestDays": 7,
+      "homeRestDays": 7,
+      "awayTravelMiles": 920,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "SF",
+      "home": "ATL",
+      "week": 7,
+      "kickoff": "2026-10-25 13:00",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "fieldturf",
+      "roof": "Unknown",
+      "awayRestDays": 6,
+      "homeRestDays": 7,
+      "awayTravelMiles": 2112,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "CIN",
+      "home": "BAL",
+      "week": 7,
+      "kickoff": "2026-10-25 13:00",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "grass",
+      "roof": "outdoors",
+      "awayRestDays": 14,
+      "homeRestDays": 7,
+      "awayTravelMiles": 423,
+      "divisional": true,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "TB",
+      "home": "CAR",
+      "week": 7,
+      "kickoff": "2026-10-25 13:00",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "grass",
+      "roof": "outdoors",
+      "awayRestDays": 7,
+      "homeRestDays": 7,
+      "awayTravelMiles": 510,
+      "divisional": true,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "NYG",
+      "home": "HOU",
+      "week": 7,
+      "kickoff": "2026-10-25 13:00",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "astroturf",
+      "roof": "Unknown",
+      "awayRestDays": 7,
+      "homeRestDays": 7,
+      "awayTravelMiles": 1423,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "IND",
+      "home": "MIN",
+      "week": 7,
+      "kickoff": "2026-10-25 13:00",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "sportturf",
+      "roof": "dome",
+      "awayRestDays": 7,
+      "homeRestDays": 14,
+      "awayTravelMiles": 510,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "MIA",
+      "home": "NYJ",
+      "week": 7,
+      "kickoff": "2026-10-25 13:00",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "fieldturf",
+      "roof": "outdoors",
+      "awayRestDays": 14,
+      "homeRestDays": 7,
+      "awayTravelMiles": 1086,
+      "divisional": true,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "CLE",
+      "home": "TEN",
+      "week": 7,
+      "kickoff": "2026-10-25 13:00",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "grass",
+      "roof": "outdoors",
+      "awayRestDays": 7,
+      "homeRestDays": 7,
+      "awayTravelMiles": 459,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "DEN",
+      "home": "ARI",
+      "week": 7,
+      "kickoff": "2026-10-25 16:05",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "grass",
+      "roof": "Unknown",
+      "awayRestDays": 10,
+      "homeRestDays": 7,
+      "awayTravelMiles": 588,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "GB",
+      "home": "DET",
+      "week": 7,
+      "kickoff": "2026-10-25 16:25",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "fieldturf",
+      "roof": "dome",
+      "awayRestDays": 7,
+      "homeRestDays": 14,
+      "awayTravelMiles": 293,
+      "divisional": true,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "LA",
+      "home": "LV",
+      "week": 7,
+      "kickoff": "2026-10-25 16:25",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "grass",
+      "roof": "dome",
+      "awayRestDays": 7,
+      "homeRestDays": 7,
+      "awayTravelMiles": 232,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "KC",
+      "home": "SEA",
+      "week": 7,
+      "kickoff": "2026-10-25 20:20",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "fieldturf",
+      "roof": "outdoors",
+      "awayRestDays": 7,
+      "homeRestDays": 10,
+      "awayTravelMiles": 1509,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "DAL",
+      "home": "PHI",
+      "week": 7,
+      "kickoff": "2026-10-26 20:15",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "grass",
+      "roof": "outdoors",
+      "awayRestDays": 8,
+      "homeRestDays": 8,
+      "awayTravelMiles": 1313,
+      "divisional": true,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "CAR",
+      "home": "GB",
+      "week": 8,
+      "kickoff": "2026-10-29 20:15",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "grass",
+      "roof": "outdoors",
+      "awayRestDays": 4,
+      "homeRestDays": 4,
+      "awayTravelMiles": 746,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "BAL",
+      "home": "BUF",
+      "week": 8,
+      "kickoff": "2026-11-01 13:00",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "a_turf",
+      "roof": "outdoors",
+      "awayRestDays": 7,
+      "homeRestDays": 14,
+      "awayTravelMiles": 267,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "TEN",
+      "home": "CIN",
+      "week": 8,
+      "kickoff": "2026-11-01 13:00",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "fieldturf",
+      "roof": "outdoors",
+      "awayRestDays": 7,
+      "homeRestDays": 7,
+      "awayTravelMiles": 237,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "ARI",
+      "home": "DAL",
+      "week": 8,
+      "kickoff": "2026-11-01 13:00",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "matrixturf",
+      "roof": "Unknown",
+      "awayRestDays": 7,
+      "homeRestDays": 6,
+      "awayTravelMiles": 878,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "MIN",
+      "home": "DET",
+      "week": 8,
+      "kickoff": "2026-11-01 13:00",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "fieldturf",
+      "roof": "dome",
+      "awayRestDays": 7,
+      "homeRestDays": 7,
+      "awayTravelMiles": 541,
+      "divisional": true,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "IND",
+      "home": "JAX",
+      "week": 8,
+      "kickoff": "2026-11-01 13:00",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "grass",
+      "roof": "outdoors",
+      "awayRestDays": 7,
+      "homeRestDays": 14,
+      "awayTravelMiles": 700,
+      "divisional": true,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "LV",
+      "home": "NYJ",
+      "week": 8,
+      "kickoff": "2026-11-01 13:00",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "fieldturf",
+      "roof": "outdoors",
+      "awayRestDays": 7,
+      "homeRestDays": 7,
+      "awayTravelMiles": 2228,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "CLE",
+      "home": "PIT",
+      "week": 8,
+      "kickoff": "2026-11-01 13:00",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "grass",
+      "roof": "outdoors",
+      "awayRestDays": 7,
+      "homeRestDays": 7,
+      "awayTravelMiles": 114,
+      "divisional": true,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "ATL",
+      "home": "TB",
+      "week": 8,
+      "kickoff": "2026-11-01 13:00",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "grass",
+      "roof": "outdoors",
+      "awayRestDays": 7,
+      "homeRestDays": 7,
+      "awayTravelMiles": 415,
+      "divisional": true,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "LAC",
+      "home": "LA",
+      "week": 8,
+      "kickoff": "2026-11-01 16:05",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "matrixturf",
+      "roof": "dome",
+      "awayRestDays": 14,
+      "homeRestDays": 7,
+      "awayTravelMiles": 0,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "KC",
+      "home": "DEN",
+      "week": 8,
+      "kickoff": "2026-11-01 16:25",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "grass",
+      "roof": "outdoors",
+      "awayRestDays": 7,
+      "homeRestDays": 7,
+      "awayTravelMiles": 564,
+      "divisional": true,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "NE",
+      "home": "MIA",
+      "week": 8,
+      "kickoff": "2026-11-01 16:25",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "grass",
+      "roof": "outdoors",
+      "awayRestDays": 10,
+      "homeRestDays": 7,
+      "awayTravelMiles": 1226,
+      "divisional": true,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "PHI",
+      "home": "WAS",
+      "week": 8,
+      "kickoff": "2026-11-01 20:20",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "grass",
+      "roof": "outdoors",
+      "awayRestDays": 6,
+      "homeRestDays": 13,
+      "awayTravelMiles": 114,
+      "divisional": true,
+      "h2h": {
+        "meetings": 1,
+        "aWins": 1,
+        "bWins": 0,
+        "avgCombinedPts": 46.0,
+        "avgMarginA": 2.0
+      },
+      "odds": null
+    },
+    {
+      "away": "CHI",
+      "home": "SEA",
+      "week": 8,
+      "kickoff": "2026-11-02 20:15",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "fieldturf",
+      "roof": "outdoors",
+      "awayRestDays": 11,
+      "homeRestDays": 8,
+      "awayTravelMiles": 1734,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "JAX",
+      "home": "BAL",
+      "week": 9,
+      "kickoff": "2026-11-05 20:15",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "grass",
+      "roof": "outdoors",
+      "awayRestDays": 4,
+      "homeRestDays": 4,
+      "awayTravelMiles": 681,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "CIN",
+      "home": "ATL",
+      "week": 9,
+      "kickoff": "2026-11-08 09:30",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "fieldturf",
+      "roof": "Unknown",
+      "awayRestDays": 7,
+      "homeRestDays": 7,
+      "awayTravelMiles": 369,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "DEN",
+      "home": "CAR",
+      "week": 9,
+      "kickoff": "2026-11-08 13:00",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "grass",
+      "roof": "outdoors",
+      "awayRestDays": 7,
+      "homeRestDays": 10,
+      "awayTravelMiles": 1357,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "DAL",
+      "home": "IND",
+      "week": 9,
+      "kickoff": "2026-11-08 13:00",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "fieldturf",
+      "roof": "Unknown",
+      "awayRestDays": 7,
+      "homeRestDays": 7,
+      "awayTravelMiles": 777,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "NYJ",
+      "home": "KC",
+      "week": 9,
+      "kickoff": "2026-11-08 13:00",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "grass",
+      "roof": "outdoors",
+      "awayRestDays": 7,
+      "homeRestDays": 7,
+      "awayTravelMiles": 1086,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "DET",
+      "home": "MIA",
+      "week": 9,
+      "kickoff": "2026-11-08 13:00",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "grass",
+      "roof": "outdoors",
+      "awayRestDays": 7,
+      "homeRestDays": 7,
+      "awayTravelMiles": 1143,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "CLE",
+      "home": "NO",
+      "week": 9,
+      "kickoff": "2026-11-08 13:00",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "sportturf",
+      "roof": "dome",
+      "awayRestDays": 7,
+      "homeRestDays": 14,
+      "awayTravelMiles": 925,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "NYG",
+      "home": "PHI",
+      "week": 9,
+      "kickoff": "2026-11-08 13:00",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "grass",
+      "roof": "outdoors",
+      "awayRestDays": 14,
+      "homeRestDays": 7,
+      "awayTravelMiles": 85,
+      "divisional": true,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "LA",
+      "home": "WAS",
+      "week": 9,
+      "kickoff": "2026-11-08 13:00",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "grass",
+      "roof": "outdoors",
+      "awayRestDays": 7,
+      "homeRestDays": 7,
+      "awayTravelMiles": 2311,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "HOU",
+      "home": "LAC",
+      "week": 9,
+      "kickoff": "2026-11-08 16:05",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "matrixturf",
+      "roof": "dome",
+      "awayRestDays": 14,
+      "homeRestDays": 7,
+      "awayTravelMiles": 1375,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "LV",
+      "home": "SF",
+      "week": 9,
+      "kickoff": "2026-11-08 16:05",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "grass",
+      "roof": "outdoors",
+      "awayRestDays": 7,
+      "homeRestDays": 14,
+      "awayTravelMiles": 386,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "GB",
+      "home": "NE",
+      "week": 9,
+      "kickoff": "2026-11-08 16:25",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "fieldturf",
+      "roof": "outdoors",
+      "awayRestDays": 10,
+      "homeRestDays": 7,
+      "awayTravelMiles": 859,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "ARI",
+      "home": "SEA",
+      "week": 9,
+      "kickoff": "2026-11-08 16:25",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "fieldturf",
+      "roof": "outdoors",
+      "awayRestDays": 7,
+      "homeRestDays": 6,
+      "awayTravelMiles": 1104,
+      "divisional": true,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "TB",
+      "home": "CHI",
+      "week": 9,
+      "kickoff": "2026-11-08 20:20",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "grass",
+      "roof": "outdoors",
+      "awayRestDays": 7,
+      "homeRestDays": 6,
+      "awayTravelMiles": 1002,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "BUF",
+      "home": "MIN",
+      "week": 9,
+      "kickoff": "2026-11-09 20:15",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "sportturf",
+      "roof": "dome",
+      "awayRestDays": 8,
+      "homeRestDays": 8,
+      "awayTravelMiles": 736,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "WAS",
+      "home": "NYG",
+      "week": 10,
+      "kickoff": "2026-11-12 20:15",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "fieldturf",
+      "roof": "outdoors",
+      "awayRestDays": 4,
+      "homeRestDays": 4,
+      "awayTravelMiles": 198,
+      "divisional": true,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "NE",
+      "home": "DET",
+      "week": 10,
+      "kickoff": "2026-11-15 09:30",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "fieldturf",
+      "roof": "dome",
+      "awayRestDays": 7,
+      "homeRestDays": 7,
+      "awayTravelMiles": 603,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "KC",
+      "home": "ATL",
+      "week": 10,
+      "kickoff": "2026-11-15 13:00",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "fieldturf",
+      "roof": "Unknown",
+      "awayRestDays": 7,
+      "homeRestDays": 7,
+      "awayTravelMiles": 669,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "HOU",
+      "home": "CLE",
+      "week": 10,
+      "kickoff": "2026-11-15 13:00",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "grass",
+      "roof": "outdoors",
+      "awayRestDays": 7,
+      "homeRestDays": 7,
+      "awayTravelMiles": 1120,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "MIN",
+      "home": "GB",
+      "week": 10,
+      "kickoff": "2026-11-15 13:00",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "grass",
+      "roof": "outdoors",
+      "awayRestDays": 6,
+      "homeRestDays": 7,
+      "awayTravelMiles": 257,
+      "divisional": true,
+      "h2h": {
+        "meetings": 1,
+        "aWins": 1,
+        "bWins": 0,
+        "avgCombinedPts": 61.0,
+        "avgMarginA": 17.0
+      },
+      "odds": null
+    },
+    {
+      "away": "MIA",
+      "home": "IND",
+      "week": 10,
+      "kickoff": "2026-11-15 13:00",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "fieldturf",
+      "roof": "Unknown",
+      "awayRestDays": 7,
+      "homeRestDays": 7,
+      "awayTravelMiles": 1013,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "CAR",
+      "home": "NO",
+      "week": 10,
+      "kickoff": "2026-11-15 13:00",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "sportturf",
+      "roof": "dome",
+      "awayRestDays": 7,
+      "homeRestDays": 7,
+      "awayTravelMiles": 649,
+      "divisional": true,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "BUF",
+      "home": "NYJ",
+      "week": 10,
+      "kickoff": "2026-11-15 13:00",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "fieldturf",
+      "roof": "outdoors",
+      "awayRestDays": 6,
+      "homeRestDays": 7,
+      "awayTravelMiles": 278,
+      "divisional": true,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "JAX",
+      "home": "TEN",
+      "week": 10,
+      "kickoff": "2026-11-15 13:00",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "grass",
+      "roof": "outdoors",
+      "awayRestDays": 10,
+      "homeRestDays": 14,
+      "awayTravelMiles": 501,
+      "divisional": true,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "LA",
+      "home": "ARI",
+      "week": 10,
+      "kickoff": "2026-11-15 16:05",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "grass",
+      "roof": "Unknown",
+      "awayRestDays": 7,
+      "homeRestDays": 7,
+      "awayTravelMiles": 350,
+      "divisional": true,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "SEA",
+      "home": "LV",
+      "week": 10,
+      "kickoff": "2026-11-15 16:05",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "grass",
+      "roof": "dome",
+      "awayRestDays": 7,
+      "homeRestDays": 7,
+      "awayTravelMiles": 875,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "SF",
+      "home": "DAL",
+      "week": 10,
+      "kickoff": "2026-11-15 16:25",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "matrixturf",
+      "roof": "Unknown",
+      "awayRestDays": 7,
+      "homeRestDays": 7,
+      "awayTravelMiles": 1438,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "PIT",
+      "home": "CIN",
+      "week": 10,
+      "kickoff": "2026-11-15 20:20",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "fieldturf",
+      "roof": "outdoors",
+      "awayRestDays": 14,
+      "homeRestDays": 7,
+      "awayTravelMiles": 257,
+      "divisional": true,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "LAC",
+      "home": "BAL",
+      "week": 10,
+      "kickoff": "2026-11-16 20:15",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "grass",
+      "roof": "outdoors",
+      "awayRestDays": 8,
+      "homeRestDays": 11,
+      "awayTravelMiles": 2322,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "IND",
+      "home": "HOU",
+      "week": 11,
+      "kickoff": "2026-11-19 20:15",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "astroturf",
+      "roof": "Unknown",
+      "awayRestDays": 4,
+      "homeRestDays": 4,
+      "awayTravelMiles": 871,
+      "divisional": true,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "MIA",
+      "home": "BUF",
+      "week": 11,
+      "kickoff": "2026-11-22 13:00",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "a_turf",
+      "roof": "outdoors",
+      "awayRestDays": 7,
+      "homeRestDays": 7,
+      "awayTravelMiles": 1165,
+      "divisional": true,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "BAL",
+      "home": "CAR",
+      "week": 11,
+      "kickoff": "2026-11-22 13:00",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "grass",
+      "roof": "outdoors",
+      "awayRestDays": 6,
+      "homeRestDays": 7,
+      "awayTravelMiles": 364,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "NO",
+      "home": "CHI",
+      "week": 11,
+      "kickoff": "2026-11-22 13:00",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "grass",
+      "roof": "outdoors",
+      "awayRestDays": 7,
+      "homeRestDays": 14,
+      "awayTravelMiles": 834,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "TEN",
+      "home": "DAL",
+      "week": 11,
+      "kickoff": "2026-11-22 13:00",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "matrixturf",
+      "roof": "Unknown",
+      "awayRestDays": 7,
+      "homeRestDays": 7,
+      "awayTravelMiles": 633,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "TB",
+      "home": "DET",
+      "week": 11,
+      "kickoff": "2026-11-22 13:00",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "fieldturf",
+      "roof": "dome",
+      "awayRestDays": 14,
+      "homeRestDays": 7,
+      "awayTravelMiles": 993,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "ARI",
+      "home": "KC",
+      "week": 11,
+      "kickoff": "2026-11-22 13:00",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "grass",
+      "roof": "outdoors",
+      "awayRestDays": 7,
+      "homeRestDays": 7,
+      "awayTravelMiles": 1059,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "JAX",
+      "home": "NYG",
+      "week": 11,
+      "kickoff": "2026-11-22 13:00",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "fieldturf",
+      "roof": "outdoors",
+      "awayRestDays": 7,
+      "homeRestDays": 10,
+      "awayTravelMiles": 839,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "NYJ",
+      "home": "LAC",
+      "week": 11,
+      "kickoff": "2026-11-22 16:05",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "matrixturf",
+      "roof": "dome",
+      "awayRestDays": 7,
+      "homeRestDays": 6,
+      "awayTravelMiles": 2449,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "LV",
+      "home": "DEN",
+      "week": 11,
+      "kickoff": "2026-11-22 16:25",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "grass",
+      "roof": "outdoors",
+      "awayRestDays": 7,
+      "homeRestDays": 14,
+      "awayTravelMiles": 608,
+      "divisional": true,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "PIT",
+      "home": "PHI",
+      "week": 11,
+      "kickoff": "2026-11-22 16:25",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "grass",
+      "roof": "outdoors",
+      "awayRestDays": 7,
+      "homeRestDays": 14,
+      "awayTravelMiles": 259,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "MIN",
+      "home": "SF",
+      "week": 11,
+      "kickoff": "2026-11-22 20:20",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "grass",
+      "roof": "outdoors",
+      "awayRestDays": 7,
+      "homeRestDays": 7,
+      "awayTravelMiles": 1572,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "CIN",
+      "home": "WAS",
+      "week": 11,
+      "kickoff": "2026-11-23 20:15",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "grass",
+      "roof": "outdoors",
+      "awayRestDays": 8,
+      "homeRestDays": 11,
+      "awayTravelMiles": 411,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "GB",
+      "home": "LA",
+      "week": 12,
+      "kickoff": "2026-11-25 20:00",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "matrixturf",
+      "roof": "dome",
+      "awayRestDays": 10,
+      "homeRestDays": 10,
+      "awayTravelMiles": 1764,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "CHI",
+      "home": "DET",
+      "week": 12,
+      "kickoff": "2026-11-26 13:00",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "fieldturf",
+      "roof": "dome",
+      "awayRestDays": 4,
+      "homeRestDays": 4,
+      "awayTravelMiles": 237,
+      "divisional": true,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "PHI",
+      "home": "DAL",
+      "week": 12,
+      "kickoff": "2026-11-26 16:30",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "matrixturf",
+      "roof": "Unknown",
+      "awayRestDays": 4,
+      "homeRestDays": 4,
+      "awayTravelMiles": 1313,
+      "divisional": true,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "KC",
+      "home": "BUF",
+      "week": 12,
+      "kickoff": "2026-11-26 20:20",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "a_turf",
+      "roof": "outdoors",
+      "awayRestDays": 4,
+      "homeRestDays": 4,
+      "awayTravelMiles": 858,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "DEN",
+      "home": "PIT",
+      "week": 12,
+      "kickoff": "2026-11-27 15:00",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "grass",
+      "roof": "outdoors",
+      "awayRestDays": 5,
+      "homeRestDays": 5,
+      "awayTravelMiles": 1318,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "NO",
+      "home": "CIN",
+      "week": 12,
+      "kickoff": "2026-11-29 13:00",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "fieldturf",
+      "roof": "outdoors",
+      "awayRestDays": 7,
+      "homeRestDays": 6,
+      "awayTravelMiles": 706,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "LV",
+      "home": "CLE",
+      "week": 12,
+      "kickoff": "2026-11-29 13:00",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "grass",
+      "roof": "outdoors",
+      "awayRestDays": 7,
+      "homeRestDays": 14,
+      "awayTravelMiles": 1829,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "BAL",
+      "home": "HOU",
+      "week": 12,
+      "kickoff": "2026-11-29 13:00",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "astroturf",
+      "roof": "Unknown",
+      "awayRestDays": 7,
+      "homeRestDays": 10,
+      "awayTravelMiles": 1255,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "NYG",
+      "home": "IND",
+      "week": 12,
+      "kickoff": "2026-11-29 13:00",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "fieldturf",
+      "roof": "Unknown",
+      "awayRestDays": 7,
+      "homeRestDays": 10,
+      "awayTravelMiles": 641,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "NYJ",
+      "home": "MIA",
+      "week": 12,
+      "kickoff": "2026-11-29 13:00",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "grass",
+      "roof": "outdoors",
+      "awayRestDays": 7,
+      "homeRestDays": 7,
+      "awayTravelMiles": 1086,
+      "divisional": true,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "ATL",
+      "home": "MIN",
+      "week": 12,
+      "kickoff": "2026-11-29 13:00",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "sportturf",
+      "roof": "dome",
+      "awayRestDays": 14,
+      "homeRestDays": 7,
+      "awayTravelMiles": 907,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "TEN",
+      "home": "JAX",
+      "week": 12,
+      "kickoff": "2026-11-29 16:05",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "grass",
+      "roof": "outdoors",
+      "awayRestDays": 7,
+      "homeRestDays": 7,
+      "awayTravelMiles": 501,
+      "divisional": true,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "WAS",
+      "home": "ARI",
+      "week": 12,
+      "kickoff": "2026-11-29 16:25",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "grass",
+      "roof": "Unknown",
+      "awayRestDays": 6,
+      "homeRestDays": 7,
+      "awayTravelMiles": 1995,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "SEA",
+      "home": "SF",
+      "week": 12,
+      "kickoff": "2026-11-29 16:25",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "grass",
+      "roof": "outdoors",
+      "awayRestDays": 14,
+      "homeRestDays": 7,
+      "awayTravelMiles": 704,
+      "divisional": true,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "NE",
+      "home": "LAC",
+      "week": 12,
+      "kickoff": "2026-11-29 20:20",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "matrixturf",
+      "roof": "dome",
+      "awayRestDays": 14,
+      "homeRestDays": 7,
+      "awayTravelMiles": 2589,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "CAR",
+      "home": "TB",
+      "week": 12,
+      "kickoff": "2026-11-30 20:15",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "grass",
+      "roof": "outdoors",
+      "awayRestDays": 8,
+      "homeRestDays": 8,
+      "awayTravelMiles": 510,
+      "divisional": true,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "KC",
+      "home": "LA",
+      "week": 13,
+      "kickoff": "2026-12-03 20:15",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "matrixturf",
+      "roof": "dome",
+      "awayRestDays": 7,
+      "homeRestDays": 8,
+      "awayTravelMiles": 1366,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "DET",
+      "home": "ATL",
+      "week": 13,
+      "kickoff": "2026-12-06 13:00",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "fieldturf",
+      "roof": "Unknown",
+      "awayRestDays": 10,
+      "homeRestDays": 7,
+      "awayTravelMiles": 598,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "JAX",
+      "home": "CHI",
+      "week": 13,
+      "kickoff": "2026-12-06 13:00",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "grass",
+      "roof": "outdoors",
+      "awayRestDays": 7,
+      "homeRestDays": 10,
+      "awayTravelMiles": 864,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "CIN",
+      "home": "CLE",
+      "week": 13,
+      "kickoff": "2026-12-06 13:00",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "grass",
+      "roof": "outdoors",
+      "awayRestDays": 7,
+      "homeRestDays": 7,
+      "awayTravelMiles": 223,
+      "divisional": true,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "GB",
+      "home": "NO",
+      "week": 13,
+      "kickoff": "2026-12-06 13:00",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "sportturf",
+      "roof": "dome",
+      "awayRestDays": 11,
+      "homeRestDays": 7,
+      "awayTravelMiles": 1011,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "SF",
+      "home": "NYG",
+      "week": 13,
+      "kickoff": "2026-12-06 13:00",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "fieldturf",
+      "roof": "outdoors",
+      "awayRestDays": 7,
+      "homeRestDays": 7,
+      "awayTravelMiles": 2547,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "LAC",
+      "home": "TB",
+      "week": 13,
+      "kickoff": "2026-12-06 13:00",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "grass",
+      "roof": "outdoors",
+      "awayRestDays": 7,
+      "homeRestDays": 6,
+      "awayTravelMiles": 2152,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "WAS",
+      "home": "TEN",
+      "week": 13,
+      "kickoff": "2026-12-06 13:00",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "grass",
+      "roof": "outdoors",
+      "awayRestDays": 7,
+      "homeRestDays": 7,
+      "awayTravelMiles": 575,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "PHI",
+      "home": "ARI",
+      "week": 13,
+      "kickoff": "2026-12-06 16:05",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "grass",
+      "roof": "Unknown",
+      "awayRestDays": 10,
+      "homeRestDays": 7,
+      "awayTravelMiles": 2086,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "MIA",
+      "home": "DEN",
+      "week": 13,
+      "kickoff": "2026-12-06 16:05",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "grass",
+      "roof": "outdoors",
+      "awayRestDays": 7,
+      "homeRestDays": 9,
+      "awayTravelMiles": 1716,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "CAR",
+      "home": "MIN",
+      "week": 13,
+      "kickoff": "2026-12-06 16:25",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "sportturf",
+      "roof": "dome",
+      "awayRestDays": 6,
+      "homeRestDays": 7,
+      "awayTravelMiles": 938,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "BUF",
+      "home": "NE",
+      "week": 13,
+      "kickoff": "2026-12-06 16:25",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "fieldturf",
+      "roof": "outdoors",
+      "awayRestDays": 10,
+      "homeRestDays": 7,
+      "awayTravelMiles": 386,
+      "divisional": true,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "HOU",
+      "home": "PIT",
+      "week": 13,
+      "kickoff": "2026-12-06 20:20",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "grass",
+      "roof": "outdoors",
+      "awayRestDays": 7,
+      "homeRestDays": 9,
+      "awayTravelMiles": 1142,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "DAL",
+      "home": "SEA",
+      "week": 13,
+      "kickoff": "2026-12-07 20:15",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "fieldturf",
+      "roof": "outdoors",
+      "awayRestDays": 11,
+      "homeRestDays": 8,
+      "awayTravelMiles": 1669,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "MIN",
+      "home": "NE",
+      "week": 14,
+      "kickoff": "2026-12-10 20:15",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "fieldturf",
+      "roof": "outdoors",
+      "awayRestDays": 4,
+      "homeRestDays": 4,
+      "awayTravelMiles": 1116,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "TB",
+      "home": "BAL",
+      "week": 14,
+      "kickoff": "2026-12-13 13:00",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "grass",
+      "roof": "outdoors",
+      "awayRestDays": 7,
+      "homeRestDays": 14,
+      "awayTravelMiles": 851,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "NO",
+      "home": "CAR",
+      "week": 14,
+      "kickoff": "2026-12-13 13:00",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "grass",
+      "roof": "outdoors",
+      "awayRestDays": 7,
+      "homeRestDays": 7,
+      "awayTravelMiles": 649,
+      "divisional": true,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "ATL",
+      "home": "CLE",
+      "week": 14,
+      "kickoff": "2026-12-13 13:00",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "grass",
+      "roof": "outdoors",
+      "awayRestDays": 7,
+      "homeRestDays": 7,
+      "awayTravelMiles": 555,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "TEN",
+      "home": "DET",
+      "week": 14,
+      "kickoff": "2026-12-13 13:00",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "fieldturf",
+      "roof": "dome",
+      "awayRestDays": 7,
+      "homeRestDays": 7,
+      "awayTravelMiles": 471,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "CHI",
+      "home": "MIA",
+      "week": 14,
+      "kickoff": "2026-12-13 13:00",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "grass",
+      "roof": "outdoors",
+      "awayRestDays": 7,
+      "homeRestDays": 7,
+      "awayTravelMiles": 1176,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "DEN",
+      "home": "NYJ",
+      "week": 14,
+      "kickoff": "2026-12-13 13:00",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "fieldturf",
+      "roof": "outdoors",
+      "awayRestDays": 7,
+      "homeRestDays": 14,
+      "awayTravelMiles": 1624,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "IND",
+      "home": "PHI",
+      "week": 14,
+      "kickoff": "2026-12-13 13:00",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "grass",
+      "roof": "outdoors",
+      "awayRestDays": 14,
+      "homeRestDays": 7,
+      "awayTravelMiles": 583,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "HOU",
+      "home": "WAS",
+      "week": 14,
+      "kickoff": "2026-12-13 13:00",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "grass",
+      "roof": "outdoors",
+      "awayRestDays": 7,
+      "homeRestDays": 7,
+      "awayTravelMiles": 1232,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "LAC",
+      "home": "LV",
+      "week": 14,
+      "kickoff": "2026-12-13 16:05",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "grass",
+      "roof": "dome",
+      "awayRestDays": 7,
+      "homeRestDays": 14,
+      "awayTravelMiles": 232,
+      "divisional": true,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "KC",
+      "home": "CIN",
+      "week": 14,
+      "kickoff": "2026-12-13 16:25",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "fieldturf",
+      "roof": "outdoors",
+      "awayRestDays": 10,
+      "homeRestDays": 7,
+      "awayTravelMiles": 534,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "NYG",
+      "home": "SEA",
+      "week": 14,
+      "kickoff": "2026-12-13 16:25",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "fieldturf",
+      "roof": "outdoors",
+      "awayRestDays": 7,
+      "homeRestDays": 6,
+      "awayTravelMiles": 2396,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "LA",
+      "home": "SF",
+      "week": 14,
+      "kickoff": "2026-12-13 16:25",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "grass",
+      "roof": "outdoors",
+      "awayRestDays": 10,
+      "homeRestDays": 7,
+      "awayTravelMiles": 314,
+      "divisional": true,
+      "h2h": {
+        "meetings": 1,
+        "aWins": 0,
+        "bWins": 1,
+        "avgCombinedPts": 34.0,
+        "avgMarginA": -20.0
+      },
+      "odds": null
+    },
+    {
+      "away": "BUF",
+      "home": "GB",
+      "week": 14,
+      "kickoff": "2026-12-13 20:20",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "grass",
+      "roof": "outdoors",
+      "awayRestDays": 7,
+      "homeRestDays": 7,
+      "awayTravelMiles": 479,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "PIT",
+      "home": "JAX",
+      "week": 14,
+      "kickoff": "2026-12-14 20:15",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "grass",
+      "roof": "outdoors",
+      "awayRestDays": 8,
+      "homeRestDays": 8,
+      "awayTravelMiles": 705,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "SF",
+      "home": "LAC",
+      "week": 15,
+      "kickoff": "2026-12-17 20:15",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "matrixturf",
+      "roof": "dome",
+      "awayRestDays": 4,
+      "homeRestDays": 4,
+      "awayTravelMiles": 314,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "SEA",
+      "home": "PHI",
+      "week": 15,
+      "kickoff": "2026-12-19 17:00",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "grass",
+      "roof": "outdoors",
+      "awayRestDays": 6,
+      "homeRestDays": 6,
+      "awayTravelMiles": 2375,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "CHI",
+      "home": "BUF",
+      "week": 15,
+      "kickoff": "2026-12-19 20:20",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "a_turf",
+      "roof": "outdoors",
+      "awayRestDays": 6,
+      "homeRestDays": 6,
+      "awayTravelMiles": 455,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "CIN",
+      "home": "CAR",
+      "week": 15,
+      "kickoff": "2026-12-20 13:00",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "grass",
+      "roof": "outdoors",
+      "awayRestDays": 7,
+      "homeRestDays": 7,
+      "awayTravelMiles": 335,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "MIA",
+      "home": "GB",
+      "week": 15,
+      "kickoff": "2026-12-20 13:00",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "grass",
+      "roof": "outdoors",
+      "awayRestDays": 7,
+      "homeRestDays": 7,
+      "awayTravelMiles": 1354,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "JAX",
+      "home": "HOU",
+      "week": 15,
+      "kickoff": "2026-12-20 13:00",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "astroturf",
+      "roof": "Unknown",
+      "awayRestDays": 6,
+      "homeRestDays": 7,
+      "awayTravelMiles": 825,
+      "divisional": true,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "CLE",
+      "home": "NYG",
+      "week": 15,
+      "kickoff": "2026-12-20 13:00",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "fieldturf",
+      "roof": "outdoors",
+      "awayRestDays": 7,
+      "homeRestDays": 7,
+      "awayTravelMiles": 399,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "BAL",
+      "home": "PIT",
+      "week": 15,
+      "kickoff": "2026-12-20 13:00",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "grass",
+      "roof": "outdoors",
+      "awayRestDays": 7,
+      "homeRestDays": 6,
+      "awayTravelMiles": 197,
+      "divisional": true,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "NO",
+      "home": "TB",
+      "week": 15,
+      "kickoff": "2026-12-20 13:00",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "grass",
+      "roof": "outdoors",
+      "awayRestDays": 7,
+      "homeRestDays": 7,
+      "awayTravelMiles": 478,
+      "divisional": true,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "IND",
+      "home": "TEN",
+      "week": 15,
+      "kickoff": "2026-12-20 13:00",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "grass",
+      "roof": "outdoors",
+      "awayRestDays": 7,
+      "homeRestDays": 7,
+      "awayTravelMiles": 250,
+      "divisional": true,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "ATL",
+      "home": "WAS",
+      "week": 15,
+      "kickoff": "2026-12-20 13:00",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "grass",
+      "roof": "outdoors",
+      "awayRestDays": 7,
+      "homeRestDays": 7,
+      "awayTravelMiles": 550,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "NYJ",
+      "home": "ARI",
+      "week": 15,
+      "kickoff": "2026-12-20 16:05",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "grass",
+      "roof": "Unknown",
+      "awayRestDays": 7,
+      "homeRestDays": 14,
+      "awayTravelMiles": 2144,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "DAL",
+      "home": "LA",
+      "week": 15,
+      "kickoff": "2026-12-20 16:25",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "matrixturf",
+      "roof": "dome",
+      "awayRestDays": 13,
+      "homeRestDays": 7,
+      "awayTravelMiles": 1227,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "DEN",
+      "home": "LV",
+      "week": 15,
+      "kickoff": "2026-12-20 16:25",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "grass",
+      "roof": "dome",
+      "awayRestDays": 7,
+      "homeRestDays": 7,
+      "awayTravelMiles": 608,
+      "divisional": true,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "DET",
+      "home": "MIN",
+      "week": 15,
+      "kickoff": "2026-12-20 20:20",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "sportturf",
+      "roof": "dome",
+      "awayRestDays": 7,
+      "homeRestDays": 10,
+      "awayTravelMiles": 541,
+      "divisional": true,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "NE",
+      "home": "KC",
+      "week": 15,
+      "kickoff": "2026-12-21 20:15",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "grass",
+      "roof": "outdoors",
+      "awayRestDays": 11,
+      "homeRestDays": 8,
+      "awayTravelMiles": 1233,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "HOU",
+      "home": "PHI",
+      "week": 16,
+      "kickoff": "2026-12-24 20:15",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "grass",
+      "roof": "outdoors",
+      "awayRestDays": 4,
+      "homeRestDays": 5,
+      "awayTravelMiles": 1343,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "GB",
+      "home": "CHI",
+      "week": 16,
+      "kickoff": "2026-12-25 13:00",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "grass",
+      "roof": "outdoors",
+      "awayRestDays": 5,
+      "homeRestDays": 6,
+      "awayTravelMiles": 184,
+      "divisional": true,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "BUF",
+      "home": "DEN",
+      "week": 16,
+      "kickoff": "2026-12-25 16:30",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "grass",
+      "roof": "outdoors",
+      "awayRestDays": 6,
+      "homeRestDays": 5,
+      "awayTravelMiles": 1373,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "LA",
+      "home": "SEA",
+      "week": 16,
+      "kickoff": "2026-12-25 20:15",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "fieldturf",
+      "roof": "outdoors",
+      "awayRestDays": 5,
+      "homeRestDays": 6,
+      "awayTravelMiles": 965,
+      "divisional": true,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "TB",
+      "home": "ATL",
+      "week": 16,
+      "kickoff": "2026-12-27 13:00",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "fieldturf",
+      "roof": "Unknown",
+      "awayRestDays": 7,
+      "homeRestDays": 7,
+      "awayTravelMiles": 415,
+      "divisional": true,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "CLE",
+      "home": "BAL",
+      "week": 16,
+      "kickoff": "2026-12-27 13:00",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "grass",
+      "roof": "outdoors",
+      "awayRestDays": 7,
+      "homeRestDays": 7,
+      "awayTravelMiles": 308,
+      "divisional": true,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "CIN",
+      "home": "IND",
+      "week": 16,
+      "kickoff": "2026-12-27 13:00",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "fieldturf",
+      "roof": "Unknown",
+      "awayRestDays": 7,
+      "homeRestDays": 7,
+      "awayTravelMiles": 99,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "LAC",
+      "home": "MIA",
+      "week": 16,
+      "kickoff": "2026-12-27 13:00",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "grass",
+      "roof": "outdoors",
+      "awayRestDays": 10,
+      "homeRestDays": 7,
+      "awayTravelMiles": 2333,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "WAS",
+      "home": "MIN",
+      "week": 16,
+      "kickoff": "2026-12-27 13:00",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "sportturf",
+      "roof": "dome",
+      "awayRestDays": 7,
+      "homeRestDays": 7,
+      "awayTravelMiles": 939,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "ARI",
+      "home": "NO",
+      "week": 16,
+      "kickoff": "2026-12-27 13:00",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "sportturf",
+      "roof": "dome",
+      "awayRestDays": 7,
+      "homeRestDays": 7,
+      "awayTravelMiles": 1324,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "NE",
+      "home": "NYJ",
+      "week": 16,
+      "kickoff": "2026-12-27 13:00",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "fieldturf",
+      "roof": "outdoors",
+      "awayRestDays": 6,
+      "homeRestDays": 7,
+      "awayTravelMiles": 170,
+      "divisional": true,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "CAR",
+      "home": "PIT",
+      "week": 16,
+      "kickoff": "2026-12-27 13:00",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "grass",
+      "roof": "outdoors",
+      "awayRestDays": 7,
+      "homeRestDays": 7,
+      "awayTravelMiles": 364,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "TEN",
+      "home": "LV",
+      "week": 16,
+      "kickoff": "2026-12-27 16:05",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "grass",
+      "roof": "dome",
+      "awayRestDays": 7,
+      "homeRestDays": 7,
+      "awayTravelMiles": 1580,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "SF",
+      "home": "KC",
+      "week": 16,
+      "kickoff": "2026-12-27 16:25",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "grass",
+      "roof": "outdoors",
+      "awayRestDays": 10,
+      "homeRestDays": 6,
+      "awayTravelMiles": 1491,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "JAX",
+      "home": "DAL",
+      "week": 16,
+      "kickoff": "2026-12-27 20:20",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "matrixturf",
+      "roof": "Unknown",
+      "awayRestDays": 7,
+      "homeRestDays": 7,
+      "awayTravelMiles": 925,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "NYG",
+      "home": "DET",
+      "week": 16,
+      "kickoff": "2026-12-28 20:15",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "fieldturf",
+      "roof": "dome",
+      "awayRestDays": 8,
+      "homeRestDays": 8,
+      "awayTravelMiles": 475,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "BAL",
+      "home": "CIN",
+      "week": 17,
+      "kickoff": "2026-12-31 20:15",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "fieldturf",
+      "roof": "outdoors",
+      "awayRestDays": 4,
+      "homeRestDays": 4,
+      "awayTravelMiles": 423,
+      "divisional": true,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "NO",
+      "home": "ATL",
+      "week": 17,
+      "kickoff": "2027-01-03 13:00",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "fieldturf",
+      "roof": "Unknown",
+      "awayRestDays": 7,
+      "homeRestDays": 7,
+      "awayTravelMiles": 424,
+      "divisional": true,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "SEA",
+      "home": "CAR",
+      "week": 17,
+      "kickoff": "2027-01-03 13:00",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "grass",
+      "roof": "outdoors",
+      "awayRestDays": 9,
+      "homeRestDays": 7,
+      "awayTravelMiles": 2280,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "IND",
+      "home": "CLE",
+      "week": 17,
+      "kickoff": "2027-01-03 13:00",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "grass",
+      "roof": "outdoors",
+      "awayRestDays": 7,
+      "homeRestDays": 7,
+      "awayTravelMiles": 263,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "NYG",
+      "home": "DAL",
+      "week": 17,
+      "kickoff": "2027-01-03 13:00",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "matrixturf",
+      "roof": "Unknown",
+      "awayRestDays": 6,
+      "homeRestDays": 7,
+      "awayTravelMiles": 1385,
+      "divisional": true,
+      "h2h": {
+        "meetings": 1,
+        "aWins": 1,
+        "bWins": 0,
+        "avgCombinedPts": 48.0,
+        "avgMarginA": 8.0
+      },
+      "odds": null
+    },
+    {
+      "away": "WAS",
+      "home": "JAX",
+      "week": 17,
+      "kickoff": "2027-01-03 13:00",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "grass",
+      "roof": "outdoors",
+      "awayRestDays": 7,
+      "homeRestDays": 7,
+      "awayTravelMiles": 652,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "KC",
+      "home": "LAC",
+      "week": 17,
+      "kickoff": "2027-01-03 13:00",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "matrixturf",
+      "roof": "dome",
+      "awayRestDays": 7,
+      "homeRestDays": 7,
+      "awayTravelMiles": 1366,
+      "divisional": true,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "BUF",
+      "home": "MIA",
+      "week": 17,
+      "kickoff": "2027-01-03 13:00",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "grass",
+      "roof": "outdoors",
+      "awayRestDays": 9,
+      "homeRestDays": 7,
+      "awayTravelMiles": 1165,
+      "divisional": true,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "DEN",
+      "home": "NE",
+      "week": 17,
+      "kickoff": "2027-01-03 13:00",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "fieldturf",
+      "roof": "outdoors",
+      "awayRestDays": 9,
+      "homeRestDays": 7,
+      "awayTravelMiles": 1758,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "MIN",
+      "home": "NYJ",
+      "week": 17,
+      "kickoff": "2027-01-03 13:00",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "fieldturf",
+      "roof": "outdoors",
+      "awayRestDays": 7,
+      "homeRestDays": 7,
+      "awayTravelMiles": 1010,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "LA",
+      "home": "TB",
+      "week": 17,
+      "kickoff": "2027-01-03 13:00",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "grass",
+      "roof": "outdoors",
+      "awayRestDays": 9,
+      "homeRestDays": 7,
+      "awayTravelMiles": 2152,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "PIT",
+      "home": "TEN",
+      "week": 17,
+      "kickoff": "2027-01-03 13:00",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "grass",
+      "roof": "outdoors",
+      "awayRestDays": 7,
+      "homeRestDays": 7,
+      "awayTravelMiles": 471,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "LV",
+      "home": "ARI",
+      "week": 17,
+      "kickoff": "2027-01-03 16:05",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "grass",
+      "roof": "Unknown",
+      "awayRestDays": 7,
+      "homeRestDays": 7,
+      "awayTravelMiles": 243,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "DET",
+      "home": "CHI",
+      "week": 17,
+      "kickoff": "2027-01-03 16:25",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "grass",
+      "roof": "outdoors",
+      "awayRestDays": 6,
+      "homeRestDays": 9,
+      "awayTravelMiles": 237,
+      "divisional": true,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "PHI",
+      "home": "SF",
+      "week": 17,
+      "kickoff": "2027-01-03 20:20",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "grass",
+      "roof": "outdoors",
+      "awayRestDays": 10,
+      "homeRestDays": 7,
+      "awayTravelMiles": 2502,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "HOU",
+      "home": "GB",
+      "week": 17,
+      "kickoff": "2027-01-04 20:15",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "grass",
+      "roof": "outdoors",
+      "awayRestDays": 11,
+      "homeRestDays": 10,
+      "awayTravelMiles": 1100,
+      "divisional": false,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "SF",
+      "home": "ARI",
+      "week": 18,
+      "kickoff": "2027-01-10 13:00",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "grass",
+      "roof": "Unknown",
+      "awayRestDays": 7,
+      "homeRestDays": 7,
+      "awayTravelMiles": 608,
+      "divisional": true,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "PIT",
+      "home": "BAL",
+      "week": 18,
+      "kickoff": "2027-01-10 13:00",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "grass",
+      "roof": "outdoors",
+      "awayRestDays": 7,
+      "homeRestDays": 10,
+      "awayTravelMiles": 197,
+      "divisional": true,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "NYJ",
+      "home": "BUF",
+      "week": 18,
+      "kickoff": "2027-01-10 13:00",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "a_turf",
+      "roof": "outdoors",
+      "awayRestDays": 7,
+      "homeRestDays": 7,
+      "awayTravelMiles": 278,
+      "divisional": true,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "ATL",
+      "home": "CAR",
+      "week": 18,
+      "kickoff": "2027-01-10 13:00",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "grass",
+      "roof": "outdoors",
+      "awayRestDays": 7,
+      "homeRestDays": 7,
+      "awayTravelMiles": 226,
+      "divisional": true,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "CLE",
+      "home": "CIN",
+      "week": 18,
+      "kickoff": "2027-01-10 13:00",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "fieldturf",
+      "roof": "outdoors",
+      "awayRestDays": 7,
+      "homeRestDays": 10,
+      "awayTravelMiles": 223,
+      "divisional": true,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "LAC",
+      "home": "DEN",
+      "week": 18,
+      "kickoff": "2027-01-10 13:00",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "grass",
+      "roof": "outdoors",
+      "awayRestDays": 7,
+      "homeRestDays": 7,
+      "awayTravelMiles": 837,
+      "divisional": true,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "DET",
+      "home": "GB",
+      "week": 18,
+      "kickoff": "2027-01-10 13:00",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "grass",
+      "roof": "outdoors",
+      "awayRestDays": 7,
+      "homeRestDays": 6,
+      "awayTravelMiles": 293,
+      "divisional": true,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "TEN",
+      "home": "HOU",
+      "week": 18,
+      "kickoff": "2027-01-10 13:00",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "astroturf",
+      "roof": "Unknown",
+      "awayRestDays": 7,
+      "homeRestDays": 6,
+      "awayTravelMiles": 671,
+      "divisional": true,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "JAX",
+      "home": "IND",
+      "week": 18,
+      "kickoff": "2027-01-10 13:00",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "fieldturf",
+      "roof": "Unknown",
+      "awayRestDays": 7,
+      "homeRestDays": 7,
+      "awayTravelMiles": 700,
+      "divisional": true,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "LV",
+      "home": "KC",
+      "week": 18,
+      "kickoff": "2027-01-10 13:00",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "grass",
+      "roof": "outdoors",
+      "awayRestDays": 7,
+      "homeRestDays": 7,
+      "awayTravelMiles": 1149,
+      "divisional": true,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "SEA",
+      "home": "LA",
+      "week": 18,
+      "kickoff": "2027-01-10 13:00",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "matrixturf",
+      "roof": "dome",
+      "awayRestDays": 7,
+      "homeRestDays": 7,
+      "awayTravelMiles": 965,
+      "divisional": true,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "CHI",
+      "home": "MIN",
+      "week": 18,
+      "kickoff": "2027-01-10 13:00",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "sportturf",
+      "roof": "dome",
+      "awayRestDays": 7,
+      "homeRestDays": 7,
+      "awayTravelMiles": 355,
+      "divisional": true,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "MIA",
+      "home": "NE",
+      "week": 18,
+      "kickoff": "2027-01-10 13:00",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "fieldturf",
+      "roof": "outdoors",
+      "awayRestDays": 7,
+      "homeRestDays": 7,
+      "awayTravelMiles": 1226,
+      "divisional": true,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "TB",
+      "home": "NO",
+      "week": 18,
+      "kickoff": "2027-01-10 13:00",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "sportturf",
+      "roof": "dome",
+      "awayRestDays": 7,
+      "homeRestDays": 7,
+      "awayTravelMiles": 478,
+      "divisional": true,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "PHI",
+      "home": "NYG",
+      "week": 18,
+      "kickoff": "2027-01-10 13:00",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "fieldturf",
+      "roof": "outdoors",
+      "awayRestDays": 7,
+      "homeRestDays": 7,
+      "awayTravelMiles": 85,
+      "divisional": true,
+      "h2h": null,
+      "odds": null
+    },
+    {
+      "away": "DAL",
+      "home": "WAS",
+      "week": 18,
+      "kickoff": "2027-01-10 13:00",
+      "weather": {
+        "temp": null,
+        "wind": null,
+        "precip": null
+      },
+      "surface": "grass",
+      "roof": "outdoors",
+      "awayRestDays": 7,
+      "homeRestDays": 7,
+      "awayTravelMiles": 1207,
       "divisional": true,
       "h2h": null,
       "odds": null
@@ -6693,7 +11597,7 @@
     }
   ],
   "referees": [],
-  "week": 1,
+  "week": 2,
   "players": [
     {
       "name": "Jalen Hurts",
