@@ -331,7 +331,20 @@ def build_injury_report(team, injuries, latest_week):
         return max(0, round(100 - 15 * out - 7 * q))
 
     key = wk[wk.report_status.isin(["Out", "Doubtful", "Questionable"]) & (wk.position != "QB")]
-    key_injuries = [{"pos": r.position, "status": r.report_status} for _, r in key.head(3).iterrows()]
+    _namecols = [c for c in ("full_name", "player_name", "football_name") if c in wk.columns]
+    _injcol = "report_primary_injury" if "report_primary_injury" in wk.columns else None
+    def _injname(r):
+        for c in _namecols:
+            v = r.get(c)
+            if pd.notna(v):
+                return str(v)
+        fn, ln = r.get("first_name"), r.get("last_name")
+        nm = ((str(fn) if pd.notna(fn) else "") + " " + (str(ln) if pd.notna(ln) else "")).strip()
+        return nm or None
+    key_injuries = [{
+        "name": _injname(r), "pos": r.position, "status": r.report_status,
+        "injury": (str(r.get(_injcol)) if _injcol and pd.notna(r.get(_injcol)) else None),
+    } for _, r in key.head(5).iterrows()]
     return {
         "qbStatus": qb_status,
         "oLineHealth": health_index(["T", "G", "C", "OL"]),
