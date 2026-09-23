@@ -522,11 +522,8 @@ function TeamRow({ code, data, open, onToggle }) {
         <svg className="trchev" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="M9 6l6 6-6 6" /></svg>
       </button>
       <div className="trbody">
-        <div className="gtitle">Next Gen Stats</div>
-        <KvList code={code} rows={NGS_TEAM} ts={data.teamStats} td={data.teamDetail} />
         <div className="gtitle">Team Overview</div>
         <KvList code={code} rows={OVERVIEW_TEAM} ts={data.teamStats} td={data.teamDetail} />
-        <div className="pnote">Next Gen Stats populate from nflverse each week once the season is underway.</div>
       </div>
     </div>
   );
@@ -842,7 +839,7 @@ export default function RedzoneLabs() {
 
       {view === "teams" && (
         <section className="wrap viewfade" key="teams">
-          <div className="eyebrow">All Teams <span className="tag">Next Gen Stats</span></div>
+          <div className="eyebrow">All Teams <span className="tag">Team Overview</span></div>
           {["AFC", "NFC"].map((cf) => {
             const codes = Object.keys(data.teamStats).filter((c) => DIVISION[c] && DIVISION[c][0] === cf).sort((a, b) => nick(a).localeCompare(nick(b)));
             if (!codes.length) return null;
@@ -858,7 +855,7 @@ export default function RedzoneLabs() {
             );
           })}
           {!Object.keys(data.teamStats).length && <div className="note">Team pages load once live data is available.</div>}
-          <div className="note"><b>Next Gen Stats</b> (CPOE, time to throw, rush yards over expected, separation, YAC/reception) come from nflverse. Values fill in per team each week; click a team to expand its full profile.</div>
+          <div className="note">Click any team to expand its overview &mdash; scoring, yardage, EPA and turnover margin. Stats update each week from nflverse.</div>
         </section>
       )}
 
