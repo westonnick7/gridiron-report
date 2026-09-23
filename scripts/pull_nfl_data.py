@@ -354,11 +354,36 @@ def build_injury_report(team, injuries, latest_week):
 
 
 # ================= schedule / H2H / recent form =================
-def build_schedule(schedules, week, teams):
+def game_box(g, pbp):
+    """Abbreviated box score for a COMPLETED game: final score plus a light
+    per-team stat line (total yards, turnovers) from play-by-play. Returns None
+    for games that have not been played yet."""
+    res = g.get("result")
+    asc, hsc = g.get("away_score"), g.get("home_score")
+    if pd.isna(res) or pd.isna(asc) or pd.isna(hsc):
+        return None
+    box = {"awayScore": int(asc), "homeScore": int(hsc),
+           "awayYds": None, "homeYds": None, "awayTo": None, "homeTo": None}
+    try:
+        gid = g.get("game_id")
+        if pbp is not None and gid is not None and "game_id" in getattr(pbp, "columns", []):
+            gp = pbp[pbp.game_id == gid]
+            if len(gp):
+                for side, tm in (("away", g.away_team), ("home", g.home_team)):
+                    off = gp[gp.posteam == tm]
+                    if len(off):
+                        box[side + "Yds"] = int(off.yards_gained.fillna(0).sum())
+                        box[side + "To"] = int(((off.interception == 1) | (off.fumble_lost == 1)).sum())
+    except Exception:
+        pass
+    return box
+
+
+def build_schedule(schedules, week, teams, pbp=None):
     wk = schedules[(schedules.week == week) & schedules.home_team.isin(teams) & schedules.away_team.isin(teams)]
     out = []
     for _, g in wk.iterrows():
-        out.append({
+        row = {
             "away": g.away_team, "home": g.home_team, "week": int(g.week),
             "kickoff": f"{g.gameday} {g.gametime}" if pd.notna(g.get('gametime')) else str(g.gameday),
             "weather": {"temp": None, "wind": None, "precip": None},  # forecast not available; see docstring
@@ -369,18 +394,23 @@ def build_schedule(schedules, week, teams):
             "awayTravelMiles": haversine_miles(STADIUM_COORDS.get(g.away_team), STADIUM_COORDS.get(g.home_team)),
             "divisional": bool(g.div_game) if pd.notna(g.get("div_game")) else False,
             "h2h": real_h2h(schedules, g.away_team, g.home_team),
-        })
+        }
+        bx = game_box(g, pbp)
+        row["final"] = bx is not None
+        if bx:
+            row["box"] = bx
+        out.append(row)
     return out
 
 
-def build_full_schedule(schedules, teams):
+def build_full_schedule(schedules, teams, pbp=None):
     """Every regular-season week's games (each item carries its `week`), so the
     dashboard can step through weeks with the arrow selector."""
     reg = schedules[schedules.game_type == "REG"] if "game_type" in schedules.columns else schedules
     weeks = sorted(int(w) for w in reg.week.dropna().unique())
     out = []
     for wk in weeks:
-        out.extend(build_schedule(schedules, wk, teams))
+        out.extend(build_schedule(schedules, wk, teams, pbp))
     return out
 
 
@@ -848,7 +878,7 @@ def main():
         offense.extend(build_player_props(team, weekly))
 
     print("Building schedule for the target week...")
-    schedule = build_full_schedule(schedules, TEAMS)
+    schedule = build_full_schedule(schedules, TEAMS, pbp)
     print("Fetching free game betting lines (ESPN)...")
     schedule = build_game_odds(schedule, week_target)
 
