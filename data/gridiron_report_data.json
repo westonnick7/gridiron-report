@@ -2595,946 +2595,1240 @@
       {
         "week": 3,
         "opp": "SF",
+        "home": false,
         "ptsFor": 30,
         "ptsAgainst": 36,
         "result": "L",
         "ats": "C",
-        "ou": "O"
+        "ou": "O",
+        "spread": 7.5,
+        "total": 48.5
       },
       {
         "week": 2,
         "opp": "SEA",
+        "home": true,
         "ptsFor": 7,
         "ptsAgainst": 31,
         "result": "L",
         "ats": "X",
-        "ou": "U"
+        "ou": "U",
+        "spread": 3.5,
+        "total": 40.5
       },
       {
         "week": 1,
         "opp": "LAC",
+        "home": false,
         "ptsFor": 26,
         "ptsAgainst": 14,
         "result": "W",
         "ats": "C",
-        "ou": "U"
+        "ou": "U",
+        "spread": 8.5,
+        "total": 47.5
       }
     ],
     "ATL": [
       {
         "week": 3,
         "opp": "GB",
+        "home": false,
         "ptsFor": 35,
         "ptsAgainst": 14,
         "result": "W",
         "ats": "C",
-        "ou": "O"
+        "ou": "O",
+        "spread": 4.5,
+        "total": 43.5
       },
       {
         "week": 2,
         "opp": "CAR",
+        "home": true,
         "ptsFor": 3,
         "ptsAgainst": 34,
         "result": "L",
         "ats": "X",
-        "ou": "U"
+        "ou": "U",
+        "spread": 2.5,
+        "total": 43.5
       },
       {
         "week": 1,
         "opp": "PIT",
+        "home": false,
         "ptsFor": 13,
         "ptsAgainst": 20,
         "result": "L",
         "ats": "X",
-        "ou": "U"
+        "ou": "U",
+        "spread": 6.5,
+        "total": 40.5
       }
     ],
     "BAL": [
       {
         "week": 3,
         "opp": "DAL",
+        "home": false,
         "ptsFor": 34,
         "ptsAgainst": 31,
         "result": "W",
         "ats": "P",
-        "ou": "O"
+        "ou": "O",
+        "spread": -3.0,
+        "total": 53.5
       },
       {
         "week": 2,
         "opp": "NO",
+        "home": true,
         "ptsFor": 17,
         "ptsAgainst": 24,
         "result": "L",
         "ats": "X",
-        "ou": "U"
+        "ou": "U",
+        "spread": -8.5,
+        "total": 45.5
       },
       {
         "week": 1,
         "opp": "IND",
+        "home": false,
         "ptsFor": 41,
         "ptsAgainst": 23,
         "result": "W",
         "ats": "C",
-        "ou": "O"
+        "ou": "O",
+        "spread": -3.0,
+        "total": 48.5
       }
     ],
     "BUF": [
       {
         "week": 3,
         "opp": "LAC",
+        "home": true,
         "ptsFor": 24,
         "ptsAgainst": 16,
         "result": "W",
         "ats": "C",
-        "ou": "U"
+        "ou": "U",
+        "spread": -7.0,
+        "total": 50.5
       },
       {
         "week": 2,
         "opp": "DET",
+        "home": true,
         "ptsFor": 41,
         "ptsAgainst": 31,
         "result": "W",
         "ats": "C",
-        "ou": "O"
+        "ou": "O",
+        "spread": -5.5,
+        "total": 54.5
       },
       {
         "week": 1,
         "opp": "HOU",
+        "home": false,
         "ptsFor": 36,
         "ptsAgainst": 31,
         "result": "W",
         "ats": "C",
-        "ou": "O"
+        "ou": "O",
+        "spread": -1.5,
+        "total": 44.5
       }
     ],
     "CAR": [
       {
         "week": 3,
         "opp": "CLE",
+        "home": false,
         "ptsFor": 18,
         "ptsAgainst": 21,
         "result": "L",
         "ats": "X",
-        "ou": "U"
+        "ou": "U",
+        "spread": -2.5,
+        "total": 41.5
       },
       {
         "week": 2,
         "opp": "ATL",
+        "home": false,
         "ptsFor": 34,
         "ptsAgainst": 3,
         "result": "W",
         "ats": "C",
-        "ou": "U"
+        "ou": "U",
+        "spread": -2.5,
+        "total": 43.5
       },
       {
         "week": 1,
         "opp": "CHI",
+        "home": true,
         "ptsFor": 37,
         "ptsAgainst": 59,
         "result": "L",
         "ats": "X",
-        "ou": "O"
+        "ou": "O",
+        "spread": 3.0,
+        "total": 47.5
       }
     ],
     "CHI": [
       {
         "week": 3,
         "opp": "PHI",
+        "home": true,
         "ptsFor": 27,
         "ptsAgainst": 7,
         "result": "W",
         "ats": "C",
-        "ou": "U"
+        "ou": "U",
+        "spread": 3.5,
+        "total": 42.5
       },
       {
         "week": 2,
         "opp": "MIN",
+        "home": true,
         "ptsFor": 3,
         "ptsAgainst": 9,
         "result": "L",
         "ats": "X",
-        "ou": "U"
+        "ou": "U",
+        "spread": -4.5,
+        "total": 46.5
       },
       {
         "week": 1,
         "opp": "CAR",
+        "home": false,
         "ptsFor": 59,
         "ptsAgainst": 37,
         "result": "W",
         "ats": "C",
-        "ou": "O"
+        "ou": "O",
+        "spread": -3.0,
+        "total": 47.5
       }
     ],
     "CIN": [
       {
         "week": 3,
         "opp": "PIT",
+        "home": false,
         "ptsFor": 27,
         "ptsAgainst": 30,
         "result": "L",
         "ats": "X",
-        "ou": "O"
+        "ou": "O",
+        "spread": -3.5,
+        "total": 42.5
       },
       {
         "week": 2,
         "opp": "HOU",
+        "home": false,
         "ptsFor": 20,
         "ptsAgainst": 6,
         "result": "W",
         "ats": "C",
-        "ou": "U"
+        "ou": "U",
+        "spread": 3.0,
+        "total": 45.5
       },
       {
         "week": 1,
         "opp": "TB",
+        "home": true,
         "ptsFor": 33,
         "ptsAgainst": 27,
         "result": "W",
         "ats": "C",
-        "ou": "O"
+        "ou": "O",
+        "spread": -3.5,
+        "total": 50.5
       }
     ],
     "CLE": [
       {
         "week": 4,
         "opp": "PIT",
+        "home": true,
         "ptsFor": 27,
         "ptsAgainst": 24,
         "result": "W",
         "ats": "C",
-        "ou": "O"
+        "ou": "O",
+        "spread": 2.5,
+        "total": 38.5
       },
       {
         "week": 3,
         "opp": "CAR",
+        "home": true,
         "ptsFor": 21,
         "ptsAgainst": 18,
         "result": "W",
         "ats": "C",
-        "ou": "U"
+        "ou": "U",
+        "spread": 2.5,
+        "total": 41.5
       },
       {
         "week": 2,
         "opp": "TB",
+        "home": false,
         "ptsFor": 23,
         "ptsAgainst": 19,
         "result": "W",
         "ats": "C",
-        "ou": "O"
+        "ou": "O",
+        "spread": 8.5,
+        "total": 41.5
       },
       {
         "week": 1,
         "opp": "JAX",
+        "home": false,
         "ptsFor": 10,
         "ptsAgainst": 34,
         "result": "L",
         "ats": "X",
-        "ou": "O"
+        "ou": "O",
+        "spread": 8.5,
+        "total": 40.5
       }
     ],
     "DAL": [
       {
         "week": 3,
         "opp": "BAL",
+        "home": true,
         "ptsFor": 31,
         "ptsAgainst": 34,
         "result": "L",
         "ats": "P",
-        "ou": "O"
+        "ou": "O",
+        "spread": 3.0,
+        "total": 53.5
       },
       {
         "week": 2,
         "opp": "WAS",
+        "home": true,
         "ptsFor": 37,
         "ptsAgainst": 20,
         "result": "W",
         "ats": "C",
-        "ou": "O"
+        "ou": "O",
+        "spread": -3.5,
+        "total": 51.5
       },
       {
         "week": 1,
         "opp": "NYG",
+        "home": false,
         "ptsFor": 20,
         "ptsAgainst": 28,
         "result": "L",
         "ats": "X",
-        "ou": "O"
+        "ou": "O",
+        "spread": -3.0,
+        "total": 47.5
       }
     ],
     "DEN": [
       {
         "week": 3,
         "opp": "LA",
+        "home": true,
         "ptsFor": 30,
         "ptsAgainst": 26,
         "result": "W",
         "ats": "C",
-        "ou": "O"
+        "ou": "O",
+        "spread": -1.5,
+        "total": 43.5
       },
       {
         "week": 2,
         "opp": "JAX",
+        "home": true,
         "ptsFor": 20,
         "ptsAgainst": 13,
         "result": "W",
         "ats": "C",
-        "ou": "U"
+        "ou": "U",
+        "spread": -2.5,
+        "total": 45.5
       },
       {
         "week": 1,
         "opp": "KC",
+        "home": false,
         "ptsFor": 10,
         "ptsAgainst": 31,
         "result": "L",
         "ats": "X",
-        "ou": "U"
+        "ou": "U",
+        "spread": 2.5,
+        "total": 42.5
       }
     ],
     "DET": [
       {
         "week": 3,
         "opp": "NYJ",
+        "home": true,
         "ptsFor": 31,
         "ptsAgainst": 24,
         "result": "W",
         "ats": "P",
-        "ou": "O"
+        "ou": "O",
+        "spread": -7.0,
+        "total": 49.5
       },
       {
         "week": 2,
         "opp": "BUF",
+        "home": false,
         "ptsFor": 31,
         "ptsAgainst": 41,
         "result": "L",
         "ats": "X",
-        "ou": "O"
+        "ou": "O",
+        "spread": 5.5,
+        "total": 54.5
       },
       {
         "week": 1,
         "opp": "NO",
+        "home": true,
         "ptsFor": 31,
         "ptsAgainst": 30,
         "result": "W",
         "ats": "X",
-        "ou": "O"
+        "ou": "O",
+        "spread": -7.0,
+        "total": 49.5
       }
     ],
     "GB": [
       {
         "week": 3,
         "opp": "ATL",
+        "home": true,
         "ptsFor": 14,
         "ptsAgainst": 35,
         "result": "L",
         "ats": "X",
-        "ou": "O"
+        "ou": "O",
+        "spread": -4.5,
+        "total": 43.5
       },
       {
         "week": 2,
         "opp": "NYJ",
+        "home": false,
         "ptsFor": 20,
         "ptsAgainst": 17,
         "result": "W",
         "ats": "X",
-        "ou": "U"
+        "ou": "U",
+        "spread": -3.5,
+        "total": 44.5
       },
       {
         "week": 1,
         "opp": "MIN",
+        "home": false,
         "ptsFor": 22,
         "ptsAgainst": 39,
         "result": "L",
         "ats": "X",
-        "ou": "O"
+        "ou": "O",
+        "spread": 1.5,
+        "total": 46.5
       }
     ],
     "HOU": [
       {
         "week": 3,
         "opp": "IND",
+        "home": false,
         "ptsFor": 17,
         "ptsAgainst": 19,
         "result": "L",
         "ats": "X",
-        "ou": "U"
+        "ou": "U",
+        "spread": -1.5,
+        "total": 41.5
       },
       {
         "week": 2,
         "opp": "CIN",
+        "home": true,
         "ptsFor": 6,
         "ptsAgainst": 20,
         "result": "L",
         "ats": "X",
-        "ou": "U"
+        "ou": "U",
+        "spread": -3.0,
+        "total": 45.5
       },
       {
         "week": 1,
         "opp": "BUF",
+        "home": true,
         "ptsFor": 31,
         "ptsAgainst": 36,
         "result": "L",
         "ats": "X",
-        "ou": "O"
+        "ou": "O",
+        "spread": 1.5,
+        "total": 44.5
       }
     ],
     "IND": [
       {
         "week": 3,
         "opp": "HOU",
+        "home": true,
         "ptsFor": 19,
         "ptsAgainst": 17,
         "result": "W",
         "ats": "C",
-        "ou": "U"
+        "ou": "U",
+        "spread": 1.5,
+        "total": 41.5
       },
       {
         "week": 2,
         "opp": "KC",
+        "home": false,
         "ptsFor": 30,
         "ptsAgainst": 33,
         "result": "L",
         "ats": "C",
-        "ou": "O"
+        "ou": "O",
+        "spread": 6.0,
+        "total": 46.5
       },
       {
         "week": 1,
         "opp": "BAL",
+        "home": true,
         "ptsFor": 23,
         "ptsAgainst": 41,
         "result": "L",
         "ats": "X",
-        "ou": "O"
+        "ou": "O",
+        "spread": 3.0,
+        "total": 48.5
       }
     ],
     "JAX": [
       {
         "week": 3,
         "opp": "NE",
+        "home": true,
         "ptsFor": 35,
         "ptsAgainst": 6,
         "result": "W",
         "ats": "C",
-        "ou": "U"
+        "ou": "U",
+        "spread": -3.0,
+        "total": 46.5
       },
       {
         "week": 2,
         "opp": "DEN",
+        "home": false,
         "ptsFor": 13,
         "ptsAgainst": 20,
         "result": "L",
         "ats": "X",
-        "ou": "U"
+        "ou": "U",
+        "spread": 2.5,
+        "total": 45.5
       },
       {
         "week": 1,
         "opp": "CLE",
+        "home": true,
         "ptsFor": 34,
         "ptsAgainst": 10,
         "result": "W",
         "ats": "C",
-        "ou": "O"
+        "ou": "O",
+        "spread": -8.5,
+        "total": 40.5
       }
     ],
     "KC": [
       {
         "week": 3,
         "opp": "MIA",
+        "home": false,
         "ptsFor": 24,
         "ptsAgainst": 10,
         "result": "W",
         "ats": "C",
-        "ou": "U"
+        "ou": "U",
+        "spread": -10.0,
+        "total": 45.5
       },
       {
         "week": 2,
         "opp": "IND",
+        "home": true,
         "ptsFor": 33,
         "ptsAgainst": 30,
         "result": "W",
         "ats": "X",
-        "ou": "O"
+        "ou": "O",
+        "spread": -6.0,
+        "total": 46.5
       },
       {
         "week": 1,
         "opp": "DEN",
+        "home": true,
         "ptsFor": 31,
         "ptsAgainst": 10,
         "result": "W",
         "ats": "C",
-        "ou": "U"
+        "ou": "U",
+        "spread": -2.5,
+        "total": 42.5
       }
     ],
     "LA": [
       {
         "week": 3,
         "opp": "DEN",
+        "home": false,
         "ptsFor": 26,
         "ptsAgainst": 30,
         "result": "L",
         "ats": "X",
-        "ou": "O"
+        "ou": "O",
+        "spread": 1.5,
+        "total": 43.5
       },
       {
         "week": 2,
         "opp": "NYG",
+        "home": true,
         "ptsFor": 28,
         "ptsAgainst": 6,
         "result": "W",
         "ats": "C",
-        "ou": "U"
+        "ou": "U",
+        "spread": -6.5,
+        "total": 47.5
       },
       {
         "week": 1,
         "opp": "SF",
+        "home": true,
         "ptsFor": 7,
         "ptsAgainst": 27,
         "result": "L",
         "ats": "X",
-        "ou": "U"
+        "ou": "U",
+        "spread": -3.5,
+        "total": 47.5
       }
     ],
     "LAC": [
       {
         "week": 3,
         "opp": "BUF",
+        "home": false,
         "ptsFor": 16,
         "ptsAgainst": 24,
         "result": "L",
         "ats": "X",
-        "ou": "U"
+        "ou": "U",
+        "spread": 7.0,
+        "total": 50.5
       },
       {
         "week": 2,
         "opp": "LV",
+        "home": true,
         "ptsFor": 14,
         "ptsAgainst": 26,
         "result": "L",
         "ats": "X",
-        "ou": "U"
+        "ou": "U",
+        "spread": -6.5,
+        "total": 43.5
       },
       {
         "week": 1,
         "opp": "ARI",
+        "home": true,
         "ptsFor": 14,
         "ptsAgainst": 26,
         "result": "L",
         "ats": "X",
-        "ou": "U"
+        "ou": "U",
+        "spread": -8.5,
+        "total": 47.5
       }
     ],
     "LV": [
       {
         "week": 3,
         "opp": "NO",
+        "home": false,
         "ptsFor": 35,
         "ptsAgainst": 27,
         "result": "W",
         "ats": "C",
-        "ou": "O"
+        "ou": "O",
+        "spread": 3.5,
+        "total": 43.5
       },
       {
         "week": 2,
         "opp": "LAC",
+        "home": false,
         "ptsFor": 26,
         "ptsAgainst": 14,
         "result": "W",
         "ats": "C",
-        "ou": "U"
+        "ou": "U",
+        "spread": 6.5,
+        "total": 43.5
       },
       {
         "week": 1,
         "opp": "MIA",
+        "home": true,
         "ptsFor": 27,
         "ptsAgainst": 13,
         "result": "W",
         "ats": "C",
-        "ou": "U"
+        "ou": "U",
+        "spread": -3.0,
+        "total": 40.5
       }
     ],
     "MIA": [
       {
         "week": 3,
         "opp": "KC",
+        "home": true,
         "ptsFor": 10,
         "ptsAgainst": 24,
         "result": "L",
         "ats": "X",
-        "ou": "U"
+        "ou": "U",
+        "spread": 10.0,
+        "total": 45.5
       },
       {
         "week": 2,
         "opp": "SF",
+        "home": false,
         "ptsFor": 13,
         "ptsAgainst": 35,
         "result": "L",
         "ats": "X",
-        "ou": "O"
+        "ou": "O",
+        "spread": 12.5,
+        "total": 44.5
       },
       {
         "week": 1,
         "opp": "LV",
+        "home": false,
         "ptsFor": 13,
         "ptsAgainst": 27,
         "result": "L",
         "ats": "X",
-        "ou": "U"
+        "ou": "U",
+        "spread": 3.0,
+        "total": 40.5
       }
     ],
     "MIN": [
       {
         "week": 3,
         "opp": "TB",
+        "home": false,
         "ptsFor": 23,
         "ptsAgainst": 16,
         "result": "W",
         "ats": "C",
-        "ou": "U"
+        "ou": "U",
+        "spread": -1.5,
+        "total": 42.5
       },
       {
         "week": 2,
         "opp": "CHI",
+        "home": false,
         "ptsFor": 9,
         "ptsAgainst": 3,
         "result": "W",
         "ats": "C",
-        "ou": "U"
+        "ou": "U",
+        "spread": 4.5,
+        "total": 46.5
       },
       {
         "week": 1,
         "opp": "GB",
+        "home": true,
         "ptsFor": 39,
         "ptsAgainst": 22,
         "result": "W",
         "ats": "C",
-        "ou": "O"
+        "ou": "O",
+        "spread": -1.5,
+        "total": 46.5
       }
     ],
     "NE": [
       {
         "week": 3,
         "opp": "JAX",
+        "home": false,
         "ptsFor": 6,
         "ptsAgainst": 35,
         "result": "L",
         "ats": "X",
-        "ou": "U"
+        "ou": "U",
+        "spread": 3.0,
+        "total": 46.5
       },
       {
         "week": 2,
         "opp": "PIT",
+        "home": true,
         "ptsFor": 20,
         "ptsAgainst": 3,
         "result": "W",
         "ats": "C",
-        "ou": "U"
+        "ou": "U",
+        "spread": -4.5,
+        "total": 41.5
       },
       {
         "week": 1,
         "opp": "SEA",
+        "home": false,
         "ptsFor": 10,
         "ptsAgainst": 13,
         "result": "L",
         "ats": "P",
-        "ou": "U"
+        "ou": "U",
+        "spread": 3.0,
+        "total": 44.5
       }
     ],
     "NO": [
       {
         "week": 3,
         "opp": "LV",
+        "home": true,
         "ptsFor": 27,
         "ptsAgainst": 35,
         "result": "L",
         "ats": "X",
-        "ou": "O"
+        "ou": "O",
+        "spread": -3.5,
+        "total": 43.5
       },
       {
         "week": 2,
         "opp": "BAL",
+        "home": false,
         "ptsFor": 24,
         "ptsAgainst": 17,
         "result": "W",
         "ats": "C",
-        "ou": "U"
+        "ou": "U",
+        "spread": 8.5,
+        "total": 45.5
       },
       {
         "week": 1,
         "opp": "DET",
+        "home": false,
         "ptsFor": 30,
         "ptsAgainst": 31,
         "result": "L",
         "ats": "C",
-        "ou": "O"
+        "ou": "O",
+        "spread": 7.0,
+        "total": 49.5
       }
     ],
     "NYG": [
       {
         "week": 3,
         "opp": "TEN",
+        "home": true,
         "ptsFor": 12,
         "ptsAgainst": 7,
         "result": "W",
         "ats": "C",
-        "ou": "U"
+        "ou": "U",
+        "spread": -2.5,
+        "total": 37.5
       },
       {
         "week": 2,
         "opp": "LA",
+        "home": false,
         "ptsFor": 6,
         "ptsAgainst": 28,
         "result": "L",
         "ats": "X",
-        "ou": "U"
+        "ou": "U",
+        "spread": 6.5,
+        "total": 47.5
       },
       {
         "week": 1,
         "opp": "DAL",
+        "home": true,
         "ptsFor": 28,
         "ptsAgainst": 20,
         "result": "W",
         "ats": "C",
-        "ou": "O"
+        "ou": "O",
+        "spread": 3.0,
+        "total": 47.5
       }
     ],
     "NYJ": [
       {
         "week": 3,
         "opp": "DET",
+        "home": false,
         "ptsFor": 24,
         "ptsAgainst": 31,
         "result": "L",
         "ats": "P",
-        "ou": "O"
+        "ou": "O",
+        "spread": 7.0,
+        "total": 49.5
       },
       {
         "week": 2,
         "opp": "GB",
+        "home": true,
         "ptsFor": 17,
         "ptsAgainst": 20,
         "result": "L",
         "ats": "C",
-        "ou": "U"
+        "ou": "U",
+        "spread": 3.5,
+        "total": 44.5
       },
       {
         "week": 1,
         "opp": "TEN",
+        "home": false,
         "ptsFor": 23,
         "ptsAgainst": 10,
         "result": "W",
         "ats": "C",
-        "ou": "U"
+        "ou": "U",
+        "spread": 1.5,
+        "total": 39.5
       }
     ],
     "PHI": [
       {
         "week": 3,
         "opp": "CHI",
+        "home": false,
         "ptsFor": 7,
         "ptsAgainst": 27,
         "result": "L",
         "ats": "X",
-        "ou": "U"
+        "ou": "U",
+        "spread": -3.5,
+        "total": 42.5
       },
       {
         "week": 2,
         "opp": "TEN",
+        "home": false,
         "ptsFor": 24,
         "ptsAgainst": 20,
         "result": "W",
         "ats": "X",
-        "ou": "O"
+        "ou": "O",
+        "spread": -7.0,
+        "total": 39.5
       },
       {
         "week": 1,
         "opp": "WAS",
+        "home": true,
         "ptsFor": 24,
         "ptsAgainst": 22,
         "result": "W",
         "ats": "X",
-        "ou": "O"
+        "ou": "O",
+        "spread": -6.0,
+        "total": 43.5
       }
     ],
     "PIT": [
       {
         "week": 4,
         "opp": "CLE",
+        "home": false,
         "ptsFor": 24,
         "ptsAgainst": 27,
         "result": "L",
         "ats": "X",
-        "ou": "O"
+        "ou": "O",
+        "spread": -2.5,
+        "total": 38.5
       },
       {
         "week": 3,
         "opp": "CIN",
+        "home": true,
         "ptsFor": 30,
         "ptsAgainst": 27,
         "result": "W",
         "ats": "C",
-        "ou": "O"
+        "ou": "O",
+        "spread": 3.5,
+        "total": 42.5
       },
       {
         "week": 2,
         "opp": "NE",
+        "home": false,
         "ptsFor": 3,
         "ptsAgainst": 20,
         "result": "L",
         "ats": "X",
-        "ou": "U"
+        "ou": "U",
+        "spread": 4.5,
+        "total": 41.5
       },
       {
         "week": 1,
         "opp": "ATL",
+        "home": true,
         "ptsFor": 20,
         "ptsAgainst": 13,
         "result": "W",
         "ats": "C",
-        "ou": "U"
+        "ou": "U",
+        "spread": -6.5,
+        "total": 40.5
       }
     ],
     "SEA": [
       {
         "week": 3,
         "opp": "WAS",
+        "home": false,
         "ptsFor": 31,
         "ptsAgainst": 33,
         "result": "L",
         "ats": "X",
-        "ou": "O"
+        "ou": "O",
+        "spread": -8.5,
+        "total": 40.5
       },
       {
         "week": 2,
         "opp": "ARI",
+        "home": false,
         "ptsFor": 31,
         "ptsAgainst": 7,
         "result": "W",
         "ats": "C",
-        "ou": "U"
+        "ou": "U",
+        "spread": -3.5,
+        "total": 40.5
       },
       {
         "week": 1,
         "opp": "NE",
+        "home": true,
         "ptsFor": 13,
         "ptsAgainst": 10,
         "result": "W",
         "ats": "P",
-        "ou": "U"
+        "ou": "U",
+        "spread": -3.0,
+        "total": 44.5
       }
     ],
     "SF": [
       {
         "week": 3,
         "opp": "ARI",
+        "home": true,
         "ptsFor": 36,
         "ptsAgainst": 30,
         "result": "W",
         "ats": "X",
-        "ou": "O"
+        "ou": "O",
+        "spread": -7.5,
+        "total": 48.5
       },
       {
         "week": 2,
         "opp": "MIA",
+        "home": true,
         "ptsFor": 35,
         "ptsAgainst": 13,
         "result": "W",
         "ats": "C",
-        "ou": "O"
+        "ou": "O",
+        "spread": -12.5,
+        "total": 44.5
       },
       {
         "week": 1,
         "opp": "LA",
+        "home": false,
         "ptsFor": 27,
         "ptsAgainst": 7,
         "result": "W",
         "ats": "C",
-        "ou": "U"
+        "ou": "U",
+        "spread": 3.5,
+        "total": 47.5
       }
     ],
     "TB": [
       {
         "week": 3,
         "opp": "MIN",
+        "home": true,
         "ptsFor": 16,
         "ptsAgainst": 23,
         "result": "L",
         "ats": "X",
-        "ou": "U"
+        "ou": "U",
+        "spread": 1.5,
+        "total": 42.5
       },
       {
         "week": 2,
         "opp": "CLE",
+        "home": true,
         "ptsFor": 19,
         "ptsAgainst": 23,
         "result": "L",
         "ats": "X",
-        "ou": "O"
+        "ou": "O",
+        "spread": -8.5,
+        "total": 41.5
       },
       {
         "week": 1,
         "opp": "CIN",
+        "home": false,
         "ptsFor": 27,
         "ptsAgainst": 33,
         "result": "L",
         "ats": "X",
-        "ou": "O"
+        "ou": "O",
+        "spread": 3.5,
+        "total": 50.5
       }
     ],
     "TEN": [
       {
         "week": 3,
         "opp": "NYG",
+        "home": false,
         "ptsFor": 7,
         "ptsAgainst": 12,
         "result": "L",
         "ats": "X",
-        "ou": "U"
+        "ou": "U",
+        "spread": 2.5,
+        "total": 37.5
       },
       {
         "week": 2,
         "opp": "PHI",
+        "home": true,
         "ptsFor": 20,
         "ptsAgainst": 24,
         "result": "L",
         "ats": "C",
-        "ou": "O"
+        "ou": "O",
+        "spread": 7.0,
+        "total": 39.5
       },
       {
         "week": 1,
         "opp": "NYJ",
+        "home": true,
         "ptsFor": 10,
         "ptsAgainst": 23,
         "result": "L",
         "ats": "X",
-        "ou": "U"
+        "ou": "U",
+        "spread": -1.5,
+        "total": 39.5
       }
     ],
     "WAS": [
       {
         "week": 3,
         "opp": "SEA",
+        "home": true,
         "ptsFor": 33,
         "ptsAgainst": 31,
         "result": "W",
         "ats": "C",
-        "ou": "O"
+        "ou": "O",
+        "spread": 8.5,
+        "total": 40.5
       },
       {
         "week": 2,
         "opp": "DAL",
+        "home": false,
         "ptsFor": 20,
         "ptsAgainst": 37,
         "result": "L",
         "ats": "X",
-        "ou": "O"
+        "ou": "O",
+        "spread": 3.5,
+        "total": 51.5
       },
       {
         "week": 1,
         "opp": "PHI",
+        "home": false,
         "ptsFor": 22,
         "ptsAgainst": 24,
         "result": "L",
         "ats": "C",
-        "ou": "O"
+        "ou": "O",
+        "spread": 6.0,
+        "total": 43.5
       }
     ]
   },
@@ -5225,11 +5519,11 @@
       "final": false,
       "odds": {
         "spread": 4.5,
-        "total": 47.5,
+        "total": 46.5,
         "detail": "IND -4.5",
         "mlAway": -205,
         "mlHome": 170,
-        "book": "DraftKings"
+        "book": "Draft Kings"
       }
     },
     {
@@ -5254,9 +5548,9 @@
         "spread": -11.5,
         "total": 42.5,
         "detail": "BAL -11.5",
-        "mlAway": 470,
-        "mlHome": -650,
-        "book": "DraftKings"
+        "mlAway": 500,
+        "mlHome": -700,
+        "book": "Draft Kings"
       }
     },
     {
@@ -5283,7 +5577,7 @@
         "detail": "BUF -7",
         "mlAway": 250,
         "mlHome": -310,
-        "book": "DraftKings"
+        "book": "Draft Kings"
       }
     },
     {
@@ -5310,7 +5604,7 @@
         "detail": "CHI -3.5",
         "mlAway": 154,
         "mlHome": -185,
-        "book": "DraftKings"
+        "book": "Draft Kings"
       }
     },
     {
@@ -5337,7 +5631,7 @@
         "detail": "CIN -2.5",
         "mlAway": 120,
         "mlHome": -142,
-        "book": "DraftKings"
+        "book": "Draft Kings"
       }
     },
     {
@@ -5364,7 +5658,7 @@
         "detail": "HOU -3",
         "mlAway": 136,
         "mlHome": -162,
-        "book": "DraftKings"
+        "book": "Draft Kings"
       }
     },
     {
@@ -5391,7 +5685,7 @@
         "detail": "ARI -2.5",
         "mlAway": -142,
         "mlHome": 120,
-        "book": "DraftKings"
+        "book": "Draft Kings"
       }
     },
     {
@@ -5418,7 +5712,7 @@
         "detail": "LAR -3.5",
         "mlAway": -185,
         "mlHome": 154,
-        "book": "DraftKings"
+        "book": "Draft Kings"
       }
     },
     {
@@ -5445,7 +5739,7 @@
         "detail": "GB -3",
         "mlAway": -170,
         "mlHome": 142,
-        "book": "DraftKings"
+        "book": "Draft Kings"
       }
     },
     {
@@ -5470,9 +5764,9 @@
         "spread": -10.0,
         "total": 38.5,
         "detail": "MIN -10",
-        "mlAway": 400,
-        "mlHome": -535,
-        "book": "DraftKings"
+        "mlAway": 390,
+        "mlHome": -520,
+        "book": "Draft Kings"
       }
     },
     {
@@ -5499,7 +5793,7 @@
         "detail": "KC -4.5",
         "mlAway": -225,
         "mlHome": 185,
-        "book": "DraftKings"
+        "book": "Draft Kings"
       }
     },
     {
@@ -5526,7 +5820,7 @@
         "detail": "SEA -7",
         "mlAway": 295,
         "mlHome": -375,
-        "book": "DraftKings"
+        "book": "Draft Kings"
       }
     },
     {
@@ -5553,7 +5847,7 @@
         "detail": "SF -3",
         "mlAway": 124,
         "mlHome": -148,
-        "book": "DraftKings"
+        "book": "Draft Kings"
       }
     },
     {
@@ -5580,7 +5874,7 @@
         "detail": "DET -3.5",
         "mlAway": -180,
         "mlHome": 150,
-        "book": "DraftKings"
+        "book": "Draft Kings"
       }
     },
     {
@@ -5607,7 +5901,7 @@
         "detail": "NO -2.5",
         "mlAway": 114,
         "mlHome": -135,
-        "book": "DraftKings"
+        "book": "Draft Kings"
       }
     },
     {
