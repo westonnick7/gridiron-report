@@ -467,12 +467,20 @@ def build_team_recent(team, schedules, n=7):
     ].sort_values("gameday", ascending=False).head(n)
     rows = []
     for _, g in games.iterrows():
-        pf, pa, opp = (g.home_score, g.away_score, g.away_team) if g.home_team == team else (g.away_score, g.home_score, g.home_team)
+        is_home = g.home_team == team
+        pf, pa, opp = (g.home_score, g.away_score, g.away_team) if is_home else (g.away_score, g.home_score, g.home_team)
         ats, ou = _game_ats_ou(g, team)
+        # Closing lines from team's perspective (favorite negative). nflverse
+        # spread_line is positive when the HOME team is favored.
+        sl = g.get("spread_line")
+        spread = round(float(-sl if is_home else sl), 1) if pd.notna(sl) else None
+        tl = g.get("total_line")
+        total = round(float(tl), 1) if pd.notna(tl) else None
         rows.append({
-            "week": int(g.week), "opp": opp, "ptsFor": int(pf), "ptsAgainst": int(pa),
+            "week": int(g.week), "opp": opp, "home": bool(is_home),
+            "ptsFor": int(pf), "ptsAgainst": int(pa),
             "result": "W" if pf > pa else ("L" if pf < pa else "T"),
-            "ats": ats, "ou": ou,
+            "ats": ats, "ou": ou, "spread": spread, "total": total,
         })
     return rows  # already most-recent-first from the descending sort
 
