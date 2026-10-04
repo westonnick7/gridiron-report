@@ -724,15 +724,20 @@ function RefereesView({ referees }) {
 // ================= Next Gen Search =================
 const SEARCH_META = {
   passing: { label: "Passing", metrics: [
-    ["att", "Att", 0, false], ["cmp", "Cmp %", 1, false], ["xcmp", "xCmp %", 1, false],
+    ["gp", "G", 0, false], ["att", "Att", 0, false], ["cmp", "Cmp %", 1, false], ["xcmp", "xCmp %", 1, false],
     ["cpoe", "CPOE", 1, true], ["ttt", "Time to Throw", 2, false], ["iay", "Air Yds/Att", 1, false],
-    ["aggr", "Aggr %", 1, false], ["yds", "Pass Yds", 0, false], ["td", "Pass TD", 0, false] ], hero: "cpoe" },
+    ["aggr", "Aggr %", 1, false], ["yds", "Pass Yds", 0, false], ["ypg", "Yds/G", 1, false],
+    ["td", "Pass TD", 0, false], ["tdpg", "TD/G", 1, false] ], hero: "cpoe" },
   rushing: { label: "Rushing", metrics: [
-    ["att", "Att", 0, false], ["yds", "Rush Yds", 0, false], ["ypc", "Yds/Att", 1, false], ["eff", "Efficiency", 2, false],
-    ["stack", "8+ Box %", 1, false], ["ryoe", "RYOE/Att", 2, true], ["td", "Rush TD", 0, false], ["tlos", "Time to LOS", 2, false] ], hero: "ryoe" },
+    ["gp", "G", 0, false], ["att", "Rush Att", 0, false], ["attpg", "Att/G", 1, false], ["yds", "Rush Yds", 0, false],
+    ["ypg", "Yds/G", 1, false], ["ypc", "Yds/Att", 1, false], ["eff", "Efficiency", 2, false],
+    ["stack", "8+ Box %", 1, false], ["ryoe", "RYOE/Att", 2, true], ["td", "Rush TD", 0, false],
+    ["tdpg", "TD/G", 1, false], ["tlos", "Time to LOS", 2, false] ], hero: "ryoe" },
   receiving: { label: "Receiving", metrics: [
-    ["rec", "Rec", 0, false], ["yds", "Rec Yds", 0, false], ["sep", "Avg Sep", 1, false], ["cush", "Cushion", 1, false],
-    ["iay", "Intended AY", 1, false], ["yac", "Avg YAC", 1, false], ["yacoe", "YAC OE", 1, true], ["ctch", "Catch %", 1, false], ["td", "Rec TD", 0, false] ], hero: "yacoe" },
+    ["gp", "G", 0, false], ["rec", "Rec", 0, false], ["recpg", "Rec/G", 1, false], ["yds", "Rec Yds", 0, false],
+    ["ypg", "Yds/G", 1, false], ["sep", "Avg Sep", 1, false], ["cush", "Cushion", 1, false],
+    ["iay", "Intended AY", 1, false], ["yac", "Avg YAC", 1, false], ["yacoe", "YAC OE", 1, true],
+    ["ctch", "Catch %", 1, false], ["td", "Rec TD", 0, false], ["tdpg", "TD/G", 1, false] ], hero: "yacoe" },
 };
 function fmtVal(v, dec, signed) {
   if (v == null) return DASH;

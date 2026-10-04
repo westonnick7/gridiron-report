@@ -536,26 +536,55 @@ def _ngs_season_rows(df):
     return df[df.week == 0] if (df.week == 0).any() else df
 
 
-def _build_ngs_group(df, group, spec, pos_default, teams):
+# Season counting stats -> their per-game average key, by position group.
+_AVG_KEYS = {
+    "passing": [("yds", "ypg"), ("td", "tdpg")],
+    "rushing": [("att", "attpg"), ("yds", "ypg"), ("td", "tdpg")],
+    "receiving": [("rec", "recpg"), ("yds", "ypg"), ("td", "tdpg")],
+}
+
+
+def _games_played_maps(weekly):
+    """Games played per player from the weekly logs, so Next Gen season totals
+    can be shown as per-game averages. Returns (by (name, team), by name)."""
+    by_team, by_name = {}, {}
+    if weekly is None or not len(weekly):
+        return by_team, by_name
+    w = weekly[weekly.season_type == "REG"] if "season_type" in weekly.columns else weekly
+    for (nm, tm), grp in w.groupby(["player_display_name", "recent_team"]):
+        by_team[(nm, tm)] = int(grp["week"].nunique())
+    for nm, grp in w.groupby("player_display_name"):
+        by_name[nm] = int(grp["week"].nunique())
+    return by_team, by_name
+
+
+def _build_ngs_group(df, group, spec, pos_default, teams, gp_by_team, gp_by_name):
     df = _ngs_season_rows(_norm_ngs(df))
     out = []
     for _, r in df.iterrows():
         team = r.get("team_abbr")
         if teams and team not in teams:
             continue
-        row = {"name": r.get("player_display_name"), "team": team,
+        name = r.get("player_display_name")
+        row = {"name": name, "team": team,
                "pos": r.get("player_position") or pos_default, "group": group}
         for key, col, dec in spec:
             row[key] = _ngs_num(r.get(col), dec)
+        gp = gp_by_team.get((name, team)) or gp_by_name.get(name)
+        row["gp"] = gp
+        for src, dst in _AVG_KEYS.get(group, []):
+            tot = row.get(src)
+            row[dst] = round(tot / gp, 1) if (tot is not None and gp) else None
         out.append(row)
     return out
 
 
-def build_players_ngs(ngs_pass, ngs_rush, ngs_rec, teams):
+def build_players_ngs(ngs_pass, ngs_rush, ngs_rec, teams, weekly=None):
+    gp_by_team, gp_by_name = _games_played_maps(weekly)
     players = []
-    players += _build_ngs_group(ngs_pass, "passing", _NGS_PASS, "QB", teams)
-    players += _build_ngs_group(ngs_rush, "rushing", _NGS_RUSH, "RB", teams)
-    players += _build_ngs_group(ngs_rec, "receiving", _NGS_REC, "WR", teams)
+    players += _build_ngs_group(ngs_pass, "passing", _NGS_PASS, "QB", teams, gp_by_team, gp_by_name)
+    players += _build_ngs_group(ngs_rush, "rushing", _NGS_RUSH, "RB", teams, gp_by_team, gp_by_name)
+    players += _build_ngs_group(ngs_rec, "receiving", _NGS_REC, "WR", teams, gp_by_team, gp_by_name)
     return players
 
 
@@ -873,7 +902,7 @@ def main():
         ngs_pass_r = _norm_ngs(_safe_ngs("passing", [recent_season]))
         ngs_rush_r = _norm_ngs(_safe_ngs("rushing", [recent_season]))
         ngs_rec_r = _norm_ngs(_safe_ngs("receiving", [recent_season]))
-    players = build_players_ngs(ngs_pass_r, ngs_rush_r, ngs_rec_r, set(TEAMS))
+    players = build_players_ngs(ngs_pass_r, ngs_rush_r, ngs_rec_r, set(TEAMS), weekly)
     print("Next Gen search players: %d" % len(players))
 
     team_stats, team_detail, team_injuries, team_recent, offense = {}, {}, {}, {}, []
