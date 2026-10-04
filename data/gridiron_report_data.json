@@ -1,9 +1,9 @@
 {
   "teamStats": {
     "ARI": {
-      "record": "1-2",
-      "ppg": 21.0,
-      "papg": 27.0,
+      "record": "1-3",
+      "ppg": 21.8,
+      "papg": 29.2,
       "ypg": 303,
       "ypgAllow": 362,
       "offEpa": 0.0417,
@@ -25,9 +25,9 @@
       "toMargin": -6
     },
     "BAL": {
-      "record": "2-1",
-      "ppg": 30.7,
-      "papg": 26.0,
+      "record": "3-1",
+      "ppg": 29.0,
+      "papg": 24.0,
       "ypg": 399,
       "ypgAllow": 323,
       "offEpa": 0.1933,
@@ -37,9 +37,9 @@
       "toMargin": 1
     },
     "BUF": {
-      "record": "3-0",
-      "ppg": 33.7,
-      "papg": 26.0,
+      "record": "3-1",
+      "ppg": 31.8,
+      "papg": 26.8,
       "ypg": 402,
       "ypgAllow": 361,
       "offEpa": 0.2184,
@@ -61,9 +61,9 @@
       "toMargin": 5
     },
     "CHI": {
-      "record": "2-1",
-      "ppg": 29.7,
-      "papg": 17.7,
+      "record": "3-1",
+      "ppg": 28.0,
+      "papg": 16.2,
       "ypg": 408,
       "ypgAllow": 324,
       "offEpa": 0.1273,
@@ -73,9 +73,9 @@
       "toMargin": 1
     },
     "CIN": {
-      "record": "2-1",
-      "ppg": 26.7,
-      "papg": 21.0,
+      "record": "2-2",
+      "ppg": 24.2,
+      "papg": 21.2,
       "ypg": 323,
       "ypgAllow": 356,
       "offEpa": 0.0585,
@@ -97,9 +97,9 @@
       "toMargin": -1
     },
     "DAL": {
-      "record": "1-2",
-      "ppg": 29.3,
-      "papg": 27.3,
+      "record": "2-2",
+      "ppg": 30.5,
+      "papg": 28.0,
       "ypg": 331,
       "ypgAllow": 387,
       "offEpa": 0.1752,
@@ -133,9 +133,9 @@
       "toMargin": 3
     },
     "GB": {
-      "record": "1-2",
-      "ppg": 18.7,
-      "papg": 30.3,
+      "record": "2-2",
+      "ppg": 18.2,
+      "papg": 26.2,
       "ypg": 315,
       "ypgAllow": 342,
       "offEpa": -0.122,
@@ -145,9 +145,9 @@
       "toMargin": -2
     },
     "HOU": {
-      "record": "0-3",
-      "ppg": 18.0,
-      "papg": 25.0,
+      "record": "0-4",
+      "ppg": 21.0,
+      "papg": 27.2,
       "ypg": 326,
       "ypgAllow": 325,
       "offEpa": -0.0924,
@@ -157,9 +157,9 @@
       "toMargin": 1
     },
     "IND": {
-      "record": "1-2",
-      "ppg": 24.0,
-      "papg": 30.3,
+      "record": "2-2",
+      "ppg": 25.5,
+      "papg": 26.0,
       "ypg": 293,
       "ypgAllow": 417,
       "offEpa": -0.0595,
@@ -169,9 +169,9 @@
       "toMargin": -5
     },
     "JAX": {
-      "record": "2-1",
-      "ppg": 27.3,
-      "papg": 12.0,
+      "record": "3-1",
+      "ppg": 26.0,
+      "papg": 13.2,
       "ypg": 314,
       "ypgAllow": 327,
       "offEpa": 0.174,
@@ -193,9 +193,9 @@
       "toMargin": 3
     },
     "LA": {
-      "record": "1-2",
-      "ppg": 20.3,
-      "papg": 21.0,
+      "record": "2-2",
+      "ppg": 21.2,
+      "papg": 20.8,
       "ypg": 418,
       "ypgAllow": 274,
       "offEpa": 0.0133,
@@ -253,9 +253,9 @@
       "toMargin": 4
     },
     "NE": {
-      "record": "1-2",
-      "ppg": 12.0,
-      "papg": 17.0,
+      "record": "2-2",
+      "ppg": 16.2,
+      "papg": 19.2,
       "ypg": 307,
       "ypgAllow": 278,
       "offEpa": -0.1464,
@@ -277,9 +277,9 @@
       "toMargin": -4
     },
     "NYG": {
-      "record": "2-1",
-      "ppg": 15.3,
-      "papg": 18.3,
+      "record": "3-1",
+      "ppg": 20.5,
+      "papg": 19.8,
       "ypg": 271,
       "ypgAllow": 329,
       "offEpa": -0.0353,
@@ -289,9 +289,9 @@
       "toMargin": 3
     },
     "NYJ": {
-      "record": "1-2",
-      "ppg": 21.3,
-      "papg": 20.3,
+      "record": "1-3",
+      "ppg": 19.0,
+      "papg": 21.0,
       "ypg": 330,
       "ypgAllow": 258,
       "offEpa": 0.0441,
@@ -301,9 +301,9 @@
       "toMargin": 1
     },
     "PHI": {
-      "record": "2-1",
-      "ppg": 18.3,
-      "papg": 23.0,
+      "record": "2-2",
+      "ppg": 18.8,
+      "papg": 23.2,
       "ypg": 302,
       "ypgAllow": 320,
       "offEpa": -0.0462,
@@ -349,9 +349,9 @@
       "toMargin": 2
     },
     "TB": {
-      "record": "0-3",
-      "ppg": 20.7,
-      "papg": 26.3,
+      "record": "0-4",
+      "ppg": 19.0,
+      "papg": 24.0,
       "ypg": 279,
       "ypgAllow": 283,
       "offEpa": -0.1934,
@@ -361,9 +361,9 @@
       "toMargin": -5
     },
     "TEN": {
-      "record": "0-3",
-      "ppg": 12.3,
-      "papg": 19.7,
+      "record": "0-4",
+      "ppg": 13.8,
+      "papg": 20.8,
       "ypg": 249,
       "ypgAllow": 315,
       "offEpa": -0.0659,
@@ -373,9 +373,9 @@
       "toMargin": -1
     },
     "WAS": {
-      "record": "1-2",
-      "ppg": 25.0,
-      "papg": 30.7,
+      "record": "1-3",
+      "ppg": 22.0,
+      "papg": 30.5,
       "ypg": 314,
       "ypgAllow": 362,
       "offEpa": 0.0184,
@@ -2643,6 +2643,18 @@
   "teamRecent": {
     "ARI": [
       {
+        "week": 4,
+        "opp": "NYG",
+        "home": false,
+        "ptsFor": 24,
+        "ptsAgainst": 36,
+        "result": "L",
+        "ats": "X",
+        "ou": "O",
+        "spread": -2.5,
+        "total": 44.5
+      },
+      {
         "week": 3,
         "opp": "SF",
         "home": false,
@@ -2719,6 +2731,18 @@
     ],
     "BAL": [
       {
+        "week": 4,
+        "opp": "TEN",
+        "home": true,
+        "ptsFor": 24,
+        "ptsAgainst": 18,
+        "result": "W",
+        "ats": "X",
+        "ou": "U",
+        "spread": -11.5,
+        "total": 42.5
+      },
+      {
         "week": 3,
         "opp": "DAL",
         "home": false,
@@ -2756,6 +2780,18 @@
       }
     ],
     "BUF": [
+      {
+        "week": 4,
+        "opp": "NE",
+        "home": true,
+        "ptsFor": 26,
+        "ptsAgainst": 29,
+        "result": "L",
+        "ats": "X",
+        "ou": "O",
+        "spread": -7.0,
+        "total": 49.5
+      },
       {
         "week": 3,
         "opp": "LAC",
@@ -2833,6 +2869,18 @@
     ],
     "CHI": [
       {
+        "week": 4,
+        "opp": "NYJ",
+        "home": true,
+        "ptsFor": 23,
+        "ptsAgainst": 12,
+        "result": "W",
+        "ats": "C",
+        "ou": "U",
+        "spread": -3.5,
+        "total": 43.5
+      },
+      {
         "week": 3,
         "opp": "PHI",
         "home": true,
@@ -2870,6 +2918,18 @@
       }
     ],
     "CIN": [
+      {
+        "week": 4,
+        "opp": "JAX",
+        "home": true,
+        "ptsFor": 17,
+        "ptsAgainst": 22,
+        "result": "L",
+        "ats": "X",
+        "ou": "U",
+        "spread": -2.5,
+        "total": 51.5
+      },
       {
         "week": 3,
         "opp": "PIT",
@@ -2958,6 +3018,18 @@
       }
     ],
     "DAL": [
+      {
+        "week": 4,
+        "opp": "HOU",
+        "home": false,
+        "ptsFor": 34,
+        "ptsAgainst": 30,
+        "result": "W",
+        "ats": "C",
+        "ou": "O",
+        "spread": 3.0,
+        "total": 48.5
+      },
       {
         "week": 3,
         "opp": "BAL",
@@ -3073,6 +3145,18 @@
     ],
     "GB": [
       {
+        "week": 4,
+        "opp": "TB",
+        "home": false,
+        "ptsFor": 17,
+        "ptsAgainst": 14,
+        "result": "W",
+        "ats": "P",
+        "ou": "U",
+        "spread": -3.0,
+        "total": 38.5
+      },
+      {
         "week": 3,
         "opp": "ATL",
         "home": true,
@@ -3110,6 +3194,18 @@
       }
     ],
     "HOU": [
+      {
+        "week": 4,
+        "opp": "DAL",
+        "home": true,
+        "ptsFor": 30,
+        "ptsAgainst": 34,
+        "result": "L",
+        "ats": "X",
+        "ou": "O",
+        "spread": -3.0,
+        "total": 48.5
+      },
       {
         "week": 3,
         "opp": "IND",
@@ -3149,6 +3245,18 @@
     ],
     "IND": [
       {
+        "week": 4,
+        "opp": "WAS",
+        "home": false,
+        "ptsFor": 30,
+        "ptsAgainst": 13,
+        "result": "W",
+        "ats": "C",
+        "ou": "U",
+        "spread": -4.5,
+        "total": 46.5
+      },
+      {
         "week": 3,
         "opp": "HOU",
         "home": true,
@@ -3186,6 +3294,18 @@
       }
     ],
     "JAX": [
+      {
+        "week": 4,
+        "opp": "CIN",
+        "home": false,
+        "ptsFor": 22,
+        "ptsAgainst": 17,
+        "result": "W",
+        "ats": "C",
+        "ou": "U",
+        "spread": 2.5,
+        "total": 51.5
+      },
       {
         "week": 3,
         "opp": "NE",
@@ -3262,6 +3382,18 @@
       }
     ],
     "LA": [
+      {
+        "week": 4,
+        "opp": "PHI",
+        "home": false,
+        "ptsFor": 24,
+        "ptsAgainst": 20,
+        "result": "W",
+        "ats": "C",
+        "ou": "O",
+        "spread": -3.5,
+        "total": 42.5
+      },
       {
         "week": 3,
         "opp": "DEN",
@@ -3453,6 +3585,18 @@
     ],
     "NE": [
       {
+        "week": 4,
+        "opp": "BUF",
+        "home": false,
+        "ptsFor": 29,
+        "ptsAgainst": 26,
+        "result": "W",
+        "ats": "C",
+        "ou": "O",
+        "spread": 7.0,
+        "total": 49.5
+      },
+      {
         "week": 3,
         "opp": "JAX",
         "home": false,
@@ -3529,6 +3673,18 @@
     ],
     "NYG": [
       {
+        "week": 4,
+        "opp": "ARI",
+        "home": true,
+        "ptsFor": 36,
+        "ptsAgainst": 24,
+        "result": "W",
+        "ats": "C",
+        "ou": "O",
+        "spread": 2.5,
+        "total": 44.5
+      },
+      {
         "week": 3,
         "opp": "TEN",
         "home": true,
@@ -3567,6 +3723,18 @@
     ],
     "NYJ": [
       {
+        "week": 4,
+        "opp": "CHI",
+        "home": false,
+        "ptsFor": 12,
+        "ptsAgainst": 23,
+        "result": "L",
+        "ats": "X",
+        "ou": "U",
+        "spread": 3.5,
+        "total": 43.5
+      },
+      {
         "week": 3,
         "opp": "DET",
         "home": false,
@@ -3604,6 +3772,18 @@
       }
     ],
     "PHI": [
+      {
+        "week": 4,
+        "opp": "LA",
+        "home": true,
+        "ptsFor": 20,
+        "ptsAgainst": 24,
+        "result": "L",
+        "ats": "X",
+        "ou": "O",
+        "spread": 3.5,
+        "total": 42.5
+      },
       {
         "week": 3,
         "opp": "CHI",
@@ -3769,6 +3949,18 @@
     ],
     "TB": [
       {
+        "week": 4,
+        "opp": "GB",
+        "home": true,
+        "ptsFor": 14,
+        "ptsAgainst": 17,
+        "result": "L",
+        "ats": "P",
+        "ou": "U",
+        "spread": 3.0,
+        "total": 38.5
+      },
+      {
         "week": 3,
         "opp": "MIN",
         "home": true,
@@ -3807,6 +3999,18 @@
     ],
     "TEN": [
       {
+        "week": 4,
+        "opp": "BAL",
+        "home": false,
+        "ptsFor": 18,
+        "ptsAgainst": 24,
+        "result": "L",
+        "ats": "C",
+        "ou": "U",
+        "spread": 11.5,
+        "total": 42.5
+      },
+      {
         "week": 3,
         "opp": "NYG",
         "home": false,
@@ -3844,6 +4048,18 @@
       }
     ],
     "WAS": [
+      {
+        "week": 4,
+        "opp": "IND",
+        "home": true,
+        "ptsFor": 13,
+        "ptsAgainst": 30,
+        "result": "L",
+        "ats": "X",
+        "ou": "U",
+        "spread": 4.5,
+        "total": 46.5
+      },
       {
         "week": 3,
         "opp": "SEA",
@@ -5559,14 +5775,28 @@
         "wind": null,
         "precip": null
       },
-      "surface": "grass",
+      "surface": "Unknown",
       "roof": "outdoors",
       "awayRestDays": 7,
       "homeRestDays": 7,
       "awayTravelMiles": 500,
       "divisional": false,
-      "h2h": null,
-      "final": false,
+      "h2h": {
+        "meetings": 1,
+        "aWins": 1,
+        "bWins": 0,
+        "avgCombinedPts": 43.0,
+        "avgMarginA": 17.0
+      },
+      "final": true,
+      "box": {
+        "awayScore": 30,
+        "homeScore": 13,
+        "awayYds": null,
+        "homeYds": null,
+        "awayTo": null,
+        "homeTo": null
+      },
       "odds": null
     },
     {
@@ -5579,22 +5809,29 @@
         "wind": null,
         "precip": null
       },
-      "surface": "grass",
+      "surface": "Unknown",
       "roof": "outdoors",
       "awayRestDays": 7,
       "homeRestDays": 7,
       "awayTravelMiles": 594,
       "divisional": false,
-      "h2h": null,
-      "final": false,
-      "odds": {
-        "spread": -11.5,
-        "total": 42.5,
-        "detail": "BAL -11.5",
-        "mlAway": 525,
-        "mlHome": -750,
-        "book": "Draft Kings"
-      }
+      "h2h": {
+        "meetings": 1,
+        "aWins": 0,
+        "bWins": 1,
+        "avgCombinedPts": 42.0,
+        "avgMarginA": -6.0
+      },
+      "final": true,
+      "box": {
+        "awayScore": 18,
+        "homeScore": 24,
+        "awayYds": null,
+        "homeYds": null,
+        "awayTo": null,
+        "homeTo": null
+      },
+      "odds": null
     },
     {
       "away": "NE",
@@ -5606,22 +5843,29 @@
         "wind": null,
         "precip": null
       },
-      "surface": "a_turf",
+      "surface": "Unknown",
       "roof": "outdoors",
       "awayRestDays": 7,
       "homeRestDays": 7,
       "awayTravelMiles": 386,
       "divisional": true,
-      "h2h": null,
-      "final": false,
-      "odds": {
-        "spread": -7.0,
-        "total": 49.5,
-        "detail": "BUF -7",
-        "mlAway": 260,
-        "mlHome": -325,
-        "book": "Draft Kings"
-      }
+      "h2h": {
+        "meetings": 1,
+        "aWins": 1,
+        "bWins": 0,
+        "avgCombinedPts": 55.0,
+        "avgMarginA": 3.0
+      },
+      "final": true,
+      "box": {
+        "awayScore": 29,
+        "homeScore": 26,
+        "awayYds": null,
+        "homeYds": null,
+        "awayTo": null,
+        "homeTo": null
+      },
+      "odds": null
     },
     {
       "away": "NYJ",
@@ -5633,22 +5877,29 @@
         "wind": null,
         "precip": null
       },
-      "surface": "grass",
+      "surface": "Unknown",
       "roof": "outdoors",
       "awayRestDays": 7,
       "homeRestDays": 6,
       "awayTravelMiles": 706,
       "divisional": false,
-      "h2h": null,
-      "final": false,
-      "odds": {
-        "spread": -3.5,
-        "total": 43.5,
-        "detail": "CHI -3.5",
-        "mlAway": 154,
-        "mlHome": -185,
-        "book": "Draft Kings"
-      }
+      "h2h": {
+        "meetings": 1,
+        "aWins": 0,
+        "bWins": 1,
+        "avgCombinedPts": 35.0,
+        "avgMarginA": -11.0
+      },
+      "final": true,
+      "box": {
+        "awayScore": 12,
+        "homeScore": 23,
+        "awayYds": null,
+        "homeYds": null,
+        "awayTo": null,
+        "homeTo": null
+      },
+      "odds": null
     },
     {
       "away": "JAX",
@@ -5660,22 +5911,29 @@
         "wind": null,
         "precip": null
       },
-      "surface": "fieldturf",
+      "surface": "Unknown",
       "roof": "outdoors",
       "awayRestDays": 7,
       "homeRestDays": 7,
       "awayTravelMiles": 628,
       "divisional": false,
-      "h2h": null,
-      "final": false,
-      "odds": {
-        "spread": -2.5,
-        "total": 51.5,
-        "detail": "CIN -2.5",
-        "mlAway": 120,
-        "mlHome": -142,
-        "book": "Draft Kings"
-      }
+      "h2h": {
+        "meetings": 1,
+        "aWins": 1,
+        "bWins": 0,
+        "avgCombinedPts": 39.0,
+        "avgMarginA": 5.0
+      },
+      "final": true,
+      "box": {
+        "awayScore": 22,
+        "homeScore": 17,
+        "awayYds": null,
+        "homeYds": null,
+        "awayTo": null,
+        "homeTo": null
+      },
+      "odds": null
     },
     {
       "away": "DAL",
@@ -5687,22 +5945,29 @@
         "wind": null,
         "precip": null
       },
-      "surface": "astroturf",
-      "roof": "Unknown",
+      "surface": "Unknown",
+      "roof": "closed",
       "awayRestDays": 7,
       "homeRestDays": 7,
       "awayTravelMiles": 234,
       "divisional": false,
-      "h2h": null,
-      "final": false,
-      "odds": {
-        "spread": -3.0,
-        "total": 48.5,
-        "detail": "HOU -3",
-        "mlAway": 124,
-        "mlHome": -148,
-        "book": "Draft Kings"
-      }
+      "h2h": {
+        "meetings": 1,
+        "aWins": 1,
+        "bWins": 0,
+        "avgCombinedPts": 64.0,
+        "avgMarginA": 4.0
+      },
+      "final": true,
+      "box": {
+        "awayScore": 34,
+        "homeScore": 30,
+        "awayYds": null,
+        "homeYds": null,
+        "awayTo": null,
+        "homeTo": null
+      },
+      "odds": null
     },
     {
       "away": "ARI",
@@ -5714,22 +5979,29 @@
         "wind": null,
         "precip": null
       },
-      "surface": "fieldturf",
+      "surface": "Unknown",
       "roof": "outdoors",
       "awayRestDays": 7,
       "homeRestDays": 7,
       "awayTravelMiles": 2144,
       "divisional": false,
-      "h2h": null,
-      "final": false,
-      "odds": {
-        "spread": 2.5,
-        "total": 44.5,
-        "detail": "ARI -2.5",
-        "mlAway": -135,
-        "mlHome": 114,
-        "book": "Draft Kings"
-      }
+      "h2h": {
+        "meetings": 1,
+        "aWins": 0,
+        "bWins": 1,
+        "avgCombinedPts": 60.0,
+        "avgMarginA": -12.0
+      },
+      "final": true,
+      "box": {
+        "awayScore": 24,
+        "homeScore": 36,
+        "awayYds": null,
+        "homeYds": null,
+        "awayTo": null,
+        "homeTo": null
+      },
+      "odds": null
     },
     {
       "away": "LA",
@@ -5741,22 +6013,29 @@
         "wind": null,
         "precip": null
       },
-      "surface": "grass",
+      "surface": "Unknown",
       "roof": "outdoors",
       "awayRestDays": 7,
       "homeRestDays": 6,
       "awayTravelMiles": 2396,
       "divisional": false,
-      "h2h": null,
-      "final": false,
-      "odds": {
-        "spread": 3.5,
-        "total": 42.5,
-        "detail": "LAR -3.5",
-        "mlAway": -198,
-        "mlHome": 164,
-        "book": "Draft Kings"
-      }
+      "h2h": {
+        "meetings": 1,
+        "aWins": 1,
+        "bWins": 0,
+        "avgCombinedPts": 44.0,
+        "avgMarginA": 4.0
+      },
+      "final": true,
+      "box": {
+        "awayScore": 24,
+        "homeScore": 20,
+        "awayYds": null,
+        "homeYds": null,
+        "awayTo": null,
+        "homeTo": null
+      },
+      "odds": null
     },
     {
       "away": "GB",
@@ -5768,22 +6047,29 @@
         "wind": null,
         "precip": null
       },
-      "surface": "grass",
+      "surface": "Unknown",
       "roof": "outdoors",
       "awayRestDays": 10,
       "homeRestDays": 7,
       "awayTravelMiles": 1182,
       "divisional": false,
-      "h2h": null,
-      "final": false,
-      "odds": {
-        "spread": 3.0,
-        "total": 38.5,
-        "detail": "GB -3",
-        "mlAway": -175,
-        "mlHome": 145,
-        "book": "Draft Kings"
-      }
+      "h2h": {
+        "meetings": 1,
+        "aWins": 1,
+        "bWins": 0,
+        "avgCombinedPts": 31.0,
+        "avgMarginA": 3.0
+      },
+      "final": true,
+      "box": {
+        "awayScore": 17,
+        "homeScore": 14,
+        "awayYds": null,
+        "homeYds": null,
+        "awayTo": null,
+        "homeTo": null
+      },
+      "odds": null
     },
     {
       "away": "MIA",
@@ -5803,14 +6089,7 @@
       "divisional": false,
       "h2h": null,
       "final": false,
-      "odds": {
-        "spread": -10.0,
-        "total": 38.5,
-        "detail": "MIN -10",
-        "mlAway": 400,
-        "mlHome": -535,
-        "book": "Draft Kings"
-      }
+      "odds": null
     },
     {
       "away": "KC",
@@ -5830,14 +6109,7 @@
       "divisional": true,
       "h2h": null,
       "final": false,
-      "odds": {
-        "spread": 4.5,
-        "total": 47.5,
-        "detail": "KC -4.5",
-        "mlAway": -225,
-        "mlHome": 185,
-        "book": "Draft Kings"
-      }
+      "odds": null
     },
     {
       "away": "LAC",
@@ -5857,14 +6129,7 @@
       "divisional": false,
       "h2h": null,
       "final": false,
-      "odds": {
-        "spread": -7.0,
-        "total": 42.5,
-        "detail": "SEA -7",
-        "mlAway": 285,
-        "mlHome": -360,
-        "book": "Draft Kings"
-      }
+      "odds": null
     },
     {
       "away": "DEN",
@@ -5884,14 +6149,7 @@
       "divisional": false,
       "h2h": null,
       "final": false,
-      "odds": {
-        "spread": -3.0,
-        "total": 48.5,
-        "detail": "SF -3",
-        "mlAway": 124,
-        "mlHome": -148,
-        "book": "Draft Kings"
-      }
+      "odds": null
     },
     {
       "away": "DET",
@@ -5917,7 +6175,7 @@
         "detail": "DET -3.5",
         "mlAway": -198,
         "mlHome": 164,
-        "book": "Draft Kings"
+        "book": "DraftKings"
       }
     },
     {
@@ -5944,7 +6202,7 @@
         "detail": "NO -1.5",
         "mlAway": 110,
         "mlHome": -130,
-        "book": "Draft Kings"
+        "book": "DraftKings"
       }
     },
     {
@@ -8525,7 +8783,13 @@
       "homeRestDays": 7,
       "awayTravelMiles": 386,
       "divisional": true,
-      "h2h": null,
+      "h2h": {
+        "meetings": 1,
+        "aWins": 0,
+        "bWins": 1,
+        "avgCombinedPts": 55.0,
+        "avgMarginA": -3.0
+      },
       "final": false,
       "odds": null
     },
@@ -18134,7 +18398,10 @@
       "iay": 7.4,
       "aggr": 14.5,
       "yds": 789,
-      "td": 9
+      "td": 9,
+      "gp": 3,
+      "ypg": 263.0,
+      "tdpg": 3.0
     },
     {
       "name": "Jared Goff",
@@ -18149,7 +18416,10 @@
       "iay": 7.2,
       "aggr": 22.0,
       "yds": 802,
-      "td": 8
+      "td": 8,
+      "gp": 3,
+      "ypg": 267.3,
+      "tdpg": 2.7
     },
     {
       "name": "Aaron Rodgers",
@@ -18164,7 +18434,10 @@
       "iay": 8.7,
       "aggr": 17.6,
       "yds": 999,
-      "td": 7
+      "td": 7,
+      "gp": 4,
+      "ypg": 249.8,
+      "tdpg": 1.8
     },
     {
       "name": "Josh Allen",
@@ -18179,7 +18452,10 @@
       "iay": 10.0,
       "aggr": 10.5,
       "yds": 786,
-      "td": 5
+      "td": 5,
+      "gp": 3,
+      "ypg": 262.0,
+      "tdpg": 1.7
     },
     {
       "name": "Geno Smith",
@@ -18194,7 +18470,10 @@
       "iay": 7.6,
       "aggr": 18.6,
       "yds": 783,
-      "td": 4
+      "td": 4,
+      "gp": 3,
+      "ypg": 261.0,
+      "tdpg": 1.3
     },
     {
       "name": "Joe Burrow",
@@ -18209,7 +18488,10 @@
       "iay": 6.6,
       "aggr": 11.7,
       "yds": 743,
-      "td": 6
+      "td": 6,
+      "gp": 3,
+      "ypg": 247.7,
+      "tdpg": 2.0
     },
     {
       "name": "Jameis Winston",
@@ -18224,7 +18506,10 @@
       "iay": 8.2,
       "aggr": 24.5,
       "yds": 229,
-      "td": 0
+      "td": 0,
+      "gp": 2,
+      "ypg": 114.5,
+      "tdpg": 0.0
     },
     {
       "name": "Cooper Rush",
@@ -18239,7 +18524,10 @@
       "iay": 5.4,
       "aggr": 7.7,
       "yds": 229,
-      "td": 1
+      "td": 1,
+      "gp": 2,
+      "ypg": 114.5,
+      "tdpg": 0.5
     },
     {
       "name": "Tyler Shough",
@@ -18254,7 +18542,10 @@
       "iay": 7.5,
       "aggr": 14.4,
       "yds": 917,
-      "td": 8
+      "td": 8,
+      "gp": 3,
+      "ypg": 305.7,
+      "tdpg": 2.7
     },
     {
       "name": "Patrick Mahomes",
@@ -18269,7 +18560,10 @@
       "iay": 5.8,
       "aggr": 5.1,
       "yds": 812,
-      "td": 7
+      "td": 7,
+      "gp": 3,
+      "ypg": 270.7,
+      "tdpg": 2.3
     },
     {
       "name": "Kirk Cousins",
@@ -18284,7 +18578,10 @@
       "iay": 8.7,
       "aggr": 14.1,
       "yds": 661,
-      "td": 9
+      "td": 9,
+      "gp": 3,
+      "ypg": 220.3,
+      "tdpg": 3.0
     },
     {
       "name": "Kyler Murray",
@@ -18299,7 +18596,10 @@
       "iay": 9.5,
       "aggr": 14.7,
       "yds": 186,
-      "td": 1
+      "td": 1,
+      "gp": 2,
+      "ypg": 93.0,
+      "tdpg": 0.5
     },
     {
       "name": "Marcus Mariota",
@@ -18314,7 +18614,10 @@
       "iay": 9.1,
       "aggr": 14.9,
       "yds": 294,
-      "td": 4
+      "td": 4,
+      "gp": 2,
+      "ypg": 147.0,
+      "tdpg": 2.0
     },
     {
       "name": "Bryce Young",
@@ -18329,7 +18632,10 @@
       "iay": 10.2,
       "aggr": 12.4,
       "yds": 939,
-      "td": 7
+      "td": 7,
+      "gp": 3,
+      "ypg": 313.0,
+      "tdpg": 2.3
     },
     {
       "name": "Caleb Williams",
@@ -18344,7 +18650,10 @@
       "iay": 7.4,
       "aggr": 14.5,
       "yds": 407,
-      "td": 2
+      "td": 2,
+      "gp": 2,
+      "ypg": 203.5,
+      "tdpg": 1.0
     },
     {
       "name": "Trevor Lawrence",
@@ -18359,7 +18668,10 @@
       "iay": 9.5,
       "aggr": 13.6,
       "yds": 616,
-      "td": 7
+      "td": 7,
+      "gp": 3,
+      "ypg": 205.3,
+      "tdpg": 2.3
     },
     {
       "name": "Drake Maye",
@@ -18374,7 +18686,10 @@
       "iay": 9.2,
       "aggr": 11.2,
       "yds": 585,
-      "td": 1
+      "td": 1,
+      "gp": 3,
+      "ypg": 195.0,
+      "tdpg": 0.3
     },
     {
       "name": "Matthew Stafford",
@@ -18389,7 +18704,10 @@
       "iay": 10.0,
       "aggr": 16.2,
       "yds": 872,
-      "td": 6
+      "td": 6,
+      "gp": 3,
+      "ypg": 290.7,
+      "tdpg": 2.0
     },
     {
       "name": "Jacoby Brissett",
@@ -18404,7 +18722,10 @@
       "iay": 6.4,
       "aggr": 14.5,
       "yds": 652,
-      "td": 4
+      "td": 4,
+      "gp": 3,
+      "ypg": 217.3,
+      "tdpg": 1.3
     },
     {
       "name": "Carson Wentz",
@@ -18419,7 +18740,10 @@
       "iay": 8.2,
       "aggr": 12.8,
       "yds": 276,
-      "td": 3
+      "td": 3,
+      "gp": 2,
+      "ypg": 138.0,
+      "tdpg": 1.5
     },
     {
       "name": "Jayden Daniels",
@@ -18434,7 +18758,10 @@
       "iay": 9.3,
       "aggr": 15.7,
       "yds": 260,
-      "td": 3
+      "td": 3,
+      "gp": 2,
+      "ypg": 130.0,
+      "tdpg": 1.5
     },
     {
       "name": "Baker Mayfield",
@@ -18449,7 +18776,10 @@
       "iay": 8.9,
       "aggr": 12.5,
       "yds": 615,
-      "td": 2
+      "td": 2,
+      "gp": 3,
+      "ypg": 205.0,
+      "tdpg": 0.7
     },
     {
       "name": "Malik Willis",
@@ -18464,7 +18794,10 @@
       "iay": 10.3,
       "aggr": 20.9,
       "yds": 627,
-      "td": 1
+      "td": 1,
+      "gp": 3,
+      "ypg": 209.0,
+      "tdpg": 0.3
     },
     {
       "name": "Dak Prescott",
@@ -18479,7 +18812,10 @@
       "iay": 7.9,
       "aggr": 18.1,
       "yds": 730,
-      "td": 7
+      "td": 7,
+      "gp": 3,
+      "ypg": 243.3,
+      "tdpg": 2.3
     },
     {
       "name": "Cam Ward",
@@ -18494,7 +18830,10 @@
       "iay": 6.3,
       "aggr": 6.8,
       "yds": 504,
-      "td": 2
+      "td": 2,
+      "gp": 3,
+      "ypg": 168.0,
+      "tdpg": 0.7
     },
     {
       "name": "Case Keenum",
@@ -18509,7 +18848,10 @@
       "iay": 6.4,
       "aggr": 14.7,
       "yds": 247,
-      "td": 2
+      "td": 2,
+      "gp": 1,
+      "ypg": 247.0,
+      "tdpg": 2.0
     },
     {
       "name": "C.J. Stroud",
@@ -18524,7 +18866,10 @@
       "iay": 9.3,
       "aggr": 20.0,
       "yds": 794,
-      "td": 3
+      "td": 3,
+      "gp": 3,
+      "ypg": 264.7,
+      "tdpg": 1.0
     },
     {
       "name": "Jaxson Dart",
@@ -18539,7 +18884,10 @@
       "iay": 8.6,
       "aggr": 20.6,
       "yds": 250,
-      "td": 3
+      "td": 3,
+      "gp": 2,
+      "ypg": 125.0,
+      "tdpg": 1.5
     },
     {
       "name": "Lamar Jackson",
@@ -18554,7 +18902,10 @@
       "iay": 10.2,
       "aggr": 13.2,
       "yds": 745,
-      "td": 4
+      "td": 4,
+      "gp": 3,
+      "ypg": 248.3,
+      "tdpg": 1.3
     },
     {
       "name": "Sam Darnold",
@@ -18569,7 +18920,10 @@
       "iay": 7.1,
       "aggr": 17.0,
       "yds": 392,
-      "td": 4
+      "td": 4,
+      "gp": 2,
+      "ypg": 196.0,
+      "tdpg": 2.0
     },
     {
       "name": "Deshaun Watson",
@@ -18584,7 +18938,10 @@
       "iay": 6.6,
       "aggr": 13.9,
       "yds": 855,
-      "td": 6
+      "td": 6,
+      "gp": 4,
+      "ypg": 213.8,
+      "tdpg": 1.5
     },
     {
       "name": "Bo Nix",
@@ -18599,7 +18956,10 @@
       "iay": 6.9,
       "aggr": 14.0,
       "yds": 605,
-      "td": 4
+      "td": 4,
+      "gp": 3,
+      "ypg": 201.7,
+      "tdpg": 1.3
     },
     {
       "name": "Jordan Love",
@@ -18614,7 +18974,10 @@
       "iay": 9.1,
       "aggr": 15.3,
       "yds": 844,
-      "td": 6
+      "td": 6,
+      "gp": 3,
+      "ypg": 281.3,
+      "tdpg": 2.0
     },
     {
       "name": "Drew Lock",
@@ -18629,7 +18992,10 @@
       "iay": 7.7,
       "aggr": 16.7,
       "yds": 422,
-      "td": 4
+      "td": 4,
+      "gp": 2,
+      "ypg": 211.0,
+      "tdpg": 2.0
     },
     {
       "name": "Jalen Hurts",
@@ -18644,7 +19010,10 @@
       "iay": 8.7,
       "aggr": 8.0,
       "yds": 620,
-      "td": 5
+      "td": 5,
+      "gp": 3,
+      "ypg": 206.7,
+      "tdpg": 1.7
     },
     {
       "name": "Justin Herbert",
@@ -18659,7 +19028,10 @@
       "iay": 9.5,
       "aggr": 13.6,
       "yds": 627,
-      "td": 3
+      "td": 3,
+      "gp": 3,
+      "ypg": 209.0,
+      "tdpg": 1.0
     },
     {
       "name": "Daniel Jones",
@@ -18674,7 +19046,10 @@
       "iay": 6.5,
       "aggr": 17.3,
       "yds": 611,
-      "td": 3
+      "td": 3,
+      "gp": 3,
+      "ypg": 203.7,
+      "tdpg": 1.0
     },
     {
       "name": "Bijan Robinson",
@@ -18688,7 +19063,11 @@
       "stack": 16.7,
       "ryoe": 1.03,
       "td": 2,
-      "tlos": 2.75
+      "tlos": 2.75,
+      "gp": 3,
+      "attpg": 22.0,
+      "ypg": 116.3,
+      "tdpg": 0.7
     },
     {
       "name": "Rachaad White",
@@ -18702,7 +19081,11 @@
       "stack": 4.5,
       "ryoe": -0.35,
       "td": 0,
-      "tlos": 2.87
+      "tlos": 2.87,
+      "gp": 3,
+      "attpg": 7.3,
+      "ypg": 33.3,
+      "tdpg": 0.0
     },
     {
       "name": "Chase Brown",
@@ -18716,7 +19099,11 @@
       "stack": 32.7,
       "ryoe": -0.23,
       "td": 1,
-      "tlos": 2.68
+      "tlos": 2.68,
+      "gp": 3,
+      "attpg": 16.3,
+      "ypg": 65.7,
+      "tdpg": 0.3
     },
     {
       "name": "Kyren Williams",
@@ -18730,7 +19117,11 @@
       "stack": 36.8,
       "ryoe": 1.58,
       "td": 1,
-      "tlos": 2.86
+      "tlos": 2.86,
+      "gp": 3,
+      "attpg": 12.7,
+      "ypg": 71.3,
+      "tdpg": 0.3
     },
     {
       "name": "J.K. Dobbins",
@@ -18744,7 +19135,11 @@
       "stack": 14.3,
       "ryoe": -0.48,
       "td": 0,
-      "tlos": 3.07
+      "tlos": 3.07,
+      "gp": 3,
+      "attpg": 11.7,
+      "ypg": 40.3,
+      "tdpg": 0.0
     },
     {
       "name": "Jadarian Price",
@@ -18758,7 +19153,11 @@
       "stack": 32.1,
       "ryoe": -0.06,
       "td": 0,
-      "tlos": 3.35
+      "tlos": 3.35,
+      "gp": 3,
+      "attpg": 9.3,
+      "ypg": 39.7,
+      "tdpg": 0.0
     },
     {
       "name": "Javonte Williams",
@@ -18772,7 +19171,11 @@
       "stack": 11.6,
       "ryoe": 0.3,
       "td": 2,
-      "tlos": 2.84
+      "tlos": 2.84,
+      "gp": 3,
+      "attpg": 14.3,
+      "ypg": 56.3,
+      "tdpg": 0.7
     },
     {
       "name": "TreVeyon Henderson",
@@ -18786,7 +19189,11 @@
       "stack": 16.7,
       "ryoe": 0.68,
       "td": 1,
-      "tlos": 2.61
+      "tlos": 2.61,
+      "gp": 2,
+      "attpg": 12.0,
+      "ypg": 49.5,
+      "tdpg": 0.5
     },
     {
       "name": "Saquon Barkley",
@@ -18800,7 +19207,11 @@
       "stack": 14.7,
       "ryoe": 1.14,
       "td": 0,
-      "tlos": 3.09
+      "tlos": 3.09,
+      "gp": 3,
+      "attpg": 11.3,
+      "ypg": 58.0,
+      "tdpg": 0.0
     },
     {
       "name": "Jeremiyah Love",
@@ -18814,7 +19225,11 @@
       "stack": 12.2,
       "ryoe": -0.16,
       "td": 1,
-      "tlos": 3.0
+      "tlos": 3.0,
+      "gp": 3,
+      "attpg": 13.7,
+      "ypg": 53.3,
+      "tdpg": 0.3
     },
     {
       "name": "David Montgomery",
@@ -18828,7 +19243,11 @@
       "stack": 40.5,
       "ryoe": -0.39,
       "td": 2,
-      "tlos": 2.82
+      "tlos": 2.82,
+      "gp": 3,
+      "attpg": 12.3,
+      "ypg": 34.3,
+      "tdpg": 0.7
     },
     {
       "name": "Brian Robinson",
@@ -18842,7 +19261,11 @@
       "stack": 13.3,
       "ryoe": -0.05,
       "td": 1,
-      "tlos": 2.74
+      "tlos": 2.74,
+      "gp": 3,
+      "attpg": 10.0,
+      "ypg": 44.0,
+      "tdpg": 0.3
     },
     {
       "name": "Bucky Irving",
@@ -18856,7 +19279,11 @@
       "stack": 12.5,
       "ryoe": -0.18,
       "td": 1,
-      "tlos": 2.94
+      "tlos": 2.94,
+      "gp": 3,
+      "attpg": 13.3,
+      "ypg": 60.0,
+      "tdpg": 0.3
     },
     {
       "name": "Jacory Croskey-Merritt",
@@ -18870,7 +19297,11 @@
       "stack": 2.1,
       "ryoe": -1.23,
       "td": 1,
-      "tlos": 2.82
+      "tlos": 2.82,
+      "gp": 3,
+      "attpg": 15.7,
+      "ypg": 47.3,
+      "tdpg": 0.3
     },
     {
       "name": "Jonathan Taylor",
@@ -18884,7 +19315,11 @@
       "stack": 19.7,
       "ryoe": -0.44,
       "td": 4,
-      "tlos": 2.69
+      "tlos": 2.69,
+      "gp": 3,
+      "attpg": 22.0,
+      "ypg": 86.0,
+      "tdpg": 1.3
     },
     {
       "name": "Emanuel Wilson",
@@ -18898,7 +19333,11 @@
       "stack": 28.1,
       "ryoe": -0.34,
       "td": 0,
-      "tlos": 2.64
+      "tlos": 2.64,
+      "gp": 3,
+      "attpg": 10.7,
+      "ypg": 36.3,
+      "tdpg": 0.0
     },
     {
       "name": "Aaron Jones",
@@ -18912,7 +19351,11 @@
       "stack": 36.5,
       "ryoe": -0.46,
       "td": 1,
-      "tlos": 2.77
+      "tlos": 2.77,
+      "gp": 3,
+      "attpg": 17.3,
+      "ypg": 67.7,
+      "tdpg": 0.3
     },
     {
       "name": "James Cook",
@@ -18926,7 +19369,11 @@
       "stack": 29.3,
       "ryoe": 1.14,
       "td": 2,
-      "tlos": 2.52
+      "tlos": 2.52,
+      "gp": 3,
+      "attpg": 19.3,
+      "ypg": 115.3,
+      "tdpg": 0.7
     },
     {
       "name": "Jahmyr Gibbs",
@@ -18940,7 +19387,11 @@
       "stack": 15.4,
       "ryoe": 0.49,
       "td": 4,
-      "tlos": 2.83
+      "tlos": 2.83,
+      "gp": 3,
+      "attpg": 21.7,
+      "ypg": 102.3,
+      "tdpg": 1.3
     },
     {
       "name": "D'Andre Swift",
@@ -18954,7 +19405,11 @@
       "stack": 18.5,
       "ryoe": 0.06,
       "td": 3,
-      "tlos": 2.66
+      "tlos": 2.66,
+      "gp": 3,
+      "attpg": 18.0,
+      "ypg": 84.3,
+      "tdpg": 1.0
     },
     {
       "name": "Omarion Hampton",
@@ -18968,7 +19423,11 @@
       "stack": 18.0,
       "ryoe": -0.38,
       "td": 2,
-      "tlos": 2.58
+      "tlos": 2.58,
+      "gp": 3,
+      "attpg": 16.7,
+      "ypg": 64.3,
+      "tdpg": 0.7
     },
     {
       "name": "Jaylen Warren",
@@ -18982,7 +19441,11 @@
       "stack": 23.6,
       "ryoe": 1.45,
       "td": 0,
-      "tlos": 2.81
+      "tlos": 2.81,
+      "gp": 4,
+      "attpg": 13.8,
+      "ypg": 77.2,
+      "tdpg": 0.0
     },
     {
       "name": "Bhayshul Tuten",
@@ -18996,7 +19459,11 @@
       "stack": 25.6,
       "ryoe": 0.5,
       "td": 2,
-      "tlos": 3.05
+      "tlos": 3.05,
+      "gp": 3,
+      "attpg": 14.3,
+      "ypg": 68.0,
+      "tdpg": 0.7
     },
     {
       "name": "Quinshon Judkins",
@@ -19010,7 +19477,11 @@
       "stack": 25.4,
       "ryoe": -0.51,
       "td": 1,
-      "tlos": 2.63
+      "tlos": 2.63,
+      "gp": 4,
+      "attpg": 14.8,
+      "ypg": 44.2,
+      "tdpg": 0.2
     },
     {
       "name": "Christian McCaffrey",
@@ -19024,7 +19495,11 @@
       "stack": 20.0,
       "ryoe": 0.17,
       "td": 3,
-      "tlos": 2.47
+      "tlos": 2.47,
+      "gp": 3,
+      "attpg": 11.7,
+      "ypg": 55.3,
+      "tdpg": 1.0
     },
     {
       "name": "Tyler Allgeier",
@@ -19038,7 +19513,11 @@
       "stack": 29.2,
       "ryoe": -0.68,
       "td": 0,
-      "tlos": 2.67
+      "tlos": 2.67,
+      "gp": 3,
+      "attpg": 8.0,
+      "ypg": 23.3,
+      "tdpg": 0.0
     },
     {
       "name": "Kaelon Black",
@@ -19052,7 +19531,11 @@
       "stack": 12.0,
       "ryoe": -0.26,
       "td": 0,
-      "tlos": 2.65
+      "tlos": 2.65,
+      "gp": 3,
+      "attpg": 8.3,
+      "ypg": 35.7,
+      "tdpg": 0.0
     },
     {
       "name": "Breece Hall",
@@ -19066,7 +19549,11 @@
       "stack": 29.4,
       "ryoe": -0.15,
       "td": 1,
-      "tlos": 2.9
+      "tlos": 2.9,
+      "gp": 3,
+      "attpg": 17.0,
+      "ypg": 54.3,
+      "tdpg": 0.3
     },
     {
       "name": "Blake Corum",
@@ -19080,7 +19567,11 @@
       "stack": 28.6,
       "ryoe": 0.77,
       "td": 0,
-      "tlos": 2.63
+      "tlos": 2.63,
+      "gp": 3,
+      "attpg": 9.3,
+      "ypg": 49.3,
+      "tdpg": 0.0
     },
     {
       "name": "Derrick Henry",
@@ -19094,7 +19585,11 @@
       "stack": 37.9,
       "ryoe": 0.48,
       "td": 6,
-      "tlos": 2.81
+      "tlos": 2.81,
+      "gp": 3,
+      "attpg": 22.0,
+      "ypg": 100.3,
+      "tdpg": 2.0
     },
     {
       "name": "MarShawn Lloyd",
@@ -19108,7 +19603,11 @@
       "stack": 13.0,
       "ryoe": -1.44,
       "td": 0,
-      "tlos": 2.67
+      "tlos": 2.67,
+      "gp": 3,
+      "attpg": 7.7,
+      "ypg": 22.7,
+      "tdpg": 0.0
     },
     {
       "name": "Kenneth Walker III",
@@ -19122,7 +19621,11 @@
       "stack": 26.2,
       "ryoe": 2.28,
       "td": 2,
-      "tlos": 2.78
+      "tlos": 2.78,
+      "gp": 3,
+      "attpg": 21.7,
+      "ypg": 120.0,
+      "tdpg": 0.7
     },
     {
       "name": "Travis Etienne",
@@ -19136,7 +19639,11 @@
       "stack": 6.7,
       "ryoe": -0.53,
       "td": 0,
-      "tlos": 2.64
+      "tlos": 2.64,
+      "gp": 3,
+      "attpg": 10.0,
+      "ypg": 42.7,
+      "tdpg": 0.0
     },
     {
       "name": "Ashton Jeanty",
@@ -19150,7 +19657,11 @@
       "stack": 38.1,
       "ryoe": -0.25,
       "td": 0,
-      "tlos": 2.96
+      "tlos": 2.96,
+      "gp": 3,
+      "attpg": 21.0,
+      "ypg": 68.7,
+      "tdpg": 0.0
     },
     {
       "name": "Woody Marks",
@@ -19164,7 +19675,11 @@
       "stack": 27.3,
       "ryoe": -0.42,
       "td": 1,
-      "tlos": 2.66
+      "tlos": 2.66,
+      "gp": 3,
+      "attpg": 7.3,
+      "ypg": 21.7,
+      "tdpg": 0.3
     },
     {
       "name": "Chuba Hubbard",
@@ -19178,7 +19693,11 @@
       "stack": 17.1,
       "ryoe": 0.56,
       "td": 1,
-      "tlos": 2.6
+      "tlos": 2.6,
+      "gp": 3,
+      "attpg": 13.7,
+      "ypg": 61.3,
+      "tdpg": 0.3
     },
     {
       "name": "De'Von Achane",
@@ -19192,7 +19711,11 @@
       "stack": 17.6,
       "ryoe": -0.28,
       "td": 0,
-      "tlos": 2.58
+      "tlos": 2.58,
+      "gp": 3,
+      "attpg": 11.3,
+      "ypg": 42.3,
+      "tdpg": 0.0
     },
     {
       "name": "Kyle Monangai",
@@ -19206,7 +19729,11 @@
       "stack": 23.3,
       "ryoe": 1.69,
       "td": 1,
-      "tlos": 2.58
+      "tlos": 2.58,
+      "gp": 3,
+      "attpg": 10.0,
+      "ypg": 59.3,
+      "tdpg": 0.3
     },
     {
       "name": "Ollie Gordon II",
@@ -19220,7 +19747,11 @@
       "stack": 10.0,
       "ryoe": -1.11,
       "td": 1,
-      "tlos": 2.62
+      "tlos": 2.62,
+      "gp": 2,
+      "attpg": 10.0,
+      "ypg": 24.0,
+      "tdpg": 0.5
     },
     {
       "name": "Cam Skattebo",
@@ -19234,7 +19765,11 @@
       "stack": 20.0,
       "ryoe": 0.02,
       "td": 1,
-      "tlos": 2.81
+      "tlos": 2.81,
+      "gp": 3,
+      "attpg": 16.7,
+      "ypg": 59.0,
+      "tdpg": 0.3
     },
     {
       "name": "Chris Rodriguez Jr.",
@@ -19248,7 +19783,11 @@
       "stack": 20.0,
       "ryoe": -0.49,
       "td": 1,
-      "tlos": 2.35
+      "tlos": 2.35,
+      "gp": 3,
+      "attpg": 6.7,
+      "ypg": 24.3,
+      "tdpg": 0.3
     },
     {
       "name": "Tony Pollard",
@@ -19262,7 +19801,11 @@
       "stack": 10.5,
       "ryoe": 0.8,
       "td": 0,
-      "tlos": 2.96
+      "tlos": 2.96,
+      "gp": 3,
+      "attpg": 12.7,
+      "ypg": 57.7,
+      "tdpg": 0.0
     },
     {
       "name": "Rhamondre Stevenson",
@@ -19276,7 +19819,11 @@
       "stack": 22.6,
       "ryoe": 0.13,
       "td": 0,
-      "tlos": 2.75
+      "tlos": 2.75,
+      "gp": 3,
+      "attpg": 10.3,
+      "ypg": 38.7,
+      "tdpg": 0.0
     },
     {
       "name": "Rashid Shaheed",
@@ -19291,7 +19838,11 @@
       "yac": 6.0,
       "yacoe": -1.7,
       "ctch": 50.0,
-      "td": 0
+      "td": 0,
+      "gp": 3,
+      "recpg": 2.0,
+      "ypg": 17.7,
+      "tdpg": 0.0
     },
     {
       "name": "Kalif Raymond",
@@ -19306,7 +19857,11 @@
       "yac": 5.4,
       "yacoe": 0.5,
       "ctch": 90.5,
-      "td": 1
+      "td": 1,
+      "gp": 3,
+      "recpg": 6.3,
+      "ypg": 71.3,
+      "tdpg": 0.3
     },
     {
       "name": "Jakobi Meyers",
@@ -19321,7 +19876,11 @@
       "yac": 3.2,
       "yacoe": 0.7,
       "ctch": 90.9,
-      "td": 2
+      "td": 2,
+      "gp": 3,
+      "recpg": 3.3,
+      "ypg": 44.0,
+      "tdpg": 0.7
     },
     {
       "name": "Adonai Mitchell",
@@ -19336,7 +19895,11 @@
       "yac": 2.9,
       "yacoe": -0.9,
       "ctch": 60.0,
-      "td": 0
+      "td": 0,
+      "gp": 2,
+      "recpg": 4.5,
+      "ypg": 61.5,
+      "tdpg": 0.0
     },
     {
       "name": "Luther Burden III",
@@ -19351,7 +19914,11 @@
       "yac": 4.1,
       "yacoe": 0.7,
       "ctch": 65.2,
-      "td": 1
+      "td": 1,
+      "gp": 3,
+      "recpg": 5.0,
+      "ypg": 52.0,
+      "tdpg": 0.3
     },
     {
       "name": "Konata Mumpfield",
@@ -19366,7 +19933,11 @@
       "yac": 6.1,
       "yacoe": 2.6,
       "ctch": 45.5,
-      "td": 1
+      "td": 1,
+      "gp": 3,
+      "recpg": 1.7,
+      "ypg": 35.0,
+      "tdpg": 0.3
     },
     {
       "name": "Jaylen Waddle",
@@ -19381,7 +19952,11 @@
       "yac": 3.7,
       "yacoe": -0.9,
       "ctch": 55.0,
-      "td": 0
+      "td": 0,
+      "gp": 3,
+      "recpg": 3.7,
+      "ypg": 50.0,
+      "tdpg": 0.0
     },
     {
       "name": "Jalen Nailor",
@@ -19396,7 +19971,11 @@
       "yac": 3.0,
       "yacoe": -0.6,
       "ctch": 45.5,
-      "td": 0
+      "td": 0,
+      "gp": 3,
+      "recpg": 1.7,
+      "ypg": 17.3,
+      "tdpg": 0.0
     },
     {
       "name": "Dalton Schultz",
@@ -19411,7 +19990,11 @@
       "yac": 5.2,
       "yacoe": -0.2,
       "ctch": 76.0,
-      "td": 0
+      "td": 0,
+      "gp": 3,
+      "recpg": 6.3,
+      "ypg": 68.3,
+      "tdpg": 0.0
     },
     {
       "name": "K.C. Concepcion",
@@ -19426,7 +20009,11 @@
       "yac": 4.1,
       "yacoe": -0.3,
       "ctch": 60.7,
-      "td": 0
+      "td": 0,
+      "gp": null,
+      "recpg": null,
+      "ypg": null,
+      "tdpg": null
     },
     {
       "name": "Tyler Warren",
@@ -19441,7 +20028,11 @@
       "yac": 4.6,
       "yacoe": -1.0,
       "ctch": 81.8,
-      "td": 2
+      "td": 2,
+      "gp": 3,
+      "recpg": 6.0,
+      "ypg": 29.7,
+      "tdpg": 0.7
     },
     {
       "name": "Rome Odunze",
@@ -19456,7 +20047,11 @@
       "yac": 0.9,
       "yacoe": 0.1,
       "ctch": 61.5,
-      "td": 0
+      "td": 0,
+      "gp": 3,
+      "recpg": 2.7,
+      "ypg": 46.3,
+      "tdpg": 0.0
     },
     {
       "name": "Emeka Egbuka",
@@ -19471,7 +20066,11 @@
       "yac": 3.2,
       "yacoe": 0.8,
       "ctch": 65.0,
-      "td": 1
+      "td": 1,
+      "gp": 3,
+      "recpg": 4.3,
+      "ypg": 47.0,
+      "tdpg": 0.3
     },
     {
       "name": "Ladd McConkey",
@@ -19486,7 +20085,11 @@
       "yac": 2.2,
       "yacoe": 0.3,
       "ctch": 80.0,
-      "td": 1
+      "td": 1,
+      "gp": 3,
+      "recpg": 4.0,
+      "ypg": 61.0,
+      "tdpg": 0.3
     },
     {
       "name": "Rashod Bateman",
@@ -19501,7 +20104,11 @@
       "yac": 1.5,
       "yacoe": 0.3,
       "ctch": 69.2,
-      "td": 1
+      "td": 1,
+      "gp": 3,
+      "recpg": 3.0,
+      "ypg": 41.7,
+      "tdpg": 0.3
     },
     {
       "name": "Ja'Marr Chase",
@@ -19516,7 +20123,11 @@
       "yac": 2.2,
       "yacoe": 0.7,
       "ctch": 72.0,
-      "td": 3
+      "td": 3,
+      "gp": 3,
+      "recpg": 6.0,
+      "ypg": 61.7,
+      "tdpg": 1.0
     },
     {
       "name": "DeMario Douglas",
@@ -19531,7 +20142,11 @@
       "yac": 4.6,
       "yacoe": -0.2,
       "ctch": 50.0,
-      "td": 0
+      "td": 0,
+      "gp": 3,
+      "recpg": 2.3,
+      "ypg": 22.3,
+      "tdpg": 0.0
     },
     {
       "name": "Brock Bowers",
@@ -19546,7 +20161,11 @@
       "yac": 3.1,
       "yacoe": 0.7,
       "ctch": 71.4,
-      "td": 1
+      "td": 1,
+      "gp": 1,
+      "recpg": 10.0,
+      "ypg": 116.0,
+      "tdpg": 1.0
     },
     {
       "name": "DJ Moore",
@@ -19561,7 +20180,11 @@
       "yac": 5.0,
       "yacoe": 1.3,
       "ctch": 61.1,
-      "td": 1
+      "td": 1,
+      "gp": 3,
+      "recpg": 3.7,
+      "ypg": 55.7,
+      "tdpg": 0.3
     },
     {
       "name": "Malik Nabers",
@@ -19576,7 +20199,11 @@
       "yac": 3.4,
       "yacoe": -0.4,
       "ctch": 63.2,
-      "td": 0
+      "td": 0,
+      "gp": 3,
+      "recpg": 4.0,
+      "ypg": 32.0,
+      "tdpg": 0.0
     },
     {
       "name": "Terrance Ferguson",
@@ -19591,7 +20218,11 @@
       "yac": 5.7,
       "yacoe": 1.4,
       "ctch": 58.3,
-      "td": 1
+      "td": 1,
+      "gp": 3,
+      "recpg": 2.3,
+      "ypg": 21.0,
+      "tdpg": 0.3
     },
     {
       "name": "Stefon Diggs",
@@ -19606,7 +20237,11 @@
       "yac": 3.5,
       "yacoe": 0.4,
       "ctch": 59.1,
-      "td": 3
+      "td": 3,
+      "gp": 3,
+      "recpg": 4.3,
+      "ypg": 45.0,
+      "tdpg": 1.0
     },
     {
       "name": "Cooper Kupp",
@@ -19621,7 +20256,11 @@
       "yac": 4.5,
       "yacoe": 0.3,
       "ctch": 80.0,
-      "td": 1
+      "td": 1,
+      "gp": 3,
+      "recpg": 2.7,
+      "ypg": 33.7,
+      "tdpg": 0.3
     },
     {
       "name": "Xavier Worthy",
@@ -19636,7 +20275,11 @@
       "yac": 4.2,
       "yacoe": -0.6,
       "ctch": 66.7,
-      "td": 1
+      "td": 1,
+      "gp": 3,
+      "recpg": 3.3,
+      "ypg": 21.0,
+      "tdpg": 0.3
     },
     {
       "name": "Khalil Shakir",
@@ -19651,7 +20294,11 @@
       "yac": 6.2,
       "yacoe": -1.3,
       "ctch": 53.3,
-      "td": 0
+      "td": 0,
+      "gp": 3,
+      "recpg": 2.7,
+      "ypg": 28.0,
+      "tdpg": 0.0
     },
     {
       "name": "Jameson Williams",
@@ -19666,7 +20313,11 @@
       "yac": 0.1,
       "yacoe": -0.8,
       "ctch": 58.8,
-      "td": 0
+      "td": 0,
+      "gp": 3,
+      "recpg": 3.3,
+      "ypg": 42.3,
+      "tdpg": 0.0
     },
     {
       "name": "Tre Harris",
@@ -19681,7 +20332,11 @@
       "yac": 7.5,
       "yacoe": 0.1,
       "ctch": 62.5,
-      "td": 0
+      "td": 0,
+      "gp": 3,
+      "recpg": 3.3,
+      "ypg": 49.7,
+      "tdpg": 0.0
     },
     {
       "name": "Drake London",
@@ -19696,7 +20351,11 @@
       "yac": 10.2,
       "yacoe": 1.8,
       "ctch": 75.0,
-      "td": 0
+      "td": 0,
+      "gp": 3,
+      "recpg": 5.0,
+      "ypg": 91.3,
+      "tdpg": 0.0
     },
     {
       "name": "Rashee Rice",
@@ -19711,7 +20370,11 @@
       "yac": 9.3,
       "yacoe": 1.9,
       "ctch": 76.5,
-      "td": 1
+      "td": 1,
+      "gp": 3,
+      "recpg": 4.3,
+      "ypg": 63.3,
+      "tdpg": 0.3
     },
     {
       "name": "Jahan Dotson",
@@ -19726,7 +20389,11 @@
       "yac": 3.7,
       "yacoe": -1.7,
       "ctch": 36.4,
-      "td": 0
+      "td": 0,
+      "gp": 3,
+      "recpg": 1.3,
+      "ypg": 13.7,
+      "tdpg": 0.0
     },
     {
       "name": "Deebo Samuel Sr.",
@@ -19741,7 +20408,11 @@
       "yac": 5.1,
       "yacoe": -0.6,
       "ctch": 81.8,
-      "td": 1
+      "td": 1,
+      "gp": 3,
+      "recpg": 3.0,
+      "ypg": 26.3,
+      "tdpg": 0.3
     },
     {
       "name": "Kendrick Bourne",
@@ -19756,7 +20427,11 @@
       "yac": 5.2,
       "yacoe": 1.0,
       "ctch": 85.7,
-      "td": 0
+      "td": 0,
+      "gp": 3,
+      "recpg": 4.0,
+      "ypg": 36.0,
+      "tdpg": 0.0
     },
     {
       "name": "Michael Wilson",
@@ -19771,7 +20446,11 @@
       "yac": 2.2,
       "yacoe": -0.6,
       "ctch": 58.1,
-      "td": 1
+      "td": 1,
+      "gp": 3,
+      "recpg": 6.0,
+      "ypg": 54.3,
+      "tdpg": 0.3
     },
     {
       "name": "Christian Watson",
@@ -19786,7 +20465,11 @@
       "yac": 6.3,
       "yacoe": 3.5,
       "ctch": 58.6,
-      "td": 4
+      "td": 4,
+      "gp": 3,
+      "recpg": 5.7,
+      "ypg": 94.7,
+      "tdpg": 1.3
     },
     {
       "name": "Darnell Washington",
@@ -19801,7 +20484,11 @@
       "yac": 9.6,
       "yacoe": 5.5,
       "ctch": 69.2,
-      "td": 1
+      "td": 1,
+      "gp": 4,
+      "recpg": 2.2,
+      "ypg": 29.8,
+      "tdpg": 0.2
     },
     {
       "name": "Tee Higgins",
@@ -19816,7 +20503,11 @@
       "yac": 4.9,
       "yacoe": 1.5,
       "ctch": 60.9,
-      "td": 1
+      "td": 1,
+      "gp": 3,
+      "recpg": 4.7,
+      "ypg": 81.3,
+      "tdpg": 0.3
     },
     {
       "name": "Brian Thomas Jr.",
@@ -19831,7 +20522,11 @@
       "yac": 1.4,
       "yacoe": -1.1,
       "ctch": 53.8,
-      "td": 0
+      "td": 0,
+      "gp": 3,
+      "recpg": 2.3,
+      "ypg": 29.3,
+      "tdpg": 0.0
     },
     {
       "name": "Gunnar Helm",
@@ -19846,7 +20541,11 @@
       "yac": 4.6,
       "yacoe": -0.8,
       "ctch": 72.7,
-      "td": 0
+      "td": 0,
+      "gp": 3,
+      "recpg": 2.7,
+      "ypg": 18.3,
+      "tdpg": 0.0
     },
     {
       "name": "Tyler Higbee",
@@ -19861,7 +20560,11 @@
       "yac": 2.6,
       "yacoe": -0.8,
       "ctch": 76.9,
-      "td": 1
+      "td": 1,
+      "gp": 2,
+      "recpg": 5.0,
+      "ypg": 37.0,
+      "tdpg": 0.5
     },
     {
       "name": "Skyy Moore",
@@ -19876,7 +20579,11 @@
       "yac": 6.0,
       "yacoe": 1.0,
       "ctch": 45.5,
-      "td": 0
+      "td": 0,
+      "gp": 3,
+      "recpg": 1.7,
+      "ypg": 12.3,
+      "tdpg": 0.0
     },
     {
       "name": "Parker Washington",
@@ -19891,7 +20598,11 @@
       "yac": 1.2,
       "yacoe": -1.6,
       "ctch": 65.2,
-      "td": 2
+      "td": 2,
+      "gp": 3,
+      "recpg": 5.0,
+      "ypg": 73.7,
+      "tdpg": 0.7
     },
     {
       "name": "Brenton Strange",
@@ -19906,7 +20617,11 @@
       "yac": 3.1,
       "yacoe": 1.3,
       "ctch": 70.0,
-      "td": 1
+      "td": 1,
+      "gp": 3,
+      "recpg": 2.3,
+      "ypg": 24.0,
+      "tdpg": 0.3
     },
     {
       "name": "Dalton Kincaid",
@@ -19921,7 +20636,11 @@
       "yac": 7.5,
       "yacoe": 2.7,
       "ctch": 82.4,
-      "td": 1
+      "td": 1,
+      "gp": 3,
+      "recpg": 4.7,
+      "ypg": 87.7,
+      "tdpg": 0.3
     },
     {
       "name": "Mark Andrews",
@@ -19936,7 +20655,11 @@
       "yac": 3.0,
       "yacoe": 0.1,
       "ctch": 72.2,
-      "td": 0
+      "td": 0,
+      "gp": 3,
+      "recpg": 4.3,
+      "ypg": 40.7,
+      "tdpg": 0.0
     },
     {
       "name": "Amon-Ra St. Brown",
@@ -19951,7 +20674,11 @@
       "yac": 3.2,
       "yacoe": 0.2,
       "ctch": 65.7,
-      "td": 5
+      "td": 5,
+      "gp": 3,
+      "recpg": 7.7,
+      "ypg": 76.0,
+      "tdpg": 1.7
     },
     {
       "name": "Cade Otton",
@@ -19966,7 +20693,11 @@
       "yac": 7.7,
       "yacoe": 0.1,
       "ctch": 64.7,
-      "td": 0
+      "td": 0,
+      "gp": 3,
+      "recpg": 3.7,
+      "ypg": 40.0,
+      "tdpg": 0.0
     },
     {
       "name": "Pat Freiermuth",
@@ -19981,7 +20712,11 @@
       "yac": 4.9,
       "yacoe": 1.3,
       "ctch": 73.7,
-      "td": 2
+      "td": 2,
+      "gp": 4,
+      "recpg": 3.5,
+      "ypg": 31.2,
+      "tdpg": 0.5
     },
     {
       "name": "Antonio Williams",
@@ -19996,7 +20731,11 @@
       "yac": 2.7,
       "yacoe": 0.7,
       "ctch": 81.8,
-      "td": 1
+      "td": 1,
+      "gp": 3,
+      "recpg": 3.0,
+      "ypg": 34.3,
+      "tdpg": 0.3
     },
     {
       "name": "Tommy Tremble",
@@ -20011,7 +20750,11 @@
       "yac": 5.8,
       "yacoe": 2.2,
       "ctch": 63.6,
-      "td": 0
+      "td": 0,
+      "gp": 3,
+      "recpg": 2.3,
+      "ypg": 23.3,
+      "tdpg": 0.0
     },
     {
       "name": "Malik Washington",
@@ -20026,7 +20769,11 @@
       "yac": 7.8,
       "yacoe": 0.7,
       "ctch": 52.2,
-      "td": 0
+      "td": 0,
+      "gp": 3,
+      "recpg": 4.0,
+      "ypg": 50.7,
+      "tdpg": 0.0
     },
     {
       "name": "Denzel Boston",
@@ -20041,7 +20788,11 @@
       "yac": 8.5,
       "yacoe": 4.3,
       "ctch": 59.1,
-      "td": 2
+      "td": 2,
+      "gp": 4,
+      "recpg": 3.2,
+      "ypg": 71.0,
+      "tdpg": 0.5
     },
     {
       "name": "Tre Tucker",
@@ -20056,7 +20807,11 @@
       "yac": 1.8,
       "yacoe": -0.3,
       "ctch": 73.3,
-      "td": 1
+      "td": 1,
+      "gp": 3,
+      "recpg": 3.7,
+      "ypg": 63.0,
+      "tdpg": 0.3
     },
     {
       "name": "Josh Downs",
@@ -20071,7 +20826,11 @@
       "yac": 5.1,
       "yacoe": 1.6,
       "ctch": 58.3,
-      "td": 0
+      "td": 0,
+      "gp": 3,
+      "recpg": 4.7,
+      "ypg": 62.0,
+      "tdpg": 0.0
     },
     {
       "name": "Mack Hollins",
@@ -20086,7 +20845,11 @@
       "yac": 2.9,
       "yacoe": 1.0,
       "ctch": 75.0,
-      "td": 0
+      "td": 0,
+      "gp": 3,
+      "recpg": 4.0,
+      "ypg": 52.0,
+      "tdpg": 0.0
     },
     {
       "name": "Matthew Golden",
@@ -20101,7 +20864,11 @@
       "yac": 6.6,
       "yacoe": 1.3,
       "ctch": 50.0,
-      "td": 1
+      "td": 1,
+      "gp": 3,
+      "recpg": 5.0,
+      "ypg": 84.3,
+      "tdpg": 0.3
     },
     {
       "name": "Devaughn Vele",
@@ -20116,7 +20883,11 @@
       "yac": 3.1,
       "yacoe": -0.2,
       "ctch": 68.2,
-      "td": 1
+      "td": 1,
+      "gp": 3,
+      "recpg": 5.0,
+      "ypg": 57.3,
+      "tdpg": 0.3
     },
     {
       "name": "Wan'Dale Robinson",
@@ -20131,7 +20902,11 @@
       "yac": 4.0,
       "yacoe": 0.4,
       "ctch": 72.2,
-      "td": 1
+      "td": 1,
+      "gp": 3,
+      "recpg": 4.3,
+      "ypg": 34.7,
+      "tdpg": 0.3
     },
     {
       "name": "Darren Waller",
@@ -20146,7 +20921,11 @@
       "yac": 4.4,
       "yacoe": 0.4,
       "ctch": 76.9,
-      "td": 2
+      "td": 2,
+      "gp": 3,
+      "recpg": 3.3,
+      "ypg": 37.3,
+      "tdpg": 0.7
     },
     {
       "name": "Roman Wilson",
@@ -20161,7 +20940,11 @@
       "yac": 6.1,
       "yacoe": -0.0,
       "ctch": 58.3,
-      "td": 2
+      "td": 2,
+      "gp": 4,
+      "recpg": 3.5,
+      "ypg": 47.0,
+      "tdpg": 0.5
     },
     {
       "name": "Michael Pittman",
@@ -20176,7 +20959,11 @@
       "yac": 5.4,
       "yacoe": 1.1,
       "ctch": 58.3,
-      "td": 0
+      "td": 0,
+      "gp": 3,
+      "recpg": 2.3,
+      "ypg": 29.7,
+      "tdpg": 0.0
     },
     {
       "name": "Quentin Johnston",
@@ -20191,7 +20978,11 @@
       "yac": 6.9,
       "yacoe": -0.7,
       "ctch": 35.3,
-      "td": 0
+      "td": 0,
+      "gp": 3,
+      "recpg": 2.0,
+      "ypg": 21.3,
+      "tdpg": 0.0
     },
     {
       "name": "Jalen Coker",
@@ -20206,7 +20997,11 @@
       "yac": 3.6,
       "yacoe": -0.4,
       "ctch": 81.8,
-      "td": 2
+      "td": 2,
+      "gp": 3,
+      "recpg": 6.0,
+      "ypg": 74.0,
+      "tdpg": 0.7
     },
     {
       "name": "Chris Olave",
@@ -20221,7 +21016,11 @@
       "yac": 2.9,
       "yacoe": -0.4,
       "ctch": 75.0,
-      "td": 1
+      "td": 1,
+      "gp": 3,
+      "recpg": 9.0,
+      "ypg": 125.0,
+      "tdpg": 0.3
     },
     {
       "name": "Romeo Doubs",
@@ -20236,7 +21035,11 @@
       "yac": 6.6,
       "yacoe": 1.4,
       "ctch": 54.5,
-      "td": 0
+      "td": 0,
+      "gp": 3,
+      "recpg": 2.0,
+      "ypg": 48.3,
+      "tdpg": 0.0
     },
     {
       "name": "Dontayvion Wicks",
@@ -20251,7 +21054,11 @@
       "yac": 4.4,
       "yacoe": 1.1,
       "ctch": 60.0,
-      "td": 1
+      "td": 1,
+      "gp": 3,
+      "recpg": 3.0,
+      "ypg": 59.7,
+      "tdpg": 0.3
     },
     {
       "name": "Greg Dulcich",
@@ -20266,7 +21073,11 @@
       "yac": 6.2,
       "yacoe": -0.7,
       "ctch": 75.0,
-      "td": 0
+      "td": 0,
+      "gp": 3,
+      "recpg": 3.0,
+      "ypg": 30.0,
+      "tdpg": 0.0
     },
     {
       "name": "Travis Kelce",
@@ -20281,7 +21092,11 @@
       "yac": 11.1,
       "yacoe": 4.1,
       "ctch": 77.8,
-      "td": 2
+      "td": 2,
+      "gp": 3,
+      "recpg": 4.7,
+      "ypg": 77.0,
+      "tdpg": 0.7
     },
     {
       "name": "Kenyon Sadiq",
@@ -20296,7 +21111,11 @@
       "yac": 7.1,
       "yacoe": 0.0,
       "ctch": 85.7,
-      "td": 1
+      "td": 1,
+      "gp": 3,
+      "recpg": 4.0,
+      "ypg": 47.7,
+      "tdpg": 0.3
     },
     {
       "name": "Ryan Flournoy",
@@ -20311,7 +21130,11 @@
       "yac": 3.5,
       "yacoe": -0.4,
       "ctch": 50.0,
-      "td": 0
+      "td": 0,
+      "gp": 3,
+      "recpg": 3.0,
+      "ypg": 22.3,
+      "tdpg": 0.0
     },
     {
       "name": "Mike Evans",
@@ -20326,7 +21149,11 @@
       "yac": 1.6,
       "yacoe": -0.7,
       "ctch": 75.0,
-      "td": 2
+      "td": 2,
+      "gp": 3,
+      "recpg": 4.0,
+      "ypg": 45.7,
+      "tdpg": 0.7
     },
     {
       "name": "Chris Godwin Jr.",
@@ -20341,7 +21168,11 @@
       "yac": 7.1,
       "yacoe": 2.0,
       "ctch": 90.9,
-      "td": 0
+      "td": 0,
+      "gp": 3,
+      "recpg": 3.3,
+      "ypg": 37.0,
+      "tdpg": 0.0
     },
     {
       "name": "Keenan Allen",
@@ -20356,7 +21187,11 @@
       "yac": 2.4,
       "yacoe": 0.3,
       "ctch": 65.0,
-      "td": 1
+      "td": 1,
+      "gp": 3,
+      "recpg": 4.3,
+      "ypg": 33.3,
+      "tdpg": 0.3
     },
     {
       "name": "DeVonta Smith",
@@ -20371,7 +21206,11 @@
       "yac": 2.2,
       "yacoe": 0.2,
       "ctch": 70.4,
-      "td": 1
+      "td": 1,
+      "gp": 3,
+      "recpg": 6.3,
+      "ypg": 78.3,
+      "tdpg": 0.3
     },
     {
       "name": "CeeDee Lamb",
@@ -20386,7 +21225,11 @@
       "yac": 4.6,
       "yacoe": 0.8,
       "ctch": 80.0,
-      "td": 3
+      "td": 3,
+      "gp": 3,
+      "recpg": 6.7,
+      "ypg": 103.0,
+      "tdpg": 1.0
     },
     {
       "name": "Davante Adams",
@@ -20401,7 +21244,11 @@
       "yac": 6.5,
       "yacoe": 2.3,
       "ctch": 62.1,
-      "td": 2
+      "td": 2,
+      "gp": 3,
+      "recpg": 6.0,
+      "ypg": 119.3,
+      "tdpg": 0.7
     },
     {
       "name": "Jaxon Smith-Njigba",
@@ -20416,7 +21263,11 @@
       "yac": 4.5,
       "yacoe": 1.1,
       "ctch": 75.0,
-      "td": 6
+      "td": 6,
+      "gp": 3,
+      "recpg": 9.0,
+      "ypg": 135.0,
+      "tdpg": 2.0
     },
     {
       "name": "Noah Fant",
@@ -20431,7 +21282,11 @@
       "yac": 4.6,
       "yacoe": -0.4,
       "ctch": 66.7,
-      "td": 3
+      "td": 3,
+      "gp": 3,
+      "recpg": 2.7,
+      "ypg": 22.0,
+      "tdpg": 1.0
     },
     {
       "name": "Malachi Fields",
@@ -20446,7 +21301,11 @@
       "yac": 4.9,
       "yacoe": -0.1,
       "ctch": 50.0,
-      "td": 0
+      "td": 0,
+      "gp": 3,
+      "recpg": 2.0,
+      "ypg": 24.7,
+      "tdpg": 0.0
     },
     {
       "name": "Carnell Tate",
@@ -20461,7 +21320,11 @@
       "yac": 2.4,
       "yacoe": -0.9,
       "ctch": 65.0,
-      "td": 0
+      "td": 0,
+      "gp": 3,
+      "recpg": 4.3,
+      "ypg": 41.0,
+      "tdpg": 0.0
     },
     {
       "name": "Juwan Johnson",
@@ -20476,7 +21339,11 @@
       "yac": 6.8,
       "yacoe": 2.1,
       "ctch": 78.9,
-      "td": 3
+      "td": 3,
+      "gp": 3,
+      "recpg": 5.0,
+      "ypg": 57.7,
+      "tdpg": 1.0
     },
     {
       "name": "Caleb Douglas",
@@ -20491,7 +21358,11 @@
       "yac": 6.1,
       "yacoe": 1.1,
       "ctch": 70.0,
-      "td": 0
+      "td": 0,
+      "gp": 2,
+      "recpg": 3.5,
+      "ypg": 56.5,
+      "tdpg": 0.0
     },
     {
       "name": "Jared Wayne",
@@ -20506,7 +21377,11 @@
       "yac": 4.6,
       "yacoe": 3.9,
       "ctch": 33.3,
-      "td": 0
+      "td": 0,
+      "gp": 3,
+      "recpg": 1.3,
+      "ypg": 21.7,
+      "tdpg": 0.0
     },
     {
       "name": "Tetairoa McMillan",
@@ -20521,7 +21396,11 @@
       "yac": 3.2,
       "yacoe": -0.1,
       "ctch": 52.2,
-      "td": 0
+      "td": 0,
+      "gp": 3,
+      "recpg": 4.0,
+      "ypg": 64.3,
+      "tdpg": 0.0
     },
     {
       "name": "Jordan Addison",
@@ -20536,7 +21415,11 @@
       "yac": 2.7,
       "yacoe": 1.2,
       "ctch": 43.8,
-      "td": 1
+      "td": 1,
+      "gp": 3,
+      "recpg": 2.3,
+      "ypg": 37.0,
+      "tdpg": 0.3
     },
     {
       "name": "Trey McBride",
@@ -20551,7 +21434,11 @@
       "yac": 2.6,
       "yacoe": 0.1,
       "ctch": 76.5,
-      "td": 2
+      "td": 2,
+      "gp": 3,
+      "recpg": 8.7,
+      "ypg": 70.3,
+      "tdpg": 0.7
     },
     {
       "name": "George Kittle",
@@ -20566,7 +21453,11 @@
       "yac": 7.0,
       "yacoe": 0.5,
       "ctch": 75.0,
-      "td": 3
+      "td": 3,
+      "gp": 3,
+      "recpg": 4.0,
+      "ypg": 58.0,
+      "tdpg": 1.0
     },
     {
       "name": "Harold Fannin",
@@ -20581,7 +21472,11 @@
       "yac": 5.3,
       "yacoe": 1.0,
       "ctch": 73.9,
-      "td": 3
+      "td": 3,
+      "gp": null,
+      "recpg": null,
+      "ypg": null,
+      "tdpg": null
     },
     {
       "name": "Germie Bernard",
@@ -20596,7 +21491,11 @@
       "yac": 2.1,
       "yacoe": -0.1,
       "ctch": 63.6,
-      "td": 0
+      "td": 0,
+      "gp": 3,
+      "recpg": 2.3,
+      "ypg": 20.0,
+      "tdpg": 0.0
     },
     {
       "name": "George Pickens",
@@ -20611,7 +21510,11 @@
       "yac": 2.1,
       "yacoe": -0.2,
       "ctch": 64.0,
-      "td": 0
+      "td": 0,
+      "gp": 3,
+      "recpg": 5.3,
+      "ypg": 50.0,
+      "tdpg": 0.0
     },
     {
       "name": "Xavier Hutchinson",
@@ -20626,7 +21529,11 @@
       "yac": 4.5,
       "yacoe": -0.9,
       "ctch": 42.9,
-      "td": 0
+      "td": 0,
+      "gp": 3,
+      "recpg": 3.0,
+      "ypg": 40.0,
+      "tdpg": 0.0
     },
     {
       "name": "Sam LaPorta",
@@ -20641,7 +21548,11 @@
       "yac": 5.5,
       "yacoe": -0.0,
       "ctch": 73.7,
-      "td": 1
+      "td": 1,
+      "gp": 3,
+      "recpg": 4.7,
+      "ypg": 48.0,
+      "tdpg": 0.3
     },
     {
       "name": "Terry McLaurin",
@@ -20656,7 +21567,11 @@
       "yac": 4.8,
       "yacoe": 0.6,
       "ctch": 45.5,
-      "td": 1
+      "td": 1,
+      "gp": 3,
+      "recpg": 3.3,
+      "ypg": 47.0,
+      "tdpg": 0.3
     },
     {
       "name": "Isaiah Likely",
@@ -20671,7 +21586,11 @@
       "yac": 1.8,
       "yacoe": -0.1,
       "ctch": 65.2,
-      "td": 2
+      "td": 2,
+      "gp": 3,
+      "recpg": 5.0,
+      "ypg": 41.3,
+      "tdpg": 0.7
     },
     {
       "name": "T.J. Hockenson",
@@ -20686,7 +21605,11 @@
       "yac": 3.8,
       "yacoe": -1.4,
       "ctch": 69.2,
-      "td": 1
+      "td": 1,
+      "gp": 3,
+      "recpg": 3.0,
+      "ypg": 25.3,
+      "tdpg": 0.3
     },
     {
       "name": "Mike Gesicki",
@@ -20701,7 +21624,11 @@
       "yac": 3.6,
       "yacoe": -0.0,
       "ctch": 80.0,
-      "td": 2
+      "td": 2,
+      "gp": 2,
+      "recpg": 4.0,
+      "ypg": 57.5,
+      "tdpg": 1.0
     },
     {
       "name": "Courtland Sutton",
@@ -20716,7 +21643,11 @@
       "yac": 2.8,
       "yacoe": 0.8,
       "ctch": 50.0,
-      "td": 0
+      "td": 0,
+      "gp": 3,
+      "recpg": 2.7,
+      "ypg": 27.3,
+      "tdpg": 0.0
     },
     {
       "name": "Justin Jefferson",
@@ -20731,7 +21662,11 @@
       "yac": 4.3,
       "yacoe": 1.4,
       "ctch": 76.5,
-      "td": 2
+      "td": 2,
+      "gp": 3,
+      "recpg": 4.3,
+      "ypg": 59.7,
+      "tdpg": 0.7
     },
     {
       "name": "Chris Bell",
@@ -20746,7 +21681,11 @@
       "yac": 7.9,
       "yacoe": 3.8,
       "ctch": 45.5,
-      "td": 0
+      "td": 0,
+      "gp": 3,
+      "recpg": 1.7,
+      "ypg": 30.7,
+      "tdpg": 0.0
     },
     {
       "name": "Ted Hurst III",
@@ -20761,7 +21700,11 @@
       "yac": 3.9,
       "yacoe": -1.1,
       "ctch": 46.2,
-      "td": 1
+      "td": 1,
+      "gp": 3,
+      "recpg": 2.0,
+      "ypg": 34.3,
+      "tdpg": 0.3
     },
     {
       "name": "Garrett Wilson",
@@ -20776,7 +21719,11 @@
       "yac": 2.0,
       "yacoe": -0.7,
       "ctch": 77.8,
-      "td": 2
+      "td": 2,
+      "gp": 3,
+      "recpg": 7.0,
+      "ypg": 81.0,
+      "tdpg": 0.7
     },
     {
       "name": "Nico Collins",
@@ -20791,7 +21738,11 @@
       "yac": 1.3,
       "yacoe": 0.3,
       "ctch": 70.0,
-      "td": 1
+      "td": 1,
+      "gp": 1,
+      "recpg": 7.0,
+      "ypg": 75.0,
+      "tdpg": 1.0
     },
     {
       "name": "DK Metcalf",
@@ -20806,7 +21757,11 @@
       "yac": 4.4,
       "yacoe": 0.9,
       "ctch": 48.5,
-      "td": 1
+      "td": 1,
+      "gp": 4,
+      "recpg": 4.0,
+      "ypg": 53.2,
+      "tdpg": 0.2
     },
     {
       "name": "Zay Flowers",
@@ -20821,7 +21776,11 @@
       "yac": 12.3,
       "yacoe": 6.0,
       "ctch": 83.3,
-      "td": 1
+      "td": 1,
+      "gp": 2,
+      "recpg": 5.0,
+      "ypg": 117.0,
+      "tdpg": 0.5
     },
     {
       "name": "Tucker Kraft",
@@ -20836,7 +21795,11 @@
       "yac": 5.6,
       "yacoe": 0.2,
       "ctch": 52.9,
-      "td": 0
+      "td": 0,
+      "gp": 3,
+      "recpg": 3.0,
+      "ypg": 35.3,
+      "tdpg": 0.0
     },
     {
       "name": "AJ Barner",
@@ -20851,7 +21814,11 @@
       "yac": 10.7,
       "yacoe": 2.2,
       "ctch": 66.7,
-      "td": 0
+      "td": 0,
+      "gp": 3,
+      "recpg": 2.7,
+      "ypg": 30.0,
+      "tdpg": 0.0
     },
     {
       "name": "Jake Ferguson",
@@ -20866,7 +21833,11 @@
       "yac": 2.7,
       "yacoe": -0.8,
       "ctch": 81.8,
-      "td": 3
+      "td": 3,
+      "gp": 3,
+      "recpg": 3.0,
+      "ypg": 24.0,
+      "tdpg": 1.0
     },
     {
       "name": "Michael Mayer",
@@ -20881,7 +21852,11 @@
       "yac": 5.0,
       "yacoe": 0.2,
       "ctch": 85.7,
-      "td": 1
+      "td": 1,
+      "gp": 3,
+      "recpg": 4.0,
+      "ypg": 29.0,
+      "tdpg": 0.3
     },
     {
       "name": "Hunter Henry",
@@ -20896,7 +21871,11 @@
       "yac": 5.5,
       "yacoe": 0.4,
       "ctch": 70.0,
-      "td": 0
+      "td": 0,
+      "gp": 3,
+      "recpg": 2.3,
+      "ypg": 23.7,
+      "tdpg": 0.0
     }
   ],
   "recentSeason": 2026,
