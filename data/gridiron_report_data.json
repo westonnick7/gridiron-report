@@ -5830,8 +5830,8 @@
         "spread": 1.5,
         "total": 45.5,
         "detail": "CHI -1.5",
-        "mlAway": -130,
-        "mlHome": 110,
+        "mlAway": -135,
+        "mlHome": 114,
         "book": "DraftKings"
       }
     },
@@ -5911,8 +5911,8 @@
         "spread": 2.5,
         "total": 41.5,
         "detail": "MIN -2.5",
-        "mlAway": -135,
-        "mlHome": 114,
+        "mlAway": -148,
+        "mlHome": 124,
         "book": "DraftKings"
       }
     },
@@ -5935,11 +5935,11 @@
       "h2h": null,
       "final": false,
       "odds": {
-        "spread": -1.5,
+        "spread": -2.5,
         "total": 39.5,
-        "detail": "NYJ -1.5",
-        "mlAway": 105,
-        "mlHome": -125,
+        "detail": "NYJ -2.5",
+        "mlAway": 110,
+        "mlHome": -130,
         "book": "DraftKings"
       }
     },
@@ -6127,8 +6127,8 @@
         "spread": -3.0,
         "total": 43.5,
         "detail": "ATL -3",
-        "mlAway": 145,
-        "mlHome": -175,
+        "mlAway": 142,
+        "mlHome": -170,
         "book": "DraftKings"
       }
     },
