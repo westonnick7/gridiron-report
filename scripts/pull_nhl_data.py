@@ -68,25 +68,19 @@ def toi_min(s):
 
 
 def pick_season():
-    """Prefer the season with more completed games, so early in a new season we
-    keep showing the full prior season until the new one has enough games."""
+    """Prefer the current season as soon as its schedule is published, so the
+    Scores tab shows the current-season slate. Stats fill in as games are played."""
     now = datetime.date.today()
     guess = now.year + 1 if now.month >= 9 else now.year
-    best, best_n = None, -1
     for s in (guess, guess - 1):
         try:
             sch = pdf(nhl.load_nhl_schedule(seasons=[s]))
-            n = int((sch["game_state"] == "OFF").sum()) if len(sch) else 0
-            # a new season only takes over once it has a real sample of games
-            if s == guess and n < 150:
-                n = -1
-            if n > best_n:
-                best, best_n = s, n
+            if len(sch):
+                return s, sch
         except Exception:
             continue
-    if best is None:
-        best = guess - 1
-    return best, pdf(nhl.load_nhl_schedule(seasons=[best]))
+    s = guess - 1
+    return s, pdf(nhl.load_nhl_schedule(seasons=[s]))
 
 
 def overtime_games(season):
@@ -197,13 +191,23 @@ def build(season):
             row["box"] = box
         schedule.append(row)
 
-    # skaters leaderboard (regular season, >=5 GP)
+    # Minimum games scale with how far into the season we are, so leaderboards
+    # populate in the opening weeks but still filter out marginal players by
+    # mid/late season (full 82-game behaviour: skaters >=10, goalies >=18).
+    try:
+        gp_max = int(tbr.groupby("team_abbrev")["game_id"].nunique().max()) if len(tbr) else 0
+    except Exception:
+        gp_max = 0
+    sk_min = max(1, min(10, round(gp_max * 0.35)))
+    go_min = max(1, min(18, round(gp_max * 0.25)))
+
+    # skaters leaderboard (regular season)
     skr = sk[sk["game_id"].isin(reg_ids) & sk["team_abbrev"].isin(teams)].copy()
     skr["toi_m"] = skr["toi"].apply(toi_min)
     skaters = []
     for (pid, name), g in skr.groupby(["player_id", "player_name"]):
         gp = int(g["game_id"].nunique())
-        if gp < 10:
+        if gp < sk_min:
             continue
         team = g.sort_values("game_date")["team_abbrev"].iloc[-1]
         pos = g["position"].dropna().iloc[-1] if g["position"].notna().any() else ""
@@ -223,7 +227,7 @@ def build(season):
     goalies = []
     for (pid, name), g in gor.groupby(["player_id", "player_name"]):
         gp = int(g["game_id"].nunique())
-        if gp < 18:
+        if gp < go_min:
             continue
         team = g.sort_values("game_date")["team_abbrev"].iloc[-1]
         mins = g["toi_m"].sum()
