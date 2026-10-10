@@ -48,10 +48,13 @@ def pick_season():
     now = datetime.date.today()
     # NBA season label = ending year. Season starting in Oct of year Y -> label Y+1.
     guess = now.year + 1 if now.month >= 9 else now.year
+    # Prefer the current season as soon as its schedule is published, so the
+    # Scores tab shows the upcoming slate even before opening night. Stats
+    # (standings / teams / players) fill in automatically as games are played.
     for s in (guess, guess - 1):
         try:
             sch = pdf(nba.load_nba_schedule(seasons=[s]))
-            if len(sch) and (sch["status_type_completed"] == True).any():
+            if len(sch):
                 return s, sch
         except Exception:
             continue
@@ -226,27 +229,44 @@ def build_players(pb, teams, min_gp=3):
     return sorted(out, key=lambda p: -(p["ppg"] or 0))
 
 
+def _has_box(df):
+    return len(df) > 0 and "team_abbreviation" in getattr(df, "columns", [])
+
+
 def main():
     season, sch = pick_season()
     print(f"NBA season: {season}  (schedule rows {len(sch)})")
+    teams = set(DIVISION.keys())
 
-    tb = pdf(nba.load_nba_team_boxscore(seasons=[season]))
-    pb = pdf(nba.load_nba_player_boxscore(seasons=[season]))
-    # regular season only (season_type 2); fall back to all if column missing/empty
-    if "season_type" in tb.columns and (tb["season_type"] == 2).any():
+    def load_box(fn, s):
+        try:
+            return pdf(getattr(nba, fn)(seasons=[s]))
+        except Exception:
+            import pandas as _pd
+            return _pd.DataFrame()
+
+    tb = load_box("load_nba_team_boxscore", season)
+    pb = load_box("load_nba_player_boxscore", season)
+    if _has_box(tb) and "season_type" in tb.columns and (tb["season_type"] == 2).any():
         tb = tb[tb["season_type"] == 2]
-    if "season_type" in pb.columns and (pb["season_type"] == 2).any():
+    if _has_box(pb) and "season_type" in pb.columns and (pb["season_type"] == 2).any():
         pb = pb[pb["season_type"] == 2]
 
-    teams = set(DIVISION.keys())
-    tbt = tb[tb["team_abbreviation"].isin(teams)]
-    team_stats = build_team_stats(tbt)
-    team_meta = build_team_meta(tbt)
-    team_recent = build_team_recent(tbt)
-    boxmap = _game_box_map(tb)
+    # Team metadata (names / colors / logos) is stable; if the current season
+    # has no games yet, borrow it from the prior season so the schedule renders.
+    meta_tb = tb if _has_box(tb) else load_box("load_nba_team_boxscore", season - 1)
+    team_meta = build_team_meta(meta_tb[meta_tb["team_abbreviation"].isin(teams)]) if _has_box(meta_tb) else {}
+
+    if _has_box(tb):
+        tbt = tb[tb["team_abbreviation"].isin(teams)]
+        team_stats = build_team_stats(tbt)
+        team_recent = build_team_recent(tbt)
+        boxmap = _game_box_map(tb)
+    else:
+        team_stats, team_recent, boxmap = {}, {}, {}
+    players = build_players(pb, teams) if _has_box(pb) else []
     schedule = build_schedule(sch, teams, boxmap)
-    players = build_players(pb, teams)
-    print(f"teams {len(team_stats)} | games {len(schedule)} | players {len(players)}")
+    print(f"teams {len(team_stats)} | games {len(schedule)} | players {len(players)} | meta {len(team_meta)}")
 
     out = {
         "sport": "nba",

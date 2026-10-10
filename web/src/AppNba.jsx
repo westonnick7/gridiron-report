@@ -110,10 +110,13 @@ function BoxModal({ d, game, onClose }) {
 function ScoresView({ d, status, onOpen }) {
   const sched = d.schedule || [];
   const dates = Array.from(new Set(sched.map((g) => g.date))).sort();
-  const lastFinal = [...sched].reverse().find((g) => g.final);
+  const lastFinalDate = [...sched].filter((g) => g.final).map((g) => g.date).sort().pop();
+  const todayStr = new Date().toISOString().slice(0, 10);
+  const firstUpcoming = dates.find((dt) => dt >= todayStr);
+  const defaultDate = lastFinalDate || firstUpcoming || (dates.length ? dates[0] : null);
   const [sel, setSel] = useState(null);
-  useEffect(() => { if (sel == null && lastFinal) setSel(lastFinal.date); }, [lastFinal]);
-  const curDate = sel || (dates.length ? dates[dates.length - 1] : null);
+  useEffect(() => { if (sel == null && defaultDate) setSel(defaultDate); }, [defaultDate]);
+  const curDate = sel || defaultDate;
   const idx = dates.indexOf(curDate);
   const games = sched.filter((g) => g.date === curDate);
   return (
