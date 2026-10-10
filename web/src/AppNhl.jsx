@@ -254,7 +254,7 @@ export default function NhlApp({ sport, setSport }) {
       <nav className="tabs">{TABS.map(([v,l])=><a key={v} href="#" className={view===v?"on":""} onClick={(e)=>{e.preventDefault();setView(v);}}>{l}</a>)}</nav>
       <div className="right">
         <select value={sport} onChange={(e)=>setSport(e.target.value)} aria-label="Sport" style={SEL_STYLE}>
-          <option value="nfl">NFL</option><option value="nba">NBA</option><option value="nhl">NHL</option>
+          <option value="nfl">NFL</option><option value="nba">NBA</option><option value="nhl">NHL</option><option value="ncaaf">NCAAF</option><option value="ncaam">NCAAM</option>
         </select>
         <div className="live"><span className="dot"/>NHL</div>
       </div>

@@ -897,7 +897,7 @@ export default function NflApp({ sport, setSport }) {
             ))}
           </nav>
           <div className="right">
-            <select value={sport} onChange={(e)=>setSport(e.target.value)} aria-label="Sport" style={{fontFamily:"var(--body)",fontWeight:700,fontSize:"12px",letterSpacing:"1px",textTransform:"uppercase",color:"#fff",background:"rgba(255,255,255,.12)",border:"1px solid rgba(255,255,255,.25)",borderRadius:"7px",padding:"6px 10px",cursor:"pointer",marginRight:"10px",outline:"none"}}><option value="nfl">NFL</option><option value="nba">NBA</option><option value="nhl">NHL</option></select>
+            <select value={sport} onChange={(e)=>setSport(e.target.value)} aria-label="Sport" style={{fontFamily:"var(--body)",fontWeight:700,fontSize:"12px",letterSpacing:"1px",textTransform:"uppercase",color:"#fff",background:"rgba(255,255,255,.12)",border:"1px solid rgba(255,255,255,.25)",borderRadius:"7px",padding:"6px 10px",cursor:"pointer",marginRight:"10px",outline:"none"}}><option value="nfl">NFL</option><option value="nba">NBA</option><option value="nhl">NHL</option><option value="ncaaf">NCAAF</option><option value="ncaam">NCAAM</option></select>
             <span className="live" title={status === "live" && updated ? "Updated " + updated.toLocaleString() : ""}>
               <span className="dot" style={status === "failed" ? { background: "#D50000" } : undefined} />
               {status === "live" ? "Live Data" : status === "loading" ? "Loading…" : "Offline"}

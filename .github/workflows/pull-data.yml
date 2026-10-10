@@ -32,10 +32,18 @@ jobs:
         continue-on-error: true
         run: python scripts/pull_nhl_data.py
 
+      - name: Run CFB data pull
+        continue-on-error: true
+        run: python scripts/pull_cfb_data.py
+
+      - name: Run NCAAM data pull
+        continue-on-error: true
+        run: python scripts/pull_ncaam_data.py
+
       - name: Commit updated data if it changed
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add data/gridiron_report_data.json data/nba_data.json data/nhl_data.json
+          git add data/gridiron_report_data.json data/nba_data.json data/nhl_data.json data/cfb_data.json data/ncaam_data.json
           git diff --staged --quiet || git commit -m "Data refresh"
           git push
