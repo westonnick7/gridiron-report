@@ -20,8 +20,8 @@ const LEAGUES = {
   ncaam: {
     name: "NCAAM", long: "College Basketball", dataFile: "ncaam_data.json", step: "date",
     seasonLabel: (s) => (s != null ? (s - 1) + "–" + String(s).slice(2) : ""),
-    confOrder: ["ACC", "Big Ten", "Big 12", "SEC", "Pac-12"],
-    confFull: { ACC: "ACC", "Big Ten": "Big Ten", "Big 12": "Big 12", SEC: "SEC", "Pac-12": "Pac-12" },
+    confOrder: ["ACC", "Big Ten", "Big 12", "SEC", "Big East", "Pac-12"],
+    confFull: { ACC: "ACC", "Big Ten": "Big Ten", "Big 12": "Big 12", SEC: "SEC", "Big East": "Big East", "Pac-12": "Pac-12" },
     overview: [
       ["ppg", "Points/G", "f1", false], ["papg", "Opp Pts/G", "f1", true], ["diff", "Point Diff", "fs1", false],
       ["rpg", "Rebounds/G", "f1", false], ["apg", "Assists/G", "f1", false], ["spg", "Steals/G", "f1", false],

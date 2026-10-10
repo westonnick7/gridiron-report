@@ -19,9 +19,10 @@ import pandas as pd
 import numpy as np
 from sportsdataverse import mbb
 
-POWER_CONF_IDS = {2, 7, 8, 23}
-CONF_NAME = {2: "ACC", 7: "Big Ten", 8: "Big 12", 23: "SEC"}
-NAMED = {"Oregon State", "Washington State"}  # Pac-12 holdovers (by location)
+POWER_CONF_IDS = {2, 7, 8, 23, 4}  # ACC, Big Ten, Big 12, SEC, Big East
+CONF_NAME = {2: "ACC", 7: "Big Ten", 8: "Big 12", 23: "SEC", 4: "Big East"}
+# Marquee schools outside those conferences (by location) -> group label
+NAMED = {"Oregon State": "Pac-12", "Washington State": "Pac-12", "Gonzaga": "Pac-12"}
 _VAL_RE = re.compile(r"'value':\s*([0-9]+(?:\.[0-9]+)?)")
 
 
@@ -103,8 +104,8 @@ def build_meta_conf(sch):
                 meta[ab]["conf"] = conf[ab]
                 power.add(ab)
             elif str(loc) in NAMED:
-                conf[ab] = "Pac-12"
-                meta[ab]["conf"] = "Pac-12"
+                conf[ab] = NAMED[str(loc)]
+                meta[ab]["conf"] = NAMED[str(loc)]
                 power.add(ab)
     return meta, conf, power
 
