@@ -871,6 +871,58 @@ def compute_target_week(schedules, default=1):
         return default
 
 
+def build_dvp(weekly, pbp, teams):
+    """Defense vs Position: per-defense rank (1 = allows most / best) across the league.
+    Offense-allowed ranks from weekly player stats grouped by the defense faced;
+    sacks / interceptions / field goals from play-by-play grouped by defteam."""
+    teams = set(teams)
+    dvp = {t: {"QB": {}, "RB": {}, "WR": {}, "TE": {}, "team": {}} for t in teams}
+    w = weekly.copy() if weekly is not None else pd.DataFrame()
+    if len(w) and "season_type" in w.columns:
+        w = w[w["season_type"] == "REG"]
+    if len(w) and "opponent_team" in w.columns and "position" in w.columns:
+        gp = w.groupby("opponent_team")["week"].nunique()
+
+        def add(posf, stat, key, poslabel):
+            if stat not in w.columns:
+                return
+            d = w[w["position"] == posf]
+            if not len(d):
+                return
+            per = (d.groupby("opponent_team")[stat].sum() / gp).dropna()
+            per = per[[t for t in per.index if t in teams]]
+            if not len(per):
+                return
+            r = per.rank(ascending=False, method="min").astype(int)
+            for t in per.index:
+                dvp[t][poslabel][key] = int(r[t])
+
+        add("QB", "passing_yards", "passYds", "QB"); add("QB", "passing_tds", "passTD", "QB")
+        add("QB", "attempts", "passAtt", "QB"); add("QB", "completions", "cmp", "QB")
+        add("QB", "rushing_yards", "rushYds", "QB"); add("QB", "rushing_tds", "rushTD", "QB")
+        add("RB", "rushing_yards", "rushYds", "RB"); add("RB", "rushing_tds", "rushTD", "RB")
+        add("RB", "carries", "rushAtt", "RB"); add("RB", "receiving_yards", "recYds", "RB")
+        add("RB", "receptions", "rec", "RB"); add("RB", "receiving_tds", "recTD", "RB")
+        add("WR", "receiving_yards", "recYds", "WR"); add("WR", "receptions", "rec", "WR"); add("WR", "receiving_tds", "recTD", "WR")
+        add("TE", "receiving_yards", "recYds", "TE"); add("TE", "receptions", "rec", "TE"); add("TE", "receiving_tds", "recTD", "TE")
+
+    if pbp is not None and len(pbp) and "defteam" in pbp.columns:
+        def drank(series, key):
+            s = series[[t for t in series.index if t in teams]]
+            if not len(s):
+                return
+            r = s.rank(ascending=False, method="min").astype(int)
+            for t in s.index:
+                dvp[t]["team"][key] = int(r[t])
+        if "sack" in pbp.columns:
+            drank(pbp.groupby("defteam")["sack"].sum(), "sacks")
+        if "interception" in pbp.columns:
+            drank(pbp.groupby("defteam")["interception"].sum(), "int")
+        if "field_goal_result" in pbp.columns:
+            drank(pbp[pbp["field_goal_result"] == "made"].groupby("defteam").size(), "fg")
+    return dvp
+
+
 def main():
     print("Loading play-by-play (this is the slow one)...")
     pbp = _safe_pbp([SEASON])
@@ -927,11 +979,14 @@ def main():
     print("Attempting referee tendencies...")
     referees = build_referees(SEASON, pbp, schedules)
 
+    print("Building Defense vs Position cheat sheet...")
+    dvp = build_dvp(weekly, pbp, TEAMS)
+
     output = {
         "teamStats": team_stats, "teamDetail": team_detail, "teamInjuries": team_injuries,
         "teamRecent": team_recent, "schedule": schedule, "offense": offense, "referees": referees, "week": week_target,
         "players": players, "recentSeason": recent_season,
-        "props": props, "propsBook": props_book,
+        "props": props, "propsBook": props_book, "dvp": dvp,
     }
 
     with open("data/gridiron_report_data.json", "w") as f:
