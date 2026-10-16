@@ -233,6 +233,37 @@ def _has_box(df):
     return len(df) > 0 and "team_abbreviation" in getattr(df, "columns", [])
 
 
+# ---- Defense vs Position (cheat sheet): per-defense rank (1 = allows most) ----
+NBA_DVP_POS = {"PG": "G", "SG": "G", "G": "G", "SF": "F", "PF": "F", "F": "F", "C": "C"}
+NBA_DVP_SPEC = {
+    "G": {"pts": "points", "ast": "assists", "tpm": "three_point_field_goals_made", "reb": "rebounds"},
+    "F": {"pts": "points", "reb": "rebounds", "tpm": "three_point_field_goals_made"},
+    "C": {"pts": "points", "reb": "rebounds", "blk": "blocks"},
+}
+def build_dvp_nba(pb, teams):
+    if not _has_box(pb) or "athlete_position_abbreviation" not in pb.columns or "opponent_team_abbreviation" not in pb.columns:
+        return {}
+    p = pb.copy()
+    p["grp"] = p["athlete_position_abbreviation"].map(lambda x: NBA_DVP_POS.get(str(x)))
+    gp = p.groupby("opponent_team_abbreviation")["game_id"].nunique()
+    tset = set(teams)
+    dvp = {}
+    for pos, sm in NBA_DVP_SPEC.items():
+        sub = p[p["grp"] == pos]
+        for key, col in sm.items():
+            if col not in sub.columns:
+                continue
+            per = (sub.groupby("opponent_team_abbreviation")[col].sum() / gp).dropna()
+            per = per[per > 0]
+            if not len(per):
+                continue
+            r = per.rank(ascending=False, method="min").astype(int)
+            for t in per.index:
+                if t in tset:
+                    dvp.setdefault(t, {}).setdefault(pos, {})[key] = int(r[t])
+    return dvp
+
+
 def main():
     season, sch = pick_season()
     print(f"NBA season: {season}  (schedule rows {len(sch)})")
@@ -277,6 +308,7 @@ def main():
         "teamRecent": team_recent,
         "schedule": schedule,
         "players": players,
+        "dvp": build_dvp_nba(pb, teams),
     }
     with open("data/nba_data.json", "w") as f:
         json.dump(out, f, default=str)

@@ -93,6 +93,42 @@ def overtime_games(season):
         return set()
 
 
+# ---- Defense vs Position (cheat sheet): per-defense rank (1 = allows most) ----
+NHL_DVP_POS = {"C": "C", "L": "W", "R": "W", "D": "D"}
+NHL_DVP_SPEC = {
+    "C": {"g": "goals", "pts": "points", "sog": "shots_on_goal"},
+    "W": {"g": "goals", "pts": "points", "sog": "shots_on_goal"},
+    "D": {"pts": "points", "sog": "shots_on_goal", "g": "goals"},
+}
+def build_dvp_nhl(sk):
+    if sk is None or not len(sk) or "position" not in sk.columns:
+        return {}
+    s = sk.copy()
+    gteams = {}
+    for gid, g in s.groupby("game_id"):
+        hs = g[g["home_away"] == "home"]["team_abbrev"].unique()
+        aw = g[g["home_away"] == "away"]["team_abbrev"].unique()
+        gteams[gid] = (hs[0] if len(hs) else None, aw[0] if len(aw) else None)
+    s["opp"] = s.apply(lambda r: gteams.get(r["game_id"], (None, None))[1 if r["home_away"] == "home" else 0], axis=1)
+    s["grp"] = s["position"].map(lambda p: NHL_DVP_POS.get(str(p)))
+    gp = s.groupby("opp")["game_id"].nunique()
+    dvp = {}
+    for pos, sm in NHL_DVP_SPEC.items():
+        sub = s[s["grp"] == pos]
+        for key, col in sm.items():
+            if col not in sub.columns:
+                continue
+            per = (sub.groupby("opp")[col].sum() / gp).dropna()
+            per = per[per > 0]
+            if not len(per):
+                continue
+            r = per.rank(ascending=False, method="min").astype(int)
+            for t in per.index:
+                if t:
+                    dvp.setdefault(t, {}).setdefault(pos, {})[key] = int(r[t])
+    return dvp
+
+
 def build(season):
     sch = pdf(nhl.load_nhl_schedule(seasons=[season]))
     tb = pdf(nhl.load_nhl_team_box(seasons=[season]))
@@ -250,6 +286,7 @@ def build(season):
         "updated": datetime.datetime.utcnow().strftime("%Y-%m-%d"),
         "teamStats": team_stats, "teamMeta": team_meta, "teamRecent": team_recent,
         "schedule": schedule, "skaters": skaters, "goalies": goalies,
+        "dvp": build_dvp_nhl(sk),
     }
 
 
