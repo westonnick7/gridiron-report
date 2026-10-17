@@ -61,6 +61,10 @@ def f1(v):
     return round(float(v), 1) if v is not None and not pd.isna(v) else None
 
 
+def f2(v):
+    return round(float(v), 2) if v is not None and not pd.isna(v) else None
+
+
 def num(v):
     try:
         return float(v)
@@ -201,6 +205,42 @@ def main():
         team_recent[ab] = [{
             "opp": x["opp"], "home": x["home"], "ptsFor": x["pf"], "ptsAgainst": x["pa"], "result": x["res"],
         } for x in gl[-10:]][::-1]
+
+    # ---- advanced team stats from play-by-play: EPA/play + red-zone TD% ----
+    # Mirrors the NFL dashboard's Off/Def EPA and Red Zone TD% categories.
+    for ab in team_stats:
+        team_stats[ab]["offEpa"] = None
+        team_stats[ab]["defEpa"] = None
+        team_stats[ab]["redZonePct"] = None
+    try:
+        pbp = pdf(cfb.load_cfb_pbp(seasons=[season]))
+        sc = pbp[pbp["scrimmage_play"] == True].copy()
+        sc["_epa"] = pd.to_numeric(sc["EPA"], errors="coerce")
+        sc["_ytg"] = pd.to_numeric(sc["start.yardsToEndzone"], errors="coerce")
+        sc["_td"] = sc["td_play"].fillna(False).astype(bool) | sc["touchdown"].fillna(False).astype(bool)
+        sc["_off"] = sc["pos_team_id"].map(lambda x: id2abbr_all.get(int(x)) if pd.notna(x) else None)
+        sc["_def"] = sc["def_pos_team_id"].map(lambda x: id2abbr_all.get(int(x)) if pd.notna(x) else None)
+        off_epa = sc.dropna(subset=["_epa", "_off"]).groupby("_off")["_epa"].mean()
+        def_epa = sc.dropna(subset=["_epa", "_def"]).groupby("_def")["_epa"].mean()
+        rz = {}
+        for ab, og in sc.dropna(subset=["_off"]).groupby("_off"):
+            trips = tds = 0
+            for _, grp in og.groupby("drive.id"):
+                if (grp["_ytg"] <= 20).any():
+                    trips += 1
+                    if grp["_td"].any():
+                        tds += 1
+            if trips:
+                rz[ab] = round(100.0 * tds / trips, 1)
+        for ab in team_stats:
+            if ab in off_epa.index:
+                team_stats[ab]["offEpa"] = f2(off_epa.loc[ab])
+            if ab in def_epa.index:
+                team_stats[ab]["defEpa"] = f2(def_epa.loc[ab])
+            team_stats[ab]["redZonePct"] = rz.get(ab)
+        print(f"advanced: offEpa {int(off_epa.index.isin(team_stats).sum())} | defEpa {int(def_epa.index.isin(team_stats).sum())} | redzone {sum(1 for a in team_stats if team_stats[a]['redZonePct'] is not None)} teams")
+    except Exception as e:
+        print("advanced PBP stats skipped:", repr(e))
 
     # ---- schedule for Scores (games involving >=1 power team) ----
     # Upcoming games leave *_abbreviation NaN but populate *_id; fall back to ids.

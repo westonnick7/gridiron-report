@@ -10,8 +10,11 @@ const LEAGUES = {
     overview: [
       ["ppg", "Points/G", "f1", false], ["papg", "Opp Pts/G", "f1", true], ["diff", "Point Diff", "fs1", false],
       ["totYdsG", "Total Yds/G", "f1", false], ["rushYdsG", "Rush Yds/G", "f1", false], ["passYdsG", "Pass Yds/G", "f1", false],
-      ["ydsAllowedG", "Yds Allowed/G", "f1", true], ["toG", "Giveaways/G", "f1", true], ["takeG", "Takeaways/G", "f1", false],
+      ["ydsAllowedG", "Yds Allowed/G", "f1", true],
+      ["offEpa", "Off EPA/Play", "f2", false], ["defEpa", "Def EPA/Play", "f2", true],
+      ["toG", "Giveaways/G", "f1", true], ["takeG", "Takeaways/G", "f1", false],
       ["toMargin", "TO Margin", "fs1", false], ["thirdPct", "3rd Down %", "f1", false],
+      ["redZonePct", "Red Zone TD %", "f1", false],
     ],
     standings: [["ppg", "PF", "f1"], ["papg", "PA", "f1"], ["diff", "Diff", "fs1"], ["totYdsG", "Yds/G", "f1"], ["ydsAllowedG", "YdsA/G", "f1"]],
     boxRows: [["Total Yds", "totYds", "f0"], ["Rush Yds", "rushYds", "f0"], ["Pass Yds", "passYds", "f0"], ["Turnovers", "to", "f0"]],
@@ -39,8 +42,9 @@ const FMT = {
   f1: (v) => (v == null ? DASH : Number(v).toFixed(1)),
   f0: (v) => (v == null ? DASH : Math.round(v)),
   fs1: (v) => (v == null ? DASH : (v > 0 ? "+" : "") + Number(v).toFixed(1)),
+  f2: (v) => (v == null ? DASH : Number(v).toFixed(2)),
 };
-const f1 = FMT.f1, f0 = FMT.f0, fs1 = FMT.fs1;
+const f1 = FMT.f1, f0 = FMT.f0, fs1 = FMT.fs1, f2 = FMT.f2;
 const ord = (n) => { if (n == null) return ""; const s = ["th", "st", "nd", "rd"], v = n % 100; return n + (s[(v - 20) % 10] || s[v] || s[0]); };
 
 function rankList(items, lower) {
