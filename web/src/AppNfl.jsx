@@ -565,6 +565,32 @@ function BettingBlock({ g, away, home }) {
   );
 }
 
+// ================= Regression Index (Pythagorean over/under-performance) =================
+function parseRec(rec) { const m = /^(\d+)-(\d+)(?:-(\d+))?/.exec(rec || ""); if (!m) return null; const w = +m[1], l = +m[2], t = m[3] ? +m[3] : 0; return { w, l, t, gp: w + l + t }; }
+function regIndexW(s, exp) {
+  if (!s) return null; const r = parseRec(s.record); if (!r || !r.gp) return null;
+  const pf = s.ppg, pa = s.papg; if (pf == null || pa == null) return null;
+  const ew = Math.pow(pf, exp) / (Math.pow(pf, exp) + Math.pow(pa, exp));
+  return (r.w + 0.5 * r.t) - ew * r.gp;
+}
+const regFmt = (v) => (v == null ? DASH : (v > 0 ? "+" : "") + v.toFixed(1));
+const regTag = (v) => (v == null ? "" : v > 0.6 ? "due to regress" : v < -0.6 ? "due to improve" : "on track");
+const regCls = (v) => (v == null ? "" : v > 0.6 ? "neg" : v < -0.6 ? "pos" : "");
+function RegBlock({ away, home, ts }) {
+  const ra = regIndexW(ts[away], 2.37), rh = regIndexW(ts[home], 2.37);
+  if (ra == null && rh == null) return null;
+  return (
+    <>
+      <div className="gtitle">Regression Index</div>
+      <div className="pnote">Actual wins minus Pythagorean expected wins (from points for / against). <b>+</b> overperforming &mdash; likely to cool off; <b>&minus;</b> underperforming &mdash; likely to bounce back.</div>
+      <div className="edge">
+        <div className="edgerow"><span>{nick(away)} <span style={{ color: "var(--muted)", fontSize: "11px", letterSpacing: ".3px" }}>{regTag(ra)}</span></span><b className={regCls(ra)}>{regFmt(ra)}</b></div>
+        <div className="edgerow"><span>{nick(home)} <span style={{ color: "var(--muted)", fontSize: "11px", letterSpacing: ".3px" }}>{regTag(rh)}</span></span><b className={regCls(rh)}>{regFmt(rh)}</b></div>
+      </div>
+    </>
+  );
+}
+
 // ================= Modals =================
 function GameModal({ away, home, week, sched, data, onClose, onQuickToFull }) {
   const g = sched.find((x) => x.away === away && x.home === home && (week == null || x.week === week)) || { away, home, kickoff: "", surface: "", roof: "", weather: {}, divisional: false };
@@ -582,6 +608,7 @@ function GameModal({ away, home, week, sched, data, onClose, onQuickToFull }) {
       </div>
       <div className="mbody">
         <div className="legend"><span><i style={{ background: ca }} />{nick(away)}</span><span><i style={{ background: ch }} />{nick(home)}</span><span style={{ color: "var(--muted)" }}>Season-to-date team stats</span></div>
+        <RegBlock away={away} home={home} ts={data.teamStats} />
         <BettingBlock g={g} away={away} home={home} />
         <GroupsBlock away={away} home={home} ts={data.teamStats} td={data.teamDetail} />
         <EdgeBlock away={away} home={home} td={data.teamDetail} />

@@ -75,38 +75,74 @@ const ChevR = () => (<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" 
 const ChevL = () => (<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="M15 6l-6 6 6 6" /></svg>);
 function fmtDate(s) { if (!s) return ""; const d=new Date(s+"T12:00:00Z"); return d.toLocaleDateString("en-US",{weekday:"short",month:"short",day:"numeric",timeZone:"UTC"}); }
 
+function parseRec3(rec) { const m = /^(\d+)-(\d+)-(\d+)/.exec(rec || ""); if (m) return { w: +m[1], l: +m[2], o: +m[3], gp: +m[1] + +m[2] + +m[3] }; const m2 = /^(\d+)-(\d+)/.exec(rec || ""); if (m2) return { w: +m2[1], l: +m2[2], o: 0, gp: +m2[1] + +m2[2] }; return null; }
+function regIndexNhl(s) {
+  if (!s) return null; const r = parseRec3(s.record); if (!r || !r.gp || s.pts == null) return null;
+  const gf = s.gfpg, ga = s.gapg; if (gf == null || ga == null) return null;
+  const ew = Math.pow(gf, 2) / (Math.pow(gf, 2) + Math.pow(ga, 2));
+  return s.pts - ew * r.gp * 2;
+}
+function pdo(s) { if (!s || s.gfpg == null || s.shotspg == null || s.savePct == null || !s.shotspg) return null; return Math.round(((s.gfpg / s.shotspg) + (s.savePct / 100)) * 1000); }
+const regFmt = (v) => (v == null ? DASH : (v > 0 ? "+" : "") + v.toFixed(1));
+const regTag = (v) => (v == null ? "" : v > 1.5 ? "due to regress" : v < -1.5 ? "due to improve" : "on track");
+const regColor = (v) => (v == null ? "var(--muted)" : v > 1.5 ? "var(--bad)" : v < -1.5 ? "var(--good)" : "var(--muted)");
+function CompareRows({ d, a, h, rows }) {
+  return (<div className="compare">{rows.map(([lab, av, hv, fmt, hi]) => {
+    const a2 = av == null ? 0 : av, h2 = hv == null ? 0 : hv, max = Math.max(a2, h2) || 1, ca = colorOf(d, a), ch = colorOf(d, h);
+    const aw = hi ? a2 > h2 : a2 < h2, hw = hi ? h2 > a2 : h2 < a2;
+    return (<div className="row" key={lab}>
+      <div className={"v l " + (aw ? "win" : "lose")}>{fmt(av)}</div>
+      <div className="bar l"><i style={{ width: Math.round(a2 / max * 100) + "%", background: ca }} /></div>
+      <div className="lab">{lab}</div>
+      <div className="bar r"><i style={{ width: Math.round(h2 / max * 100) + "%", background: ch }} /></div>
+      <div className={"v r " + (hw ? "win" : "lose")}>{fmt(hv)}</div>
+    </div>);
+  })}</div>);
+}
+function RegBlock({ d, a, h }) {
+  const ra = regIndexNhl(d.teamStats[a]), rh = regIndexNhl(d.teamStats[h]);
+  const pa = pdo(d.teamStats[a]), ph = pdo(d.teamStats[h]);
+  if (ra == null && rh == null && pa == null && ph == null) return null;
+  return (<>
+    <div className="gtitle">Regression Index</div>
+    <div style={{ fontSize: "12px", color: "var(--muted)", margin: "4px 0 8px", letterSpacing: ".2px" }}>Standings points vs. Pythagorean expected (from goals for / against), with PDO (shooting % + save %, neutral = 1000). + / high PDO = running hot, due to cool off; &minus; / low = due to bounce back.</div>
+    <div className="kv">
+      <div className="kvrow"><span>{nick(d, a)} <span style={{ fontSize: "11px", color: "var(--muted)" }}>PDO {pa != null ? pa : DASH}</span></span><b style={{ color: regColor(ra) }}>{regFmt(ra)}</b></div>
+      <div className="kvrow"><span>{nick(d, h)} <span style={{ fontSize: "11px", color: "var(--muted)" }}>PDO {ph != null ? ph : DASH}</span></span><b style={{ color: regColor(rh) }}>{regFmt(rh)}</b></div>
+    </div>
+  </>);
+}
 function BoxModal({ d, game, onClose }) {
-  const b = game.box || {}; const a=game.away, h=game.home;
-  const as=b.awayStats, hs=b.homeStats;
-  const rows = as && hs ? [
+  const b = game.box || {}; const a = game.away, h = game.home;
+  const final = b.awayScore != null && b.homeScore != null;
+  const as = b.awayStats, hs = b.homeStats;
+  const boxRows = as && hs ? [
     ["Shots", as.shots, hs.shots, f0, true], ["Hits", as.hits, hs.hits, f0, true],
     ["Blocks", as.blocks, hs.blocks, f0, true], ["PP Goals", as.pp, hs.pp, f0, true],
     ["Faceoff %", as.faceoff, hs.faceoff, f1, true], ["PIM", as.pim, hs.pim, f0, false],
   ] : [];
+  const sa = d.teamStats[a] || {}, sh = d.teamStats[h] || {};
+  const hasSeason = sa.pts != null || sh.pts != null;
+  const seasonRows = [
+    ["Points", sa.pts, sh.pts, f0, true], ["Goals For/G", sa.gfpg, sh.gfpg, f1, true], ["Goals Against/G", sa.gapg, sh.gapg, f1, false],
+    ["Shots For/G", sa.shotspg, sh.shotspg, f1, true], ["Save %", sa.savePct, sh.savePct, f1, true], ["Faceoff %", sa.faceoffPct, sh.faceoffPct, f1, true],
+  ];
   return (
     <div className="modal">
       <div className="mhead">
         <button className="mclose" aria-label="Close" onClick={onClose}>{"×"}</button>
         <div className="mteams">
-          <div className="mteam a"><Logo d={d} code={a} cls="mbadge" /><div><div className="mn">{nick(d,a)}</div><div className="mr">{cityOf(d,a)}</div></div></div>
-          <div className="mat">{b.awayScore}&nbsp;&ndash;&nbsp;{b.homeScore}</div>
-          <div className="mteam h"><Logo d={d} code={h} cls="mbadge" /><div><div className="mn">{nick(d,h)}</div><div className="mr">{cityOf(d,h)}</div></div></div>
+          <div className="mteam a"><Logo d={d} code={a} cls="mbadge" /><div><div className="mn">{nick(d,a)}</div><div className="mr">{cityOf(d,a)}{sa.record ? " · " + sa.record : ""}</div></div></div>
+          <div className="mat">{final ? <>{b.awayScore}&nbsp;&ndash;&nbsp;{b.homeScore}</> : "@"}</div>
+          <div className="mteam h"><Logo d={d} code={h} cls="mbadge" /><div><div className="mn">{nick(d,h)}</div><div className="mr">{cityOf(d,h)}{sh.record ? " · " + sh.record : ""}</div></div></div>
         </div>
-        <div className="mmeta"><span className="chip">Final{b.ot ? " / "+b.ot : ""}</span><span>{fmtDate(game.date)}</span>{game.venue && <span>{game.venue}</span>}</div>
+        <div className="mmeta"><span className="chip">{final ? "Final" + (b.ot ? " / " + b.ot : "") : "Matchup"}</span><span>{fmtDate(game.date)}</span>{game.venue && <span>{game.venue}</span>}</div>
       </div>
       <div className="mbody">
-        <div className="gtitle">Team Stats</div>
-        {rows.length ? <div className="compare">{rows.map(([lab,av,hv,fmt,hi]) => {
-          const a2=av==null?0:av,h2=hv==null?0:hv,max=Math.max(a2,h2)||1,ca=colorOf(d,a),ch=colorOf(d,h);
-          const aw=hi?a2>h2:a2<h2, hw=hi?h2>a2:h2<a2;
-          return (<div className="row" key={lab}>
-            <div className={"v l "+(aw?"win":"lose")}>{fmt(av)}</div>
-            <div className="bar l"><i style={{width:Math.round(a2/max*100)+"%",background:ca}}/></div>
-            <div className="lab">{lab}</div>
-            <div className="bar r"><i style={{width:Math.round(h2/max*100)+"%",background:ch}}/></div>
-            <div className={"v r "+(hw?"win":"lose")}>{fmt(hv)}</div>
-          </div>);
-        })}</div> : <div className="note">Team stats unavailable for this game.</div>}
+        {boxRows.length > 0 && <><div className="gtitle">Team Stats</div><CompareRows d={d} a={a} h={h} rows={boxRows} /></>}
+        {!final && hasSeason && <><div className="gtitle">Season Matchup</div><CompareRows d={d} a={a} h={h} rows={seasonRows} /></>}
+        {!final && !hasSeason && <div className="note">Season stats load once games are played.</div>}
+        <RegBlock d={d} a={a} h={h} />
       </div>
     </div>
   );
@@ -137,12 +173,12 @@ function ScoresView({ d, status, onOpen }) {
         {games.length ? <div className="grid">{games.map((g,i) => {
           const a=g.away,h=g.home,ca=colorOf(d,a),ch=colorOf(d,h),bx=g.box;
           const aW=bx&&bx.awayScore>bx.homeScore,hW=bx&&bx.homeScore>bx.awayScore;
-          return (<div className={"game"+(bx?" final":"")} key={i} onClick={()=>bx&&onOpen(g)}>
+          return (<div className={"game"+(bx?" final":"")} key={i} onClick={()=>onOpen(g)}>
             <div className="spine2"><span style={{background:ca}}/><span style={{background:ch}}/></div>
             <div className="ghead"><span>{DIVISION[a]&&DIVISION[h]&&DIVISION[a][0]!==DIVISION[h][0]?"Inter-conf":"Matchup"}</span>{bx?<span className="kick fin">Final{bx.ot?" / "+bx.ot:""}</span>:<span className="kick">{fmtDate(g.date)}</span>}</div>
             <div className={"grow"+(bx&&!aW?" dim":"")}><Logo d={d} code={a} cls="gbadge" /><div className="gteam"><div className="gn">{nick(d,a)}</div><div className="gc">{a} &middot; Away</div></div>{bx?<span className={"gsc tnum"+(aW?" w":"")}>{bx.awayScore}</span>:<span className="rec tnum">{(d.teamStats[a]||{}).record||""}</span>}</div>
             <div className={"grow"+(bx&&!hW?" dim":"")}><Logo d={d} code={h} cls="gbadge" /><div className="gteam"><div className="gn">{nick(d,h)}</div><div className="gc">{h} &middot; Home</div></div>{bx?<span className={"gsc tnum"+(hW?" w":"")}>{bx.homeScore}</span>:<span className="rec tnum">{(d.teamStats[h]||{}).record||""}</span>}</div>
-            <div className="gfoot">{g.venue&&<span className="vchip">{g.venue}</span>}{bx&&<a className="cta" href="#" onClick={(e)=>e.preventDefault()}>Box score <ChevR /></a>}</div>
+            <div className="gfoot">{g.venue&&<span className="vchip">{g.venue}</span>}<a className="cta" href="#" onClick={(e)=>e.preventDefault()}>{bx?"Box score":"Matchup"} <ChevR /></a></div>
           </div>);
         })}</div> : <div className="note">{status==="failed"?"Schedule unavailable right now.":"No games on this date."}</div>}
       </div>
