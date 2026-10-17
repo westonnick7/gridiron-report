@@ -18,7 +18,7 @@ const LEAGUES = {
     ],
     standings: [["ppg", "PF", "f1"], ["papg", "PA", "f1"], ["diff", "Diff", "fs1"], ["totYdsG", "Yds/G", "f1"], ["ydsAllowedG", "YdsA/G", "f1"]],
     boxRows: [["Total Yds", "totYds", "f0"], ["Rush Yds", "rushYds", "f0"], ["Pass Yds", "passYds", "f0"], ["Turnovers", "to", "f0"]],
-    boxLower: ["to"], hasLines: false,
+    boxLower: ["to"], hasLines: false, pyth: 2.37,
   },
   ncaam: {
     name: "NCAAM", long: "College Basketball", dataFile: "ncaam_data.json", step: "date",
@@ -33,7 +33,7 @@ const LEAGUES = {
     ],
     standings: [["ppg", "PPG", "f1"], ["papg", "PAPG", "f1"], ["diff", "Diff", "fs1"], ["fgPct", "FG%", "f1"], ["fg3Pct", "3P%", "f1"]],
     boxRows: [["FG%", "fgPct", "f1"], ["3P%", "fg3Pct", "f1"], ["Rebounds", "reb", "f0"], ["Assists", "ast", "f0"], ["Turnovers", "to", "f0"]],
-    boxLower: ["to"], hasLines: true,
+    boxLower: ["to"], hasLines: true, pyth: 14,
   },
 };
 const RAW = "https://raw.githubusercontent.com/westonnick7/gridiron-report/main/data/";
@@ -105,28 +105,123 @@ function useApRank(d) {
   }, [d]);
 }
 
-// ---------- Box modal ----------
+// ---------- matchup helpers (Regression Index, comparison, edge, recent form) ----------
+function parseRec(rec) { const m = /^(\d+)-(\d+)(?:-(\d+))?/.exec(rec || ""); if (!m) return null; const w = +m[1], l = +m[2], t = m[3] ? +m[3] : 0; return { w, l, t, gp: w + l + t }; }
+function regIndexW(s, exp) {
+  if (!s) return null; const r = parseRec(s.record); if (!r || !r.gp) return null;
+  const pf = s.ppg, pa = s.papg; if (pf == null || pa == null) return null;
+  const ew = Math.pow(pf, exp) / (Math.pow(pf, exp) + Math.pow(pa, exp));
+  return (r.w + 0.5 * r.t) - ew * r.gp;
+}
+const regFmt = (v) => (v == null ? DASH : (v > 0 ? "+" : "") + v.toFixed(1));
+const regTag = (v) => (v == null ? "" : v > 0.6 ? "due to regress" : v < -0.6 ? "due to improve" : "on track");
+const regCls = (v) => (v == null ? "" : v > 0.6 ? "neg" : v < -0.6 ? "pos" : "");
+function RegBlock({ d, cfg, a, h }) {
+  const exp = cfg.pyth || 2.37;
+  const ra = regIndexW(d.teamStats[a], exp), rh = regIndexW(d.teamStats[h], exp);
+  if (ra == null && rh == null) return null;
+  return (<>
+    <div className="gtitle">Regression Index</div>
+    <div className="pnote">Actual wins minus Pythagorean expected wins (from points for / against). <b>+</b> overperforming &mdash; likely to cool off; <b>&minus;</b> underperforming &mdash; likely to bounce back.</div>
+    <div className="edge">
+      <div className="edgerow"><span>{nick(d, a)} <span style={{ color: "var(--muted)", fontSize: "11px", letterSpacing: ".3px" }}>{regTag(ra)}</span></span><b className={regCls(ra)}>{regFmt(ra)}</b></div>
+      <div className="edgerow"><span>{nick(d, h)} <span style={{ color: "var(--muted)", fontSize: "11px", letterSpacing: ".3px" }}>{regTag(rh)}</span></span><b className={regCls(rh)}>{regFmt(rh)}</b></div>
+    </div>
+  </>);
+}
+function CompareBars({ d, a, h, rows }) {
+  const ca = colorOf(d, a), ch = colorOf(d, h);
+  return (<div className="compare">{rows.map(([lab, av, hv, fk, lower]) => {
+    const fmt = FMT[fk] || f1;
+    const a2 = av == null ? 0 : Math.abs(av), h2 = hv == null ? 0 : Math.abs(hv), max = Math.max(a2, h2) || 1;
+    const aw = av != null && hv != null && (lower ? av < hv : av > hv);
+    const hw = av != null && hv != null && (lower ? hv < av : hv > av);
+    return (<div className="row" key={lab}>
+      <div className={"v l " + (aw ? "win" : "lose")}>{fmt(av)}</div>
+      <div className="bar l"><i style={{ width: Math.round(a2 / max * 100) + "%", background: ca }} /></div>
+      <div className="lab">{lab}</div>
+      <div className="bar r"><i style={{ width: Math.round(h2 / max * 100) + "%", background: ch }} /></div>
+      <div className={"v r " + (hw ? "win" : "lose")}>{fmt(hv)}</div>
+    </div>);
+  })}</div>);
+}
+function SeasonCompare({ d, cfg, a, h }) {
+  const sa = d.teamStats[a], sh = d.teamStats[h];
+  if (!sa || !sh) return null;
+  const rows = cfg.overview.map(([k, lab, fk, lower]) => [lab, sa[k], sh[k], fk, lower]);
+  return (<>
+    <div className="gtitle">Season Matchup <span style={{ marginLeft: "auto", fontFamily: "var(--body)", fontWeight: 600, fontSize: "10px", letterSpacing: ".6px", color: "var(--muted)" }}>Per-game averages</span></div>
+    <CompareBars d={d} a={a} h={h} rows={rows} />
+  </>);
+}
+function EdgeBlock({ d, cfg, a, h }) {
+  if (cfg.key !== "cfb") return null;
+  const sa = d.teamStats[a] || {}, sh = d.teamStats[h] || {};
+  const diff = (x, y) => (x == null || y == null ? null : x - y);
+  const rows = [
+    [nick(d, a) + " off vs " + nick(d, h) + " def", diff(sa.offEpa, sh.defEpa)],
+    [nick(d, h) + " off vs " + nick(d, a) + " def", diff(sh.offEpa, sa.defEpa)],
+    ["Scoring margin edge, " + nick(d, a), diff(sa.diff, sh.diff)],
+  ];
+  if (rows.every(([, v]) => v == null)) return null;
+  return (<>
+    <div className="gtitle">Matchup Edge</div>
+    <div className="pnote">EPA/play advantage of each offense against the other's defense, and net season scoring-margin edge. <b>+</b> favors the named team.</div>
+    <div className="edge">{rows.map(([label, v]) => {
+      const cls = v == null ? "" : v > 0 ? "pos" : v < 0 ? "neg" : "";
+      return (<div className="edgerow" key={label}><span>{label}</span><b className={cls}>{v == null ? DASH : (v > 0 ? "+" : "") + v.toFixed(Math.abs(v) < 10 ? 2 : 1)}</b></div>);
+    })}</div>
+  </>);
+}
+function RecentForm({ d, a, h }) {
+  const la = (d.teamRecent[a] || []).slice(0, 7), lh = (d.teamRecent[h] || []).slice(0, 7);
+  if (!la.length && !lh.length) return null;
+  const col = (code, log) => {
+    let w = 0, l = 0; log.forEach((r) => { if (r.result === "W") w++; else if (r.result === "L") l++; });
+    return (<div className="reccol">
+      <div className="injteam">{nick(d, code)}</div>
+      <div className="recrecs"><div className="recrec"><span>Last {log.length}</span><b>{w}-{l}</b></div></div>
+      <div className="rlog">
+        <div className="rlrow rlhead" style={{ gridTemplateColumns: "22px 1fr auto" }}><span /><span className="rlopp">Opp</span><span className="rlsc">Score</span></div>
+        {log.map((r, i) => (<div className="rlrow" key={i} style={{ gridTemplateColumns: "22px 1fr auto" }}>
+          <span className={"rlres " + (r.result === "W" ? "win" : r.result === "L" ? "loss" : "push")}>{r.result}</span>
+          <span className="rlopp">{(r.home ? "vs " : "@ ") + r.opp}</span>
+          <span className="rlsc">{r.ptsFor}&ndash;{r.ptsAgainst}</span>
+        </div>))}
+      </div>
+    </div>);
+  };
+  return (<>
+    <div className="gtitle">Recent Form &middot; Last 7</div>
+    <div className="recform">{col(a, la)}{col(h, lh)}</div>
+  </>);
+}
+
+// ---------- Box / matchup modal ----------
 function BoxModal({ d, cfg, game, onClose, ap }) {
   const b = game.box || {};
   const a = game.away, h = game.home;
+  const final = b.awayScore != null && b.homeScore != null;
   const aH = b.awayH || b.awayQ || [], hH = b.homeH || b.homeQ || [];
   const nL = Math.max(aH.length, hH.length, cfg.key === "ncaam" ? 2 : 0);
   const llabels = Array.from({ length: nL }, (_, i) => (cfg.key === "ncaam" ? (i < 2 ? "H" + (i + 1) : "OT" + (i - 1)) : "Q" + (i + 1)));
   const as = b.awayStats, hs = b.homeStats;
-  const rows = as && hs ? cfg.boxRows : [];
+  const boxrows = as && hs ? cfg.boxRows.map(([lab, key, fk]) => [lab, as[key], hs[key], fk, cfg.boxLower.indexOf(key) >= 0]) : [];
   return (
     <div className="modal">
       <div className="mhead">
         <button className="mclose" aria-label="Close" onClick={onClose}>{"×"}</button>
         <div className="mteams">
-          <div className="mteam a"><Logo d={d} code={a} cls="mbadge" /><div><div className="mn"><Rk n={ap[a]} />{nick(d, a)}</div><div className="mr">{cityOf(d, a)}</div></div></div>
-          <div className="mat">{b.awayScore}&nbsp;&ndash;&nbsp;{b.homeScore}</div>
-          <div className="mteam h"><Logo d={d} code={h} cls="mbadge" /><div><div className="mn"><Rk n={ap[h]} />{nick(d, h)}</div><div className="mr">{cityOf(d, h)}</div></div></div>
+          <div className="mteam a"><Logo d={d} code={a} cls="mbadge" /><div><div className="mn"><Rk n={ap[a]} />{nick(d, a)}</div><div className="mr">{cityOf(d, a)} &middot; {(d.teamStats[a] || {}).record || ""}</div></div></div>
+          <div className="mat">{final ? (b.awayScore + " – " + b.homeScore) : "@"}</div>
+          <div className="mteam h"><Logo d={d} code={h} cls="mbadge" /><div><div className="mn"><Rk n={ap[h]} />{nick(d, h)}</div><div className="mr">{cityOf(d, h)} &middot; {(d.teamStats[h] || {}).record || ""}</div></div></div>
         </div>
-        <div className="mmeta"><span className="chip">Final</span><span>{fmtDate(game.date)}</span>{game.venue && <span>{game.venue}</span>}</div>
+        <div className="mmeta"><span className="chip">{final ? "Final" : "Matchup"}</span><span>{fmtDate(game.date)}</span>{game.venue && <span>{game.venue}</span>}</div>
       </div>
       <div className="mbody">
-        {cfg.hasLines && nL > 0 && <>
+        <div className="legend"><span><i style={{ background: colorOf(d, a) }} />{nick(d, a)}</span><span><i style={{ background: colorOf(d, h) }} />{nick(d, h)}</span><span style={{ color: "var(--muted)" }}>Season-to-date team stats</span></div>
+        <RegBlock d={d} cfg={cfg} a={a} h={h} />
+        {final && cfg.hasLines && nL > 0 && <>
           <div className="gtitle">Line Score</div>
           <div className="stbl-wrap"><table className="stbl">
             <thead><tr><th className="lft">Team</th>{llabels.map((q) => <th key={q}>{q}</th>)}<th>Final</th></tr></thead>
@@ -136,22 +231,13 @@ function BoxModal({ d, cfg, game, onClose, ap }) {
             </tbody>
           </table></div>
         </>}
-        {rows.length > 0 && <>
-          <div className="gtitle">Team Stats</div>
-          <div className="compare">{rows.map(([lab, key, fk]) => {
-            const fmt = FMT[fk]; const av = as[key], hv = hs[key];
-            const a2 = av == null ? 0 : av, h2 = hv == null ? 0 : hv, max = Math.max(a2, h2) || 1, ca = colorOf(d, a), ch = colorOf(d, h);
-            const lower = cfg.boxLower.indexOf(key) >= 0;
-            const aw = lower ? a2 < h2 : a2 > h2, hw = lower ? h2 < a2 : h2 > a2;
-            return (<div className="row" key={lab}>
-              <div className={"v l " + (aw ? "win" : "lose")}>{fmt(av)}</div>
-              <div className="bar l"><i style={{ width: Math.round(a2 / max * 100) + "%", background: ca }} /></div>
-              <div className="lab">{lab}</div>
-              <div className="bar r"><i style={{ width: Math.round(h2 / max * 100) + "%", background: ch }} /></div>
-              <div className={"v r " + (hw ? "win" : "lose")}>{fmt(hv)}</div>
-            </div>);
-          })}</div>
+        {final && boxrows.length > 0 && <>
+          <div className="gtitle">Box Score &middot; Team Stats</div>
+          <CompareBars d={d} a={a} h={h} rows={boxrows} />
         </>}
+        <SeasonCompare d={d} cfg={cfg} a={a} h={h} />
+        <EdgeBlock d={d} cfg={cfg} a={a} h={h} />
+        <RecentForm d={d} a={a} h={h} />
       </div>
     </div>
   );
@@ -191,12 +277,12 @@ function ScoresView({ d, cfg, status, onOpen, ap }) {
         {games.length ? <div className="grid">{games.map((g, i) => {
           const a = g.away, h = g.home, ca = colorOf(d, a), ch = colorOf(d, h), bx = g.box;
           const aW = bx && bx.awayScore > bx.homeScore, hW = bx && bx.homeScore > bx.awayScore;
-          return (<div className={"game" + (bx ? " final" : "")} key={i} onClick={() => bx && onOpen(g)}>
+          return (<div className={"game" + (bx ? " final" : "")} key={i} onClick={() => onOpen(g)}>
             <div className="spine2"><span style={{ background: ca }} /><span style={{ background: ch }} /></div>
             <div className="ghead"><span>{(d.conf[a] && d.conf[h] && d.conf[a] === d.conf[h]) ? d.conf[a] : "Non-Conf"}</span>{bx ? <span className="kick fin">Final</span> : <span className="kick">{fmtDate(g.date)}</span>}</div>
             <div className={"grow" + (bx && !aW ? " dim" : "")}><Logo d={d} code={a} cls="gbadge" /><div className="gteam"><div className="gn"><Rk n={g.awayRank} />{nick(d, a)}</div><div className="gc">{a} &middot; Away</div></div>{bx ? <span className={"gsc tnum" + (aW ? " w" : "")}>{bx.awayScore}</span> : <span className="rec tnum">{(d.teamStats[a] || {}).record || ""}</span>}</div>
             <div className={"grow" + (bx && !hW ? " dim" : "")}><Logo d={d} code={h} cls="gbadge" /><div className="gteam"><div className="gn"><Rk n={g.homeRank} />{nick(d, h)}</div><div className="gc">{h} &middot; Home</div></div>{bx ? <span className={"gsc tnum" + (hW ? " w" : "")}>{bx.homeScore}</span> : <span className="rec tnum">{(d.teamStats[h] || {}).record || ""}</span>}</div>
-            <div className="gfoot">{g.venue && <span className="vchip">{g.venue}</span>}{bx && <a className="cta" href="#" onClick={(e) => e.preventDefault()}>Box score <ChevR /></a>}</div>
+            <div className="gfoot">{g.venue && <span className="vchip">{g.venue}</span>}<a className="cta" href="#" onClick={(e) => e.preventDefault()}>{bx ? "Box score" : "Matchup"} <ChevR /></a></div>
           </div>);
         })}</div> : <div className="note">{status === "failed" ? "Schedule unavailable right now." : "No games on this date."}</div>}
       </div>
