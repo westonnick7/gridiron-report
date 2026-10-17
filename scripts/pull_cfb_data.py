@@ -96,6 +96,12 @@ def main():
     meta = {}
     conf = {}
     id2abbr = {}
+    id2abbr_all = {}  # every team (incl. non-FBS) for resolving upcoming-game ids
+    for _, r in teams.iterrows():
+        try:
+            id2abbr_all[int(r["team_id"])] = r.get("abbreviation") or str(int(r["team_id"]))
+        except Exception:
+            pass
     for _, r in teams.iterrows():
         if not bool(r.get("is_fbs")):
             continue  # avoid abbreviation collisions with D2/D3 schools (e.g. ARK)
@@ -197,9 +203,21 @@ def main():
         } for x in gl[-10:]][::-1]
 
     # ---- schedule for Scores (games involving >=1 power team) ----
+    # Upcoming games leave *_abbreviation NaN but populate *_id; fall back to ids.
+    def resolve_abbr(g, side):
+        ab = g.get(side + "_abbreviation")
+        if ab is not None and not pd.isna(ab):
+            return str(ab)
+        tid = g.get(side + "_id")
+        if tid is not None and not pd.isna(tid):
+            return id2abbr_all.get(int(tid))
+        return None
+
     out_sched = []
     for _, g in sch.iterrows():
-        ha, aa = g.get("home_abbreviation"), g.get("away_abbreviation")
+        ha, aa = resolve_abbr(g, "home"), resolve_abbr(g, "away")
+        if not ha and not aa:
+            continue
         if ha not in power_abbr and aa not in power_abbr:
             continue
         completed = bool(g.get("completed"))
@@ -234,7 +252,7 @@ def main():
             row["box"] = box
         # keep meta for both teams so opponents render
         for ab in (ha, aa):
-            if ab not in meta:
+            if ab and ab not in meta:
                 meta[ab] = {"name": ab, "city": "", "color": "#555", "logo": None, "conf": None}
         out_sched.append(row)
 

@@ -18,27 +18,34 @@ jobs:
         with:
           python-version: "3.11"
 
-      - name: Install dependencies
-        run: pip install nfl_data_py pandas numpy sportsdataverse
+      # NFL uses nfl_data_py, which pins pandas<2.0 (-> numpy 1.x). The
+      # sportsdataverse sports need modern pandas/numpy + pyarrow>=NumPy2 and
+      # an xgboost old enough (<3.1) to load sportsdataverse's bundled model.
+      # These two worlds are mutually incompatible, so each gets its own venv.
+      - name: Run data pulls
+        run: |
+          set +e
+          FAIL=0
 
-      - name: Run NFL data pull
-        run: python scripts/pull_nfl_data.py
+          echo "::group::Install NFL env"
+          python -m venv /tmp/nflenv
+          /tmp/nflenv/bin/pip install -q --upgrade pip
+          /tmp/nflenv/bin/pip install -q nfl_data_py pandas numpy
+          echo "::endgroup::"
+          echo "== NFL pull =="
+          /tmp/nflenv/bin/python scripts/pull_nfl_data.py || { echo "::warning::NFL pull failed"; FAIL=1; }
 
-      - name: Run NBA data pull
-        continue-on-error: true
-        run: python scripts/pull_nba_data.py
+          echo "::group::Install sportsdataverse env"
+          python -m venv /tmp/sdvenv
+          /tmp/sdvenv/bin/pip install -q --upgrade pip
+          /tmp/sdvenv/bin/pip install -q sportsdataverse "pandas>=2.1" "numpy>=2.0" "xgboost<3.1" pyarrow polars
+          echo "::endgroup::"
+          for s in nba nhl cfb ncaam; do
+            echo "== ${s} pull =="
+            /tmp/sdvenv/bin/python scripts/pull_${s}_data.py || { echo "::warning::${s} pull failed"; FAIL=1; }
+          done
 
-      - name: Run NHL data pull
-        continue-on-error: true
-        run: python scripts/pull_nhl_data.py
-
-      - name: Run CFB data pull
-        continue-on-error: true
-        run: python scripts/pull_cfb_data.py
-
-      - name: Run NCAAM data pull
-        continue-on-error: true
-        run: python scripts/pull_ncaam_data.py
+          echo "PULL_FAIL=$FAIL" >> "$GITHUB_ENV"
 
       - name: Commit updated data if it changed
         run: |
@@ -47,3 +54,9 @@ jobs:
           git add data/gridiron_report_data.json data/nba_data.json data/nhl_data.json data/cfb_data.json data/ncaam_data.json
           git diff --staged --quiet || git commit -m "Data refresh"
           git push
+
+      - name: Flag any pull failures
+        if: env.PULL_FAIL == '1'
+        run: |
+          echo "::error::One or more data pulls failed (see warnings above). Successful sports were still committed."
+          exit 1
