@@ -172,6 +172,7 @@ def build_schedule(sch, teams, boxmap):
         row = {
             "away": g["away_abbreviation"], "home": g["home_abbreviation"],
             "date": str(g.get("date"))[:10],
+            "time": str(g.get("date")) if g.get("date") is not None else None,
             "venue": g.get("venue_full_name"),
             "final": completed,
         }

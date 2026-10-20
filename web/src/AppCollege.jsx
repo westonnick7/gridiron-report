@@ -270,7 +270,7 @@ function BoxModal({ d, cfg, game, onClose, ap }) {
           <div className="mat">{dispScore ? (dispScore[0] + " – " + dispScore[1]) : "@"}</div>
           <div className="mteam h"><Logo d={d} code={h} cls="mbadge" /><div><div className="mn"><Rk n={ap[h]} />{nick(d, h)}</div><div className="mr">{cityOf(d, h)} &middot; {(d.teamStats[h] || {}).record || ""}</div></div></div>
         </div>
-        <div className="mmeta">{liveNow ? <span className="chip live-chip"><span className="livedot" />LIVE &middot; {lvm.detail}</span> : <span className="chip">{final ? "Final" : "Matchup"}</span>}<span>{lvm && lvm.start ? fmtDayTime(lvm.start) : fmtDate(game.date)}</span>{game.venue && <span>{game.venue}</span>}</div>
+        <div className="mmeta">{liveNow ? <span className="chip live-chip"><span className="livedot" />LIVE &middot; {lvm.detail}</span> : <span className="chip">{final ? "Final" : "Matchup"}</span>}<span>{(lvm && lvm.start) || game.time ? fmtDayTime((lvm && lvm.start) || game.time) : fmtDate(game.date)}</span>{game.venue && <span>{game.venue}</span>}</div>
       </div>
       <div className="mbody">
         <div className="legend"><span><i style={{ background: colorOf(d, a) }} />{nick(d, a)}</span><span><i style={{ background: colorOf(d, h) }} />{nick(d, h)}</span><span style={{ color: "var(--muted)" }}>Season-to-date team stats</span></div>
@@ -338,7 +338,7 @@ function ScoresView({ d, cfg, status, onOpen, ap }) {
           const hSc = bx ? bx.homeScore : (lv ? lv.scores[h] : null);
           const showScore = (isLive || final) && aSc != null && hSc != null;
           const aW = showScore && aSc > hSc, hW = showScore && hSc > aSc;
-          const timeStr = lv && lv.start ? (byWeek ? fmtDayTime(lv.start) : fmtTime(lv.start)) : fmtDate(g.date);
+          const tIso = (lv && lv.start) || g.time; const timeStr = tIso ? (byWeek ? fmtDayTime(tIso) : fmtTime(tIso)) : fmtDate(g.date);
           return (<div className={"game" + (final ? " final" : "") + (isLive ? " livegame" : "")} key={i} onClick={() => onOpen({ ...g, _live: lv })}>
             <div className="spine2"><span style={{ background: ca }} /><span style={{ background: ch }} /></div>
             <div className="ghead"><span>{(d.conf[a] && d.conf[h] && d.conf[a] === d.conf[h]) ? d.conf[a] : "Non-Conf"}</span>{isLive ? <span className="kick live"><span className="livedot" />LIVE &middot; {lv.detail}</span> : final ? <span className="kick fin">Final</span> : <span className="kick">{timeStr}</span>}</div>

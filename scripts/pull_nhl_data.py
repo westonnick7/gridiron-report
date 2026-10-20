@@ -217,7 +217,7 @@ def build(season):
         gid = int(g["game_id"])
         final = str(g.get("game_state")) == "OFF"
         row = {"away": g["away_team_abbr"], "home": g["home_team_abbr"],
-               "date": str(g.get("game_date"))[:10], "venue": g.get("venue"), "final": final}
+               "date": str(g.get("game_date"))[:10], "time": str(g.get("game_date")) if g.get("game_date") is not None else None, "venue": g.get("venue"), "final": final}
         if final and not pd.isna(g.get("home_score")) and not pd.isna(g.get("away_score")):
             box = {"awayScore": int(g["away_score"]), "homeScore": int(g["home_score"]),
                    "ot": ("SO/OT" if gid in otset else None)}

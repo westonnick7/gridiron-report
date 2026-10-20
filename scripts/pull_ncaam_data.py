@@ -202,6 +202,7 @@ def main():
         row = {
             "away": aa, "home": ha,
             "date": str(g.get("date"))[:10],
+            "time": str(g.get("date")) if g.get("date") is not None else None,
             "venue": g.get("venue_full_name"),
             "final": completed,
             "awayRank": int(g["away_current_rank"]) if not pd.isna(g.get("away_current_rank")) and g.get("away_current_rank") not in (0, 99) else None,

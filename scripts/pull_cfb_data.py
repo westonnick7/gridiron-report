@@ -265,6 +265,7 @@ def main():
         row = {
             "away": aa, "home": ha,
             "date": str(g.get("start_date"))[:10],
+            "time": str(g.get("start_date")) if g.get("start_date") is not None else None,
             "week": int(g["week"]) if not pd.isna(g.get("week")) else None,
             "venue": g.get("venue"),
             "final": completed,
