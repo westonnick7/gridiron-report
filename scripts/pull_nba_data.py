@@ -112,6 +112,76 @@ def build_team_stats(tb):
     return out
 
 
+def add_nba_advanced(tb, team_stats):
+    """Four Factors + Net/Off/Def Rating + Pace from the team box (regular season).
+    tb must already be the regular-season team boxscore; team_stats is updated in place."""
+    import collections
+    try:
+        rows = {}
+        for _, r in tb.iterrows():
+            rows[(r["game_id"], r["team_id"])] = r
+
+        def g(row, col):
+            v = row.get(col)
+            return 0.0 if (v is None or pd.isna(v)) else float(v)
+
+        tot = collections.defaultdict(lambda: collections.defaultdict(float))
+        cnt = collections.defaultdict(int)
+        for _, r in tb.iterrows():
+            t = r.get("team_abbreviation")
+            if t is None or (isinstance(t, float) and pd.isna(t)):
+                continue
+            o = rows.get((r["game_id"], r.get("opponent_team_id")))
+            if o is None or pd.isna(r.get("field_goals_attempted")):
+                continue
+            d = tot[t]
+            d["fga"] += g(r, "field_goals_attempted"); d["fgm"] += g(r, "field_goals_made")
+            d["tpm"] += g(r, "three_point_field_goals_made"); d["tpa"] += g(r, "three_point_field_goals_attempted")
+            d["ftm"] += g(r, "free_throws_made"); d["fta"] += g(r, "free_throws_attempted")
+            d["orb"] += g(r, "offensive_rebounds"); d["drb"] += g(r, "defensive_rebounds")
+            d["tov"] += g(r, "turnovers"); d["pts"] += g(r, "team_score"); d["opts"] += g(r, "opponent_team_score")
+            d["ofga"] += g(o, "field_goals_attempted"); d["ofgm"] += g(o, "field_goals_made")
+            d["o3pm"] += g(o, "three_point_field_goals_made"); d["ofta"] += g(o, "free_throws_attempted")
+            d["oorb"] += g(o, "offensive_rebounds"); d["odrb"] += g(o, "defensive_rebounds")
+            d["otov"] += g(o, "turnovers")
+            cnt[t] += 1
+
+        def r1(x):
+            try:
+                return round(float(x), 1)
+            except Exception:
+                return None
+
+        done = 0
+        for t, d in tot.items():
+            if t not in team_stats:
+                continue
+            n = cnt[t]
+            if n == 0 or d["fga"] == 0 or d["ofga"] == 0:
+                continue
+            poss = d["fga"] - d["orb"] + d["tov"] + 0.44 * d["fta"]
+            oposs = d["ofga"] - d["oorb"] + d["otov"] + 0.44 * d["ofta"]
+            if poss <= 0 or oposs <= 0:
+                continue
+            ortg = 100 * d["pts"] / poss
+            drtg = 100 * d["opts"] / oposs
+            team_stats[t]["ortg"] = r1(ortg)
+            team_stats[t]["drtg"] = r1(drtg)
+            team_stats[t]["netRtg"] = r1(ortg - drtg)
+            team_stats[t]["pace"] = r1((poss + oposs) / (2 * n))
+            team_stats[t]["efg"] = r1(100 * (d["fgm"] + 0.5 * d["tpm"]) / d["fga"])
+            team_stats[t]["oppEfg"] = r1(100 * (d["ofgm"] + 0.5 * d["o3pm"]) / d["ofga"])
+            team_stats[t]["tovPct"] = r1(100 * d["tov"] / (d["fga"] + 0.44 * d["fta"] + d["tov"]))
+            team_stats[t]["orbPct"] = r1(100 * d["orb"] / (d["orb"] + d["odrb"])) if (d["orb"] + d["odrb"]) > 0 else None
+            team_stats[t]["ftRate"] = r1(100 * d["fta"] / d["fga"])
+            team_stats[t]["tsPct"] = r1(100 * d["pts"] / (2 * (d["fga"] + 0.44 * d["fta"])))
+            team_stats[t]["tpar"] = r1(100 * d["tpa"] / d["fga"])
+            done += 1
+        print("nba advanced: %d teams" % done)
+    except Exception as e:
+        print("nba advanced stats skipped:", repr(e))
+
+
 def build_team_recent(tb, n=10):
     """Last n games per team: opponent, home/away, score, result."""
     out = {}
@@ -292,6 +362,7 @@ def main():
     if _has_box(tb):
         tbt = tb[tb["team_abbreviation"].isin(teams)]
         team_stats = build_team_stats(tbt)
+        add_nba_advanced(tbt, team_stats)
         team_recent = build_team_recent(tbt)
         boxmap = _game_box_map(tb)
     else:

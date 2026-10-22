@@ -56,7 +56,7 @@ const fs1 = (v) => (v == null ? DASH : (v > 0 ? "+" : "") + Number(v).toFixed(1)
 
 // ---- ranking helpers (league-wide for teams, within-position for players) ----
 const ord = (n) => { if (n == null) return ""; const s = ["th","st","nd","rd"], v = n % 100; return n + (s[(v - 20) % 10] || s[v] || s[0]); };
-const TEAM_LOWER = new Set(["papg", "topg"]); // lower value = better rank
+const TEAM_LOWER = new Set(["papg", "topg", "drtg", "oppEfg", "tovPct"]); // lower value = better rank
 const PL_LOWER = new Set(["topg"]);
 function rankList(items, lower) {
   const vals = items.filter((x) => x.v != null && !isNaN(x.v)).sort((a, b) => (lower ? a.v - b.v : b.v - a.v));
@@ -66,7 +66,7 @@ function rankList(items, lower) {
 }
 function computeTeamRanks(d) {
   const codes = Object.keys(d.teamStats || {}).filter((c) => DIVISION[c]);
-  const keys = ["ppg","papg","diff","rpg","apg","spg","bpg","topg","fgPct","fg3Pct","ftPct"];
+  const keys = ["ppg","papg","diff","netRtg","ortg","drtg","pace","efg","oppEfg","tovPct","orbPct","ftRate","tsPct","tpar","rpg","apg","spg","bpg","topg","fgPct","fg3Pct","ftPct"];
   const ranks = {}, counts = {}; codes.forEach((c) => (ranks[c] = {}));
   keys.forEach((k) => { const r = rankList(codes.map((c) => ({ id: c, v: (d.teamStats[c] || {})[k] })), TEAM_LOWER.has(k)); counts[k] = r.n; codes.forEach((c) => { if (r.ranks[c] != null) ranks[c][k] = r.ranks[c]; }); });
   return { ranks, counts };
@@ -169,8 +169,10 @@ function BoxModal({ d, game, onClose }) {
   const sa = d.teamStats[a] || {}, sh = d.teamStats[h] || {};
   const hasSeason = sa.ppg != null || sh.ppg != null;
   const seasonRows = [
-    ["PPG", sa.ppg, sh.ppg, f1, true], ["Opp PPG", sa.papg, sh.papg, f1, false], ["Rebounds/G", sa.rpg, sh.rpg, f1, true],
-    ["Assists/G", sa.apg, sh.apg, f1, true], ["FG%", sa.fgPct, sh.fgPct, f1, true], ["3P%", sa.fg3Pct, sh.fg3Pct, f1, true],
+    ["Net Rating", sa.netRtg, sh.netRtg, fs1, true], ["Off Rating", sa.ortg, sh.ortg, f1, true], ["Def Rating", sa.drtg, sh.drtg, f1, false],
+    ["Pace", sa.pace, sh.pace, f1, true], ["eFG%", sa.efg, sh.efg, f1, true], ["Opp eFG%", sa.oppEfg, sh.oppEfg, f1, false],
+    ["TOV%", sa.tovPct, sh.tovPct, f1, false], ["ORB%", sa.orbPct, sh.orbPct, f1, true], ["TS%", sa.tsPct, sh.tsPct, f1, true],
+    ["PPG", sa.ppg, sh.ppg, f1, true], ["Opp PPG", sa.papg, sh.papg, f1, false],
   ];
   return (
     <div className="modal">
@@ -195,8 +197,7 @@ function BoxModal({ d, game, onClose }) {
           </table></div>
         </>}
         {boxRows.length > 0 && <><div className="gtitle">Team Stats</div><CompareRows d={d} a={a} h={h} rows={boxRows} /></>}
-        {!final && hasSeason && <><div className="gtitle">Season Matchup</div><CompareRows d={d} a={a} h={h} rows={seasonRows} /></>}
-        {!final && !hasSeason && <div className="note">Season stats load once games are played.</div>}
+        {hasSeason ? <><div className="gtitle">Season Matchup <span style={{ marginLeft: "auto", fontFamily: "var(--body)", fontWeight: 600, fontSize: "10px", letterSpacing: ".6px", color: "var(--muted)" }}>Per-100 / rates</span></div><CompareRows d={d} a={a} h={h} rows={seasonRows} /></> : (!final && <div className="note">Season stats load once games are played.</div>)}
         <RegBlock d={d} a={a} h={h} />
       </div>
     </div>
@@ -288,7 +289,7 @@ function StandingsView({ d }) {
 }
 
 // ---------- Teams (overview + recent form) ----------
-const OVERVIEW = [["ppg","PPG",f1],["papg","Opp PPG",f1],["diff","Point Diff",fs1],["rpg","Rebounds/G",f1],["apg","Assists/G",f1],["spg","Steals/G",f1],["bpg","Blocks/G",f1],["topg","Turnovers/G",f1],["fgPct","FG%",f1],["fg3Pct","3P%",f1],["ftPct","FT%",f1]];
+const OVERVIEW = [["ppg","PPG",f1],["papg","Opp PPG",f1],["diff","Point Diff",fs1],["netRtg","Net Rating",fs1],["ortg","Off Rating",f1],["drtg","Def Rating",f1],["pace","Pace",f1],["efg","eFG%",f1],["oppEfg","Opp eFG%",f1],["tovPct","TOV%",f1],["orbPct","ORB%",f1],["ftRate","FT Rate",f1],["tsPct","TS%",f1],["tpar","3PA Rate",f1],["rpg","Rebounds/G",f1],["apg","Assists/G",f1],["spg","Steals/G",f1],["bpg","Blocks/G",f1],["topg","Turnovers/G",f1],["fgPct","FG%",f1],["fg3Pct","3P%",f1],["ftPct","FT%",f1]];
 function TeamRow({ d, code, open, onToggle, ranks, counts }) {
   const s = d.teamStats[code] || {}, c = colorOf(d, code);
   const log = (d.teamRecent[code] || []).slice(0, 10);
