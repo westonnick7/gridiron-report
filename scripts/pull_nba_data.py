@@ -233,7 +233,39 @@ def _game_box_map(tb):
     return m
 
 
-def build_schedule(sch, teams, boxmap):
+def _player_box_map(pb, top=6):
+    """game_id -> {"away":[...], "home":[...]} top performers per side.
+    Each performer: {name, tag(position), line('24 PTS · 8 REB · 6 AST')}."""
+    out = {}
+    if pb is None or not _has_box(pb) or "game_id" not in pb.columns or "home_away" not in pb.columns:
+        return out
+    p = pb[pb.get("did_not_play") != True] if "did_not_play" in pb.columns else pb
+    for gid, g in p.groupby("game_id"):
+        side = {}
+        for ha, gg in g.groupby("home_away"):
+            key = "home" if str(ha).lower() == "home" else "away"
+            gg = gg.sort_values("points", ascending=False).head(top)
+            rows = []
+            for _, r in gg.iterrows():
+                if pd.isna(r.get("points")):
+                    continue
+                pts = int(r.get("points") or 0)
+                reb = int(r.get("rebounds") or 0) if not pd.isna(r.get("rebounds")) else 0
+                ast = int(r.get("assists") or 0) if not pd.isna(r.get("assists")) else 0
+                rows.append({
+                    "name": r.get("athlete_display_name"),
+                    "tag": (r.get("athlete_position_abbreviation") or ""),
+                    "line": f"{pts} PTS · {reb} REB · {ast} AST",
+                })
+            if rows:
+                side[key] = rows
+        out[gid] = side
+        out[str(gid)] = side
+    return out
+
+
+def build_schedule(sch, teams, boxmap, pmap=None):
+    pmap = pmap or {}
     out = []
     sch = sch[sch["home_abbreviation"].isin(teams) & sch["away_abbreviation"].isin(teams)]
     for _, g in sch.iterrows():
@@ -257,6 +289,11 @@ def build_schedule(sch, teams, boxmap):
                 box["awayStats"] = side["away"]
             if side.get("home"):
                 box["homeStats"] = side["home"]
+            pm = pmap.get(gid) or pmap.get(str(gid)) or {}
+            if pm.get("away"):
+                box["awayPlayers"] = pm["away"]
+            if pm.get("home"):
+                box["homePlayers"] = pm["home"]
             row["box"] = box
         out.append(row)
     return out
@@ -368,7 +405,8 @@ def main():
     else:
         team_stats, team_recent, boxmap = {}, {}, {}
     players = build_players(pb, teams) if _has_box(pb) else []
-    schedule = build_schedule(sch, teams, boxmap)
+    pmap = _player_box_map(pb) if _has_box(pb) else {}
+    schedule = build_schedule(sch, teams, boxmap, pmap)
     print(f"teams {len(team_stats)} | games {len(schedule)} | players {len(players)} | meta {len(team_meta)}")
 
     out = {

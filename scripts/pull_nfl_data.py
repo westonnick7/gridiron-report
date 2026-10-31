@@ -379,7 +379,58 @@ def game_box(g, pbp):
     return box
 
 
-def build_schedule(schedules, week, teams, pbp=None):
+def _iv(x):
+    return int(x) if (x is not None and not pd.isna(x)) else 0
+
+
+def nfl_game_players(g, weekly):
+    """Top performers for a completed NFL game, per side: passing leader, top-2
+    rushers, top-3 receivers. Each: {name, tag(position), line}."""
+    if weekly is None or not len(weekly) or "recent_team" not in getattr(weekly, "columns", []):
+        return None
+    wk = g.get("week")
+    sub = weekly[weekly.week == wk]
+    if "season_type" in sub.columns:
+        reg = sub[sub.season_type == "REG"]
+        if len(reg):
+            sub = reg
+    if not len(sub):
+        return None
+
+    def side(team):
+        t = sub[sub.recent_team == team]
+        if not len(t):
+            return []
+        rows = []
+        seen = set()
+        def add(name, tag, line):
+            if not name or name in seen:
+                return False
+            seen.add(name)
+            rows.append({"name": name, "tag": tag, "line": line})
+            return True
+        for _, r in t[t.passing_yards.fillna(0) > 0].sort_values("passing_yards", ascending=False).head(1).iterrows():
+            add(r.player_display_name, (r.get("position") or "QB"),
+                f"{_iv(r.completions)}/{_iv(r.attempts)} · {_iv(r.passing_yards)} YDS · {_iv(r.passing_tds)} TD")
+        added = 0
+        for _, r in t[t.rushing_yards.fillna(0) > 0].sort_values("rushing_yards", ascending=False).iterrows():
+            if added >= 2:
+                break
+            if add(r.player_display_name, (r.get("position") or "RB"),
+                   f"{_iv(r.carries)} CAR · {_iv(r.rushing_yards)} YDS · {_iv(r.rushing_tds)} TD"):
+                added += 1
+        added = 0
+        for _, r in t[t.receiving_yards.fillna(0) > 0].sort_values("receiving_yards", ascending=False).iterrows():
+            if added >= 3:
+                break
+            if add(r.player_display_name, (r.get("position") or "WR"),
+                   f"{_iv(r.receptions)} REC · {_iv(r.receiving_yards)} YDS · {_iv(r.receiving_tds)} TD"):
+                added += 1
+        return rows
+    return {"away": side(g.away_team), "home": side(g.home_team)}
+
+
+def build_schedule(schedules, week, teams, pbp=None, weekly=None):
     wk = schedules[(schedules.week == week) & schedules.home_team.isin(teams) & schedules.away_team.isin(teams)]
     out = []
     for _, g in wk.iterrows():
@@ -398,19 +449,25 @@ def build_schedule(schedules, week, teams, pbp=None):
         bx = game_box(g, pbp)
         row["final"] = bx is not None
         if bx:
+            pl = nfl_game_players(g, weekly)
+            if pl:
+                if pl.get("away"):
+                    bx["awayPlayers"] = pl["away"]
+                if pl.get("home"):
+                    bx["homePlayers"] = pl["home"]
             row["box"] = bx
         out.append(row)
     return out
 
 
-def build_full_schedule(schedules, teams, pbp=None):
+def build_full_schedule(schedules, teams, pbp=None, weekly=None):
     """Every regular-season week's games (each item carries its `week`), so the
     dashboard can step through weeks with the arrow selector."""
     reg = schedules[schedules.game_type == "REG"] if "game_type" in schedules.columns else schedules
     weeks = sorted(int(w) for w in reg.week.dropna().unique())
     out = []
     for wk in weeks:
-        out.extend(build_schedule(schedules, wk, teams, pbp))
+        out.extend(build_schedule(schedules, wk, teams, pbp, weekly))
     return out
 
 
@@ -967,7 +1024,7 @@ def main():
         offense.extend(build_player_props(team, weekly))
 
     print("Building schedule for the target week...")
-    schedule = build_full_schedule(schedules, TEAMS, pbp)
+    schedule = build_full_schedule(schedules, TEAMS, pbp, weekly)
     print("Fetching free game betting lines (ESPN)...")
     schedule = build_game_odds(schedule, week_target)
 

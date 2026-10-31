@@ -129,11 +129,56 @@ def build_dvp_nhl(sk):
     return dvp
 
 
+def _player_box_map(sk, go, top=5):
+    """game_id -> {"away":[...], "home":[...]} top skaters + starting goalie per side.
+    Skater: {name, tag(position), line('2 G · 1 A · 5 SOG')}; goalie: {name, 'G', '31 SV · 2 GA'}."""
+    out = {}
+    def addset(df, kind):
+        if df is None or len(df) == 0 or "game_id" not in getattr(df, "columns", []) or "home_away" not in df.columns:
+            return
+        for gid, g in df.groupby("game_id"):
+            for ha, gg in g.groupby("home_away"):
+                key = "home" if str(ha).lower() == "home" else "away"
+                slot = out.setdefault(int(gid), {}).setdefault(key, {"sk": [], "go": None})
+                if kind == "sk":
+                    gg = gg.sort_values(["points", "goals"], ascending=False).head(top)
+                    for _, r in gg.iterrows():
+                        if pd.isna(r.get("points")) and pd.isna(r.get("goals")):
+                            continue
+                        gl = int(r.get("goals") or 0) if not pd.isna(r.get("goals")) else 0
+                        a = int(r.get("assists") or 0) if not pd.isna(r.get("assists")) else 0
+                        sog = int(r.get("shots_on_goal") or 0) if not pd.isna(r.get("shots_on_goal")) else 0
+                        slot["sk"].append({"name": r.get("player_name"), "tag": (r.get("position") or ""),
+                                           "line": f"{gl} G · {a} A · {sog} SOG"})
+                else:
+                    gg = gg.sort_values("saves", ascending=False)
+                    if len(gg):
+                        r = gg.iloc[0]
+                        sv = int(r.get("saves") or 0) if not pd.isna(r.get("saves")) else 0
+                        ga = int(r.get("goals_against") or 0) if not pd.isna(r.get("goals_against")) else 0
+                        slot["go"] = {"name": r.get("player_name"), "tag": "G", "line": f"{sv} SV · {ga} GA"}
+    addset(sk, "sk")
+    addset(go, "go")
+    final = {}
+    for gid, sides in out.items():
+        fs = {}
+        for key, slot in sides.items():
+            rows = list(slot["sk"])
+            if slot["go"]:
+                rows.append(slot["go"])
+            if rows:
+                fs[key] = rows
+        final[gid] = fs
+        final[str(gid)] = fs
+    return final
+
+
 def build(season):
     sch = pdf(nhl.load_nhl_schedule(seasons=[season]))
     tb = pdf(nhl.load_nhl_team_box(seasons=[season]))
     sk = pdf(nhl.load_nhl_skater_box(seasons=[season]))
     go = pdf(nhl.load_nhl_goalie_box(seasons=[season]))
+    pmap = _player_box_map(sk, go)
     # regular season only (game_type R)
     reg = sch[sch["game_type"] == "R"]
     reg_ids = set(int(x) for x in reg["game_id"].unique())
@@ -224,6 +269,9 @@ def build(season):
             side = tbmap.get(gid, {})
             if side.get("away"): box["awayStats"] = side["away"]
             if side.get("home"): box["homeStats"] = side["home"]
+            pm = pmap.get(gid) or pmap.get(str(gid)) or {}
+            if pm.get("away"): box["awayPlayers"] = pm["away"]
+            if pm.get("home"): box["homePlayers"] = pm["home"]
             row["box"] = box
         schedule.append(row)
 

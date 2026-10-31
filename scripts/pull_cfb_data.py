@@ -72,6 +72,81 @@ def num(v):
         return np.nan
 
 
+def _cfb_player_box_map(pbx, id2abbr_all):
+    """game_id -> {abbr: [top performers]} from the long-format CFB player box.
+    Passing leader, top-2 rushers, top-3 receivers per team. {name, tag, line}."""
+    out = {}
+    if pbx is None or len(pbx) == 0 or "game_id" not in getattr(pbx, "columns", []):
+        return out
+
+    def abbr(tid):
+        try:
+            return id2abbr_all.get(int(tid))
+        except Exception:
+            return None
+
+    def iv(x):
+        v = num(x)
+        return 0 if pd.isna(v) else int(v)
+
+    for gid, g in pbx.groupby("game_id"):
+        side = {}
+        seen = {}
+
+        def add(ab, name, tag, line):
+            if not ab or not name:
+                return False
+            s = seen.setdefault(ab, set())
+            if name in s:
+                return False
+            s.add(name)
+            side.setdefault(ab, []).append({"name": name, "tag": tag, "line": line})
+            return True
+
+        # passing (top 1 per team)
+        p = g[g["category"] == "passing"].copy()
+        if len(p):
+            p["_y"] = p["passingYards"].map(num)
+            for tid, tg in p.groupby("team_id"):
+                r = tg.sort_values("_y", ascending=False).iloc[0]
+                if iv(r.get("passingYards")) <= 0:
+                    continue
+                ca = r.get("completions/passingAttempts") or "0/0"
+                add(abbr(tid), r.get("athlete_name"), "QB",
+                    f"{ca} · {iv(r.get('passingYards'))} YDS · {iv(r.get('passingTouchdowns'))} TD")
+        # rushing (top 2 per team)
+        ru = g[g["category"] == "rushing"].copy()
+        if len(ru):
+            ru["_y"] = ru["rushingYards"].map(num)
+            for tid, tg in ru.groupby("team_id"):
+                n = 0
+                for _, r in tg.sort_values("_y", ascending=False).iterrows():
+                    if n >= 2:
+                        break
+                    if iv(r.get("rushingYards")) <= 0:
+                        continue
+                    if add(abbr(tid), r.get("athlete_name"), "RB",
+                           f"{iv(r.get('rushingAttempts'))} CAR · {iv(r.get('rushingYards'))} YDS · {iv(r.get('rushingTouchdowns'))} TD"):
+                        n += 1
+        # receiving (top 3 per team)
+        re = g[g["category"] == "receiving"].copy()
+        if len(re):
+            re["_y"] = re["receivingYards"].map(num)
+            for tid, tg in re.groupby("team_id"):
+                n = 0
+                for _, r in tg.sort_values("_y", ascending=False).iterrows():
+                    if n >= 3:
+                        break
+                    if iv(r.get("receivingYards")) <= 0:
+                        continue
+                    if add(abbr(tid), r.get("athlete_name"), "WR",
+                           f"{iv(r.get('receptions'))} REC · {iv(r.get('receivingYards'))} YDS · {iv(r.get('receivingTouchdowns'))} TD"):
+                        n += 1
+        out[gid] = side
+        out[str(gid)] = side
+    return out
+
+
 def third_pct(cell):
     # "5-12" -> 41.7
     try:
@@ -127,6 +202,15 @@ def main():
                 "Ind" if r.get("location") == "Notre Dame" else r.get("conference_short_name"))
     power_abbr = {id2abbr[t] for t in power_ids}
     print(f"power teams: {len(power_abbr)}")
+
+    # ---- player box (top performers per finished game) ----
+    try:
+        pbx = pdf(cfb.load_cfb_player_box(seasons=[season]))
+    except Exception as e:
+        print("  cfb player box load error:", repr(e)[:160])
+        pbx = pd.DataFrame()
+    pmap = _cfb_player_box_map(pbx, id2abbr_all)
+    print("player-box games:", len(set(k for k in pmap if not isinstance(k, str))))
 
     # ---- team box (offense + pair for defense) ----
     tb = pdf(cfb.load_cfb_team_box(seasons=[season]))
@@ -290,6 +374,11 @@ def main():
                 box["awayStats"] = side_stats(abx)
             if hb is not None:
                 box["homeStats"] = side_stats(hb)
+            pm = pmap.get(gid) or pmap.get(str(gid)) or {}
+            if pm.get(aa):
+                box["awayPlayers"] = pm[aa]
+            if pm.get(ha):
+                box["homePlayers"] = pm[ha]
             row["box"] = box
         # keep meta for both teams so opponents render
         for ab in (ha, aa):

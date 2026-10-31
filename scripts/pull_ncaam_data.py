@@ -165,6 +165,36 @@ def _has_box(df):
     return df is not None and len(df) > 0 and "team_abbreviation" in getattr(df, "columns", [])
 
 
+def _player_box_map(pb, top=6):
+    """game_id -> {"away":[...], "home":[...]} top performers per side."""
+    out = {}
+    if pb is None or len(pb) == 0 or "game_id" not in getattr(pb, "columns", []) or "home_away" not in pb.columns:
+        return out
+    p = pb[pb.get("did_not_play") != True] if "did_not_play" in pb.columns else pb
+    for gid, g in p.groupby("game_id"):
+        side = {}
+        for ha, gg in g.groupby("home_away"):
+            key = "home" if str(ha).lower() == "home" else "away"
+            gg = gg.sort_values("points", ascending=False).head(top)
+            rows = []
+            for _, r in gg.iterrows():
+                if pd.isna(r.get("points")):
+                    continue
+                pts = int(r.get("points") or 0)
+                reb = int(r.get("rebounds") or 0) if not pd.isna(r.get("rebounds")) else 0
+                ast = int(r.get("assists") or 0) if not pd.isna(r.get("assists")) else 0
+                rows.append({
+                    "name": r.get("athlete_display_name"),
+                    "tag": (r.get("athlete_position_abbreviation") or ""),
+                    "line": f"{pts} PTS · {reb} REB · {ast} AST",
+                })
+            if rows:
+                side[key] = rows
+        out[gid] = side
+        out[str(gid)] = side
+    return out
+
+
 def main():
     season, sch = pick_season()
     print(f"MBB season {season}  schedule rows {len(sch)}  completed {int(sch['status_type_completed'].sum())}")
@@ -178,6 +208,13 @@ def main():
             return pd.DataFrame()
 
     tb = load_box(season)
+    try:
+        pb = pdf(mbb.load_mbb_player_boxscore(seasons=[season]))
+        if "season_type" in getattr(pb, "columns", []) and (pb["season_type"] == 2).any():
+            pb = pb[pb["season_type"] == 2]
+    except Exception:
+        pb = pd.DataFrame()
+    pmap = _player_box_map(pb)
     if _has_box(tb):
         team_stats, team_recent, boxmap = build_from_box(tb, power)
     else:
@@ -216,6 +253,11 @@ def main():
                 box["awayStats"] = bx["away"]
             if bx.get("home"):
                 box["homeStats"] = bx["home"]
+            pm = pmap.get(gid) or pmap.get(str(gid)) or {}
+            if pm.get("away"):
+                box["awayPlayers"] = pm["away"]
+            if pm.get("home"):
+                box["homePlayers"] = pm["home"]
             row["box"] = box
         for ab in (ha, aa):
             if ab not in meta and ab and not pd.isna(ab):

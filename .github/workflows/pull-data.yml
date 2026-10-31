@@ -1,8 +1,12 @@
-name: Nightly Data Pull
+name: Scheduled Data Pull
 
 on:
   schedule:
+    # Twice daily so schedules stay correct: early-morning US (10:00 UTC)
+    # and midday US (18:00 UTC) to catch same-day schedule changes,
+    # postponements, and freshly-finished game boxes.
     - cron: "0 10 * * *"
+    - cron: "0 18 * * *"
   workflow_dispatch: {}
 
 permissions:
