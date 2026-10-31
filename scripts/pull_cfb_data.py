@@ -21,6 +21,30 @@ import pandas as pd
 import numpy as np
 from sportsdataverse import cfb
 
+try:
+    from zoneinfo import ZoneInfo
+    _ET = ZoneInfo("America/New_York")
+except Exception:
+    _ET = None
+
+
+def et_date(iso):
+    """US-Eastern calendar day for an ISO timestamp (source stamps UTC, so evening
+    US games are already the next UTC day; slicing UTC pushes them a day late)."""
+    if iso is None:
+        return None
+    s = str(iso)
+    if _ET is not None:
+        try:
+            dt = datetime.datetime.fromisoformat(s.replace("Z", "+00:00"))
+            if dt.tzinfo is None:
+                dt = dt.replace(tzinfo=datetime.timezone.utc)
+            return dt.astimezone(_ET).date().isoformat()
+        except Exception:
+            pass
+    return s[:10]
+
+
 POWER_CONF = {"ACC", "Big Ten", "Big 12", "SEC"}
 NAMED = {"Notre Dame", "Oregon State", "Washington State"}  # by school/location
 
@@ -348,7 +372,7 @@ def main():
         gid = g.get("game_id")
         row = {
             "away": aa, "home": ha,
-            "date": str(g.get("start_date"))[:10],
+            "date": et_date(g.get("start_date")),
             "time": str(g.get("start_date")) if g.get("start_date") is not None else None,
             "week": int(g["week"]) if not pd.isna(g.get("week")) else None,
             "venue": g.get("venue"),

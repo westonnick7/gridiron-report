@@ -19,6 +19,29 @@ import pandas as pd
 import numpy as np
 from sportsdataverse import mbb
 
+try:
+    from zoneinfo import ZoneInfo
+    _ET = ZoneInfo("America/New_York")
+except Exception:
+    _ET = None
+
+
+def et_date(iso):
+    """US-Eastern calendar day for an ISO timestamp (source stamps UTC, so evening
+    US games are already the next UTC day; slicing UTC pushes them a day late)."""
+    if iso is None:
+        return None
+    s = str(iso)
+    if _ET is not None:
+        try:
+            dt = datetime.datetime.fromisoformat(s.replace("Z", "+00:00"))
+            if dt.tzinfo is None:
+                dt = dt.replace(tzinfo=datetime.timezone.utc)
+            return dt.astimezone(_ET).date().isoformat()
+        except Exception:
+            pass
+    return s[:10]
+
 POWER_CONF_IDS = {2, 7, 8, 23, 4}  # ACC, Big Ten, Big 12, SEC, Big East
 CONF_NAME = {2: "ACC", 7: "Big Ten", 8: "Big 12", 23: "SEC", 4: "Big East"}
 # Marquee schools outside those conferences (by location) -> group label
@@ -238,7 +261,7 @@ def main():
         gid = g.get("game_id")
         row = {
             "away": aa, "home": ha,
-            "date": str(g.get("date"))[:10],
+            "date": et_date(g.get("date")),
             "time": str(g.get("date")) if g.get("date") is not None else None,
             "venue": g.get("venue_full_name"),
             "final": completed,
