@@ -632,10 +632,13 @@ function PropsBlock({ away, home, offense }) {
     return (
       <div className="propcol">
         <div className="injteam">{nick(code)} &middot; Player Props</div>
-        <table className="ptab"><thead><tr><th>Player</th><th>Pos</th><th>Season Yds</th><th>Season TD</th></tr></thead>
-          <tbody>{players.map((p, i) => (
-            <tr key={i}><td>{p.name}</td><td>{p.pos}</td><td className="tnum">{p.yds != null ? p.yds : DASH}</td><td className="tnum">{p.td != null ? p.td : DASH}</td></tr>
-          ))}</tbody>
+        <table className="ptab"><thead><tr><th>Player</th><th>Pos</th><th>Yds/G</th><th>TD/G</th></tr></thead>
+          <tbody>{players.map((p, i) => {
+            const gp = (p.gameLog || []).length;
+            const ypg = gp && p.yds != null ? (p.yds / gp).toFixed(1) : null;
+            const tdpg = gp && p.td != null ? (p.td / gp).toFixed(1) : null;
+            return (<tr key={i}><td>{p.name}</td><td>{p.pos}</td><td className="tnum">{ypg != null ? ypg : DASH}</td><td className="tnum">{tdpg != null ? tdpg : DASH}</td></tr>);
+          })}</tbody>
         </table>
       </div>
     );
@@ -645,7 +648,7 @@ function PropsBlock({ away, home, offense }) {
   return (
     <>
       <div className="gtitle">Player Props</div>
-      <div className="pnote">Season yards and touchdowns per player, from the nightly nflverse pull once games are played.</div>
+      <div className="pnote">Per-game yards and touchdowns per player (season total &divide; games played), from the nightly nflverse pull once games are played.</div>
       <div className="props">{col(away)}{col(home)}</div>
     </>
   );
