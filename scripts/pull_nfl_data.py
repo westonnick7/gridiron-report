@@ -1040,6 +1040,7 @@ def main():
     dvp = build_dvp(weekly, pbp, TEAMS)
 
     output = {
+        "updated": datetime.datetime.utcnow().strftime("%Y-%m-%d"),
         "teamStats": team_stats, "teamDetail": team_detail, "teamInjuries": team_injuries,
         "teamRecent": team_recent, "schedule": schedule, "offense": offense, "referees": referees, "week": week_target,
         "players": players, "recentSeason": recent_season,
