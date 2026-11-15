@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-14",
+  "updated": "2026-11-15",
   "teamStats": {
     "ARI": {
       "record": "3-6",
@@ -1810,8 +1810,21 @@
     "BAL": {
       "qbStatus": "Healthy",
       "oLineHealth": 100,
-      "secondaryDepth": 100,
-      "keyInjuries": []
+      "secondaryDepth": 85,
+      "keyInjuries": [
+        {
+          "name": "Jaylinn Hawkins",
+          "pos": "S",
+          "status": "Out",
+          "injury": "Knee"
+        },
+        {
+          "name": "Adam Randall",
+          "pos": "RB",
+          "status": "Questionable",
+          "injury": "Neck"
+        }
+      ]
     },
     "BUF": {
       "qbStatus": "Healthy",
@@ -2121,12 +2134,6 @@
           "injury": "Groin"
         },
         {
-          "name": "Arden Key",
-          "pos": "DE",
-          "status": "Questionable",
-          "injury": "Hamstring"
-        },
-        {
           "name": "Jerry Tillery",
           "pos": "DT",
           "status": "Out",
@@ -2137,6 +2144,12 @@
           "pos": "LB",
           "status": "Out",
           "injury": "Knee"
+        },
+        {
+          "name": "Will Mallory",
+          "pos": "TE",
+          "status": "Questionable",
+          "injury": "Hamstring"
         }
       ]
     },
@@ -2247,9 +2260,40 @@
     },
     "LAC": {
       "qbStatus": "Healthy",
-      "oLineHealth": 100,
-      "secondaryDepth": 100,
-      "keyInjuries": []
+      "oLineHealth": 71,
+      "secondaryDepth": 70,
+      "keyInjuries": [
+        {
+          "name": "Denzel Perryman",
+          "pos": "LB",
+          "status": "Questionable",
+          "injury": "Pectoral"
+        },
+        {
+          "name": "David Njoku",
+          "pos": "TE",
+          "status": "Questionable",
+          "injury": "Fibula"
+        },
+        {
+          "name": "Trey Pipkins",
+          "pos": "T",
+          "status": "Questionable",
+          "injury": "Not injury related - personal matter"
+        },
+        {
+          "name": "Kayode Awosika",
+          "pos": "G",
+          "status": "Questionable",
+          "injury": "Fibula"
+        },
+        {
+          "name": "Kendall Williamson",
+          "pos": "S",
+          "status": "Out",
+          "injury": "Calf"
+        }
+      ]
     },
     "LV": {
       "qbStatus": "Healthy",
@@ -6514,14 +6558,14 @@
             "line": "6 REC \u00b7 32 YDS \u00b7 0 TD"
           },
           {
-            "name": "Tre Tucker",
-            "tag": "WR",
-            "line": "2 REC \u00b7 27 YDS \u00b7 0 TD"
-          },
-          {
             "name": "Jalen Nailor",
             "tag": "WR",
             "line": "3 REC \u00b7 27 YDS \u00b7 0 TD"
+          },
+          {
+            "name": "Tre Tucker",
+            "tag": "WR",
+            "line": "2 REC \u00b7 27 YDS \u00b7 0 TD"
           }
         ]
       },
@@ -8133,9 +8177,9 @@
             "line": "7 CAR \u00b7 69 YDS \u00b7 0 TD"
           },
           {
-            "name": "Jacory Croskey-Merritt",
+            "name": "Rachaad White",
             "tag": "RB",
-            "line": "12 CAR \u00b7 43 YDS \u00b7 0 TD"
+            "line": "7 CAR \u00b7 43 YDS \u00b7 0 TD"
           },
           {
             "name": "Terry McLaurin",
@@ -8148,9 +8192,9 @@
             "line": "5 REC \u00b7 47 YDS \u00b7 2 TD"
           },
           {
-            "name": "Rachaad White",
-            "tag": "RB",
-            "line": "6 REC \u00b7 40 YDS \u00b7 0 TD"
+            "name": "Antonio Williams",
+            "tag": "WR",
+            "line": "3 REC \u00b7 24 YDS \u00b7 0 TD"
           }
         ],
         "homePlayers": [
@@ -11631,9 +11675,9 @@
             "line": "21 CAR \u00b7 165 YDS \u00b7 1 TD"
           },
           {
-            "name": "Sean Tucker",
+            "name": "Kenny Gainwell",
             "tag": "RB",
-            "line": "5 CAR \u00b7 18 YDS \u00b7 0 TD"
+            "line": "4 CAR \u00b7 18 YDS \u00b7 0 TD"
           },
           {
             "name": "Tez Johnson",
@@ -12070,8 +12114,8 @@
             "line": "4 REC \u00b7 65 YDS \u00b7 2 TD"
           },
           {
-            "name": "Eli Raridon",
-            "tag": "TE",
+            "name": "Efton Chism III",
+            "tag": "WR",
             "line": "5 REC \u00b7 57 YDS \u00b7 0 TD"
           }
         ]
@@ -13096,9 +13140,9 @@
             "line": "14 CAR \u00b7 52 YDS \u00b7 0 TD"
           },
           {
-            "name": "George Holani",
+            "name": "Velus Jones Jr.",
             "tag": "RB",
-            "line": "5 CAR \u00b7 20 YDS \u00b7 1 TD"
+            "line": "4 CAR \u00b7 20 YDS \u00b7 0 TD"
           },
           {
             "name": "Jaxon Smith-Njigba",
@@ -13143,8 +13187,8 @@
             "line": "2 REC \u00b7 19 YDS \u00b7 0 TD"
           },
           {
-            "name": "Marvin Mims Jr.",
-            "tag": "WR",
+            "name": "Evan Engram",
+            "tag": "TE",
             "line": "2 REC \u00b7 13 YDS \u00b7 0 TD"
           }
         ]
@@ -14500,14 +14544,14 @@
             "line": "4 REC \u00b7 130 YDS \u00b7 1 TD"
           },
           {
-            "name": "Colston Loveland",
-            "tag": "TE",
-            "line": "7 REC \u00b7 69 YDS \u00b7 1 TD"
-          },
-          {
             "name": "Rome Odunze",
             "tag": "WR",
             "line": "4 REC \u00b7 69 YDS \u00b7 0 TD"
+          },
+          {
+            "name": "Colston Loveland",
+            "tag": "TE",
+            "line": "7 REC \u00b7 69 YDS \u00b7 1 TD"
           }
         ]
       },
@@ -18705,14 +18749,7 @@
       "divisional": false,
       "h2h": null,
       "final": false,
-      "odds": {
-        "spread": -2.5,
-        "total": 49.5,
-        "detail": "DET -2.5",
-        "mlAway": 124,
-        "mlHome": -148,
-        "book": "DraftKings"
-      }
+      "odds": null
     },
     {
       "away": "KC",
@@ -18736,9 +18773,9 @@
         "spread": 3.0,
         "total": 47.5,
         "detail": "KC -3",
-        "mlAway": -166,
-        "mlHome": 140,
-        "book": "DraftKings"
+        "mlAway": -175,
+        "mlHome": 145,
+        "book": "Draft Kings"
       }
     },
     {
@@ -18761,11 +18798,11 @@
       "final": false,
       "odds": {
         "spread": 4.5,
-        "total": 40.5,
+        "total": 41.5,
         "detail": "HOU -4.5",
-        "mlAway": -225,
-        "mlHome": 185,
-        "book": "DraftKings"
+        "mlAway": -198,
+        "mlHome": 164,
+        "book": "Draft Kings"
       }
     },
     {
@@ -18796,9 +18833,9 @@
         "spread": -2.5,
         "total": 42.5,
         "detail": "GB -2.5",
-        "mlAway": 124,
-        "mlHome": -148,
-        "book": "DraftKings"
+        "mlAway": 120,
+        "mlHome": -142,
+        "book": "Draft Kings"
       }
     },
     {
@@ -18823,9 +18860,9 @@
         "spread": -4.5,
         "total": 37.5,
         "detail": "IND -4.5",
-        "mlAway": 180,
-        "mlHome": -218,
-        "book": "DraftKings"
+        "mlAway": 185,
+        "mlHome": -225,
+        "book": "Draft Kings"
       }
     },
     {
@@ -18847,12 +18884,12 @@
       "h2h": null,
       "final": false,
       "odds": {
-        "spread": -2.5,
+        "spread": -1.5,
         "total": 48.5,
-        "detail": "NO -2.5",
-        "mlAway": 114,
-        "mlHome": -135,
-        "book": "DraftKings"
+        "detail": "NO -1.5",
+        "mlAway": -105,
+        "mlHome": -115,
+        "book": "Draft Kings"
       }
     },
     {
@@ -18874,12 +18911,12 @@
       "h2h": null,
       "final": false,
       "odds": {
-        "spread": 7.5,
+        "spread": 8.5,
         "total": 50.5,
-        "detail": "BUF -7.5",
-        "mlAway": -395,
-        "mlHome": 310,
-        "book": "DraftKings"
+        "detail": "BUF -8.5",
+        "mlAway": -500,
+        "mlHome": 380,
+        "book": "Draft Kings"
       }
     },
     {
@@ -18902,11 +18939,11 @@
       "final": false,
       "odds": {
         "spread": 10.5,
-        "total": 46.5,
+        "total": 45.5,
         "detail": "JAX -10.5",
-        "mlAway": -650,
-        "mlHome": 470,
-        "book": "DraftKings"
+        "mlAway": -675,
+        "mlHome": 490,
+        "book": "Draft Kings"
       }
     },
     {
@@ -18935,11 +18972,11 @@
       "final": false,
       "odds": {
         "spread": 9.5,
-        "total": 39.5,
+        "total": 38.5,
         "detail": "LAR -9.5",
-        "mlAway": -500,
-        "mlHome": 380,
-        "book": "DraftKings"
+        "mlAway": -485,
+        "mlHome": 370,
+        "book": "Draft Kings"
       }
     },
     {
@@ -18964,9 +19001,9 @@
         "spread": 6.5,
         "total": 40.5,
         "detail": "SEA -6.5",
-        "mlAway": -305,
-        "mlHome": 245,
-        "book": "DraftKings"
+        "mlAway": -290,
+        "mlHome": 235,
+        "book": "Draft Kings"
       }
     },
     {
@@ -18988,12 +19025,12 @@
       "h2h": null,
       "final": false,
       "odds": {
-        "spread": 3.5,
+        "spread": 4.5,
         "total": 55.5,
-        "detail": "SF -3.5",
-        "mlAway": -205,
-        "mlHome": 170,
-        "book": "DraftKings"
+        "detail": "SF -4.5",
+        "mlAway": -218,
+        "mlHome": 180,
+        "book": "Draft Kings"
       }
     },
     {
@@ -19026,7 +19063,7 @@
         "detail": "CIN -3.5",
         "mlAway": 160,
         "mlHome": -192,
-        "book": "DraftKings"
+        "book": "Draft Kings"
       }
     },
     {
@@ -19051,9 +19088,9 @@
         "spread": -4.5,
         "total": 38.5,
         "detail": "BAL -4.5",
-        "mlAway": 180,
-        "mlHome": -218,
-        "book": "DraftKings"
+        "mlAway": 185,
+        "mlHome": -225,
+        "book": "Draft Kings"
       }
     },
     {
@@ -38920,130 +38957,40 @@
   "week": 10,
   "players": [
     {
-      "name": "Jordan Love",
-      "team": "GB",
+      "name": "Jalon Daniels",
+      "team": "TB",
       "pos": "QB",
       "group": "passing",
-      "att": 341,
-      "cmp": 63.0,
-      "xcmp": 62.6,
-      "cpoe": 0.4,
-      "ttt": 2.6,
-      "iay": 9.7,
-      "aggr": 16.4,
-      "yds": 2618,
-      "td": 19,
-      "gp": 9,
-      "ypg": 290.9,
-      "tdpg": 2.1
-    },
-    {
-      "name": "C.J. Stroud",
-      "team": "HOU",
-      "pos": "QB",
-      "group": "passing",
-      "att": 282,
-      "cmp": 64.2,
-      "xcmp": 58.3,
-      "cpoe": 5.9,
-      "ttt": 2.86,
-      "iay": 9.9,
-      "aggr": 19.1,
-      "yds": 2251,
-      "td": 16,
-      "gp": 8,
-      "ypg": 281.4,
-      "tdpg": 2.0
-    },
-    {
-      "name": "Tyler Huntley",
-      "team": "BAL",
-      "pos": "QB",
-      "group": "passing",
-      "att": 110,
-      "cmp": 69.1,
-      "xcmp": 72.9,
-      "cpoe": -3.8,
+      "att": 98,
+      "cmp": 61.2,
+      "xcmp": 67.0,
+      "cpoe": -5.7,
       "ttt": 2.84,
-      "iay": 5.9,
-      "aggr": 10.0,
-      "yds": 727,
-      "td": 4,
+      "iay": 6.2,
+      "aggr": 13.3,
+      "yds": 501,
+      "td": 3,
       "gp": 5,
-      "ypg": 145.4,
-      "tdpg": 0.8
+      "ypg": 100.2,
+      "tdpg": 0.6
     },
     {
-      "name": "Kirk Cousins",
-      "team": "MIN",
-      "pos": "QB",
-      "group": "passing",
-      "att": 315,
-      "cmp": 64.1,
-      "xcmp": 60.1,
-      "cpoe": 4.0,
-      "ttt": 2.88,
-      "iay": 8.3,
-      "aggr": 20.3,
-      "yds": 2340,
-      "td": 20,
-      "gp": 9,
-      "ypg": 260.0,
-      "tdpg": 2.2
-    },
-    {
-      "name": "Jacoby Brissett",
-      "team": "BAL",
-      "pos": "QB",
-      "group": "passing",
-      "att": 305,
-      "cmp": 63.3,
-      "xcmp": 58.7,
-      "cpoe": 4.5,
-      "ttt": 2.66,
-      "iay": 7.7,
-      "aggr": 23.6,
-      "yds": 1719,
-      "td": 10,
-      "gp": 8,
-      "ypg": 214.9,
-      "tdpg": 1.2
-    },
-    {
-      "name": "Sam Darnold",
+      "name": "Drew Lock",
       "team": "SEA",
       "pos": "QB",
       "group": "passing",
-      "att": 211,
-      "cmp": 60.2,
-      "xcmp": 59.5,
-      "cpoe": 0.7,
-      "ttt": 2.98,
-      "iay": 7.5,
-      "aggr": 18.5,
-      "yds": 1478,
-      "td": 10,
-      "gp": 7,
-      "ypg": 211.1,
-      "tdpg": 1.4
-    },
-    {
-      "name": "Malik Willis",
-      "team": "MIA",
-      "pos": "QB",
-      "group": "passing",
-      "att": 208,
-      "cmp": 58.2,
-      "xcmp": 60.3,
-      "cpoe": -2.1,
-      "ttt": 3.06,
-      "iay": 9.3,
-      "aggr": 18.3,
-      "yds": 1396,
-      "td": 6,
-      "gp": 8,
-      "ypg": 174.5,
-      "tdpg": 0.8
+      "att": 76,
+      "cmp": 71.1,
+      "xcmp": 65.3,
+      "cpoe": 5.8,
+      "ttt": 2.64,
+      "iay": 6.8,
+      "aggr": 21.1,
+      "yds": 597,
+      "td": 5,
+      "gp": 3,
+      "ypg": 199.0,
+      "tdpg": 1.7
     },
     {
       "name": "Bo Nix",
@@ -39064,21 +39011,129 @@
       "tdpg": 1.2
     },
     {
-      "name": "Justin Herbert",
-      "team": "LAC",
+      "name": "Bryce Young",
+      "team": "CAR",
       "pos": "QB",
       "group": "passing",
-      "att": 235,
-      "cmp": 61.3,
-      "xcmp": 64.8,
-      "cpoe": -3.6,
-      "ttt": 2.8,
-      "iay": 8.0,
-      "aggr": 13.2,
-      "yds": 1591,
-      "td": 6,
+      "att": 308,
+      "cmp": 60.4,
+      "xcmp": 59.3,
+      "cpoe": 1.1,
+      "ttt": 2.84,
+      "iay": 8.7,
+      "aggr": 13.0,
+      "yds": 2197,
+      "td": 16,
       "gp": 8,
-      "ypg": 198.9,
+      "ypg": 274.6,
+      "tdpg": 2.0
+    },
+    {
+      "name": "Baker Mayfield",
+      "team": "TB",
+      "pos": "QB",
+      "group": "passing",
+      "att": 142,
+      "cmp": 60.6,
+      "xcmp": 63.9,
+      "cpoe": -3.3,
+      "ttt": 2.92,
+      "iay": 8.5,
+      "aggr": 14.8,
+      "yds": 922,
+      "td": 3,
+      "gp": 6,
+      "ypg": 153.7,
+      "tdpg": 0.5
+    },
+    {
+      "name": "Jordan Love",
+      "team": "GB",
+      "pos": "QB",
+      "group": "passing",
+      "att": 341,
+      "cmp": 63.0,
+      "xcmp": 62.6,
+      "cpoe": 0.4,
+      "ttt": 2.6,
+      "iay": 9.7,
+      "aggr": 16.4,
+      "yds": 2618,
+      "td": 19,
+      "gp": 9,
+      "ypg": 290.9,
+      "tdpg": 2.1
+    },
+    {
+      "name": "Daniel Jones",
+      "team": "IND",
+      "pos": "QB",
+      "group": "passing",
+      "att": 302,
+      "cmp": 60.3,
+      "xcmp": 62.3,
+      "cpoe": -2.0,
+      "ttt": 2.82,
+      "iay": 7.4,
+      "aggr": 13.2,
+      "yds": 1722,
+      "td": 6,
+      "gp": 9,
+      "ypg": 191.3,
+      "tdpg": 0.7
+    },
+    {
+      "name": "Sam Darnold",
+      "team": "SEA",
+      "pos": "QB",
+      "group": "passing",
+      "att": 211,
+      "cmp": 60.2,
+      "xcmp": 59.5,
+      "cpoe": 0.7,
+      "ttt": 2.98,
+      "iay": 7.5,
+      "aggr": 18.5,
+      "yds": 1478,
+      "td": 10,
+      "gp": 7,
+      "ypg": 211.1,
+      "tdpg": 1.4
+    },
+    {
+      "name": "J.J. McCarthy",
+      "team": "NYG",
+      "pos": "QB",
+      "group": "passing",
+      "att": 104,
+      "cmp": 63.5,
+      "xcmp": 59.5,
+      "cpoe": 4.0,
+      "ttt": 2.76,
+      "iay": 10.2,
+      "aggr": 14.4,
+      "yds": 915,
+      "td": 2,
+      "gp": 5,
+      "ypg": 183.0,
+      "tdpg": 0.4
+    },
+    {
+      "name": "Kyler Murray",
+      "team": "MIN",
+      "pos": "QB",
+      "group": "passing",
+      "att": 154,
+      "cmp": 64.9,
+      "xcmp": 64.0,
+      "cpoe": 1.0,
+      "ttt": 2.94,
+      "iay": 8.0,
+      "aggr": 11.7,
+      "yds": 1022,
+      "td": 5,
+      "gp": 6,
+      "ypg": 170.3,
       "tdpg": 0.8
     },
     {
@@ -39100,294 +39155,6 @@
       "tdpg": 1.3
     },
     {
-      "name": "J.J. McCarthy",
-      "team": "NYG",
-      "pos": "QB",
-      "group": "passing",
-      "att": 104,
-      "cmp": 63.5,
-      "xcmp": 59.5,
-      "cpoe": 4.0,
-      "ttt": 2.76,
-      "iay": 10.2,
-      "aggr": 14.4,
-      "yds": 915,
-      "td": 2,
-      "gp": 5,
-      "ypg": 183.0,
-      "tdpg": 0.4
-    },
-    {
-      "name": "Daniel Jones",
-      "team": "IND",
-      "pos": "QB",
-      "group": "passing",
-      "att": 302,
-      "cmp": 60.3,
-      "xcmp": 62.3,
-      "cpoe": -2.0,
-      "ttt": 2.82,
-      "iay": 7.4,
-      "aggr": 13.2,
-      "yds": 1722,
-      "td": 6,
-      "gp": 9,
-      "ypg": 191.3,
-      "tdpg": 0.7
-    },
-    {
-      "name": "Deshaun Watson",
-      "team": "CLE",
-      "pos": "QB",
-      "group": "passing",
-      "att": 249,
-      "cmp": 65.5,
-      "xcmp": 69.5,
-      "cpoe": -4.0,
-      "ttt": 2.82,
-      "iay": 7.5,
-      "aggr": 12.9,
-      "yds": 1806,
-      "td": 7,
-      "gp": 8,
-      "ypg": 225.8,
-      "tdpg": 0.9
-    },
-    {
-      "name": "Baker Mayfield",
-      "team": "TB",
-      "pos": "QB",
-      "group": "passing",
-      "att": 142,
-      "cmp": 60.6,
-      "xcmp": 63.9,
-      "cpoe": -3.3,
-      "ttt": 2.92,
-      "iay": 8.5,
-      "aggr": 14.8,
-      "yds": 922,
-      "td": 3,
-      "gp": 6,
-      "ypg": 153.7,
-      "tdpg": 0.5
-    },
-    {
-      "name": "Joe Burrow",
-      "team": "CIN",
-      "pos": "QB",
-      "group": "passing",
-      "att": 296,
-      "cmp": 74.0,
-      "xcmp": 66.7,
-      "cpoe": 7.2,
-      "ttt": 2.66,
-      "iay": 7.7,
-      "aggr": 13.2,
-      "yds": 2386,
-      "td": 23,
-      "gp": 8,
-      "ypg": 298.2,
-      "tdpg": 2.9
-    },
-    {
-      "name": "Dak Prescott",
-      "team": "DAL",
-      "pos": "QB",
-      "group": "passing",
-      "att": 336,
-      "cmp": 64.9,
-      "xcmp": 63.9,
-      "cpoe": 1.0,
-      "ttt": 2.79,
-      "iay": 8.5,
-      "aggr": 19.9,
-      "yds": 2381,
-      "td": 16,
-      "gp": 9,
-      "ypg": 264.6,
-      "tdpg": 1.8
-    },
-    {
-      "name": "Jalen Hurts",
-      "team": "PHI",
-      "pos": "QB",
-      "group": "passing",
-      "att": 154,
-      "cmp": 57.8,
-      "xcmp": 60.2,
-      "cpoe": -2.4,
-      "ttt": 3.04,
-      "iay": 7.9,
-      "aggr": 14.3,
-      "yds": 933,
-      "td": 8,
-      "gp": 5,
-      "ypg": 186.6,
-      "tdpg": 1.6
-    },
-    {
-      "name": "Tyler Shough",
-      "team": "NO",
-      "pos": "QB",
-      "group": "passing",
-      "att": 308,
-      "cmp": 66.2,
-      "xcmp": 65.2,
-      "cpoe": 1.0,
-      "ttt": 2.73,
-      "iay": 7.8,
-      "aggr": 16.6,
-      "yds": 1986,
-      "td": 14,
-      "gp": 8,
-      "ypg": 248.2,
-      "tdpg": 1.8
-    },
-    {
-      "name": "Jayden Daniels",
-      "team": "WAS",
-      "pos": "QB",
-      "group": "passing",
-      "att": 213,
-      "cmp": 64.8,
-      "xcmp": 63.3,
-      "cpoe": 1.4,
-      "ttt": 2.78,
-      "iay": 8.1,
-      "aggr": 13.1,
-      "yds": 1499,
-      "td": 10,
-      "gp": 7,
-      "ypg": 214.1,
-      "tdpg": 1.4
-    },
-    {
-      "name": "Matthew Stafford",
-      "team": "LA",
-      "pos": "QB",
-      "group": "passing",
-      "att": 346,
-      "cmp": 66.5,
-      "xcmp": 66.1,
-      "cpoe": 0.4,
-      "ttt": 2.69,
-      "iay": 7.6,
-      "aggr": 13.6,
-      "yds": 2374,
-      "td": 16,
-      "gp": 9,
-      "ypg": 263.8,
-      "tdpg": 1.8
-    },
-    {
-      "name": "Drake Maye",
-      "team": "NE",
-      "pos": "QB",
-      "group": "passing",
-      "att": 272,
-      "cmp": 65.4,
-      "xcmp": 61.8,
-      "cpoe": 3.7,
-      "ttt": 3.16,
-      "iay": 9.7,
-      "aggr": 11.8,
-      "yds": 2282,
-      "td": 18,
-      "gp": 9,
-      "ypg": 253.6,
-      "tdpg": 2.0
-    },
-    {
-      "name": "Jared Goff",
-      "team": "DET",
-      "pos": "QB",
-      "group": "passing",
-      "att": 273,
-      "cmp": 67.8,
-      "xcmp": 66.9,
-      "cpoe": 0.8,
-      "ttt": 2.84,
-      "iay": 8.1,
-      "aggr": 16.8,
-      "yds": 2134,
-      "td": 15,
-      "gp": 8,
-      "ypg": 266.8,
-      "tdpg": 1.9
-    },
-    {
-      "name": "Trevor Lawrence",
-      "team": "JAX",
-      "pos": "QB",
-      "group": "passing",
-      "att": 224,
-      "cmp": 65.2,
-      "xcmp": 63.0,
-      "cpoe": 2.2,
-      "ttt": 2.75,
-      "iay": 8.8,
-      "aggr": 14.7,
-      "yds": 1932,
-      "td": 18,
-      "gp": 8,
-      "ypg": 241.5,
-      "tdpg": 2.2
-    },
-    {
-      "name": "Lamar Jackson",
-      "team": "BAL",
-      "pos": "QB",
-      "group": "passing",
-      "att": 97,
-      "cmp": 70.1,
-      "xcmp": 63.6,
-      "cpoe": 6.6,
-      "ttt": 3.11,
-      "iay": 10.3,
-      "aggr": 12.4,
-      "yds": 967,
-      "td": 6,
-      "gp": 5,
-      "ypg": 193.4,
-      "tdpg": 1.2
-    },
-    {
-      "name": "Caleb Williams",
-      "team": "CHI",
-      "pos": "QB",
-      "group": "passing",
-      "att": 195,
-      "cmp": 68.7,
-      "xcmp": 65.7,
-      "cpoe": 3.0,
-      "ttt": 3.19,
-      "iay": 7.7,
-      "aggr": 10.8,
-      "yds": 1546,
-      "td": 8,
-      "gp": 6,
-      "ypg": 257.7,
-      "tdpg": 1.3
-    },
-    {
-      "name": "Jalon Daniels",
-      "team": "TB",
-      "pos": "QB",
-      "group": "passing",
-      "att": 98,
-      "cmp": 61.2,
-      "xcmp": 67.0,
-      "cpoe": -5.7,
-      "ttt": 2.84,
-      "iay": 6.2,
-      "aggr": 13.3,
-      "yds": 501,
-      "td": 3,
-      "gp": 5,
-      "ypg": 100.2,
-      "tdpg": 0.6
-    },
-    {
       "name": "Jameis Winston",
       "team": "NYG",
       "pos": "QB",
@@ -39404,24 +39171,6 @@
       "gp": 8,
       "ypg": 128.5,
       "tdpg": 1.0
-    },
-    {
-      "name": "Kyler Murray",
-      "team": "MIN",
-      "pos": "QB",
-      "group": "passing",
-      "att": 154,
-      "cmp": 64.9,
-      "xcmp": 64.0,
-      "cpoe": 1.0,
-      "ttt": 2.94,
-      "iay": 8.0,
-      "aggr": 11.7,
-      "yds": 1022,
-      "td": 5,
-      "gp": 6,
-      "ypg": 170.3,
-      "tdpg": 0.8
     },
     {
       "name": "Brock Purdy",
@@ -39442,94 +39191,94 @@
       "tdpg": 2.1
     },
     {
-      "name": "Patrick Mahomes",
-      "team": "KC",
+      "name": "Deshaun Watson",
+      "team": "CLE",
       "pos": "QB",
       "group": "passing",
-      "att": 263,
-      "cmp": 67.3,
-      "xcmp": 68.3,
-      "cpoe": -1.0,
-      "ttt": 2.72,
-      "iay": 5.7,
-      "aggr": 6.8,
-      "yds": 2037,
-      "td": 14,
+      "att": 249,
+      "cmp": 65.5,
+      "xcmp": 69.5,
+      "cpoe": -4.0,
+      "ttt": 2.82,
+      "iay": 7.5,
+      "aggr": 12.9,
+      "yds": 1806,
+      "td": 7,
       "gp": 8,
-      "ypg": 254.6,
+      "ypg": 225.8,
+      "tdpg": 0.9
+    },
+    {
+      "name": "Jacoby Brissett",
+      "team": "BAL",
+      "pos": "QB",
+      "group": "passing",
+      "att": 305,
+      "cmp": 63.3,
+      "xcmp": 58.7,
+      "cpoe": 4.5,
+      "ttt": 2.66,
+      "iay": 7.7,
+      "aggr": 23.6,
+      "yds": 1719,
+      "td": 10,
+      "gp": 8,
+      "ypg": 214.9,
+      "tdpg": 1.2
+    },
+    {
+      "name": "Matthew Stafford",
+      "team": "LA",
+      "pos": "QB",
+      "group": "passing",
+      "att": 346,
+      "cmp": 66.5,
+      "xcmp": 66.1,
+      "cpoe": 0.4,
+      "ttt": 2.69,
+      "iay": 7.6,
+      "aggr": 13.6,
+      "yds": 2374,
+      "td": 16,
+      "gp": 9,
+      "ypg": 263.8,
       "tdpg": 1.8
     },
     {
-      "name": "Tanner McKee",
-      "team": "PHI",
+      "name": "Trevor Lawrence",
+      "team": "JAX",
       "pos": "QB",
       "group": "passing",
-      "att": 114,
-      "cmp": 63.2,
-      "xcmp": 65.2,
-      "cpoe": -2.0,
-      "ttt": 2.65,
-      "iay": 6.8,
-      "aggr": 14.9,
-      "yds": 638,
-      "td": 2,
-      "gp": 3,
-      "ypg": 212.7,
-      "tdpg": 0.7
-    },
-    {
-      "name": "Drew Lock",
-      "team": "SEA",
-      "pos": "QB",
-      "group": "passing",
-      "att": 76,
-      "cmp": 71.1,
-      "xcmp": 65.3,
-      "cpoe": 5.8,
-      "ttt": 2.64,
-      "iay": 6.8,
-      "aggr": 21.1,
-      "yds": 597,
-      "td": 5,
-      "gp": 3,
-      "ypg": 199.0,
-      "tdpg": 1.7
-    },
-    {
-      "name": "Bryce Young",
-      "team": "CAR",
-      "pos": "QB",
-      "group": "passing",
-      "att": 308,
-      "cmp": 60.4,
-      "xcmp": 59.3,
-      "cpoe": 1.1,
-      "ttt": 2.84,
-      "iay": 8.7,
-      "aggr": 13.0,
-      "yds": 2197,
-      "td": 16,
+      "att": 224,
+      "cmp": 65.2,
+      "xcmp": 63.0,
+      "cpoe": 2.2,
+      "ttt": 2.75,
+      "iay": 8.8,
+      "aggr": 14.7,
+      "yds": 1932,
+      "td": 18,
       "gp": 8,
-      "ypg": 274.6,
-      "tdpg": 2.0
+      "ypg": 241.5,
+      "tdpg": 2.2
     },
     {
-      "name": "Josh Allen",
-      "team": "BUF",
+      "name": "Joe Burrow",
+      "team": "CIN",
       "pos": "QB",
       "group": "passing",
-      "att": 236,
-      "cmp": 66.1,
-      "xcmp": 65.4,
-      "cpoe": 0.7,
-      "ttt": 2.89,
-      "iay": 8.9,
-      "aggr": 13.1,
-      "yds": 2027,
-      "td": 12,
+      "att": 296,
+      "cmp": 74.0,
+      "xcmp": 66.7,
+      "cpoe": 7.2,
+      "ttt": 2.66,
+      "iay": 7.7,
+      "aggr": 13.2,
+      "yds": 2386,
+      "td": 23,
       "gp": 8,
-      "ypg": 253.4,
-      "tdpg": 1.5
+      "ypg": 298.2,
+      "tdpg": 2.9
     },
     {
       "name": "Michael Penix Jr.",
@@ -39568,6 +39317,96 @@
       "tdpg": 1.6
     },
     {
+      "name": "Kirk Cousins",
+      "team": "MIN",
+      "pos": "QB",
+      "group": "passing",
+      "att": 315,
+      "cmp": 64.1,
+      "xcmp": 60.1,
+      "cpoe": 4.0,
+      "ttt": 2.88,
+      "iay": 8.3,
+      "aggr": 20.3,
+      "yds": 2340,
+      "td": 20,
+      "gp": 9,
+      "ypg": 260.0,
+      "tdpg": 2.2
+    },
+    {
+      "name": "Caleb Williams",
+      "team": "CHI",
+      "pos": "QB",
+      "group": "passing",
+      "att": 195,
+      "cmp": 68.7,
+      "xcmp": 65.7,
+      "cpoe": 3.0,
+      "ttt": 3.19,
+      "iay": 7.7,
+      "aggr": 10.8,
+      "yds": 1546,
+      "td": 8,
+      "gp": 6,
+      "ypg": 257.7,
+      "tdpg": 1.3
+    },
+    {
+      "name": "Josh Allen",
+      "team": "BUF",
+      "pos": "QB",
+      "group": "passing",
+      "att": 236,
+      "cmp": 66.1,
+      "xcmp": 65.4,
+      "cpoe": 0.7,
+      "ttt": 2.89,
+      "iay": 8.9,
+      "aggr": 13.1,
+      "yds": 2027,
+      "td": 12,
+      "gp": 8,
+      "ypg": 253.4,
+      "tdpg": 1.5
+    },
+    {
+      "name": "Drake Maye",
+      "team": "NE",
+      "pos": "QB",
+      "group": "passing",
+      "att": 272,
+      "cmp": 65.4,
+      "xcmp": 61.8,
+      "cpoe": 3.7,
+      "ttt": 3.16,
+      "iay": 9.7,
+      "aggr": 11.8,
+      "yds": 2282,
+      "td": 18,
+      "gp": 9,
+      "ypg": 253.6,
+      "tdpg": 2.0
+    },
+    {
+      "name": "Lamar Jackson",
+      "team": "BAL",
+      "pos": "QB",
+      "group": "passing",
+      "att": 97,
+      "cmp": 70.1,
+      "xcmp": 63.6,
+      "cpoe": 6.6,
+      "ttt": 3.11,
+      "iay": 10.3,
+      "aggr": 12.4,
+      "yds": 967,
+      "td": 6,
+      "gp": 5,
+      "ypg": 193.4,
+      "tdpg": 1.2
+    },
+    {
       "name": "Cam Ward",
       "team": "TEN",
       "pos": "QB",
@@ -39586,346 +39425,202 @@
       "tdpg": 0.8
     },
     {
-      "name": "Bhayshul Tuten",
-      "team": "JAX",
-      "pos": "RB",
-      "group": "rushing",
-      "att": 122,
-      "yds": 521,
-      "ypc": 4.3,
-      "eff": 4.52,
-      "stack": 14.8,
-      "ryoe": -0.07,
-      "td": 4,
-      "tlos": 2.98,
-      "gp": 8,
-      "attpg": 15.2,
-      "ypg": 65.1,
-      "tdpg": 0.5
-    },
-    {
-      "name": "Woody Marks",
+      "name": "C.J. Stroud",
       "team": "HOU",
-      "pos": "RB",
-      "group": "rushing",
-      "att": 95,
-      "yds": 341,
-      "ypc": 3.6,
-      "eff": 4.26,
-      "stack": 23.2,
-      "ryoe": -0.41,
-      "td": 2,
-      "tlos": 2.79,
+      "pos": "QB",
+      "group": "passing",
+      "att": 282,
+      "cmp": 64.2,
+      "xcmp": 58.3,
+      "cpoe": 5.9,
+      "ttt": 2.86,
+      "iay": 9.9,
+      "aggr": 19.1,
+      "yds": 2251,
+      "td": 16,
       "gp": 8,
-      "attpg": 11.9,
-      "ypg": 42.6,
-      "tdpg": 0.2
+      "ypg": 281.4,
+      "tdpg": 2.0
     },
     {
-      "name": "Jacory Croskey-Merritt",
-      "team": "WAS",
-      "pos": "RB",
-      "group": "rushing",
-      "att": 67,
-      "yds": 239,
-      "ypc": 3.6,
-      "eff": 4.01,
-      "stack": 6.0,
-      "ryoe": -0.45,
-      "td": 2,
-      "tlos": 2.75,
-      "gp": 5,
-      "attpg": 13.4,
-      "ypg": 47.8,
-      "tdpg": 0.4
-    },
-    {
-      "name": "James Cook",
-      "team": "BUF",
-      "pos": "RB",
-      "group": "rushing",
-      "att": 169,
-      "yds": 814,
-      "ypc": 4.8,
-      "eff": 3.36,
-      "stack": 27.2,
-      "ryoe": 0.56,
-      "td": 8,
-      "tlos": 2.52,
-      "gp": 8,
-      "attpg": 21.1,
-      "ypg": 101.8,
-      "tdpg": 1.0
-    },
-    {
-      "name": "Aaron Jones",
-      "team": "MIN",
-      "pos": "RB",
-      "group": "rushing",
-      "att": 115,
-      "yds": 474,
-      "ypc": 4.1,
-      "eff": 3.75,
-      "stack": 20.0,
-      "ryoe": -0.58,
-      "td": 2,
-      "tlos": 2.68,
-      "gp": 8,
-      "attpg": 14.4,
-      "ypg": 59.2,
-      "tdpg": 0.2
-    },
-    {
-      "name": "MarShawn Lloyd",
-      "team": "GB",
-      "pos": "RB",
-      "group": "rushing",
-      "att": 57,
-      "yds": 149,
-      "ypc": 2.6,
-      "eff": 5.83,
-      "stack": 12.3,
-      "ryoe": -1.53,
-      "td": 2,
-      "tlos": 2.82,
-      "gp": 8,
-      "attpg": 7.1,
-      "ypg": 18.6,
-      "tdpg": 0.2
-    },
-    {
-      "name": "Bucky Irving",
-      "team": "TB",
-      "pos": "RB",
-      "group": "rushing",
-      "att": 167,
-      "yds": 825,
-      "ypc": 4.9,
-      "eff": 3.44,
-      "stack": 24.6,
-      "ryoe": 0.7,
-      "td": 7,
-      "tlos": 2.98,
-      "gp": 9,
-      "attpg": 18.6,
-      "ypg": 91.7,
-      "tdpg": 0.8
-    },
-    {
-      "name": "Brian Robinson",
-      "team": "ATL",
-      "pos": "RB",
-      "group": "rushing",
-      "att": 53,
-      "yds": 211,
-      "ypc": 4.0,
-      "eff": 4.1,
-      "stack": 18.9,
-      "ryoe": -0.07,
-      "td": 4,
-      "tlos": 2.7,
-      "gp": 6,
-      "attpg": 8.8,
-      "ypg": 35.2,
-      "tdpg": 0.7
-    },
-    {
-      "name": "Christian McCaffrey",
-      "team": "SF",
-      "pos": "RB",
-      "group": "rushing",
-      "att": 102,
-      "yds": 457,
-      "ypc": 4.5,
-      "eff": 3.54,
-      "stack": 26.5,
-      "ryoe": 0.32,
-      "td": 9,
-      "tlos": 2.47,
-      "gp": 8,
-      "attpg": 12.8,
-      "ypg": 57.1,
-      "tdpg": 1.1
-    },
-    {
-      "name": "Tyler Allgeier",
-      "team": "ARI",
-      "pos": "RB",
-      "group": "rushing",
-      "att": 89,
-      "yds": 369,
-      "ypc": 4.1,
-      "eff": 3.75,
-      "stack": 24.7,
-      "ryoe": 0.61,
-      "td": 2,
-      "tlos": 2.79,
-      "gp": 9,
-      "attpg": 9.9,
-      "ypg": 41.0,
-      "tdpg": 0.2
-    },
-    {
-      "name": "Rachaad White",
-      "team": "WAS",
-      "pos": "RB",
-      "group": "rushing",
-      "att": 65,
-      "yds": 275,
-      "ypc": 4.2,
-      "eff": 3.71,
-      "stack": 16.9,
-      "ryoe": -0.06,
-      "td": 1,
-      "tlos": 2.95,
-      "gp": 8,
-      "attpg": 8.1,
-      "ypg": 34.4,
-      "tdpg": 0.1
-    },
-    {
-      "name": "Breece Hall",
-      "team": "NYJ",
-      "pos": "RB",
-      "group": "rushing",
-      "att": 66,
-      "yds": 224,
-      "ypc": 3.4,
-      "eff": 5.06,
-      "stack": 28.8,
-      "ryoe": -0.36,
-      "td": 1,
-      "tlos": 2.83,
-      "gp": 4,
-      "attpg": 16.5,
-      "ypg": 56.0,
-      "tdpg": 0.2
-    },
-    {
-      "name": "Jaylen Warren",
-      "team": "PIT",
-      "pos": "RB",
-      "group": "rushing",
-      "att": 119,
-      "yds": 704,
-      "ypc": 5.9,
-      "eff": 3.1,
-      "stack": 23.5,
-      "ryoe": 1.93,
-      "td": 2,
-      "tlos": 2.8,
-      "gp": 8,
-      "attpg": 14.9,
-      "ypg": 88.0,
-      "tdpg": 0.2
-    },
-    {
-      "name": "Kenneth Gainwell",
-      "team": "TB",
-      "pos": "RB",
-      "group": "rushing",
-      "att": 63,
-      "yds": 305,
-      "ypc": 4.8,
-      "eff": 3.45,
-      "stack": 25.4,
-      "ryoe": 1.22,
-      "td": 0,
-      "tlos": 3.1,
-      "gp": null,
-      "attpg": null,
-      "ypg": null,
-      "tdpg": null
-    },
-    {
-      "name": "J.K. Dobbins",
-      "team": "DEN",
-      "pos": "RB",
-      "group": "rushing",
-      "att": 98,
-      "yds": 324,
-      "ypc": 3.3,
-      "eff": 4.56,
-      "stack": 17.3,
-      "ryoe": -1.03,
-      "td": 3,
-      "tlos": 2.97,
-      "gp": 9,
-      "attpg": 10.9,
-      "ypg": 36.0,
-      "tdpg": 0.3
-    },
-    {
-      "name": "Chuba Hubbard",
-      "team": "CAR",
-      "pos": "RB",
-      "group": "rushing",
-      "att": 134,
-      "yds": 619,
-      "ypc": 4.6,
-      "eff": 3.68,
-      "stack": 23.9,
-      "ryoe": 0.83,
-      "td": 5,
-      "tlos": 2.71,
-      "gp": 8,
-      "attpg": 16.8,
-      "ypg": 77.4,
-      "tdpg": 0.6
-    },
-    {
-      "name": "Kendre Miller",
+      "name": "Dak Prescott",
       "team": "DAL",
-      "pos": "RB",
-      "group": "rushing",
-      "att": 57,
-      "yds": 159,
-      "ypc": 2.8,
-      "eff": 4.89,
-      "stack": 33.3,
-      "ryoe": -1.11,
-      "td": 2,
-      "tlos": 2.61,
-      "gp": 6,
-      "attpg": 9.5,
-      "ypg": 26.5,
-      "tdpg": 0.3
+      "pos": "QB",
+      "group": "passing",
+      "att": 336,
+      "cmp": 64.9,
+      "xcmp": 63.9,
+      "cpoe": 1.0,
+      "ttt": 2.79,
+      "iay": 8.5,
+      "aggr": 19.9,
+      "yds": 2381,
+      "td": 16,
+      "gp": 9,
+      "ypg": 264.6,
+      "tdpg": 1.8
     },
     {
-      "name": "Tony Pollard",
-      "team": "TEN",
-      "pos": "RB",
-      "group": "rushing",
-      "att": 133,
-      "yds": 595,
-      "ypc": 4.5,
-      "eff": 3.47,
-      "stack": 15.8,
-      "ryoe": 0.61,
-      "td": 6,
-      "tlos": 2.8,
+      "name": "Tyler Shough",
+      "team": "NO",
+      "pos": "QB",
+      "group": "passing",
+      "att": 308,
+      "cmp": 66.2,
+      "xcmp": 65.2,
+      "cpoe": 1.0,
+      "ttt": 2.73,
+      "iay": 7.8,
+      "aggr": 16.6,
+      "yds": 1986,
+      "td": 14,
       "gp": 8,
-      "attpg": 16.6,
-      "ypg": 74.4,
+      "ypg": 248.2,
+      "tdpg": 1.8
+    },
+    {
+      "name": "Justin Herbert",
+      "team": "LAC",
+      "pos": "QB",
+      "group": "passing",
+      "att": 235,
+      "cmp": 61.3,
+      "xcmp": 64.8,
+      "cpoe": -3.6,
+      "ttt": 2.8,
+      "iay": 8.0,
+      "aggr": 13.2,
+      "yds": 1591,
+      "td": 6,
+      "gp": 8,
+      "ypg": 198.9,
       "tdpg": 0.8
     },
     {
-      "name": "Kyren Williams",
-      "team": "LA",
-      "pos": "RB",
-      "group": "rushing",
-      "att": 127,
-      "yds": 593,
-      "ypc": 4.7,
-      "eff": 3.42,
-      "stack": 34.6,
-      "ryoe": 0.31,
+      "name": "Tyler Huntley",
+      "team": "BAL",
+      "pos": "QB",
+      "group": "passing",
+      "att": 110,
+      "cmp": 69.1,
+      "xcmp": 72.9,
+      "cpoe": -3.8,
+      "ttt": 2.84,
+      "iay": 5.9,
+      "aggr": 10.0,
+      "yds": 727,
+      "td": 4,
+      "gp": 5,
+      "ypg": 145.4,
+      "tdpg": 0.8
+    },
+    {
+      "name": "Jared Goff",
+      "team": "DET",
+      "pos": "QB",
+      "group": "passing",
+      "att": 273,
+      "cmp": 67.8,
+      "xcmp": 66.9,
+      "cpoe": 0.8,
+      "ttt": 2.84,
+      "iay": 8.1,
+      "aggr": 16.8,
+      "yds": 2134,
+      "td": 15,
+      "gp": 8,
+      "ypg": 266.8,
+      "tdpg": 1.9
+    },
+    {
+      "name": "Malik Willis",
+      "team": "MIA",
+      "pos": "QB",
+      "group": "passing",
+      "att": 208,
+      "cmp": 58.2,
+      "xcmp": 60.3,
+      "cpoe": -2.1,
+      "ttt": 3.06,
+      "iay": 9.3,
+      "aggr": 18.3,
+      "yds": 1396,
       "td": 6,
-      "tlos": 2.87,
-      "gp": 9,
-      "attpg": 14.1,
-      "ypg": 65.9,
+      "gp": 8,
+      "ypg": 174.5,
+      "tdpg": 0.8
+    },
+    {
+      "name": "Patrick Mahomes",
+      "team": "KC",
+      "pos": "QB",
+      "group": "passing",
+      "att": 263,
+      "cmp": 67.3,
+      "xcmp": 68.3,
+      "cpoe": -1.0,
+      "ttt": 2.72,
+      "iay": 5.7,
+      "aggr": 6.8,
+      "yds": 2037,
+      "td": 14,
+      "gp": 8,
+      "ypg": 254.6,
+      "tdpg": 1.8
+    },
+    {
+      "name": "Jayden Daniels",
+      "team": "WAS",
+      "pos": "QB",
+      "group": "passing",
+      "att": 213,
+      "cmp": 64.8,
+      "xcmp": 63.3,
+      "cpoe": 1.4,
+      "ttt": 2.78,
+      "iay": 8.1,
+      "aggr": 13.1,
+      "yds": 1499,
+      "td": 10,
+      "gp": 7,
+      "ypg": 214.1,
+      "tdpg": 1.4
+    },
+    {
+      "name": "Tanner McKee",
+      "team": "PHI",
+      "pos": "QB",
+      "group": "passing",
+      "att": 114,
+      "cmp": 63.2,
+      "xcmp": 65.2,
+      "cpoe": -2.0,
+      "ttt": 2.65,
+      "iay": 6.8,
+      "aggr": 14.9,
+      "yds": 638,
+      "td": 2,
+      "gp": 3,
+      "ypg": 212.7,
       "tdpg": 0.7
+    },
+    {
+      "name": "Jalen Hurts",
+      "team": "PHI",
+      "pos": "QB",
+      "group": "passing",
+      "att": 154,
+      "cmp": 57.8,
+      "xcmp": 60.2,
+      "cpoe": -2.4,
+      "ttt": 3.04,
+      "iay": 7.9,
+      "aggr": 14.3,
+      "yds": 933,
+      "td": 8,
+      "gp": 5,
+      "ypg": 186.6,
+      "tdpg": 1.6
     },
     {
       "name": "Saquon Barkley",
@@ -39946,57 +39641,93 @@
       "tdpg": 0.4
     },
     {
-      "name": "Quinshon Judkins",
-      "team": "CLE",
+      "name": "Chase Brown",
+      "team": "CIN",
       "pos": "RB",
       "group": "rushing",
-      "att": 116,
-      "yds": 385,
-      "ypc": 3.3,
-      "eff": 4.35,
-      "stack": 26.7,
-      "ryoe": -0.22,
-      "td": 3,
-      "tlos": 2.66,
+      "att": 103,
+      "yds": 397,
+      "ypc": 3.9,
+      "eff": 4.03,
+      "stack": 21.4,
+      "ryoe": -0.25,
+      "td": 1,
+      "tlos": 2.69,
       "gp": 8,
-      "attpg": 14.5,
-      "ypg": 48.1,
-      "tdpg": 0.4
+      "attpg": 12.9,
+      "ypg": 49.6,
+      "tdpg": 0.1
     },
     {
-      "name": "TreVeyon Henderson",
-      "team": "NE",
+      "name": "J.K. Dobbins",
+      "team": "DEN",
       "pos": "RB",
       "group": "rushing",
-      "att": 52,
-      "yds": 203,
-      "ypc": 3.9,
-      "eff": 3.86,
+      "att": 98,
+      "yds": 324,
+      "ypc": 3.3,
+      "eff": 4.56,
       "stack": 17.3,
-      "ryoe": -0.0,
-      "td": 1,
-      "tlos": 2.85,
-      "gp": 6,
-      "attpg": 8.7,
-      "ypg": 33.8,
+      "ryoe": -1.03,
+      "td": 3,
+      "tlos": 2.97,
+      "gp": 9,
+      "attpg": 10.9,
+      "ypg": 36.0,
+      "tdpg": 0.3
+    },
+    {
+      "name": "Braelon Allen",
+      "team": "NYJ",
+      "pos": "RB",
+      "group": "rushing",
+      "att": 120,
+      "yds": 598,
+      "ypc": 5.0,
+      "eff": 3.43,
+      "stack": 25.0,
+      "ryoe": 1.06,
+      "td": 3,
+      "tlos": 2.71,
+      "gp": 9,
+      "attpg": 13.3,
+      "ypg": 66.4,
+      "tdpg": 0.3
+    },
+    {
+      "name": "MarShawn Lloyd",
+      "team": "GB",
+      "pos": "RB",
+      "group": "rushing",
+      "att": 57,
+      "yds": 149,
+      "ypc": 2.6,
+      "eff": 5.83,
+      "stack": 12.3,
+      "ryoe": -1.53,
+      "td": 2,
+      "tlos": 2.82,
+      "gp": 8,
+      "attpg": 7.1,
+      "ypg": 18.6,
       "tdpg": 0.2
     },
     {
-      "name": "Rhamondre Stevenson",
-      "team": "NE",
+      "name": "Jeremiyah Love",
+      "team": "ARI",
       "pos": "RB",
       "group": "rushing",
-      "att": 102,
-      "yds": 399,
-      "ypc": 3.9,
-      "eff": 3.93,
-      "stack": 21.6,
-      "ryoe": 0.31,
-      "td": 2,
-      "tlos": 2.81,
-      "gp": 9,
-      "attpg": 11.3,
-      "ypg": 44.3,
+      "att": 76,
+      "yds": 268,
+      "ypc": 3.5,
+      "eff": 4.47,
+      "stack": 22.4,
+      "ryoe": -0.61,
+      "td": 1,
+      "tlos": 2.9,
+      "gp": 6,
+      "attpg": 12.7,
+      "ypg": 44.7,
       "tdpg": 0.2
     },
     {
@@ -40018,60 +39749,6 @@
       "tdpg": 0.1
     },
     {
-      "name": "Omarion Hampton",
-      "team": "LAC",
-      "pos": "RB",
-      "group": "rushing",
-      "att": 102,
-      "yds": 369,
-      "ypc": 3.6,
-      "eff": 4.23,
-      "stack": 25.5,
-      "ryoe": -0.45,
-      "td": 3,
-      "tlos": 2.68,
-      "gp": 8,
-      "attpg": 12.8,
-      "ypg": 46.1,
-      "tdpg": 0.4
-    },
-    {
-      "name": "Jeremiyah Love",
-      "team": "ARI",
-      "pos": "RB",
-      "group": "rushing",
-      "att": 76,
-      "yds": 268,
-      "ypc": 3.5,
-      "eff": 4.47,
-      "stack": 22.4,
-      "ryoe": -0.61,
-      "td": 1,
-      "tlos": 2.9,
-      "gp": 6,
-      "attpg": 12.7,
-      "ypg": 44.7,
-      "tdpg": 0.2
-    },
-    {
-      "name": "Mike Washington Jr.",
-      "team": "LV",
-      "pos": "RB",
-      "group": "rushing",
-      "att": 71,
-      "yds": 275,
-      "ypc": 3.9,
-      "eff": 4.38,
-      "stack": 28.2,
-      "ryoe": -0.0,
-      "td": 1,
-      "tlos": 2.85,
-      "gp": 9,
-      "attpg": 7.9,
-      "ypg": 30.6,
-      "tdpg": 0.1
-    },
-    {
       "name": "Jonathan Taylor",
       "team": "IND",
       "pos": "RB",
@@ -40088,6 +39765,42 @@
       "attpg": 17.9,
       "ypg": 72.9,
       "tdpg": 0.9
+    },
+    {
+      "name": "James Cook",
+      "team": "BUF",
+      "pos": "RB",
+      "group": "rushing",
+      "att": 169,
+      "yds": 814,
+      "ypc": 4.8,
+      "eff": 3.36,
+      "stack": 27.2,
+      "ryoe": 0.56,
+      "td": 8,
+      "tlos": 2.52,
+      "gp": 8,
+      "attpg": 21.1,
+      "ypg": 101.8,
+      "tdpg": 1.0
+    },
+    {
+      "name": "Javonte Williams",
+      "team": "DAL",
+      "pos": "RB",
+      "group": "rushing",
+      "att": 154,
+      "yds": 629,
+      "ypc": 4.1,
+      "eff": 3.54,
+      "stack": 16.2,
+      "ryoe": 0.33,
+      "td": 9,
+      "tlos": 2.79,
+      "gp": 9,
+      "attpg": 17.1,
+      "ypg": 69.9,
+      "tdpg": 1.0
     },
     {
       "name": "Ollie Gordon II",
@@ -40108,6 +39821,222 @@
       "tdpg": 0.6
     },
     {
+      "name": "Breece Hall",
+      "team": "NYJ",
+      "pos": "RB",
+      "group": "rushing",
+      "att": 66,
+      "yds": 224,
+      "ypc": 3.4,
+      "eff": 5.06,
+      "stack": 28.8,
+      "ryoe": -0.36,
+      "td": 1,
+      "tlos": 2.83,
+      "gp": 4,
+      "attpg": 16.5,
+      "ypg": 56.0,
+      "tdpg": 0.2
+    },
+    {
+      "name": "Derrick Henry",
+      "team": "BAL",
+      "pos": "RB",
+      "group": "rushing",
+      "att": 175,
+      "yds": 689,
+      "ypc": 3.9,
+      "eff": 4.42,
+      "stack": 30.9,
+      "ryoe": 0.12,
+      "td": 8,
+      "tlos": 2.98,
+      "gp": 9,
+      "attpg": 19.4,
+      "ypg": 76.6,
+      "tdpg": 0.9
+    },
+    {
+      "name": "Brian Robinson",
+      "team": "ATL",
+      "pos": "RB",
+      "group": "rushing",
+      "att": 53,
+      "yds": 211,
+      "ypc": 4.0,
+      "eff": 4.1,
+      "stack": 18.9,
+      "ryoe": -0.07,
+      "td": 4,
+      "tlos": 2.7,
+      "gp": 6,
+      "attpg": 8.8,
+      "ypg": 35.2,
+      "tdpg": 0.7
+    },
+    {
+      "name": "Corey Kiner",
+      "team": "NE",
+      "pos": "RB",
+      "group": "rushing",
+      "att": 50,
+      "yds": 244,
+      "ypc": 4.9,
+      "eff": 3.06,
+      "stack": 16.0,
+      "ryoe": 0.69,
+      "td": 1,
+      "tlos": 2.63,
+      "gp": 9,
+      "attpg": 5.6,
+      "ypg": 27.1,
+      "tdpg": 0.1
+    },
+    {
+      "name": "Mike Washington Jr.",
+      "team": "LV",
+      "pos": "RB",
+      "group": "rushing",
+      "att": 71,
+      "yds": 275,
+      "ypc": 3.9,
+      "eff": 4.38,
+      "stack": 28.2,
+      "ryoe": -0.0,
+      "td": 1,
+      "tlos": 2.85,
+      "gp": 9,
+      "attpg": 7.9,
+      "ypg": 30.6,
+      "tdpg": 0.1
+    },
+    {
+      "name": "Rachaad White",
+      "team": "WAS",
+      "pos": "RB",
+      "group": "rushing",
+      "att": 65,
+      "yds": 275,
+      "ypc": 4.2,
+      "eff": 3.71,
+      "stack": 16.9,
+      "ryoe": -0.06,
+      "td": 1,
+      "tlos": 2.95,
+      "gp": 8,
+      "attpg": 8.1,
+      "ypg": 34.4,
+      "tdpg": 0.1
+    },
+    {
+      "name": "Aaron Jones",
+      "team": "MIN",
+      "pos": "RB",
+      "group": "rushing",
+      "att": 115,
+      "yds": 474,
+      "ypc": 4.1,
+      "eff": 3.75,
+      "stack": 20.0,
+      "ryoe": -0.58,
+      "td": 2,
+      "tlos": 2.68,
+      "gp": 8,
+      "attpg": 14.4,
+      "ypg": 59.2,
+      "tdpg": 0.2
+    },
+    {
+      "name": "Kenneth Walker III",
+      "team": "KC",
+      "pos": "RB",
+      "group": "rushing",
+      "att": 159,
+      "yds": 872,
+      "ypc": 5.5,
+      "eff": 3.38,
+      "stack": 22.6,
+      "ryoe": 1.66,
+      "td": 7,
+      "tlos": 2.83,
+      "gp": 8,
+      "attpg": 19.9,
+      "ypg": 109.0,
+      "tdpg": 0.9
+    },
+    {
+      "name": "Tony Pollard",
+      "team": "TEN",
+      "pos": "RB",
+      "group": "rushing",
+      "att": 133,
+      "yds": 595,
+      "ypc": 4.5,
+      "eff": 3.47,
+      "stack": 15.8,
+      "ryoe": 0.61,
+      "td": 6,
+      "tlos": 2.8,
+      "gp": 8,
+      "attpg": 16.6,
+      "ypg": 74.4,
+      "tdpg": 0.8
+    },
+    {
+      "name": "D'Andre Swift",
+      "team": "CHI",
+      "pos": "RB",
+      "group": "rushing",
+      "att": 155,
+      "yds": 576,
+      "ypc": 3.7,
+      "eff": 4.57,
+      "stack": 26.5,
+      "ryoe": -0.51,
+      "td": 10,
+      "tlos": 2.87,
+      "gp": 9,
+      "attpg": 17.2,
+      "ypg": 64.0,
+      "tdpg": 1.1
+    },
+    {
+      "name": "Kyren Williams",
+      "team": "LA",
+      "pos": "RB",
+      "group": "rushing",
+      "att": 127,
+      "yds": 593,
+      "ypc": 4.7,
+      "eff": 3.42,
+      "stack": 34.6,
+      "ryoe": 0.31,
+      "td": 6,
+      "tlos": 2.87,
+      "gp": 9,
+      "attpg": 14.1,
+      "ypg": 65.9,
+      "tdpg": 0.7
+    },
+    {
+      "name": "Jahmyr Gibbs",
+      "team": "DET",
+      "pos": "RB",
+      "group": "rushing",
+      "att": 177,
+      "yds": 847,
+      "ypc": 4.8,
+      "eff": 3.95,
+      "stack": 20.3,
+      "ryoe": 0.6,
+      "td": 9,
+      "tlos": 2.94,
+      "gp": 8,
+      "attpg": 22.1,
+      "ypg": 105.9,
+      "tdpg": 1.1
+    },
+    {
       "name": "Kyle Monangai",
       "team": "CHI",
       "pos": "RB",
@@ -40124,6 +40053,330 @@
       "attpg": 15.0,
       "ypg": 81.0,
       "tdpg": 0.8
+    },
+    {
+      "name": "Quinshon Judkins",
+      "team": "CLE",
+      "pos": "RB",
+      "group": "rushing",
+      "att": 116,
+      "yds": 385,
+      "ypc": 3.3,
+      "eff": 4.35,
+      "stack": 26.7,
+      "ryoe": -0.22,
+      "td": 3,
+      "tlos": 2.66,
+      "gp": 8,
+      "attpg": 14.5,
+      "ypg": 48.1,
+      "tdpg": 0.4
+    },
+    {
+      "name": "Kenneth Gainwell",
+      "team": "TB",
+      "pos": "RB",
+      "group": "rushing",
+      "att": 63,
+      "yds": 305,
+      "ypc": 4.8,
+      "eff": 3.45,
+      "stack": 25.4,
+      "ryoe": 1.22,
+      "td": 0,
+      "tlos": 3.1,
+      "gp": null,
+      "attpg": null,
+      "ypg": null,
+      "tdpg": null
+    },
+    {
+      "name": "Rhamondre Stevenson",
+      "team": "NE",
+      "pos": "RB",
+      "group": "rushing",
+      "att": 102,
+      "yds": 399,
+      "ypc": 3.9,
+      "eff": 3.93,
+      "stack": 21.6,
+      "ryoe": 0.31,
+      "td": 2,
+      "tlos": 2.81,
+      "gp": 9,
+      "attpg": 11.3,
+      "ypg": 44.3,
+      "tdpg": 0.2
+    },
+    {
+      "name": "Bhayshul Tuten",
+      "team": "JAX",
+      "pos": "RB",
+      "group": "rushing",
+      "att": 122,
+      "yds": 521,
+      "ypc": 4.3,
+      "eff": 4.52,
+      "stack": 14.8,
+      "ryoe": -0.07,
+      "td": 4,
+      "tlos": 2.98,
+      "gp": 8,
+      "attpg": 15.2,
+      "ypg": 65.1,
+      "tdpg": 0.5
+    },
+    {
+      "name": "Cam Skattebo",
+      "team": "NYG",
+      "pos": "RB",
+      "group": "rushing",
+      "att": 116,
+      "yds": 496,
+      "ypc": 4.3,
+      "eff": 3.66,
+      "stack": 20.7,
+      "ryoe": 0.09,
+      "td": 4,
+      "tlos": 2.62,
+      "gp": 7,
+      "attpg": 16.6,
+      "ypg": 70.9,
+      "tdpg": 0.6
+    },
+    {
+      "name": "Christian McCaffrey",
+      "team": "SF",
+      "pos": "RB",
+      "group": "rushing",
+      "att": 102,
+      "yds": 457,
+      "ypc": 4.5,
+      "eff": 3.54,
+      "stack": 26.5,
+      "ryoe": 0.32,
+      "td": 9,
+      "tlos": 2.47,
+      "gp": 8,
+      "attpg": 12.8,
+      "ypg": 57.1,
+      "tdpg": 1.1
+    },
+    {
+      "name": "Kendre Miller",
+      "team": "DAL",
+      "pos": "RB",
+      "group": "rushing",
+      "att": 57,
+      "yds": 159,
+      "ypc": 2.8,
+      "eff": 4.89,
+      "stack": 33.3,
+      "ryoe": -1.11,
+      "td": 2,
+      "tlos": 2.61,
+      "gp": 6,
+      "attpg": 9.5,
+      "ypg": 26.5,
+      "tdpg": 0.3
+    },
+    {
+      "name": "Ashton Jeanty",
+      "team": "LV",
+      "pos": "RB",
+      "group": "rushing",
+      "att": 114,
+      "yds": 362,
+      "ypc": 3.2,
+      "eff": 4.7,
+      "stack": 28.1,
+      "ryoe": -0.28,
+      "td": 1,
+      "tlos": 2.94,
+      "gp": 9,
+      "attpg": 12.7,
+      "ypg": 40.2,
+      "tdpg": 0.1
+    },
+    {
+      "name": "TreVeyon Henderson",
+      "team": "NE",
+      "pos": "RB",
+      "group": "rushing",
+      "att": 52,
+      "yds": 203,
+      "ypc": 3.9,
+      "eff": 3.86,
+      "stack": 17.3,
+      "ryoe": -0.0,
+      "td": 1,
+      "tlos": 2.85,
+      "gp": 6,
+      "attpg": 8.7,
+      "ypg": 33.8,
+      "tdpg": 0.2
+    },
+    {
+      "name": "Woody Marks",
+      "team": "HOU",
+      "pos": "RB",
+      "group": "rushing",
+      "att": 95,
+      "yds": 341,
+      "ypc": 3.6,
+      "eff": 4.26,
+      "stack": 23.2,
+      "ryoe": -0.41,
+      "td": 2,
+      "tlos": 2.79,
+      "gp": 8,
+      "attpg": 11.9,
+      "ypg": 42.6,
+      "tdpg": 0.2
+    },
+    {
+      "name": "Omarion Hampton",
+      "team": "LAC",
+      "pos": "RB",
+      "group": "rushing",
+      "att": 102,
+      "yds": 369,
+      "ypc": 3.6,
+      "eff": 4.23,
+      "stack": 25.5,
+      "ryoe": -0.45,
+      "td": 3,
+      "tlos": 2.68,
+      "gp": 8,
+      "attpg": 12.8,
+      "ypg": 46.1,
+      "tdpg": 0.4
+    },
+    {
+      "name": "Bucky Irving",
+      "team": "TB",
+      "pos": "RB",
+      "group": "rushing",
+      "att": 167,
+      "yds": 825,
+      "ypc": 4.9,
+      "eff": 3.44,
+      "stack": 24.6,
+      "ryoe": 0.7,
+      "td": 7,
+      "tlos": 2.98,
+      "gp": 9,
+      "attpg": 18.6,
+      "ypg": 91.7,
+      "tdpg": 0.8
+    },
+    {
+      "name": "Tyler Allgeier",
+      "team": "ARI",
+      "pos": "RB",
+      "group": "rushing",
+      "att": 89,
+      "yds": 369,
+      "ypc": 4.1,
+      "eff": 3.75,
+      "stack": 24.7,
+      "ryoe": 0.61,
+      "td": 2,
+      "tlos": 2.79,
+      "gp": 9,
+      "attpg": 9.9,
+      "ypg": 41.0,
+      "tdpg": 0.2
+    },
+    {
+      "name": "Chuba Hubbard",
+      "team": "CAR",
+      "pos": "RB",
+      "group": "rushing",
+      "att": 134,
+      "yds": 619,
+      "ypc": 4.6,
+      "eff": 3.68,
+      "stack": 23.9,
+      "ryoe": 0.83,
+      "td": 5,
+      "tlos": 2.71,
+      "gp": 8,
+      "attpg": 16.8,
+      "ypg": 77.4,
+      "tdpg": 0.6
+    },
+    {
+      "name": "Blake Corum",
+      "team": "LA",
+      "pos": "RB",
+      "group": "rushing",
+      "att": 86,
+      "yds": 447,
+      "ypc": 5.2,
+      "eff": 3.37,
+      "stack": 26.7,
+      "ryoe": 0.32,
+      "td": 4,
+      "tlos": 2.57,
+      "gp": 9,
+      "attpg": 9.6,
+      "ypg": 49.7,
+      "tdpg": 0.4
+    },
+    {
+      "name": "Jacory Croskey-Merritt",
+      "team": "WAS",
+      "pos": "RB",
+      "group": "rushing",
+      "att": 67,
+      "yds": 239,
+      "ypc": 3.6,
+      "eff": 4.01,
+      "stack": 6.0,
+      "ryoe": -0.45,
+      "td": 2,
+      "tlos": 2.75,
+      "gp": 5,
+      "attpg": 13.4,
+      "ypg": 47.8,
+      "tdpg": 0.4
+    },
+    {
+      "name": "Chris Rodriguez Jr.",
+      "team": "JAX",
+      "pos": "RB",
+      "group": "rushing",
+      "att": 55,
+      "yds": 228,
+      "ypc": 4.1,
+      "eff": 3.33,
+      "stack": 18.2,
+      "ryoe": 0.13,
+      "td": 4,
+      "tlos": 2.49,
+      "gp": 8,
+      "attpg": 6.9,
+      "ypg": 28.5,
+      "tdpg": 0.5
+    },
+    {
+      "name": "Jaylen Warren",
+      "team": "PIT",
+      "pos": "RB",
+      "group": "rushing",
+      "att": 119,
+      "yds": 704,
+      "ypc": 5.9,
+      "eff": 3.1,
+      "stack": 23.5,
+      "ryoe": 1.93,
+      "td": 2,
+      "tlos": 2.8,
+      "gp": 8,
+      "attpg": 14.9,
+      "ypg": 88.0,
+      "tdpg": 0.2
     },
     {
       "name": "David Montgomery",
@@ -40162,96 +40415,6 @@
       "tdpg": 0.4
     },
     {
-      "name": "Kenneth Walker III",
-      "team": "KC",
-      "pos": "RB",
-      "group": "rushing",
-      "att": 159,
-      "yds": 872,
-      "ypc": 5.5,
-      "eff": 3.38,
-      "stack": 22.6,
-      "ryoe": 1.66,
-      "td": 7,
-      "tlos": 2.83,
-      "gp": 8,
-      "attpg": 19.9,
-      "ypg": 109.0,
-      "tdpg": 0.9
-    },
-    {
-      "name": "Chris Rodriguez Jr.",
-      "team": "JAX",
-      "pos": "RB",
-      "group": "rushing",
-      "att": 55,
-      "yds": 228,
-      "ypc": 4.1,
-      "eff": 3.33,
-      "stack": 18.2,
-      "ryoe": 0.13,
-      "td": 4,
-      "tlos": 2.49,
-      "gp": 8,
-      "attpg": 6.9,
-      "ypg": 28.5,
-      "tdpg": 0.5
-    },
-    {
-      "name": "Jahmyr Gibbs",
-      "team": "DET",
-      "pos": "RB",
-      "group": "rushing",
-      "att": 177,
-      "yds": 847,
-      "ypc": 4.8,
-      "eff": 3.95,
-      "stack": 20.3,
-      "ryoe": 0.6,
-      "td": 9,
-      "tlos": 2.94,
-      "gp": 8,
-      "attpg": 22.1,
-      "ypg": 105.9,
-      "tdpg": 1.1
-    },
-    {
-      "name": "Derrick Henry",
-      "team": "BAL",
-      "pos": "RB",
-      "group": "rushing",
-      "att": 175,
-      "yds": 689,
-      "ypc": 3.9,
-      "eff": 4.42,
-      "stack": 30.9,
-      "ryoe": 0.12,
-      "td": 8,
-      "tlos": 2.98,
-      "gp": 9,
-      "attpg": 19.4,
-      "ypg": 76.6,
-      "tdpg": 0.9
-    },
-    {
-      "name": "Ashton Jeanty",
-      "team": "LV",
-      "pos": "RB",
-      "group": "rushing",
-      "att": 114,
-      "yds": 362,
-      "ypc": 3.2,
-      "eff": 4.7,
-      "stack": 28.1,
-      "ryoe": -0.28,
-      "td": 1,
-      "tlos": 2.94,
-      "gp": 9,
-      "attpg": 12.7,
-      "ypg": 40.2,
-      "tdpg": 0.1
-    },
-    {
       "name": "Bijan Robinson",
       "team": "ATL",
       "pos": "RB",
@@ -40268,132 +40431,6 @@
       "attpg": 18.8,
       "ypg": 97.8,
       "tdpg": 0.6
-    },
-    {
-      "name": "Javonte Williams",
-      "team": "DAL",
-      "pos": "RB",
-      "group": "rushing",
-      "att": 154,
-      "yds": 629,
-      "ypc": 4.1,
-      "eff": 3.54,
-      "stack": 16.2,
-      "ryoe": 0.33,
-      "td": 9,
-      "tlos": 2.79,
-      "gp": 9,
-      "attpg": 17.1,
-      "ypg": 69.9,
-      "tdpg": 1.0
-    },
-    {
-      "name": "Cam Skattebo",
-      "team": "NYG",
-      "pos": "RB",
-      "group": "rushing",
-      "att": 116,
-      "yds": 496,
-      "ypc": 4.3,
-      "eff": 3.66,
-      "stack": 20.7,
-      "ryoe": 0.09,
-      "td": 4,
-      "tlos": 2.62,
-      "gp": 7,
-      "attpg": 16.6,
-      "ypg": 70.9,
-      "tdpg": 0.6
-    },
-    {
-      "name": "Corey Kiner",
-      "team": "NE",
-      "pos": "RB",
-      "group": "rushing",
-      "att": 50,
-      "yds": 244,
-      "ypc": 4.9,
-      "eff": 3.06,
-      "stack": 16.0,
-      "ryoe": 0.69,
-      "td": 1,
-      "tlos": 2.63,
-      "gp": 9,
-      "attpg": 5.6,
-      "ypg": 27.1,
-      "tdpg": 0.1
-    },
-    {
-      "name": "Blake Corum",
-      "team": "LA",
-      "pos": "RB",
-      "group": "rushing",
-      "att": 86,
-      "yds": 447,
-      "ypc": 5.2,
-      "eff": 3.37,
-      "stack": 26.7,
-      "ryoe": 0.32,
-      "td": 4,
-      "tlos": 2.57,
-      "gp": 9,
-      "attpg": 9.6,
-      "ypg": 49.7,
-      "tdpg": 0.4
-    },
-    {
-      "name": "Braelon Allen",
-      "team": "NYJ",
-      "pos": "RB",
-      "group": "rushing",
-      "att": 120,
-      "yds": 598,
-      "ypc": 5.0,
-      "eff": 3.43,
-      "stack": 25.0,
-      "ryoe": 1.06,
-      "td": 3,
-      "tlos": 2.71,
-      "gp": 9,
-      "attpg": 13.3,
-      "ypg": 66.4,
-      "tdpg": 0.3
-    },
-    {
-      "name": "D'Andre Swift",
-      "team": "CHI",
-      "pos": "RB",
-      "group": "rushing",
-      "att": 155,
-      "yds": 576,
-      "ypc": 3.7,
-      "eff": 4.57,
-      "stack": 26.5,
-      "ryoe": -0.51,
-      "td": 10,
-      "tlos": 2.87,
-      "gp": 9,
-      "attpg": 17.2,
-      "ypg": 64.0,
-      "tdpg": 1.1
-    },
-    {
-      "name": "Chase Brown",
-      "team": "CIN",
-      "pos": "RB",
-      "group": "rushing",
-      "att": 103,
-      "yds": 397,
-      "ypc": 3.9,
-      "eff": 4.03,
-      "stack": 21.4,
-      "ryoe": -0.25,
-      "td": 1,
-      "tlos": 2.69,
-      "gp": 8,
-      "attpg": 12.9,
-      "ypg": 49.6,
-      "tdpg": 0.1
     },
     {
       "name": "KC Concepcion",
@@ -42642,6 +42679,138 @@
   "props": {},
   "propsBook": null,
   "dvp": {
+    "MIA": {
+      "QB": {
+        "passYds": 23,
+        "passTD": 4,
+        "passAtt": 32,
+        "cmp": 19,
+        "rushYds": 29,
+        "rushTD": 8
+      },
+      "RB": {
+        "rushYds": 12,
+        "rushTD": 25,
+        "rushAtt": 7,
+        "recYds": 14,
+        "rec": 9,
+        "recTD": 1
+      },
+      "WR": {
+        "recYds": 26,
+        "rec": 29,
+        "recTD": 26
+      },
+      "TE": {
+        "recYds": 8,
+        "rec": 7,
+        "recTD": 6
+      },
+      "team": {
+        "sacks": 31,
+        "int": 20,
+        "fg": 17
+      }
+    },
+    "CAR": {
+      "QB": {
+        "passYds": 25,
+        "passTD": 16,
+        "passAtt": 9,
+        "cmp": 11,
+        "rushYds": 11,
+        "rushTD": 8
+      },
+      "RB": {
+        "rushYds": 6,
+        "rushTD": 1,
+        "rushAtt": 9,
+        "recYds": 22,
+        "rec": 9,
+        "recTD": 15
+      },
+      "WR": {
+        "recYds": 19,
+        "rec": 10,
+        "recTD": 22
+      },
+      "TE": {
+        "recYds": 24,
+        "rec": 20,
+        "recTD": 9
+      },
+      "team": {
+        "sacks": 31,
+        "int": 20,
+        "fg": 24
+      }
+    },
+    "BUF": {
+      "QB": {
+        "passYds": 6,
+        "passTD": 7,
+        "passAtt": 3,
+        "cmp": 7,
+        "rushYds": 23,
+        "rushTD": 24
+      },
+      "RB": {
+        "rushYds": 23,
+        "rushTD": 11,
+        "rushAtt": 25,
+        "recYds": 9,
+        "rec": 3,
+        "recTD": 3
+      },
+      "WR": {
+        "recYds": 17,
+        "rec": 16,
+        "recTD": 1
+      },
+      "TE": {
+        "recYds": 5,
+        "rec": 10,
+        "recTD": 27
+      },
+      "team": {
+        "sacks": 20,
+        "int": 14,
+        "fg": 28
+      }
+    },
+    "KC": {
+      "QB": {
+        "passYds": 26,
+        "passTD": 30,
+        "passAtt": 10,
+        "cmp": 16,
+        "rushYds": 17,
+        "rushTD": 24
+      },
+      "RB": {
+        "rushYds": 26,
+        "rushTD": 20,
+        "rushAtt": 21,
+        "recYds": 6,
+        "rec": 15,
+        "recTD": 22
+      },
+      "WR": {
+        "recYds": 31,
+        "rec": 27,
+        "recTD": 32
+      },
+      "TE": {
+        "recYds": 7,
+        "rec": 3,
+        "recTD": 9
+      },
+      "team": {
+        "sacks": 29,
+        "int": 14,
+        "fg": 6
+      }
+    },
     "TEN": {
       "QB": {
         "passYds": 2,
@@ -42673,6 +42842,39 @@
         "sacks": 14,
         "int": 5,
         "fg": 10
+      }
+    },
+    "JAX": {
+      "QB": {
+        "passYds": 17,
+        "passTD": 28,
+        "passAtt": 20,
+        "cmp": 16,
+        "rushYds": 22,
+        "rushTD": 19
+      },
+      "RB": {
+        "rushYds": 31,
+        "rushTD": 25,
+        "rushAtt": 29,
+        "recYds": 15,
+        "rec": 6,
+        "recTD": 22
+      },
+      "WR": {
+        "recYds": 5,
+        "rec": 8,
+        "recTD": 29
+      },
+      "TE": {
+        "recYds": 32,
+        "rec": 31,
+        "recTD": 14
+      },
+      "team": {
+        "sacks": 25,
+        "int": 3,
+        "fg": 29
       }
     },
     "LV": {
@@ -42708,103 +42910,70 @@
         "fg": 23
       }
     },
-    "IND": {
+    "GB": {
       "QB": {
-        "passYds": 15,
-        "passTD": 8,
-        "passAtt": 27,
-        "cmp": 30,
-        "rushYds": 6,
-        "rushTD": 20
+        "passYds": 19,
+        "passTD": 18,
+        "passAtt": 5,
+        "cmp": 9,
+        "rushYds": 23,
+        "rushTD": 24
       },
       "RB": {
-        "rushYds": 5,
-        "rushTD": 8,
-        "rushAtt": 14,
-        "recYds": 5,
-        "rec": 26,
+        "rushYds": 17,
+        "rushTD": 3,
+        "rushAtt": 16,
+        "recYds": 10,
+        "rec": 13,
         "recTD": 8
       },
       "WR": {
-        "recYds": 18,
+        "recYds": 12,
+        "rec": 2,
+        "recTD": 8
+      },
+      "TE": {
+        "recYds": 31,
         "rec": 28,
-        "recTD": 18
-      },
-      "TE": {
-        "recYds": 19,
-        "rec": 24,
-        "recTD": 4
-      },
-      "team": {
-        "sacks": 16,
-        "int": 31,
-        "fg": 3
-      }
-    },
-    "NE": {
-      "QB": {
-        "passYds": 7,
-        "passTD": 13,
-        "passAtt": 22,
-        "cmp": 13,
-        "rushYds": 28,
-        "rushTD": 14
-      },
-      "RB": {
-        "rushYds": 20,
-        "rushTD": 18,
-        "rushAtt": 24,
-        "recYds": 21,
-        "rec": 23,
-        "recTD": 22
-      },
-      "WR": {
-        "recYds": 4,
-        "rec": 4,
-        "recTD": 3
-      },
-      "TE": {
-        "recYds": 25,
-        "rec": 22,
         "recTD": 24
       },
       "team": {
-        "sacks": 9,
-        "int": 20,
-        "fg": 8
+        "sacks": 4,
+        "int": 2,
+        "fg": 31
       }
     },
-    "NYG": {
+    "TB": {
       "QB": {
-        "passYds": 30,
-        "passTD": 5,
-        "passAtt": 22,
-        "cmp": 23,
-        "rushYds": 2,
-        "rushTD": 3
+        "passYds": 22,
+        "passTD": 23,
+        "passAtt": 12,
+        "cmp": 18,
+        "rushYds": 26,
+        "rushTD": 24
       },
       "RB": {
-        "rushYds": 18,
-        "rushTD": 28,
-        "rushAtt": 22,
-        "recYds": 27,
-        "rec": 29,
-        "recTD": 4
+        "rushYds": 32,
+        "rushTD": 30,
+        "rushAtt": 30,
+        "recYds": 19,
+        "rec": 18,
+        "recTD": 22
       },
       "WR": {
-        "recYds": 25,
-        "rec": 21,
-        "recTD": 4
+        "recYds": 21,
+        "rec": 15,
+        "recTD": 18
       },
       "TE": {
-        "recYds": 22,
-        "rec": 9,
-        "recTD": 19
+        "recYds": 10,
+        "rec": 15,
+        "recTD": 12
       },
       "team": {
         "sacks": 20,
-        "int": 5,
-        "fg": 30
+        "int": 1,
+        "fg": 8
       }
     },
     "ATL": {
@@ -42837,6 +43006,270 @@
       "team": {
         "sacks": 14,
         "int": 28,
+        "fg": 19
+      }
+    },
+    "HOU": {
+      "QB": {
+        "passYds": 4,
+        "passTD": 16,
+        "passAtt": 10,
+        "cmp": 10,
+        "rushYds": 29,
+        "rushTD": 1
+      },
+      "RB": {
+        "rushYds": 16,
+        "rushTD": 15,
+        "rushAtt": 15,
+        "recYds": 26,
+        "rec": 9,
+        "recTD": 6
+      },
+      "WR": {
+        "recYds": 2,
+        "rec": 8,
+        "recTD": 8
+      },
+      "TE": {
+        "recYds": 27,
+        "rec": 25,
+        "recTD": 27
+      },
+      "team": {
+        "sacks": 1,
+        "int": 24,
+        "fg": 14
+      }
+    },
+    "NYJ": {
+      "QB": {
+        "passYds": 28,
+        "passTD": 8,
+        "passAtt": 26,
+        "cmp": 27,
+        "rushYds": 16,
+        "rushTD": 14
+      },
+      "RB": {
+        "rushYds": 7,
+        "rushTD": 12,
+        "rushAtt": 2,
+        "recYds": 23,
+        "rec": 26,
+        "recTD": 2
+      },
+      "WR": {
+        "recYds": 28,
+        "rec": 23,
+        "recTD": 8
+      },
+      "TE": {
+        "recYds": 9,
+        "rec": 12,
+        "recTD": 19
+      },
+      "team": {
+        "sacks": 12,
+        "int": 32,
+        "fg": 24
+      }
+    },
+    "DET": {
+      "QB": {
+        "passYds": 1,
+        "passTD": 1,
+        "passAtt": 1,
+        "cmp": 1,
+        "rushYds": 9,
+        "rushTD": 8
+      },
+      "RB": {
+        "rushYds": 27,
+        "rushTD": 25,
+        "rushAtt": 31,
+        "recYds": 20,
+        "rec": 22,
+        "recTD": 15
+      },
+      "WR": {
+        "recYds": 7,
+        "rec": 3,
+        "recTD": 22
+      },
+      "TE": {
+        "recYds": 1,
+        "rec": 1,
+        "recTD": 1
+      },
+      "team": {
+        "sacks": 3,
+        "int": 14,
+        "fg": 31
+      }
+    },
+    "LAC": {
+      "QB": {
+        "passYds": 21,
+        "passTD": 11,
+        "passAtt": 29,
+        "cmp": 28,
+        "rushYds": 27,
+        "rushTD": 8
+      },
+      "RB": {
+        "rushYds": 10,
+        "rushTD": 4,
+        "rushAtt": 5,
+        "recYds": 28,
+        "rec": 28,
+        "recTD": 15
+      },
+      "WR": {
+        "recYds": 11,
+        "rec": 14,
+        "recTD": 1
+      },
+      "TE": {
+        "recYds": 16,
+        "rec": 30,
+        "recTD": 27
+      },
+      "team": {
+        "sacks": 30,
+        "int": 9,
+        "fg": 10
+      }
+    },
+    "NO": {
+      "QB": {
+        "passYds": 5,
+        "passTD": 11,
+        "passAtt": 18,
+        "cmp": 15,
+        "rushYds": 10,
+        "rushTD": 24
+      },
+      "RB": {
+        "rushYds": 3,
+        "rushTD": 1,
+        "rushAtt": 6,
+        "recYds": 8,
+        "rec": 9,
+        "recTD": 15
+      },
+      "WR": {
+        "recYds": 13,
+        "rec": 17,
+        "recTD": 16
+      },
+      "TE": {
+        "recYds": 6,
+        "rec": 10,
+        "recTD": 9
+      },
+      "team": {
+        "sacks": 10,
+        "int": 24,
+        "fg": 10
+      }
+    },
+    "CIN": {
+      "QB": {
+        "passYds": 10,
+        "passTD": 27,
+        "passAtt": 13,
+        "cmp": 12,
+        "rushYds": 1,
+        "rushTD": 8
+      },
+      "RB": {
+        "rushYds": 19,
+        "rushTD": 15,
+        "rushAtt": 27,
+        "recYds": 16,
+        "rec": 17,
+        "recTD": 22
+      },
+      "WR": {
+        "recYds": 23,
+        "rec": 19,
+        "recTD": 8
+      },
+      "TE": {
+        "recYds": 2,
+        "rec": 3,
+        "recTD": 27
+      },
+      "team": {
+        "sacks": 10,
+        "int": 20,
+        "fg": 14
+      }
+    },
+    "MIN": {
+      "QB": {
+        "passYds": 31,
+        "passTD": 32,
+        "passAtt": 28,
+        "cmp": 32,
+        "rushYds": 25,
+        "rushTD": 24
+      },
+      "RB": {
+        "rushYds": 11,
+        "rushTD": 20,
+        "rushAtt": 9,
+        "recYds": 29,
+        "rec": 32,
+        "recTD": 22
+      },
+      "WR": {
+        "recYds": 29,
+        "rec": 25,
+        "recTD": 29
+      },
+      "TE": {
+        "recYds": 26,
+        "rec": 32,
+        "recTD": 27
+      },
+      "team": {
+        "sacks": 1,
+        "int": 4,
+        "fg": 19
+      }
+    },
+    "WAS": {
+      "QB": {
+        "passYds": 3,
+        "passTD": 5,
+        "passAtt": 4,
+        "cmp": 3,
+        "rushYds": 5,
+        "rushTD": 20
+      },
+      "RB": {
+        "rushYds": 22,
+        "rushTD": 8,
+        "rushAtt": 23,
+        "recYds": 12,
+        "rec": 13,
+        "recTD": 22
+      },
+      "WR": {
+        "recYds": 14,
+        "rec": 4,
+        "recTD": 14
+      },
+      "TE": {
+        "recYds": 3,
+        "rec": 5,
+        "recTD": 2
+      },
+      "team": {
+        "sacks": 19,
+        "int": 14,
         "fg": 19
       }
     },
@@ -42873,597 +43306,69 @@
         "fg": 3
       }
     },
-    "BUF": {
+    "IND": {
       "QB": {
-        "passYds": 6,
-        "passTD": 7,
-        "passAtt": 3,
-        "cmp": 7,
-        "rushYds": 23,
-        "rushTD": 24
+        "passYds": 15,
+        "passTD": 8,
+        "passAtt": 27,
+        "cmp": 30,
+        "rushYds": 6,
+        "rushTD": 20
       },
       "RB": {
-        "rushYds": 23,
-        "rushTD": 11,
-        "rushAtt": 25,
-        "recYds": 9,
-        "rec": 3,
-        "recTD": 3
-      },
-      "WR": {
-        "recYds": 17,
-        "rec": 16,
-        "recTD": 1
-      },
-      "TE": {
+        "rushYds": 5,
+        "rushTD": 8,
+        "rushAtt": 14,
         "recYds": 5,
-        "rec": 10,
-        "recTD": 27
-      },
-      "team": {
-        "sacks": 20,
-        "int": 14,
-        "fg": 28
-      }
-    },
-    "ARI": {
-      "QB": {
-        "passYds": 20,
-        "passTD": 3,
-        "passAtt": 31,
-        "cmp": 29,
-        "rushYds": 8,
-        "rushTD": 3
-      },
-      "RB": {
-        "rushYds": 14,
-        "rushTD": 22,
-        "rushAtt": 4,
-        "recYds": 12,
-        "rec": 29,
+        "rec": 26,
         "recTD": 8
       },
       "WR": {
-        "recYds": 16,
-        "rec": 25,
-        "recTD": 4
+        "recYds": 18,
+        "rec": 28,
+        "recTD": 18
       },
       "TE": {
-        "recYds": 17,
-        "rec": 19,
-        "recTD": 7
+        "recYds": 19,
+        "rec": 24,
+        "recTD": 4
       },
       "team": {
         "sacks": 16,
-        "int": 28,
-        "fg": 19
-      }
-    },
-    "KC": {
-      "QB": {
-        "passYds": 26,
-        "passTD": 30,
-        "passAtt": 10,
-        "cmp": 16,
-        "rushYds": 17,
-        "rushTD": 24
-      },
-      "RB": {
-        "rushYds": 26,
-        "rushTD": 20,
-        "rushAtt": 21,
-        "recYds": 6,
-        "rec": 15,
-        "recTD": 22
-      },
-      "WR": {
-        "recYds": 31,
-        "rec": 27,
-        "recTD": 32
-      },
-      "TE": {
-        "recYds": 7,
-        "rec": 3,
-        "recTD": 9
-      },
-      "team": {
-        "sacks": 29,
-        "int": 14,
-        "fg": 6
-      }
-    },
-    "MIN": {
-      "QB": {
-        "passYds": 31,
-        "passTD": 32,
-        "passAtt": 28,
-        "cmp": 32,
-        "rushYds": 25,
-        "rushTD": 24
-      },
-      "RB": {
-        "rushYds": 11,
-        "rushTD": 20,
-        "rushAtt": 9,
-        "recYds": 29,
-        "rec": 32,
-        "recTD": 22
-      },
-      "WR": {
-        "recYds": 29,
-        "rec": 25,
-        "recTD": 29
-      },
-      "TE": {
-        "recYds": 26,
-        "rec": 32,
-        "recTD": 27
-      },
-      "team": {
-        "sacks": 1,
-        "int": 4,
-        "fg": 19
-      }
-    },
-    "BAL": {
-      "QB": {
-        "passYds": 12,
-        "passTD": 23,
-        "passAtt": 21,
-        "cmp": 20,
-        "rushYds": 13,
-        "rushTD": 14
-      },
-      "RB": {
-        "rushYds": 21,
-        "rushTD": 4,
-        "rushAtt": 17,
-        "recYds": 32,
-        "rec": 21,
-        "recTD": 22
-      },
-      "WR": {
-        "recYds": 6,
-        "rec": 11,
-        "recTD": 25
-      },
-      "TE": {
-        "recYds": 15,
-        "rec": 26,
-        "recTD": 7
-      },
-      "team": {
-        "sacks": 20,
-        "int": 24,
+        "int": 31,
         "fg": 3
       }
     },
-    "CIN": {
+    "CHI": {
       "QB": {
-        "passYds": 10,
-        "passTD": 27,
-        "passAtt": 13,
-        "cmp": 12,
-        "rushYds": 1,
-        "rushTD": 8
-      },
-      "RB": {
-        "rushYds": 19,
-        "rushTD": 15,
-        "rushAtt": 27,
-        "recYds": 16,
-        "rec": 17,
-        "recTD": 22
-      },
-      "WR": {
-        "recYds": 23,
-        "rec": 19,
-        "recTD": 8
-      },
-      "TE": {
-        "recYds": 2,
-        "rec": 3,
-        "recTD": 27
-      },
-      "team": {
-        "sacks": 10,
-        "int": 20,
-        "fg": 14
-      }
-    },
-    "DAL": {
-      "QB": {
-        "passYds": 16,
-        "passTD": 8,
-        "passAtt": 17,
-        "cmp": 13,
-        "rushYds": 3,
-        "rushTD": 20
-      },
-      "RB": {
-        "rushYds": 4,
-        "rushTD": 4,
-        "rushAtt": 11,
-        "recYds": 24,
-        "rec": 16,
-        "recTD": 4
-      },
-      "WR": {
-        "recYds": 9,
-        "rec": 13,
-        "recTD": 8
-      },
-      "TE": {
-        "recYds": 19,
-        "rec": 15,
-        "recTD": 16
-      },
-      "team": {
-        "sacks": 20,
-        "int": 24,
-        "fg": 14
-      }
-    },
-    "LAC": {
-      "QB": {
-        "passYds": 21,
-        "passTD": 11,
-        "passAtt": 29,
-        "cmp": 28,
-        "rushYds": 27,
-        "rushTD": 8
-      },
-      "RB": {
-        "rushYds": 10,
-        "rushTD": 4,
-        "rushAtt": 5,
-        "recYds": 28,
-        "rec": 28,
-        "recTD": 15
-      },
-      "WR": {
-        "recYds": 11,
-        "rec": 14,
-        "recTD": 1
-      },
-      "TE": {
-        "recYds": 16,
-        "rec": 30,
-        "recTD": 27
-      },
-      "team": {
-        "sacks": 30,
-        "int": 9,
-        "fg": 10
-      }
-    },
-    "TB": {
-      "QB": {
-        "passYds": 22,
-        "passTD": 23,
-        "passAtt": 12,
-        "cmp": 18,
-        "rushYds": 26,
-        "rushTD": 24
-      },
-      "RB": {
-        "rushYds": 32,
-        "rushTD": 30,
-        "rushAtt": 30,
-        "recYds": 19,
-        "rec": 18,
-        "recTD": 22
-      },
-      "WR": {
-        "recYds": 21,
-        "rec": 15,
-        "recTD": 18
-      },
-      "TE": {
-        "recYds": 10,
-        "rec": 15,
-        "recTD": 12
-      },
-      "team": {
-        "sacks": 20,
-        "int": 1,
-        "fg": 8
-      }
-    },
-    "DEN": {
-      "QB": {
-        "passYds": 8,
-        "passTD": 13,
-        "passAtt": 2,
-        "cmp": 6,
-        "rushYds": 6,
-        "rushTD": 20
-      },
-      "RB": {
-        "rushYds": 15,
-        "rushTD": 22,
-        "rushAtt": 18,
-        "recYds": 4,
-        "rec": 5,
-        "recTD": 8
-      },
-      "WR": {
-        "recYds": 24,
-        "rec": 20,
-        "recTD": 27
-      },
-      "TE": {
-        "recYds": 4,
-        "rec": 2,
-        "recTD": 4
-      },
-      "team": {
-        "sacks": 4,
-        "int": 5,
-        "fg": 17
-      }
-    },
-    "NO": {
-      "QB": {
-        "passYds": 5,
-        "passTD": 11,
-        "passAtt": 18,
-        "cmp": 15,
-        "rushYds": 10,
-        "rushTD": 24
-      },
-      "RB": {
-        "rushYds": 3,
-        "rushTD": 1,
-        "rushAtt": 6,
-        "recYds": 8,
-        "rec": 9,
-        "recTD": 15
-      },
-      "WR": {
-        "recYds": 13,
-        "rec": 17,
-        "recTD": 16
-      },
-      "TE": {
-        "recYds": 6,
-        "rec": 10,
-        "recTD": 9
-      },
-      "team": {
-        "sacks": 10,
-        "int": 24,
-        "fg": 10
-      }
-    },
-    "WAS": {
-      "QB": {
-        "passYds": 3,
-        "passTD": 5,
-        "passAtt": 4,
-        "cmp": 3,
-        "rushYds": 5,
-        "rushTD": 20
-      },
-      "RB": {
-        "rushYds": 22,
-        "rushTD": 8,
-        "rushAtt": 23,
-        "recYds": 12,
-        "rec": 13,
-        "recTD": 22
-      },
-      "WR": {
-        "recYds": 14,
-        "rec": 4,
-        "recTD": 14
-      },
-      "TE": {
-        "recYds": 3,
-        "rec": 5,
-        "recTD": 2
-      },
-      "team": {
-        "sacks": 19,
-        "int": 14,
-        "fg": 19
-      }
-    },
-    "PHI": {
-      "QB": {
-        "passYds": 14,
+        "passYds": 18,
         "passTD": 18,
-        "passAtt": 15,
-        "cmp": 22,
-        "rushYds": 13,
+        "passAtt": 30,
+        "cmp": 31,
+        "rushYds": 21,
         "rushTD": 3
       },
       "RB": {
-        "rushYds": 9,
-        "rushTD": 18,
-        "rushAtt": 1,
-        "recYds": 31,
-        "rec": 31,
-        "recTD": 22
+        "rushYds": 25,
+        "rushTD": 22,
+        "rushAtt": 32,
+        "recYds": 7,
+        "rec": 19,
+        "recTD": 8
       },
       "WR": {
-        "recYds": 3,
-        "rec": 7,
-        "recTD": 7
+        "recYds": 15,
+        "rec": 31,
+        "recTD": 14
       },
       "TE": {
-        "recYds": 28,
-        "rec": 28,
+        "recYds": 21,
+        "rec": 27,
         "recTD": 19
       },
       "team": {
-        "sacks": 25,
-        "int": 28,
-        "fg": 2
-      }
-    },
-    "DET": {
-      "QB": {
-        "passYds": 1,
-        "passTD": 1,
-        "passAtt": 1,
-        "cmp": 1,
-        "rushYds": 9,
-        "rushTD": 8
-      },
-      "RB": {
-        "rushYds": 27,
-        "rushTD": 25,
-        "rushAtt": 31,
-        "recYds": 20,
-        "rec": 22,
-        "recTD": 15
-      },
-      "WR": {
-        "recYds": 7,
-        "rec": 3,
-        "recTD": 22
-      },
-      "TE": {
-        "recYds": 1,
-        "rec": 1,
-        "recTD": 1
-      },
-      "team": {
-        "sacks": 3,
-        "int": 14,
-        "fg": 31
-      }
-    },
-    "LA": {
-      "QB": {
-        "passYds": 29,
-        "passTD": 26,
-        "passAtt": 19,
-        "cmp": 24,
-        "rushYds": 4,
-        "rushTD": 14
-      },
-      "RB": {
-        "rushYds": 24,
-        "rushTD": 32,
-        "rushAtt": 19,
-        "recYds": 3,
-        "rec": 4,
-        "recTD": 20
-      },
-      "WR": {
-        "recYds": 30,
-        "rec": 31,
-        "recTD": 8
-      },
-      "TE": {
-        "recYds": 23,
-        "rec": 17,
-        "recTD": 32
-      },
-      "team": {
-        "sacks": 25,
-        "int": 9,
-        "fg": 1
-      }
-    },
-    "HOU": {
-      "QB": {
-        "passYds": 4,
-        "passTD": 16,
-        "passAtt": 10,
-        "cmp": 10,
-        "rushYds": 29,
-        "rushTD": 1
-      },
-      "RB": {
-        "rushYds": 16,
-        "rushTD": 15,
-        "rushAtt": 15,
-        "recYds": 26,
-        "rec": 9,
-        "recTD": 6
-      },
-      "WR": {
-        "recYds": 2,
-        "rec": 8,
-        "recTD": 8
-      },
-      "TE": {
-        "recYds": 27,
-        "rec": 25,
-        "recTD": 27
-      },
-      "team": {
-        "sacks": 1,
-        "int": 24,
-        "fg": 14
-      }
-    },
-    "CLE": {
-      "QB": {
-        "passYds": 27,
-        "passTD": 23,
-        "passAtt": 16,
-        "cmp": 26,
-        "rushYds": 19,
-        "rushTD": 24
-      },
-      "RB": {
-        "rushYds": 2,
-        "rushTD": 12,
-        "rushAtt": 12,
-        "recYds": 30,
-        "rec": 24,
-        "recTD": 22
-      },
-      "WR": {
-        "recYds": 20,
-        "rec": 18,
-        "recTD": 18
-      },
-      "TE": {
-        "recYds": 11,
-        "rec": 17,
-        "recTD": 12
-      },
-      "team": {
         "sacks": 4,
-        "int": 14,
-        "fg": 6
-      }
-    },
-    "CAR": {
-      "QB": {
-        "passYds": 25,
-        "passTD": 16,
-        "passAtt": 9,
-        "cmp": 11,
-        "rushYds": 11,
-        "rushTD": 8
-      },
-      "RB": {
-        "rushYds": 6,
-        "rushTD": 1,
-        "rushAtt": 9,
-        "recYds": 22,
-        "rec": 9,
-        "recTD": 15
-      },
-      "WR": {
-        "recYds": 19,
-        "rec": 10,
-        "recTD": 22
-      },
-      "TE": {
-        "recYds": 24,
-        "rec": 20,
-        "recTD": 9
-      },
-      "team": {
-        "sacks": 31,
-        "int": 20,
+        "int": 9,
         "fg": 24
       }
     },
@@ -43500,70 +43405,301 @@
         "fg": 24
       }
     },
-    "MIA": {
+    "LA": {
       "QB": {
-        "passYds": 23,
-        "passTD": 4,
-        "passAtt": 32,
-        "cmp": 19,
-        "rushYds": 29,
-        "rushTD": 8
+        "passYds": 29,
+        "passTD": 26,
+        "passAtt": 19,
+        "cmp": 24,
+        "rushYds": 4,
+        "rushTD": 14
       },
       "RB": {
-        "rushYds": 12,
-        "rushTD": 25,
-        "rushAtt": 7,
-        "recYds": 14,
-        "rec": 9,
-        "recTD": 1
+        "rushYds": 24,
+        "rushTD": 32,
+        "rushAtt": 19,
+        "recYds": 3,
+        "rec": 4,
+        "recTD": 20
       },
       "WR": {
-        "recYds": 26,
-        "rec": 29,
-        "recTD": 26
+        "recYds": 30,
+        "rec": 31,
+        "recTD": 8
       },
       "TE": {
-        "recYds": 8,
-        "rec": 7,
-        "recTD": 6
+        "recYds": 23,
+        "rec": 17,
+        "recTD": 32
       },
       "team": {
-        "sacks": 31,
-        "int": 20,
-        "fg": 17
+        "sacks": 25,
+        "int": 9,
+        "fg": 1
       }
     },
-    "CHI": {
+    "PHI": {
       "QB": {
-        "passYds": 18,
+        "passYds": 14,
         "passTD": 18,
-        "passAtt": 30,
-        "cmp": 31,
-        "rushYds": 21,
+        "passAtt": 15,
+        "cmp": 22,
+        "rushYds": 13,
         "rushTD": 3
       },
       "RB": {
-        "rushYds": 25,
-        "rushTD": 22,
-        "rushAtt": 32,
-        "recYds": 7,
-        "rec": 19,
-        "recTD": 8
+        "rushYds": 9,
+        "rushTD": 18,
+        "rushAtt": 1,
+        "recYds": 31,
+        "rec": 31,
+        "recTD": 22
       },
       "WR": {
-        "recYds": 15,
-        "rec": 31,
-        "recTD": 14
+        "recYds": 3,
+        "rec": 7,
+        "recTD": 7
       },
       "TE": {
-        "recYds": 21,
-        "rec": 27,
+        "recYds": 28,
+        "rec": 28,
         "recTD": 19
       },
       "team": {
+        "sacks": 25,
+        "int": 28,
+        "fg": 2
+      }
+    },
+    "NYG": {
+      "QB": {
+        "passYds": 30,
+        "passTD": 5,
+        "passAtt": 22,
+        "cmp": 23,
+        "rushYds": 2,
+        "rushTD": 3
+      },
+      "RB": {
+        "rushYds": 18,
+        "rushTD": 28,
+        "rushAtt": 22,
+        "recYds": 27,
+        "rec": 29,
+        "recTD": 4
+      },
+      "WR": {
+        "recYds": 25,
+        "rec": 21,
+        "recTD": 4
+      },
+      "TE": {
+        "recYds": 22,
+        "rec": 9,
+        "recTD": 19
+      },
+      "team": {
+        "sacks": 20,
+        "int": 5,
+        "fg": 30
+      }
+    },
+    "DAL": {
+      "QB": {
+        "passYds": 16,
+        "passTD": 8,
+        "passAtt": 17,
+        "cmp": 13,
+        "rushYds": 3,
+        "rushTD": 20
+      },
+      "RB": {
+        "rushYds": 4,
+        "rushTD": 4,
+        "rushAtt": 11,
+        "recYds": 24,
+        "rec": 16,
+        "recTD": 4
+      },
+      "WR": {
+        "recYds": 9,
+        "rec": 13,
+        "recTD": 8
+      },
+      "TE": {
+        "recYds": 19,
+        "rec": 15,
+        "recTD": 16
+      },
+      "team": {
+        "sacks": 20,
+        "int": 24,
+        "fg": 14
+      }
+    },
+    "NE": {
+      "QB": {
+        "passYds": 7,
+        "passTD": 13,
+        "passAtt": 22,
+        "cmp": 13,
+        "rushYds": 28,
+        "rushTD": 14
+      },
+      "RB": {
+        "rushYds": 20,
+        "rushTD": 18,
+        "rushAtt": 24,
+        "recYds": 21,
+        "rec": 23,
+        "recTD": 22
+      },
+      "WR": {
+        "recYds": 4,
+        "rec": 4,
+        "recTD": 3
+      },
+      "TE": {
+        "recYds": 25,
+        "rec": 22,
+        "recTD": 24
+      },
+      "team": {
+        "sacks": 9,
+        "int": 20,
+        "fg": 8
+      }
+    },
+    "BAL": {
+      "QB": {
+        "passYds": 12,
+        "passTD": 23,
+        "passAtt": 21,
+        "cmp": 20,
+        "rushYds": 13,
+        "rushTD": 14
+      },
+      "RB": {
+        "rushYds": 21,
+        "rushTD": 4,
+        "rushAtt": 17,
+        "recYds": 32,
+        "rec": 21,
+        "recTD": 22
+      },
+      "WR": {
+        "recYds": 6,
+        "rec": 11,
+        "recTD": 25
+      },
+      "TE": {
+        "recYds": 15,
+        "rec": 26,
+        "recTD": 7
+      },
+      "team": {
+        "sacks": 20,
+        "int": 24,
+        "fg": 3
+      }
+    },
+    "CLE": {
+      "QB": {
+        "passYds": 27,
+        "passTD": 23,
+        "passAtt": 16,
+        "cmp": 26,
+        "rushYds": 19,
+        "rushTD": 24
+      },
+      "RB": {
+        "rushYds": 2,
+        "rushTD": 12,
+        "rushAtt": 12,
+        "recYds": 30,
+        "rec": 24,
+        "recTD": 22
+      },
+      "WR": {
+        "recYds": 20,
+        "rec": 18,
+        "recTD": 18
+      },
+      "TE": {
+        "recYds": 11,
+        "rec": 17,
+        "recTD": 12
+      },
+      "team": {
         "sacks": 4,
-        "int": 9,
-        "fg": 24
+        "int": 14,
+        "fg": 6
+      }
+    },
+    "ARI": {
+      "QB": {
+        "passYds": 20,
+        "passTD": 3,
+        "passAtt": 31,
+        "cmp": 29,
+        "rushYds": 8,
+        "rushTD": 3
+      },
+      "RB": {
+        "rushYds": 14,
+        "rushTD": 22,
+        "rushAtt": 4,
+        "recYds": 12,
+        "rec": 29,
+        "recTD": 8
+      },
+      "WR": {
+        "recYds": 16,
+        "rec": 25,
+        "recTD": 4
+      },
+      "TE": {
+        "recYds": 17,
+        "rec": 19,
+        "recTD": 7
+      },
+      "team": {
+        "sacks": 16,
+        "int": 28,
+        "fg": 19
+      }
+    },
+    "DEN": {
+      "QB": {
+        "passYds": 8,
+        "passTD": 13,
+        "passAtt": 2,
+        "cmp": 6,
+        "rushYds": 6,
+        "rushTD": 20
+      },
+      "RB": {
+        "rushYds": 15,
+        "rushTD": 22,
+        "rushAtt": 18,
+        "recYds": 4,
+        "rec": 5,
+        "recTD": 8
+      },
+      "WR": {
+        "recYds": 24,
+        "rec": 20,
+        "recTD": 27
+      },
+      "TE": {
+        "recYds": 4,
+        "rec": 2,
+        "recTD": 4
+      },
+      "team": {
+        "sacks": 4,
+        "int": 5,
+        "fg": 17
       }
     },
     "SF": {
@@ -43597,105 +43733,6 @@
         "sacks": 28,
         "int": 14,
         "fg": 10
-      }
-    },
-    "GB": {
-      "QB": {
-        "passYds": 19,
-        "passTD": 18,
-        "passAtt": 5,
-        "cmp": 9,
-        "rushYds": 23,
-        "rushTD": 24
-      },
-      "RB": {
-        "rushYds": 17,
-        "rushTD": 3,
-        "rushAtt": 16,
-        "recYds": 10,
-        "rec": 13,
-        "recTD": 8
-      },
-      "WR": {
-        "recYds": 12,
-        "rec": 2,
-        "recTD": 8
-      },
-      "TE": {
-        "recYds": 31,
-        "rec": 28,
-        "recTD": 24
-      },
-      "team": {
-        "sacks": 4,
-        "int": 2,
-        "fg": 31
-      }
-    },
-    "NYJ": {
-      "QB": {
-        "passYds": 28,
-        "passTD": 8,
-        "passAtt": 26,
-        "cmp": 27,
-        "rushYds": 16,
-        "rushTD": 14
-      },
-      "RB": {
-        "rushYds": 7,
-        "rushTD": 12,
-        "rushAtt": 2,
-        "recYds": 23,
-        "rec": 26,
-        "recTD": 2
-      },
-      "WR": {
-        "recYds": 28,
-        "rec": 23,
-        "recTD": 8
-      },
-      "TE": {
-        "recYds": 9,
-        "rec": 12,
-        "recTD": 19
-      },
-      "team": {
-        "sacks": 12,
-        "int": 32,
-        "fg": 24
-      }
-    },
-    "JAX": {
-      "QB": {
-        "passYds": 17,
-        "passTD": 28,
-        "passAtt": 20,
-        "cmp": 16,
-        "rushYds": 22,
-        "rushTD": 19
-      },
-      "RB": {
-        "rushYds": 31,
-        "rushTD": 25,
-        "rushAtt": 29,
-        "recYds": 15,
-        "rec": 6,
-        "recTD": 22
-      },
-      "WR": {
-        "recYds": 5,
-        "rec": 8,
-        "recTD": 29
-      },
-      "TE": {
-        "recYds": 32,
-        "rec": 31,
-        "recTD": 14
-      },
-      "team": {
-        "sacks": 25,
-        "int": 3,
-        "fg": 29
       }
     }
   }
