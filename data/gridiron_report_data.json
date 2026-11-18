@@ -19297,7 +19297,7 @@
       "final": false,
       "odds": {
         "spread": -12.5,
-        "total": 44.5,
+        "total": 43.5,
         "detail": "HOU -12.5",
         "mlAway": 525,
         "mlHome": -750,
@@ -19407,8 +19407,8 @@
         "spread": -8.5,
         "total": 55.5,
         "detail": "DAL -8.5",
-        "mlAway": 295,
-        "mlHome": -375,
+        "mlAway": 300,
+        "mlHome": -380,
         "book": "DraftKings"
       }
     },
@@ -19515,8 +19515,8 @@
         "spread": -3.0,
         "total": 41.5,
         "detail": "LAC -3",
-        "mlAway": 145,
-        "mlHome": -175,
+        "mlAway": 136,
+        "mlHome": -162,
         "book": "DraftKings"
       }
     },
@@ -19542,8 +19542,8 @@
         "spread": -10.0,
         "total": 40.5,
         "detail": "DEN -10",
-        "mlAway": 440,
-        "mlHome": -600,
+        "mlAway": 455,
+        "mlHome": -625,
         "book": "DraftKings"
       }
     },
@@ -19567,7 +19567,7 @@
       "final": false,
       "odds": {
         "spread": 4.5,
-        "total": 38.5,
+        "total": 37.5,
         "detail": "PIT -4.5",
         "mlAway": -218,
         "mlHome": 180,
@@ -19623,8 +19623,8 @@
         "spread": 6.5,
         "total": 54.5,
         "detail": "CIN -6.5",
-        "mlAway": -305,
-        "mlHome": 245,
+        "mlAway": -310,
+        "mlHome": 250,
         "book": "DraftKings"
       }
     },
@@ -44046,37 +44046,37 @@
   "props": {},
   "propsBook": null,
   "dvp": {
-    "NE": {
+    "SF": {
       "QB": {
-        "passYds": 6,
-        "passTD": 10,
-        "passAtt": 20,
-        "cmp": 15,
-        "rushYds": 29,
-        "rushTD": 16
+        "passYds": 16,
+        "passTD": 9,
+        "passAtt": 4,
+        "cmp": 1,
+        "rushYds": 32,
+        "rushTD": 10
       },
       "RB": {
-        "rushYds": 17,
-        "rushTD": 9,
-        "rushAtt": 18,
-        "recYds": 10,
-        "rec": 21,
-        "recTD": 23
+        "rushYds": 27,
+        "rushTD": 31,
+        "rushAtt": 25,
+        "recYds": 7,
+        "rec": 2,
+        "recTD": 8
       },
       "WR": {
-        "recYds": 4,
-        "rec": 7,
-        "recTD": 1
+        "recYds": 21,
+        "rec": 12,
+        "recTD": 3
       },
       "TE": {
-        "recYds": 26,
-        "rec": 23,
-        "recTD": 26
+        "recYds": 12,
+        "rec": 8,
+        "recTD": 18
       },
       "team": {
-        "sacks": 5,
+        "sacks": 28,
         "int": 11,
-        "fg": 12
+        "fg": 9
       }
     },
     "TEN": {
@@ -44112,169 +44112,37 @@
         "fg": 3
       }
     },
-    "DAL": {
+    "WAS": {
       "QB": {
-        "passYds": 8,
-        "passTD": 4,
-        "passAtt": 19,
-        "cmp": 13,
-        "rushYds": 3,
-        "rushTD": 23
-      },
-      "RB": {
-        "rushYds": 3,
-        "rushTD": 5,
-        "rushAtt": 8,
-        "recYds": 4,
-        "rec": 14,
-        "recTD": 1
-      },
-      "WR": {
-        "recYds": 11,
-        "rec": 15,
-        "recTD": 9
-      },
-      "TE": {
-        "recYds": 15,
-        "rec": 12,
-        "recTD": 16
-      },
-      "team": {
-        "sacks": 14,
-        "int": 25,
-        "fg": 15
-      }
-    },
-    "TB": {
-      "QB": {
-        "passYds": 24,
-        "passTD": 23,
-        "passAtt": 12,
-        "cmp": 16,
-        "rushYds": 26,
-        "rushTD": 25
-      },
-      "RB": {
-        "rushYds": 32,
-        "rushTD": 30,
-        "rushAtt": 29,
-        "recYds": 23,
-        "rec": 16,
-        "recTD": 23
-      },
-      "WR": {
-        "recYds": 23,
-        "rec": 17,
-        "recTD": 21
-      },
-      "TE": {
-        "recYds": 10,
-        "rec": 14,
-        "recTD": 10
-      },
-      "team": {
-        "sacks": 24,
-        "int": 1,
-        "fg": 12
-      }
-    },
-    "LAC": {
-      "QB": {
-        "passYds": 13,
-        "passTD": 18,
-        "passAtt": 22,
-        "cmp": 19,
-        "rushYds": 28,
-        "rushTD": 10
-      },
-      "RB": {
-        "rushYds": 15,
-        "rushTD": 4,
-        "rushAtt": 9,
-        "recYds": 27,
-        "rec": 20,
-        "recTD": 18
-      },
-      "WR": {
-        "recYds": 9,
-        "rec": 13,
-        "recTD": 3
-      },
-      "TE": {
-        "recYds": 9,
-        "rec": 20,
-        "recTD": 28
-      },
-      "team": {
-        "sacks": 30,
-        "int": 7,
-        "fg": 9
-      }
-    },
-    "JAX": {
-      "QB": {
-        "passYds": 17,
-        "passTD": 28,
-        "passAtt": 17,
-        "cmp": 12,
-        "rushYds": 17,
+        "passYds": 5,
+        "passTD": 6,
+        "passAtt": 4,
+        "cmp": 4,
+        "rushYds": 4,
         "rushTD": 20
       },
       "RB": {
-        "rushYds": 30,
-        "rushTD": 26,
-        "rushAtt": 31,
-        "recYds": 12,
-        "rec": 3,
-        "recTD": 18
-      },
-      "WR": {
-        "recYds": 5,
-        "rec": 9,
-        "recTD": 31
-      },
-      "TE": {
-        "recYds": 32,
-        "rec": 29,
-        "recTD": 10
-      },
-      "team": {
-        "sacks": 24,
-        "int": 3,
-        "fg": 25
-      }
-    },
-    "PHI": {
-      "QB": {
-        "passYds": 14,
-        "passTD": 18,
-        "passAtt": 16,
-        "cmp": 20,
-        "rushYds": 15,
-        "rushTD": 3
-      },
-      "RB": {
-        "rushYds": 9,
-        "rushTD": 18,
-        "rushAtt": 2,
-        "recYds": 31,
-        "rec": 31,
+        "rushYds": 22,
+        "rushTD": 8,
+        "rushAtt": 21,
+        "recYds": 15,
+        "rec": 15,
         "recTD": 23
       },
       "WR": {
-        "recYds": 2,
-        "rec": 9,
-        "recTD": 8
+        "recYds": 15,
+        "rec": 3,
+        "recTD": 17
       },
       "TE": {
-        "recYds": 28,
-        "rec": 29,
-        "recTD": 18
+        "recYds": 2,
+        "rec": 3,
+        "recTD": 2
       },
       "team": {
-        "sacks": 28,
-        "int": 29,
-        "fg": 3
+        "sacks": 23,
+        "int": 21,
+        "fg": 22
       }
     },
     "MIN": {
@@ -44310,136 +44178,70 @@
         "fg": 19
       }
     },
-    "NYJ": {
+    "LAC": {
       "QB": {
-        "passYds": 27,
-        "passTD": 10,
-        "passAtt": 29,
-        "cmp": 28,
-        "rushYds": 19,
-        "rushTD": 2
-      },
-      "RB": {
-        "rushYds": 2,
-        "rushTD": 9,
-        "rushAtt": 3,
-        "recYds": 26,
-        "rec": 30,
-        "recTD": 3
-      },
-      "WR": {
-        "recYds": 29,
-        "rec": 26,
-        "recTD": 9
-      },
-      "TE": {
-        "recYds": 7,
-        "rec": 15,
-        "recTD": 23
-      },
-      "team": {
-        "sacks": 13,
-        "int": 31,
-        "fg": 25
-      }
-    },
-    "DET": {
-      "QB": {
-        "passYds": 4,
-        "passTD": 3,
-        "passAtt": 3,
-        "cmp": 4,
-        "rushYds": 6,
+        "passYds": 13,
+        "passTD": 18,
+        "passAtt": 22,
+        "cmp": 19,
+        "rushYds": 28,
         "rushTD": 10
       },
       "RB": {
-        "rushYds": 29,
-        "rushTD": 26,
-        "rushAtt": 30,
-        "recYds": 24,
-        "rec": 25,
-        "recTD": 8
+        "rushYds": 15,
+        "rushTD": 4,
+        "rushAtt": 9,
+        "recYds": 27,
+        "rec": 20,
+        "recTD": 18
       },
       "WR": {
-        "recYds": 13,
-        "rec": 4,
-        "recTD": 23
+        "recYds": 9,
+        "rec": 13,
+        "recTD": 3
       },
       "TE": {
-        "recYds": 1,
-        "rec": 1,
-        "recTD": 1
+        "recYds": 9,
+        "rec": 20,
+        "recTD": 28
       },
       "team": {
-        "sacks": 3,
-        "int": 11,
-        "fg": 31
+        "sacks": 30,
+        "int": 7,
+        "fg": 9
       }
     },
-    "NO": {
+    "KC": {
       "QB": {
-        "passYds": 11,
-        "passTD": 18,
-        "passAtt": 18,
-        "cmp": 18,
-        "rushYds": 13,
+        "passYds": 23,
+        "passTD": 31,
+        "passAtt": 8,
+        "cmp": 14,
+        "rushYds": 14,
         "rushTD": 25
       },
       "RB": {
-        "rushYds": 4,
-        "rushTD": 1,
-        "rushAtt": 5,
-        "recYds": 3,
-        "rec": 6,
-        "recTD": 18
+        "rushYds": 25,
+        "rushTD": 18,
+        "rushAtt": 23,
+        "recYds": 11,
+        "rec": 13,
+        "recTD": 23
       },
       "WR": {
-        "recYds": 22,
+        "recYds": 28,
         "rec": 23,
-        "recTD": 21
+        "recTD": 32
       },
       "TE": {
-        "recYds": 5,
-        "rec": 10,
+        "recYds": 6,
+        "rec": 4,
         "recTD": 10
       },
       "team": {
-        "sacks": 9,
-        "int": 25,
-        "fg": 9
-      }
-    },
-    "SF": {
-      "QB": {
-        "passYds": 16,
-        "passTD": 9,
-        "passAtt": 4,
-        "cmp": 1,
-        "rushYds": 32,
-        "rushTD": 10
-      },
-      "RB": {
-        "rushYds": 27,
-        "rushTD": 31,
-        "rushAtt": 25,
-        "recYds": 7,
-        "rec": 2,
-        "recTD": 8
-      },
-      "WR": {
-        "recYds": 21,
-        "rec": 12,
-        "recTD": 3
-      },
-      "TE": {
-        "recYds": 12,
-        "rec": 8,
-        "recTD": 18
-      },
-      "team": {
-        "sacks": 28,
+        "sacks": 24,
         "int": 11,
-        "fg": 9
+        "fg": 3
       }
     },
     "ATL": {
@@ -44475,37 +44277,367 @@
         "fg": 22
       }
     },
-    "DEN": {
+    "TB": {
       "QB": {
-        "passYds": 10,
-        "passTD": 14,
-        "passAtt": 1,
-        "cmp": 7,
-        "rushYds": 8,
-        "rushTD": 20
+        "passYds": 24,
+        "passTD": 23,
+        "passAtt": 12,
+        "cmp": 16,
+        "rushYds": 26,
+        "rushTD": 25
       },
       "RB": {
-        "rushYds": 14,
-        "rushTD": 22,
-        "rushAtt": 17,
+        "rushYds": 32,
+        "rushTD": 30,
+        "rushAtt": 29,
+        "recYds": 23,
+        "rec": 16,
+        "recTD": 23
+      },
+      "WR": {
+        "recYds": 23,
+        "rec": 17,
+        "recTD": 21
+      },
+      "TE": {
+        "recYds": 10,
+        "rec": 14,
+        "recTD": 10
+      },
+      "team": {
+        "sacks": 24,
+        "int": 1,
+        "fg": 12
+      }
+    },
+    "NO": {
+      "QB": {
+        "passYds": 11,
+        "passTD": 18,
+        "passAtt": 18,
+        "cmp": 18,
+        "rushYds": 13,
+        "rushTD": 25
+      },
+      "RB": {
+        "rushYds": 4,
+        "rushTD": 1,
+        "rushAtt": 5,
+        "recYds": 3,
+        "rec": 6,
+        "recTD": 18
+      },
+      "WR": {
+        "recYds": 22,
+        "rec": 23,
+        "recTD": 21
+      },
+      "TE": {
         "recYds": 5,
+        "rec": 10,
+        "recTD": 10
+      },
+      "team": {
+        "sacks": 9,
+        "int": 25,
+        "fg": 9
+      }
+    },
+    "ARI": {
+      "QB": {
+        "passYds": 20,
+        "passTD": 1,
+        "passAtt": 31,
+        "cmp": 29,
+        "rushYds": 12,
+        "rushTD": 7
+      },
+      "RB": {
+        "rushYds": 6,
+        "rushTD": 21,
+        "rushAtt": 1,
+        "recYds": 16,
+        "rec": 26,
+        "recTD": 14
+      },
+      "WR": {
+        "recYds": 16,
+        "rec": 27,
+        "recTD": 7
+      },
+      "TE": {
+        "recYds": 19,
+        "rec": 18,
+        "recTD": 3
+      },
+      "team": {
+        "sacks": 17,
+        "int": 25,
+        "fg": 17
+      }
+    },
+    "SEA": {
+      "QB": {
+        "passYds": 32,
+        "passTD": 30,
+        "passAtt": 24,
+        "cmp": 26,
+        "rushYds": 18,
+        "rushTD": 23
+      },
+      "RB": {
+        "rushYds": 31,
+        "rushTD": 16,
+        "rushAtt": 22,
+        "recYds": 22,
+        "rec": 10,
+        "recTD": 14
+      },
+      "WR": {
+        "recYds": 32,
+        "rec": 31,
+        "recTD": 30
+      },
+      "TE": {
+        "recYds": 29,
+        "rec": 12,
+        "recTD": 26
+      },
+      "team": {
+        "sacks": 5,
+        "int": 7,
+        "fg": 22
+      }
+    },
+    "PIT": {
+      "QB": {
+        "passYds": 3,
+        "passTD": 25,
+        "passAtt": 6,
+        "cmp": 1,
+        "rushYds": 23,
+        "rushTD": 25
+      },
+      "RB": {
+        "rushYds": 28,
+        "rushTD": 26,
+        "rushAtt": 28,
+        "recYds": 1,
+        "rec": 1,
+        "recTD": 5
+      },
+      "WR": {
+        "recYds": 10,
+        "rec": 6,
+        "recTD": 27
+      },
+      "TE": {
+        "recYds": 13,
+        "rec": 19,
+        "recTD": 18
+      },
+      "team": {
+        "sacks": 5,
+        "int": 11,
+        "fg": 3
+      }
+    },
+    "BUF": {
+      "QB": {
+        "passYds": 7,
+        "passTD": 12,
+        "passAtt": 2,
+        "cmp": 7,
+        "rushYds": 21,
+        "rushTD": 25
+      },
+      "RB": {
+        "rushYds": 23,
+        "rushTD": 13,
+        "rushAtt": 25,
+        "recYds": 6,
+        "rec": 3,
+        "recTD": 5
+      },
+      "WR": {
+        "recYds": 14,
+        "rec": 13,
+        "recTD": 3
+      },
+      "TE": {
+        "recYds": 8,
+        "rec": 11,
+        "recTD": 28
+      },
+      "team": {
+        "sacks": 17,
+        "int": 11,
+        "fg": 19
+      }
+    },
+    "HOU": {
+      "QB": {
+        "passYds": 2,
+        "passTD": 23,
+        "passAtt": 10,
+        "cmp": 9,
+        "rushYds": 24,
+        "rushTD": 1
+      },
+      "RB": {
+        "rushYds": 19,
+        "rushTD": 13,
+        "rushAtt": 19,
+        "recYds": 25,
         "rec": 6,
         "recTD": 8
       },
       "WR": {
-        "recYds": 24,
-        "rec": 19,
-        "recTD": 27
+        "recYds": 2,
+        "rec": 11,
+        "recTD": 17
       },
       "TE": {
-        "recYds": 4,
-        "rec": 2,
-        "recTD": 5
+        "recYds": 17,
+        "rec": 20,
+        "recTD": 28
+      },
+      "team": {
+        "sacks": 2,
+        "int": 23,
+        "fg": 12
+      }
+    },
+    "CHI": {
+      "QB": {
+        "passYds": 18,
+        "passTD": 18,
+        "passAtt": 30,
+        "cmp": 31,
+        "rushYds": 22,
+        "rushTD": 3
+      },
+      "RB": {
+        "rushYds": 24,
+        "rushTD": 22,
+        "rushAtt": 32,
+        "recYds": 9,
+        "rec": 18,
+        "recTD": 8
+      },
+      "WR": {
+        "recYds": 18,
+        "rec": 29,
+        "recTD": 17
+      },
+      "TE": {
+        "recYds": 20,
+        "rec": 26,
+        "recTD": 18
       },
       "team": {
         "sacks": 9,
-        "int": 7,
-        "fg": 19
+        "int": 11,
+        "fg": 29
+      }
+    },
+    "DAL": {
+      "QB": {
+        "passYds": 8,
+        "passTD": 4,
+        "passAtt": 19,
+        "cmp": 13,
+        "rushYds": 3,
+        "rushTD": 23
+      },
+      "RB": {
+        "rushYds": 3,
+        "rushTD": 5,
+        "rushAtt": 8,
+        "recYds": 4,
+        "rec": 14,
+        "recTD": 1
+      },
+      "WR": {
+        "recYds": 11,
+        "rec": 15,
+        "recTD": 9
+      },
+      "TE": {
+        "recYds": 15,
+        "rec": 12,
+        "recTD": 16
+      },
+      "team": {
+        "sacks": 14,
+        "int": 25,
+        "fg": 15
+      }
+    },
+    "LA": {
+      "QB": {
+        "passYds": 29,
+        "passTD": 29,
+        "passAtt": 23,
+        "cmp": 27,
+        "rushYds": 5,
+        "rushTD": 16
+      },
+      "RB": {
+        "rushYds": 26,
+        "rushTD": 32,
+        "rushAtt": 24,
+        "recYds": 8,
+        "rec": 12,
+        "recTD": 21
+      },
+      "WR": {
+        "recYds": 31,
+        "rec": 32,
+        "recTD": 15
+      },
+      "TE": {
+        "recYds": 23,
+        "rec": 17,
+        "recTD": 32
+      },
+      "team": {
+        "sacks": 17,
+        "int": 5,
+        "fg": 1
+      }
+    },
+    "JAX": {
+      "QB": {
+        "passYds": 17,
+        "passTD": 28,
+        "passAtt": 17,
+        "cmp": 12,
+        "rushYds": 17,
+        "rushTD": 20
+      },
+      "RB": {
+        "rushYds": 30,
+        "rushTD": 26,
+        "rushAtt": 31,
+        "recYds": 12,
+        "rec": 3,
+        "recTD": 18
+      },
+      "WR": {
+        "recYds": 5,
+        "rec": 9,
+        "recTD": 31
+      },
+      "TE": {
+        "recYds": 32,
+        "rec": 29,
+        "recTD": 10
+      },
+      "team": {
+        "sacks": 24,
+        "int": 3,
+        "fg": 25
       }
     },
     "BAL": {
@@ -44574,168 +44706,267 @@
         "fg": 3
       }
     },
-    "SEA": {
+    "PHI": {
       "QB": {
-        "passYds": 32,
-        "passTD": 30,
-        "passAtt": 24,
-        "cmp": 26,
-        "rushYds": 18,
-        "rushTD": 23
+        "passYds": 14,
+        "passTD": 18,
+        "passAtt": 16,
+        "cmp": 20,
+        "rushYds": 15,
+        "rushTD": 3
       },
       "RB": {
-        "rushYds": 31,
-        "rushTD": 16,
-        "rushAtt": 22,
-        "recYds": 22,
-        "rec": 10,
-        "recTD": 14
-      },
-      "WR": {
-        "recYds": 32,
+        "rushYds": 9,
+        "rushTD": 18,
+        "rushAtt": 2,
+        "recYds": 31,
         "rec": 31,
-        "recTD": 30
-      },
-      "TE": {
-        "recYds": 29,
-        "rec": 12,
-        "recTD": 26
-      },
-      "team": {
-        "sacks": 5,
-        "int": 7,
-        "fg": 22
-      }
-    },
-    "BUF": {
-      "QB": {
-        "passYds": 7,
-        "passTD": 12,
-        "passAtt": 2,
-        "cmp": 7,
-        "rushYds": 21,
-        "rushTD": 25
-      },
-      "RB": {
-        "rushYds": 23,
-        "rushTD": 13,
-        "rushAtt": 25,
-        "recYds": 6,
-        "rec": 3,
-        "recTD": 5
-      },
-      "WR": {
-        "recYds": 14,
-        "rec": 13,
-        "recTD": 3
-      },
-      "TE": {
-        "recYds": 8,
-        "rec": 11,
-        "recTD": 28
-      },
-      "team": {
-        "sacks": 17,
-        "int": 11,
-        "fg": 19
-      }
-    },
-    "CLE": {
-      "QB": {
-        "passYds": 25,
-        "passTD": 16,
-        "passAtt": 15,
-        "cmp": 24,
-        "rushYds": 20,
-        "rushTD": 25
-      },
-      "RB": {
-        "rushYds": 5,
-        "rushTD": 16,
-        "rushAtt": 14,
-        "recYds": 30,
-        "rec": 26,
         "recTD": 23
       },
       "WR": {
-        "recYds": 19,
-        "rec": 18,
-        "recTD": 15
-      },
-      "TE": {
-        "recYds": 14,
-        "rec": 22,
+        "recYds": 2,
+        "rec": 9,
         "recTD": 8
       },
+      "TE": {
+        "recYds": 28,
+        "rec": 29,
+        "recTD": 18
+      },
       "team": {
-        "sacks": 5,
-        "int": 11,
-        "fg": 8
+        "sacks": 28,
+        "int": 29,
+        "fg": 3
       }
     },
-    "LA": {
+    "LV": {
       "QB": {
-        "passYds": 29,
-        "passTD": 29,
-        "passAtt": 23,
-        "cmp": 27,
-        "rushYds": 5,
-        "rushTD": 16
+        "passYds": 12,
+        "passTD": 1,
+        "passAtt": 26,
+        "cmp": 24,
+        "rushYds": 16,
+        "rushTD": 7
       },
       "RB": {
-        "rushYds": 26,
-        "rushTD": 32,
-        "rushAtt": 24,
-        "recYds": 8,
-        "rec": 12,
+        "rushYds": 1,
+        "rushTD": 6,
+        "rushAtt": 4,
+        "recYds": 20,
+        "rec": 29,
         "recTD": 21
       },
       "WR": {
-        "recYds": 31,
-        "rec": 32,
-        "recTD": 15
+        "recYds": 6,
+        "rec": 22,
+        "recTD": 2
       },
       "TE": {
-        "recYds": 23,
-        "rec": 17,
-        "recTD": 32
+        "recYds": 16,
+        "rec": 6,
+        "recTD": 3
       },
       "team": {
-        "sacks": 17,
-        "int": 5,
-        "fg": 1
+        "sacks": 14,
+        "int": 11,
+        "fg": 25
       }
     },
-    "HOU": {
+    "DEN": {
       "QB": {
-        "passYds": 2,
-        "passTD": 23,
-        "passAtt": 10,
-        "cmp": 9,
-        "rushYds": 24,
-        "rushTD": 1
+        "passYds": 10,
+        "passTD": 14,
+        "passAtt": 1,
+        "cmp": 7,
+        "rushYds": 8,
+        "rushTD": 20
       },
       "RB": {
-        "rushYds": 19,
-        "rushTD": 13,
-        "rushAtt": 19,
-        "recYds": 25,
+        "rushYds": 14,
+        "rushTD": 22,
+        "rushAtt": 17,
+        "recYds": 5,
         "rec": 6,
         "recTD": 8
       },
       "WR": {
-        "recYds": 2,
-        "rec": 11,
-        "recTD": 17
+        "recYds": 24,
+        "rec": 19,
+        "recTD": 27
       },
       "TE": {
-        "recYds": 17,
-        "rec": 20,
-        "recTD": 28
+        "recYds": 4,
+        "rec": 2,
+        "recTD": 5
       },
       "team": {
-        "sacks": 2,
-        "int": 23,
+        "sacks": 9,
+        "int": 7,
+        "fg": 19
+      }
+    },
+    "NYJ": {
+      "QB": {
+        "passYds": 27,
+        "passTD": 10,
+        "passAtt": 29,
+        "cmp": 28,
+        "rushYds": 19,
+        "rushTD": 2
+      },
+      "RB": {
+        "rushYds": 2,
+        "rushTD": 9,
+        "rushAtt": 3,
+        "recYds": 26,
+        "rec": 30,
+        "recTD": 3
+      },
+      "WR": {
+        "recYds": 29,
+        "rec": 26,
+        "recTD": 9
+      },
+      "TE": {
+        "recYds": 7,
+        "rec": 15,
+        "recTD": 23
+      },
+      "team": {
+        "sacks": 13,
+        "int": 31,
+        "fg": 25
+      }
+    },
+    "GB": {
+      "QB": {
+        "passYds": 22,
+        "passTD": 16,
+        "passAtt": 7,
+        "cmp": 10,
+        "rushYds": 25,
+        "rushTD": 25
+      },
+      "RB": {
+        "rushYds": 16,
+        "rushTD": 3,
+        "rushAtt": 14,
+        "recYds": 18,
+        "rec": 19,
+        "recTD": 14
+      },
+      "WR": {
+        "recYds": 12,
+        "rec": 2,
+        "recTD": 9
+      },
+      "TE": {
+        "recYds": 31,
+        "rec": 31,
+        "recTD": 23
+      },
+      "team": {
+        "sacks": 4,
+        "int": 2,
+        "fg": 30
+      }
+    },
+    "DET": {
+      "QB": {
+        "passYds": 4,
+        "passTD": 3,
+        "passAtt": 3,
+        "cmp": 4,
+        "rushYds": 6,
+        "rushTD": 10
+      },
+      "RB": {
+        "rushYds": 29,
+        "rushTD": 26,
+        "rushAtt": 30,
+        "recYds": 24,
+        "rec": 25,
+        "recTD": 8
+      },
+      "WR": {
+        "recYds": 13,
+        "rec": 4,
+        "recTD": 23
+      },
+      "TE": {
+        "recYds": 1,
+        "rec": 1,
+        "recTD": 1
+      },
+      "team": {
+        "sacks": 3,
+        "int": 11,
+        "fg": 31
+      }
+    },
+    "MIA": {
+      "QB": {
+        "passYds": 28,
+        "passTD": 6,
+        "passAtt": 32,
+        "cmp": 23,
+        "rushYds": 30,
+        "rushTD": 10
+      },
+      "RB": {
+        "rushYds": 7,
+        "rushTD": 22,
+        "rushAtt": 7,
+        "recYds": 19,
+        "rec": 16,
+        "recTD": 2
+      },
+      "WR": {
+        "recYds": 30,
+        "rec": 29,
+        "recTD": 23
+      },
+      "TE": {
+        "recYds": 11,
+        "rec": 7,
+        "recTD": 7
+      },
+      "team": {
+        "sacks": 32,
+        "int": 11,
+        "fg": 17
+      }
+    },
+    "NE": {
+      "QB": {
+        "passYds": 6,
+        "passTD": 10,
+        "passAtt": 20,
+        "cmp": 15,
+        "rushYds": 29,
+        "rushTD": 16
+      },
+      "RB": {
+        "rushYds": 17,
+        "rushTD": 9,
+        "rushAtt": 18,
+        "recYds": 10,
+        "rec": 21,
+        "recTD": 23
+      },
+      "WR": {
+        "recYds": 4,
+        "rec": 7,
+        "recTD": 1
+      },
+      "TE": {
+        "recYds": 26,
+        "rec": 23,
+        "recTD": 26
+      },
+      "team": {
+        "sacks": 5,
+        "int": 11,
         "fg": 12
       }
     },
@@ -44772,268 +45003,37 @@
         "fg": 25
       }
     },
-    "KC": {
+    "CLE": {
       "QB": {
-        "passYds": 23,
-        "passTD": 31,
-        "passAtt": 8,
-        "cmp": 14,
-        "rushYds": 14,
-        "rushTD": 25
-      },
-      "RB": {
-        "rushYds": 25,
-        "rushTD": 18,
-        "rushAtt": 23,
-        "recYds": 11,
-        "rec": 13,
-        "recTD": 23
-      },
-      "WR": {
-        "recYds": 28,
-        "rec": 23,
-        "recTD": 32
-      },
-      "TE": {
-        "recYds": 6,
-        "rec": 4,
-        "recTD": 10
-      },
-      "team": {
-        "sacks": 24,
-        "int": 11,
-        "fg": 3
-      }
-    },
-    "GB": {
-      "QB": {
-        "passYds": 22,
+        "passYds": 25,
         "passTD": 16,
-        "passAtt": 7,
-        "cmp": 10,
-        "rushYds": 25,
+        "passAtt": 15,
+        "cmp": 24,
+        "rushYds": 20,
         "rushTD": 25
       },
       "RB": {
-        "rushYds": 16,
-        "rushTD": 3,
+        "rushYds": 5,
+        "rushTD": 16,
         "rushAtt": 14,
-        "recYds": 18,
-        "rec": 19,
-        "recTD": 14
-      },
-      "WR": {
-        "recYds": 12,
-        "rec": 2,
-        "recTD": 9
-      },
-      "TE": {
-        "recYds": 31,
-        "rec": 31,
+        "recYds": 30,
+        "rec": 26,
         "recTD": 23
       },
-      "team": {
-        "sacks": 4,
-        "int": 2,
-        "fg": 30
-      }
-    },
-    "PIT": {
-      "QB": {
-        "passYds": 3,
-        "passTD": 25,
-        "passAtt": 6,
-        "cmp": 1,
-        "rushYds": 23,
-        "rushTD": 25
-      },
-      "RB": {
-        "rushYds": 28,
-        "rushTD": 26,
-        "rushAtt": 28,
-        "recYds": 1,
-        "rec": 1,
-        "recTD": 5
-      },
       "WR": {
-        "recYds": 10,
-        "rec": 6,
-        "recTD": 27
+        "recYds": 19,
+        "rec": 18,
+        "recTD": 15
       },
       "TE": {
-        "recYds": 13,
-        "rec": 19,
-        "recTD": 18
+        "recYds": 14,
+        "rec": 22,
+        "recTD": 8
       },
       "team": {
         "sacks": 5,
         "int": 11,
-        "fg": 3
-      }
-    },
-    "CHI": {
-      "QB": {
-        "passYds": 18,
-        "passTD": 18,
-        "passAtt": 30,
-        "cmp": 31,
-        "rushYds": 22,
-        "rushTD": 3
-      },
-      "RB": {
-        "rushYds": 24,
-        "rushTD": 22,
-        "rushAtt": 32,
-        "recYds": 9,
-        "rec": 18,
-        "recTD": 8
-      },
-      "WR": {
-        "recYds": 18,
-        "rec": 29,
-        "recTD": 17
-      },
-      "TE": {
-        "recYds": 20,
-        "rec": 26,
-        "recTD": 18
-      },
-      "team": {
-        "sacks": 9,
-        "int": 11,
-        "fg": 29
-      }
-    },
-    "LV": {
-      "QB": {
-        "passYds": 12,
-        "passTD": 1,
-        "passAtt": 26,
-        "cmp": 24,
-        "rushYds": 16,
-        "rushTD": 7
-      },
-      "RB": {
-        "rushYds": 1,
-        "rushTD": 6,
-        "rushAtt": 4,
-        "recYds": 20,
-        "rec": 29,
-        "recTD": 21
-      },
-      "WR": {
-        "recYds": 6,
-        "rec": 22,
-        "recTD": 2
-      },
-      "TE": {
-        "recYds": 16,
-        "rec": 6,
-        "recTD": 3
-      },
-      "team": {
-        "sacks": 14,
-        "int": 11,
-        "fg": 25
-      }
-    },
-    "CIN": {
-      "QB": {
-        "passYds": 15,
-        "passTD": 25,
-        "passAtt": 14,
-        "cmp": 16,
-        "rushYds": 2,
-        "rushTD": 10
-      },
-      "RB": {
-        "rushYds": 20,
-        "rushTD": 18,
-        "rushAtt": 27,
-        "recYds": 17,
-        "rec": 11,
-        "recTD": 23
-      },
-      "WR": {
-        "recYds": 25,
-        "rec": 23,
-        "recTD": 9
-      },
-      "TE": {
-        "recYds": 2,
-        "rec": 5,
-        "recTD": 25
-      },
-      "team": {
-        "sacks": 9,
-        "int": 23,
-        "fg": 15
-      }
-    },
-    "MIA": {
-      "QB": {
-        "passYds": 28,
-        "passTD": 6,
-        "passAtt": 32,
-        "cmp": 23,
-        "rushYds": 30,
-        "rushTD": 10
-      },
-      "RB": {
-        "rushYds": 7,
-        "rushTD": 22,
-        "rushAtt": 7,
-        "recYds": 19,
-        "rec": 16,
-        "recTD": 2
-      },
-      "WR": {
-        "recYds": 30,
-        "rec": 29,
-        "recTD": 23
-      },
-      "TE": {
-        "recYds": 11,
-        "rec": 7,
-        "recTD": 7
-      },
-      "team": {
-        "sacks": 32,
-        "int": 11,
-        "fg": 17
-      }
-    },
-    "ARI": {
-      "QB": {
-        "passYds": 20,
-        "passTD": 1,
-        "passAtt": 31,
-        "cmp": 29,
-        "rushYds": 12,
-        "rushTD": 7
-      },
-      "RB": {
-        "rushYds": 6,
-        "rushTD": 21,
-        "rushAtt": 1,
-        "recYds": 16,
-        "rec": 26,
-        "recTD": 14
-      },
-      "WR": {
-        "recYds": 16,
-        "rec": 27,
-        "recTD": 7
-      },
-      "TE": {
-        "recYds": 19,
-        "rec": 18,
-        "recTD": 3
-      },
-      "team": {
-        "sacks": 17,
-        "int": 25,
-        "fg": 17
+        "fg": 8
       }
     },
     "NYG": {
@@ -45069,37 +45069,37 @@
         "fg": 31
       }
     },
-    "WAS": {
+    "CIN": {
       "QB": {
-        "passYds": 5,
-        "passTD": 6,
-        "passAtt": 4,
-        "cmp": 4,
-        "rushYds": 4,
-        "rushTD": 20
+        "passYds": 15,
+        "passTD": 25,
+        "passAtt": 14,
+        "cmp": 16,
+        "rushYds": 2,
+        "rushTD": 10
       },
       "RB": {
-        "rushYds": 22,
-        "rushTD": 8,
-        "rushAtt": 21,
-        "recYds": 15,
-        "rec": 15,
+        "rushYds": 20,
+        "rushTD": 18,
+        "rushAtt": 27,
+        "recYds": 17,
+        "rec": 11,
         "recTD": 23
       },
       "WR": {
-        "recYds": 15,
-        "rec": 3,
-        "recTD": 17
+        "recYds": 25,
+        "rec": 23,
+        "recTD": 9
       },
       "TE": {
         "recYds": 2,
-        "rec": 3,
-        "recTD": 2
+        "rec": 5,
+        "recTD": 25
       },
       "team": {
-        "sacks": 23,
-        "int": 21,
-        "fg": 22
+        "sacks": 9,
+        "int": 23,
+        "fg": 15
       }
     }
   }
